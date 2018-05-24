@@ -1,17 +1,19 @@
-import {Component} from 'vue-property-decorator'
-import Row from '../packages/row'
-const components=[
-  Row
-]
 
+import Row from '../packages/row'
+import TitleBar from '../packages/titleBar'
+import './fonts/iconfont.css'
+
+const components=[
+  Row,
+  TitleBar
+]
 
 const install=function(Vue:any,opts={}){
   components.map(component=>{
-    Vue.component(Row.name,component)
+    Vue.component(component.name,component)
   })
 }
 
 export default{
-  Row,
   install
 }
