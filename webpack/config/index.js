@@ -64,7 +64,7 @@ const config={
     // 404返回index
     historyApiFallback:true,
     // 自动打开浏览器
-    open:false,
+    open:true,
     // 不启用iframe模式
     inline:true,
     // 警告信息
