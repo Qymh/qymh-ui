@@ -53,6 +53,7 @@
     "pretty": true
   },
   "files": [
-    "typings/row.d.ts"
+    "typings/row.d.ts",
+    "typings/titleBar.d.ts"
   ]
 }

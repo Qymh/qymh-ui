@@ -1,6 +1,6 @@
 <script lang="tsx">
   import {CreateElement} from 'vue'
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
   import Common from '../../common/main.vue'
   import {createStyle} from '../../common/index'
 
@@ -71,7 +71,7 @@
     // 计算后的垂直对齐
     private get computedAlign(){
       let style:string=''
-      switch (this.justify) {
+      switch (this.align) {
         case 'start':
           style='flex-start'
           break
@@ -84,6 +84,9 @@
       }
       return style
     }
+
+    @Emit('clicked')
+    private clicked(){}
 
     // 虚拟Dom渲染
     private render(h:CreateElement){
@@ -101,7 +104,10 @@
           display:this.computedDisplay,
           justifyContent:this.computedJustify,
           alignItems:this.computedAlign
-        },selectableStyle,style)
+        },selectableStyle,style),
+        on:{
+          click:this.clicked
+        }
       },this.$slots.default)
     }
   }

@@ -67,6 +67,9 @@
     @Prop({default:-1})
     l:number
 
-
+    // 字体大小
+    @Prop({default:-1})
+    fontSize:number
+    
   }
 </script>

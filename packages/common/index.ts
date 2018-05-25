@@ -18,6 +18,8 @@ export function createStyle(vm:any){
     bottom:vm.b===-1?'auto':`${vm.b/10}rem`,
     // left
     left:vm.l===-1?'auto':`${vm.l/10}rem`,
+    // 字体
+    fontSize:vm.l===-1?'inherit':`${vm.fontSize}px`,
 
     /** 可选属性为空 **/
 
@@ -41,7 +43,7 @@ export function createStyle(vm:any){
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'){
+    if(item==='auto'||item==='inherit'){
       delete style[i]
     }
   }
