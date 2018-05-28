@@ -73,12 +73,16 @@
     @Prop({default:true})
     private hasPadding:boolean
 
-    // 是否有border
-    @Prop({default:false})
-    private showBorder:boolean
+    // 是否有上边线
+    @Prop ({default:false})
+    private borderTop:boolean
+
+    // 是否有下边线
+    @Prop ({default:false})
+    private borderBottom:boolean
 
     // border颜色
-    @Prop({default:''})
+    @Prop({default:'#d6d7dc'})
     private borderColor:'string'
 
     // 是否有左侧占空
@@ -138,14 +142,15 @@
       let style=Object.create(null)
       style.backgroundColor=this.bkColor
       style.color=this.color
-      if(this.showBorder){
+      if(this.borderTop){
+        style.borderTopStyle='solid'
+        style.borderTopWidth='1px'
+        style.borderTopColor=this.borderColor
+      }
+      if(this.borderBottom){
         style.borderBottomStyle='solid'
         style.borderBottomWidth='1px'
-        if(this.borderColor){
-          style.borderBottomColor=this.borderColor
-        }else{
-          style.borderBottomColor='#d6d7dc'
-        }
+        style.borderBottomColor=this.borderColor
       }
       if(this.hasPadding){
         style.padding='0rem 0.2rem'

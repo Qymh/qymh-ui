@@ -1,46 +1,65 @@
 <template lang="pug">
   .searchBar(:style="computedStyle")
     //- 左侧
-    .left
-      .left_arrow
+    .left(@click="leftClicked")
+      .left_arrow(v-if="leftArrow")
         i.q-icon.icon-back
+      .left_text(v-if="leftText")
+        span {{leftText}}
     
     //- 中间
     .center
-      .center_search
+      .center_search(:style="{backgroundColor:searchBkColor}")
+        //- 头部搜索icon
         .center_search_front
           i.q-icon.icon-search
+        //- 输入框
         .center_search_input
           form.center_search_input_form(action="#" method="#" @submit.prevent="submit")
             input(
+              v-model="searchText"
               type="search"
               placeholder="请输入...")
-        .center_search_end
+        //- 关闭按钮
+        .center_search_end(
+          v-if="clearable"
+          @click.stop="clearSearchText")
           i.q-icon.icon-close
     
     //- 右侧
-    .right
-      .right_text
-        span 搜索
+    .right(@click="rightClicked(searchText)")
+      .right_text(:style="{color:rightColor}")
+        span {{rightText}}
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
 
   @Component({})
   export default class QSearchBar extends Vue{
     
+    // 搜索文字
+    private searchText:any=''
+    
+    // 全局字体颜色
+    @Prop({default:''})
+    private color:string
+
     // 背景颜色
     @Prop({default:''})
     private bkColor:string
 
     // 是否有边距
-    @Prop({default:true})
+    @Prop({default:false})
     private hasPadding:boolean
 
-    // 是否有边框
-    @Prop({default:false})
-    private showBorder:string
+   // 是否有上边线
+    @Prop ({default:false})
+    private borderTop:boolean
+
+    // 是否有下边线
+    @Prop ({default:false})
+    private borderBottom:boolean
 
     // 边框颜色
     @Prop({default:''})
@@ -58,9 +77,13 @@
     @Prop({default:''})
     private leftColor:string
     
+    // 搜索的背景颜色
+    @Prop({default:'#f8f8f8'})
+    private searchBkColor:string
+    
     // 搜索的提醒文字
-    @Prop({default:''})
-    private centerText:string
+    @Prop({default:'请输入...'})
+    private searchPlaceholder:string
 
     // 搜索是否可清除
     @Prop({default:true})
@@ -78,14 +101,16 @@
     private get computedStyle(){
       let style=Object.create(null)
       style.backgroundColor=this.bkColor
-      if(this.showBorder){
+      style.color=this.color
+      if(this.borderTop){
+        style.borderTopStyle='solid'
+        style.borderTopWidth='1px'
+        style.borderTopColor=this.borderColor
+      }
+      if(this.borderBottom){
         style.borderBottomStyle='solid'
         style.borderBottomWidth='1px'
-        if(this.borderColor){
-          style.borderBottomColor=this.borderColor
-        }else{
-          style.borderBottomColor='#d6d7dc'
-        }
+        style.borderBottomColor=this.borderColor
       }
       if(this.hasPadding){
         style.padding='0rem 0.2rem'
@@ -93,7 +118,21 @@
       return style
     }
 
-    private submit(){}
+    // 清空搜索值
+    private clearSearchText(){
+      this.searchText=''
+    }
+
+    // 取消表单提交默认事件
+    private submit(){this.rightClicked(this.searchText)}
+
+    // 左侧点击事件
+    @Emit('leftClicked')
+    public leftClicked(){}
+
+    // 右侧点击事件
+    @Emit('rightClicked')
+    public rightClicked(searchText:string){}
   }
 </script>
 
@@ -111,6 +150,9 @@
     flex-grow: 0;
     &_arrow{
       color: #a1a1a1;
+    }
+    &_text{
+      font-size: 14px;
     }
   }
   .center{
@@ -142,16 +184,19 @@
             width: 100%;
             display: flex;
             align-items: center;
-            color: #a1a1a1;
             border: 0;
             padding: 0;
             padding-left: 0.3rem;
             font-size: 14px;
-            background-color: #f8f8f8;
             vertical-align: middle;
+            color: #a1a1a1;
             &::placeholder{
               font-size: 16px;
               color: #a1a1a1;
+            }
+            &::-webkit-search-cancel-button{
+              color: #a1a1a1;
+              -webkit-appearance: none;
             }
             &:focus{
               outline: 0;
@@ -160,7 +205,11 @@
         }
       }
       &_end{
-        margin-right: 0.3rem;
+        height: 100%;
+        padding-right: 0.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         flex-grow: 0;
         color: #a1a1a1;
       }

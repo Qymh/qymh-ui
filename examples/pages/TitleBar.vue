@@ -1,6 +1,6 @@
 <template lang="pug">
   q-title-bar(
-    :showBorder="true"
+    :borderBottom="true"
     centerText="推荐"
     centerDir="flex-start"
     rightText="更多"
