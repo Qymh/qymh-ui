@@ -6,6 +6,7 @@
         centerColor="deepskyblue"
         centerText="Qymh-Ui"
         centerDir="flex-start")
+    //- q-row
     q-row(mt=2)
       q-title-bar(
         :showBorder="true"
@@ -16,6 +17,7 @@
         :rightArrow="true"
         rightDir="flex-end"
         @clicked="go('/row')")
+    //- q-title-bar
     q-row(mt=2)
       q-title-bar(
         :showBorder="true"
@@ -26,6 +28,7 @@
         :rightArrow="true"
         rightDir="flex-end"
         @clicked="go('/titlebar')")
+    //- q-search-bar
     q-row(mt=2)
       q-title-bar(
         :showBorder="true"
@@ -36,6 +39,17 @@
         :rightArrow="true"
         rightDir="flex-end"
         @clicked="go('/searchbar')")
+    //- q-tab-bar
+    q-row(mt=2)
+      q-title-bar(
+        :showBorder="true"
+        bkColor="deepskyblue"
+        color="white"
+        :leftEmpty="true"
+        centerText="q-tab-bar"
+        :rightArrow="true"
+        rightDir="flex-end"
+        @clicked="go('/tabbar')")
 </template>
 
 <script lang="ts">

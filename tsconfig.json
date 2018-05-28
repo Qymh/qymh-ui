@@ -54,6 +54,7 @@
   },
   "files": [
     "typings/row.d.ts",
-    "typings/titleBar.d.ts"
+    "typings/titleBar.d.ts",
+    "typings/tabBar.d.ts"
   ]
 }

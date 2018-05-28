@@ -5,8 +5,9 @@ Vue.use(Router)
 
 const Home:AsyncComponent=()=>import('@/pages/home.vue')
 const Row:AsyncComponent=()=>import('@/pages/row.vue')
-const TitleBar:AsyncComponent=()=>import('@/pages/TitleBar.vue')
-const SearchBar:AsyncComponent=()=>import('@/pages/SearchBar.vue')
+const TitleBar:AsyncComponent=()=>import('@/pages/titleBar.vue')
+const SearchBar:AsyncComponent=()=>import('@/pages/searchBar.vue')
+const TabBar:AsyncComponent=()=>import('@/pages/tabBar.vue')
 
 const routes:RouteConfig[]=[
   {
@@ -24,6 +25,10 @@ const routes:RouteConfig[]=[
   {
     path:'/searchBar',
     component:SearchBar
+  },
+  {
+    path:'/tabBar',
+    component:TabBar
   }
 ]
 
