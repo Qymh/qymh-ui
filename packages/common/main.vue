@@ -51,6 +51,10 @@
     @Prop({default:0})
     pl:number
 
+    // 定位
+    @Prop({default:'static'})
+    position:string
+
     // top
     @Prop({default:-1})
     t:number
