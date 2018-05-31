@@ -6,7 +6,7 @@
     //- 左侧
     .left(
       v-if="!$slots.left&&(leftArrow||leftEmpty||leftText)"
-      :style="{color:leftColor}"
+      :style="{color:leftColor,justifyContent:leftDir}"
       @click="leftClicked")
       //- 左箭头
       .arrow(v-if="leftArrow")
@@ -101,6 +101,10 @@
     @Prop({default:''})
     private leftColor:string
 
+    // 左侧文字方向
+    @Prop({default:'flex-start'})
+    private leftDir:titleBar.dir
+
     // 是否有中间占空
     @Prop({default:false})
     private centerEmpty:boolean
@@ -130,7 +134,7 @@
     private rightText:string
     
     // 右侧文字方向
-    @Prop({default:'center'})
+    @Prop({default:'flex-end'})
     private rightDir:titleBar.dir
 
     // 右侧文字颜色
