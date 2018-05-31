@@ -4,14 +4,25 @@
       v-for="(tab,index) in tabArr"
       :key="index"
       @click="changeTab(tab,index)")
+      //- 未激活状态
       i.tabBar_chunk_icon(
         v-if="!tab.active"
         :style="{color:tab.iconColor}"
         :class="tab.icon")
+      //- 激活状态
       i.tabBar_chunk_icon(
         v-if="tab.active"
         :style="{color:tab.activeIconColor}"
         :class="tab.activeIcon")
+      //- 侧边数据
+      span.tabBar_chunk_detailsMsg(
+        :style="{color:tab.detailsMsgColor,backgroundColor:tab.detailsMsgBkColor}"
+        v-if="tab.detailsMsg") {{tab.detailsMsg}}
+      //- 侧边点
+      span.tabBar_chunk_detailsPoint(
+        :style="{backgroundColor:tab.detailsPointColor}"
+        v-if="tab.detailsPoint")
+      //- 文字
       span.tabBar_chunk_text(
         :style="{color:tab.active?tab.activeTextColor:tab.textColor}")
         |{{tab.text}}
@@ -65,7 +76,10 @@
         {type:'activeIconColor',base:'deepskyblue'},
         {type:'textColor',base:'#333333'},
         {type:'activeTextColor',base:'deepskyblue'},
-        {type:'active',base:false}
+        {type:'active',base:false},
+        {type:'detailsMsgColor',base:'white'},
+        {type:'detailsMsgBkColor',base:'red'},
+        {type:'detailsPointColor',base:'red'}
       ]
       for(let tab of this.tabArr){
         for(let item of checkArr){
@@ -92,6 +106,7 @@
     display: flex;
     flex-direction: row;
     &_chunk{
+      position: relative;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -103,6 +118,25 @@
       &_text{
         padding-top: 0.1rem;
         font-size: 12px;
+      }
+      &_detailsMsg{
+        position: absolute;
+        left: 55%;
+        top: 0.1rem;
+        height:0.4rem;
+        line-height: 0.4rem;
+        padding: 0 0.1rem;
+        border-radius: 0.2rem;
+        font-size: 10px;
+      }
+      &_detailsPoint{
+        position: absolute;
+        left: 55%;
+        top: 0.1rem;
+        height:0.2rem;
+        width: 0.2rem;
+        border-radius: 50%;
+        font-size: 10px;
       }
     }
   }

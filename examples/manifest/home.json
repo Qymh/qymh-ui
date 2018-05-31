@@ -6,15 +6,15 @@
     },
     {
       "name":"q-title-bar",
-      "href":"/titlebar"
+      "href":"/titleBar"
     },
     {
       "name":"q-search-bar",
-      "href":"/searchbar"
+      "href":"/searchBar"
     },
     {
       "name":"q-tab-bar",
-      "href":"/tabar"
+      "href":"/tabBar"
     },
     {
       "name":"q-tag",

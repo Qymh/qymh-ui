@@ -20,7 +20,7 @@ const routes:RouteConfig[]=[
     component:Row
   },
   {
-    path:'/titlebar',
+    path:'/titleBar',
     component:TitleBar
   },
   {

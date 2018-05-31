@@ -42,7 +42,10 @@
         text:'热门',
         textColor:'',
         activeTextColor:'orange',
-        active:false
+        active:false,
+        detailsMsg:123,
+        detailsMsgColor:'',
+        detailsMsgBkColor:'',
       },
       {
         icon:'q-icon icon-people',
@@ -52,7 +55,9 @@
         text:'个人',
         textColor:'',
         activeTextColor:'orange',
-        active:false
+        active:false,
+        detailsPoint:true,
+        detailsPointColor:''
       }
     ]
 
