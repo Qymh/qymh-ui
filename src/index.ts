@@ -1,15 +1,18 @@
 
+import './fonts/iconfont.css'
+
 import Row from '../packages/row'
 import TitleBar from '../packages/titleBar'
 import SearchBar from '../packages/searchBar'
 import TabBar from '../packages/tabBar'
-import './fonts/iconfont.css'
+import Tag from '../packages/tag'
 
 const components=[
   Row,
   TitleBar,
   SearchBar,
-  TabBar
+  TabBar,
+  Tag
 ]
 
 const install=function(Vue:any,opts={}){

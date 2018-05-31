@@ -1,64 +1,49 @@
 <template lang="pug">
   .home
+    //- 头部
     q-row(tag="header")
       q-title-bar(
         :showBorder="true"
         centerColor="deepskyblue"
         centerText="Qymh-Ui"
         centerDir="flex-start")
-    //- q-row
-    q-row(mt=2)
+    //- 组件导航
+    q-row(
+      v-for="(infor,index) in homeInfor"
+      :key="index"
+      mt=2)
       q-title-bar(
         :showBorder="true"
         bkColor="deepskyblue"
         color="white"
         :leftEmpty="true"
-        centerText="q-row"
+        :centerText="infor.name"
         :rightArrow="true"
         rightDir="flex-end"
-        @clicked="go('/row')")
-    //- q-title-bar
-    q-row(mt=2)
-      q-title-bar(
-        :showBorder="true"
-        bkColor="deepskyblue"
-        color="white"
-        :leftEmpty="true"
-        centerText="q-title-bar"
-        :rightArrow="true"
-        rightDir="flex-end"
-        @clicked="go('/titlebar')")
-    //- q-search-bar
-    q-row(mt=2)
-      q-title-bar(
-        :showBorder="true"
-        bkColor="deepskyblue"
-        color="white"
-        :leftEmpty="true"
-        centerText="q-search-bar"
-        :rightArrow="true"
-        rightDir="flex-end"
-        @clicked="go('/searchbar')")
-    //- q-tab-bar
-    q-row(mt=2)
-      q-title-bar(
-        :showBorder="true"
-        bkColor="deepskyblue"
-        color="white"
-        :leftEmpty="true"
-        centerText="q-tab-bar"
-        :rightArrow="true"
-        rightDir="flex-end"
-        @clicked="go('/tabbar')")
+        @clicked="go(infor.href)")
 </template>
 
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'
+  import home from '@/manifest/home.json'
+
+  interface homeInfor{
+    name:string
+    href:string
+  }
 
   @Component({})
   export default class ExHome extends Vue{
+    // 首页信息
+    private homeInfor:homeInfor[]=[]
+
+    // 路由跳转
     private go(path:string):void{
       this.$router.push(path)
+    }
+
+    private created(){
+      this.homeInfor=home.homeInfor
     }
   }
 </script>
