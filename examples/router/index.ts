@@ -6,6 +6,7 @@ Vue.use(Router)
 const Home:AsyncComponent=()=>import('@/pages/home.vue')
 const Row:AsyncComponent=()=>import('@/pages/row.vue')
 const TitleBar:AsyncComponent=()=>import('@/pages/titleBar.vue')
+const HeadBar:AsyncComponent=()=>import('@/pages/headBar.vue')
 const SearchBar:AsyncComponent=()=>import('@/pages/searchBar.vue')
 const TabBar:AsyncComponent=()=>import('@/pages/tabBar.vue')
 const Tag:AsyncComponent=()=>import('@/pages/tag.vue')
@@ -22,6 +23,10 @@ const routes:RouteConfig[]=[
   {
     path:'/titleBar',
     component:TitleBar
+  },
+  {
+    path:'/headBar',
+    component:HeadBar,
   },
   {
     path:'/searchBar',

@@ -1,0 +1,86 @@
+code {
+  display: block;
+  overflow-x: scroll;
+  padding:20px 20px;
+  background: #F8F8F8;
+  font-family: "Consolas, 'Courier New', monospace" !important;
+  font-size: 15px !important;
+  line-height: 0.5rem;
+}
+
+
+.hljs,
+.hljs-subst {
+  color: #434f54
+}
+
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-name {
+  color: #35caef;
+}
+
+.hljs-built_in,
+.hljs-literal,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color:deeppink;
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: deepskyblue;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: deeppink;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #880000;
+  font-weight: bold
+}
+
+.hljs-comment {
+  color: rgba(149, 165, 166, 0.8)
+}
+
+.hljs-meta-keyword {
+  color: #728E00
+}
+
+.hljs-meta {
+  color: #728E00;
+  color: #434f54
+}
+
+.hljs-emphasis {
+  font-style: italic
+}
+
+.hljs-strong {
+  font-weight: bold
+}
+
+.hljs-function {
+  color: #728E00
+}
+
+.hljs-number {
+  color: #8A7B52
+}

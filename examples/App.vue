@@ -1,6 +1,6 @@
 <template lang="pug">
   .app
-    router-view
+    router-view(keep-alive)
 </template>
 
 <script lang="ts">

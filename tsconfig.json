@@ -53,8 +53,10 @@
     "pretty": true
   },
   "files": [
+    "typings/common.d.ts",
     "typings/row.d.ts",
     "typings/titleBar.d.ts",
-    "typings/tabBar.d.ts"
+    "typings/tabBar.d.ts",
+    "typings/highLight.d.ts"
   ]
 }

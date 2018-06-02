@@ -5,75 +5,91 @@
   export default class Common extends Vue{
     // 高
     @Prop({default:-1})
-    h:number
+    public h:number
+
+    // 行高
+    @Prop({default:-1})
+    public lh:number
     
     // 宽
     @Prop({default:-1})
-    w:number
+    public w:number
 
     // 高度百分比
     @Prop({default:-1})
-    row:number
+    public row:number
 
     // 宽度百分比 
     @Prop({default:-1})
-    col:number
+    public col:number
 
     // margin-top
     @Prop({default:0})
-    mt:number
+    public mt:number
 
     // margin-right
     @Prop({default:0})
-    mr:number
+    public mr:number
 
     // margin-bottom
     @Prop({default:0})
-    mb:number
+    public mb:number
 
     // margin-left
     @Prop({default:0})
-    ml:number
+    public ml:number
 
     // padding-top
     @Prop({default:0})
-    pt:number
+    public pt:number
 
     // padding-right
     @Prop({default:0})
-    pr:number
+    public pr:number
 
     // padding-bottom
     @Prop({default:0})
-    pb:number
+    public pb:number
 
     // padding-left
     @Prop({default:0})
-    pl:number
+    public pl:number
 
     // 定位
     @Prop({default:'static'})
-    position:string
+    public position:common.position
 
     // top
     @Prop({default:-1})
-    t:number
+    public t:number
 
     // right
     @Prop({default:-1})
-    r:number
+    public r:number
 
     // bottom
     @Prop({default:-1})
-    b:number
+    public b:number
 
     // left
     @Prop({default:-1})
-    l:number
+    public l:number
 
     // 字体大小
     @Prop({default:-1})
-    fontSize:number
+    public fontSize:number
+
+    // 字体颜色
+    @Prop({default:''})
+    public color:string
+
+    // 背景颜色
+    @Prop({default:''})
+    public bkColor:string
+
+    // text-align
+    @Prop({default:''})
+    public textAlign:common.textAlign
     
   }
 </script>

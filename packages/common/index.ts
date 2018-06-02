@@ -4,8 +4,10 @@ export function createStyle(vm:any){
 
     // 高
     height:vm.h===-1&&vm.row===-1?'auto':vm.h!==-1?`${(vm.h/10)}rem`:`${vm.row}%`,
+    // 行高
+    lineHeight:vm.lh===-1?'auto':`${vm.lh/10}rem`,
     // 宽
-    width:vm.w===-1&&vm.col===-1?'auto':vm.w!==-1?`${(vm.w/10)}rem`:`${vm.col}%`,
+    width:vm.w===-1&&vm.col===-1?'normal':vm.w!==-1?`${(vm.w/10)}rem`:`${vm.col}%`,
     // 定位
     position:vm.position,
     // top
@@ -36,12 +38,17 @@ export function createStyle(vm:any){
     // padding-bottom
     paddingBottom:vm.pb===0?'':`${vm.pb/10}rem`,
     // padding-left
-    paddingLeft:vm.pt===0?'':`${vm.pl/10}rem`,
+    paddingLeft:vm.pl===0?'':`${vm.pl/10}rem`,
+
+    // color
+    color:vm.color,
+    // 背景颜色
+    backgroundColor:vm.bkColor
   }
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='inherit'||item==='static'){
+    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'){
       delete style[i]
     }
   }

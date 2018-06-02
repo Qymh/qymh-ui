@@ -3,23 +3,21 @@
     //- 头部
     q-row(tag="header")
       q-title-bar(
-        :showBorder="true"
-        centerColor="deepskyblue"
-        centerText="Qymh-Ui"
-        centerDir="flex-start")
+        :borderBottom="true"
+        title="QymhUI"
+        titleColor="deepskyblue")
     //- 组件导航
     q-row(
       v-for="(infor,index) in homeInfor"
       :key="index"
       mt=2)
-      q-title-bar(
+      q-head-bar(
         :showBorder="true"
         bkColor="deepskyblue"
         color="white"
         :leftEmpty="true"
         :centerText="infor.name"
         :rightArrow="true"
-        rightDir="flex-end"
         @clicked="go(infor.href)")
 </template>
 

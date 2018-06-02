@@ -9,6 +9,10 @@
       "href":"/titleBar"
     },
     {
+      "name":"q-head-bar",
+      "href":"headBar"
+    },
+    {
       "name":"q-search-bar",
       "href":"/searchBar"
     },
