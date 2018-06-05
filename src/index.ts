@@ -9,6 +9,7 @@ import SearchBar from '../packages/searchBar'
 import TabBar from '../packages/tabBar'
 import Tag from '../packages/tag'
 import Code from '../packages/code'
+import Input from '../packages/input'
 
 const components=[
   Row,
@@ -17,7 +18,8 @@ const components=[
   SearchBar,
   TabBar,
   Tag,
-  Code
+  Code,
+  Input
 ]
 
 const install=function(Vue:any,opts={}){

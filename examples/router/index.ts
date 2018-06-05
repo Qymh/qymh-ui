@@ -10,6 +10,7 @@ const HeadBar:AsyncComponent=()=>import('@/pages/headBar.vue')
 const SearchBar:AsyncComponent=()=>import('@/pages/searchBar.vue')
 const TabBar:AsyncComponent=()=>import('@/pages/tabBar.vue')
 const Tag:AsyncComponent=()=>import('@/pages/tag.vue')
+const Input:AsyncComponent=()=>import('@/pages/input.vue')
 
 const routes:RouteConfig[]=[
   {
@@ -39,6 +40,10 @@ const routes:RouteConfig[]=[
   {
     path:'/tag',
     component:Tag
+  },
+  {
+    path:'/input',
+    component:Input
   }
 ]
 

@@ -1,5 +1,12 @@
 <template lang="pug">
   .tag
+    q-head-bar(
+      bkColor="deepskyblue"
+      color="#fff"
+      :leftArrow="true"
+      centerText="q-tag"
+      :rightEmpty="true")
+    q-row(h=5)
     q-tag(value="测试")
     q-tag(ml=2 value="测试2" bkColor="orange")
     q-tag(

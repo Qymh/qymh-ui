@@ -23,6 +23,10 @@
     {
       "name":"q-tag",
       "href":"/tag"
+    },
+    {
+      "name":"q-input",
+      "href":"/input"
     }
   ]
 }

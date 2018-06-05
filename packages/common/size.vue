@@ -1,10 +1,15 @@
 <script lang="tsx">
   import {Vue,Component,Prop} from 'vue-property-decorator'
 
-  export class Size extends Vue{
+  @Component
+  export default class Size extends Vue{
     // 高
     @Prop({default:-1})
     h:number
+
+    // 行高
+    @Prop({default:-1})
+    public lh:number
     
     // 宽
     @Prop({default:-1})

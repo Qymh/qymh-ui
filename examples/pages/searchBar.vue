@@ -1,5 +1,12 @@
 <template lang="pug">
   .searchBar
+    q-head-bar(
+      bkColor="deepskyblue"
+      color="#fff"
+      :leftArrow="true"
+      centerText="q-search-bar"
+      :rightEmpty="true")
+    q-row(h=2)
     q-search-bar(
       bkColor="orange"
       color="white"

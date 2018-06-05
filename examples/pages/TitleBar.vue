@@ -1,14 +1,16 @@
 <template lang="pug">
-  q-title-bar(
-    :borderBottom="true"
-    centerText="推荐"
-    centerDir="flex-start"
-    rightText="更多"
-    rightDir="flex-end"
-    rightColor="#666"
-    @rightClicked="rightClicked"
-    @centerClicked="centerClicked")
-      q-row(@clicked="centerClicked" slot="center" justify="start") 中间文字
+  .titleBar
+    q-head-bar(
+      bkColor="deepskyblue"
+      color="#fff"
+      :leftArrow="true"
+      centerText="q-title-bar"
+      :rightEmpty="true")
+    q-title-bar(
+      :borderBottom="true"
+      leftIcon="q-icon icon-edit"
+      leftIconColor="deepskyblue"
+      title="title")
 </template>
  
 <script lang="ts">

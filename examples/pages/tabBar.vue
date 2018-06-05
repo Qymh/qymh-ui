@@ -1,12 +1,11 @@
 <template lang="pug">
   .tabBar
-    q-title-bar(
+    q-head-bar(
       bkColor="orange"
-      color="white"
+      color="#fff"
       :leftArrow="true"
-      centerText="tabBar"
-      :rightEmpty="true"
-      @leftClicked="goBack")
+      centerText="q-tab-bar"
+      :rightEmpty="true")
     q-row(align="center" justify="center" mt="20") {{curIndex}}
     q-row(
       position="fixed"
@@ -63,10 +62,6 @@
 
     public changeTab(index:number){
       this.curIndex=index
-    }
-
-    private goBack():void{
-      this.$router.go(-1)
     }
   }
 </script>
