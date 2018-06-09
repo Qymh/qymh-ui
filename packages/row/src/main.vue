@@ -1,11 +1,11 @@
 <script lang="tsx">
   import {CreateElement} from 'vue'
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
-  import Common from '../../common/main.vue'
-  import {createStyle} from '../../common/index'
+  import Proto from '../../proto/row/main.vue'
+  import createStyle from '../../proto/row/index'
 
   @Component
-  export default class QRow extends Common{
+  export default class QRow extends Proto{
     // 标签
     @Prop({default:'div'})
     private tag:string

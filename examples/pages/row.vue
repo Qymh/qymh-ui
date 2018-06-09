@@ -17,7 +17,7 @@
         leftIconColor="deepskyblue"
         title="基础css"
         titleColor="deepskyblue")
-      q-row(lh=9).
+      q-row(lh=9 fontSize=14).
         平常我们在写css样式的时候,会先命名再写css,如果页面过于复杂,
         写css无论在样式还是一长串的命名上都会较为麻烦,
         而<main>q-row</main>直接避免了命名带的麻烦,也尽可能减轻了写css样式的工程量,
@@ -31,7 +31,7 @@
             leftIconColor="deepskyblue"
             :hasPadding="false"
             title="高宽")
-          q-row(lh=9).
+          q-row(lh=9 fontSize=14).
             原生高度为<main>height</main> 宽度为<main>width</main>,
             在<main>q-row</main>中,我们将它简化为属性值写法<br>
             <main>h</main>代表了高度,<main>w</main>代表了宽度,
@@ -109,7 +109,7 @@
         title="flex布局方向"
         titleColor="deepskyblue")
       q-row(tag="section")
-        q-row(lh=9).
+        q-row(lh=9 fontSize=14).
           方向指flex布局的flex-direction,原生的有
           <main>row</main>
           <main>row-reverse</main>

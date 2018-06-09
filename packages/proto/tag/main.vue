@@ -2,37 +2,38 @@
   import {Vue,Component,Prop} from 'vue-property-decorator'
 
   @Component
-  export default class Distance extends Vue{
+  export default class Proto extends Vue{
     // margin-top
     @Prop({default:0})
-    mt:number
+    public mt:number
 
     // margin-right
     @Prop({default:0})
-    mr:number
+    public mr:number
 
     // margin-bottom
     @Prop({default:0})
-    mb:number
+    public mb:number
 
     // margin-left
     @Prop({default:0})
-    ml:number
+    public ml:number
 
     // padding-top
     @Prop({default:0})
-    pt:number
+    public pt:number
 
     // padding-right
     @Prop({default:0})
-    pr:number
+    public pr:number
 
     // padding-bottom
     @Prop({default:0})
-    pb:number
+    public pb:number
 
     // padding-left
     @Prop({default:0})
-    pl:number
+    public pl:number
+    
   }
 </script>

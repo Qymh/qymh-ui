@@ -1,10 +1,11 @@
 <script lang="tsx">
   import {Vue,Component,Prop,Emit,Watch} from 'vue-property-decorator'
   import {CreateElement} from 'vue'
-  import Distance from '../../common/distance.vue'
-  import {createDistance} from '../../common/index'
+  import Proto from '../../proto/tag/main.vue'
+  import createStyle from '../../proto/tag/index'
+
   @Component
-  export default class QTag extends Distance{
+  export default class QTag extends Proto{
     // 背景颜色
     @Prop({default:'#d6d7dc'})
     private bkColor:string
@@ -59,7 +60,7 @@
 
     // dom渲染
     private render(h:CreateElement){
-      let style=createDistance(this)
+      let style=createStyle(this)
       let selectableStyle=Object.create(null)
       if(this.hasBorder){
         selectableStyle.borderStyle='solid'

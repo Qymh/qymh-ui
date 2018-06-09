@@ -4,6 +4,13 @@
 
 *{
   -webkit-tap-highlight-color:transparent;
+  box-sizing: border-box;
+}
+
+input {
+  outline: none;
+  -webkit-appearance: none; 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 main{

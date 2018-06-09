@@ -1,6 +1,9 @@
 
 import './fonts/iconfont.css'
 import './style/highLight.scss'
+import './style/widget.scss'
+
+import '../packages/widget'
 
 import Row from '../packages/row'
 import TitleBar from '../packages/titleBar'

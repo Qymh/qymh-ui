@@ -2,7 +2,7 @@
   import {Vue,Component,Prop} from 'vue-property-decorator'
 
   @Component
-  export default class Common extends Vue{
+  export default class Proto extends Vue{
     // 高
     @Prop({default:-1})
     public h:number

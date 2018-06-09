@@ -57,6 +57,7 @@
     "typings/row.d.ts",
     "typings/titleBar.d.ts",
     "typings/tabBar.d.ts",
-    "typings/highLight.d.ts"
+    "typings/highLight.d.ts",
+    "typings/input.d.ts"
   ]
 }
