@@ -8,7 +8,7 @@
         :class="leftIcon"
         :style="{color:leftIconColor}")
     //- 标题
-    .titleBar_title
+    .titleBar_title(v-if="title")
       //- 标题文字
       .titleBar_title_text(
         :style="{color:titleColor}") {{title}}

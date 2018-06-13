@@ -20,6 +20,14 @@
       color="#333"
       activeBkColor="orange"
       @clicked="change")
+    q-tag(
+      ml=2
+      value="无圆角值"
+      :hasRadius="false"
+      :hasBorder="true"
+      borderColor="orange"
+      bkColor="white"
+      color="#333")
 </template>
 
 <script lang="ts">

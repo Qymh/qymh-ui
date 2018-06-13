@@ -78,13 +78,13 @@
           placeholder="只能输入数字及小数且输入法默认为数字输入"&gt
         q-input(
           type="number"
-          fix="4"
-          placeholder="默认保留2两位小数,改变fix值可以自定义保留")
+          fix="2"
+          placeholder="默认保留4两位小数,改变fix值可以自定义保留")
         q-code(type="html").
           &ltq-input
           type="number"
-          fix="4"
-          placeholder="默认保留2两位小数,改变fix值可以自定义保留"&gt
+          fix="2"
+          placeholder="默认保留4两位小数,改变fix值可以自定义保留"&gt
       //- integer
       q-row(mb=10)
         q-title-bar(

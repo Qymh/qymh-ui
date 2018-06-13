@@ -35,7 +35,7 @@
     private type:input.type
 
     // 默认保留多少位
-    @Prop({default:2})
+    @Prop({default:4})
     private fix:number
 
     // 是否允许输入emoji

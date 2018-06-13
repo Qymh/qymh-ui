@@ -26,6 +26,10 @@
     @Prop({default:false})
     private hasBorder:boolean
 
+    // 是否有圆角值
+    @Prop({default:true})
+    private hasRadius:boolean
+
     // 边框颜色
     @Prop({default:'#d6d7dc'})
     private borderColor:string
@@ -67,11 +71,13 @@
         selectableStyle.borderWidth='1px'
         selectableStyle.borderColor=this.borderColor
       }
+      if(this.hasRadius){
+        selectableStyle.borderRadius='0.3rem'
+      }
       return h('div',{
         style:Object.assign({
           display:'inline-block',
           padding:'0.2rem 0.3rem',
-          borderRadius:'0.3rem',
           backgroundColor:this.bkColor,
           color:this.color,
           fontSize:`${this.fontSize}px`
