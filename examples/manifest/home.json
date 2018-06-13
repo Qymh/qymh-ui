@@ -27,6 +27,14 @@
     {
       "name":"q-input",
       "href":"/input"
+    },
+    {
+      "name":"q-radio",
+      "href":"/radio"
+    },
+    {
+      "name":"q-stepper",
+      "href":"/stepper"
     }
   ]
 }

@@ -123,7 +123,7 @@
       // 数字
       if(this.type==='number'){
         let value=e.target.value
-        let vm=new Vue()
+        let vm:any=new Vue()
         if(isNaN(value)||!value){
           vm.$notice.toast('请输入正确的数字!')
           later=''

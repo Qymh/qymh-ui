@@ -13,6 +13,8 @@ import TabBar from '../packages/tabBar'
 import Tag from '../packages/tag'
 import Code from '../packages/code'
 import Input from '../packages/input'
+import Radio from '../packages/radio'
+import Stepper from '../packages/stepper'
 
 const components=[
   Row,
@@ -22,7 +24,9 @@ const components=[
   TabBar,
   Tag,
   Code,
-  Input
+  Input,
+  Radio,
+  Stepper
 ]
 
 const install=function(Vue:any,opts={}){

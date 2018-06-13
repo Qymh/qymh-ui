@@ -22,10 +22,11 @@ Notice.install=(Vue:any)=>{
      * @param timeout 时间
      * @param position 位置
      */
-    toast(message:string,timeout:number=1500,position:string='bottom'){
+    toast(message:string,timeout:number=1500,position:string='center'){
       let libHtml=ce('div')
       let innerIndex=index
       libHtml.classList.add('notice','notice_toast','fadeIn',`count_${index}`)
+      libHtml.classList.add(position)
       libHtml.innerText=message 
 
       index++
@@ -51,7 +52,7 @@ Notice.install=(Vue:any)=>{
      */
     longToast(message:string){
       let libHtml=ce('div')
-      libHtml.classList.add('notice','notice_longToast','fadeIn')
+      libHtml.classList.add('notice','notice_longToast','fadeIn','center')
       libHtml.innerText=message
 
       let $body=document.body

@@ -1,7 +1,7 @@
 {
-  "name": "vue-cli",
+  "name": "Qymh-UI",
   "version": "1.0.0",
-  "description": "vue template",
+  "description": "a ui plugin baseOn vue2.x typescript",
   "author": "Qymh",
   "license": "MIT",
   "scripts": {

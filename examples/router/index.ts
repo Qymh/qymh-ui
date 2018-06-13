@@ -11,6 +11,8 @@ const SearchBar:AsyncComponent=()=>import('@/pages/searchBar.vue')
 const TabBar:AsyncComponent=()=>import('@/pages/tabBar.vue')
 const Tag:AsyncComponent=()=>import('@/pages/tag.vue')
 const Input:AsyncComponent=()=>import('@/pages/input.vue')
+const Radio:AsyncComponent=()=>import('@/pages/radio.vue')
+const Stepper:AsyncComponent=()=>import('@/pages/Stepper.vue')
 
 const routes:RouteConfig[]=[
   {
@@ -44,6 +46,14 @@ const routes:RouteConfig[]=[
   {
     path:'/input',
     component:Input
+  },
+  {
+    path:'/radio',
+    component:Radio
+  },
+  {
+    path:'/stepper',
+    component:Stepper
   }
 ]
 

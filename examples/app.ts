@@ -6,6 +6,7 @@ import Qymh from '../src/index'
 
 import 'normalize.css'
 import '@/lib/flexible'
+import '@/lib/special'
 
 if('addEventListener' in document){
   document.addEventListener('DOMContentLoaded',()=>{
