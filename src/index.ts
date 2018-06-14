@@ -15,6 +15,7 @@ import Code from '../packages/code'
 import Input from '../packages/input'
 import Radio from '../packages/radio'
 import Stepper from '../packages/stepper'
+import Table from '../packages/table'
 
 const components=[
   Row,
@@ -26,7 +27,8 @@ const components=[
   Code,
   Input,
   Radio,
-  Stepper
+  Stepper,
+  Table
 ]
 
 const install=function(Vue:any,opts={}){

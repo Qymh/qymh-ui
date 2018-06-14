@@ -10,7 +10,10 @@
       :borderBottom="true"
       leftIcon="q-icon icon-edit"
       leftIconColor="deepskyblue"
-      title="title")
+      title="title"
+      rightText="查看更多"
+      :rightArrow="true"
+      @rightClicked="rightClicked")
 </template>
  
 <script lang="ts">
@@ -18,11 +21,8 @@
 
   @Component
   export default class ExBarTitle extends Vue{
-    private centerClicked(e:any){
-      console.log(e.target)
-    }
-    private rightClicked(e:any){
-      console.log(e)
+    private rightClicked(){
+      console.log('1')
     }
   }
 </script>

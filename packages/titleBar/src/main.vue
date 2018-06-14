@@ -15,8 +15,15 @@
       //- 二级标题
       .titleBar_title_details(
         :style="{color:detailsColor}") {{details}}
+    //- 右侧描述
+    .titleBar_rightText(
+      v-if="rightText"
+      @click="rightClicked")
+      span {{rightText}}
     //- 右侧icon
-    .titleBar-rightIcon(v-if="rightArrow")
+    .titleBar_rightIcon(
+      v-if="rightArrow"
+      @click="rightClicked")
       i.q-icon.icon-right(:style="{color:rightArrowColor}")
 </template>
 
@@ -69,6 +76,10 @@
     @Prop({default:'#a1a1a1'})
     private detailsColor:string
 
+    // 右侧描述
+    @Prop({default:''})
+    private rightText:string
+
     // 右侧箭头
     @Prop({default:false})
     private rightArrow:boolean
@@ -99,6 +110,9 @@
 
     @Emit('clicked')
     private clicked(){}
+
+    @Emit('rightClicked')
+    private rightClicked(){}
   }
 </script>
 
@@ -121,6 +135,11 @@
       &_details{
         font-size: 14px;
       }
+    }
+    &_rightText{
+      display: flex;
+      flex-grow: 0;
+      font-size: 14px;
     }
     &_rightIcon{
       display: flex;

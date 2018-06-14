@@ -13,6 +13,7 @@ const Tag:AsyncComponent=()=>import('@/pages/tag.vue')
 const Input:AsyncComponent=()=>import('@/pages/input.vue')
 const Radio:AsyncComponent=()=>import('@/pages/radio.vue')
 const Stepper:AsyncComponent=()=>import('@/pages/Stepper.vue')
+const Table:AsyncComponent=()=>import('@/pages/Table.vue')
 
 const routes:RouteConfig[]=[
   {
@@ -54,6 +55,10 @@ const routes:RouteConfig[]=[
   {
     path:'/stepper',
     component:Stepper
+  },
+  {
+    path:'/table',
+    component:Table
   }
 ]
 

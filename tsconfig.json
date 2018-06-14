@@ -59,6 +59,7 @@
     "typings/tabBar.d.ts",
     "typings/highLight.d.ts",
     "typings/input.d.ts",
-    "typings/radio.d.ts"
+    "typings/radio.d.ts",
+    "typings/table.d.ts"
   ]
 }

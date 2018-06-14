@@ -35,6 +35,10 @@
     {
       "name":"q-stepper",
       "href":"/stepper"
+    },
+    {
+      "name":"q-table",
+      "href":"/table"
     }
   ]
 }
