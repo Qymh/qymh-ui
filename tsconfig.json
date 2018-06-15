@@ -60,6 +60,7 @@
     "typings/highLight.d.ts",
     "typings/input.d.ts",
     "typings/radio.d.ts",
-    "typings/table.d.ts"
+    "typings/table.d.ts",
+    "typings/overlay.d.ts"
   ]
 }

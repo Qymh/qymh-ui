@@ -2,6 +2,7 @@
 import './fonts/iconfont.css'
 import './style/highLight.scss'
 import './style/widget.scss'
+import './style/animate.scss'
 
 import '../packages/widget'
 
@@ -16,6 +17,7 @@ import Input from '../packages/input'
 import Radio from '../packages/radio'
 import Stepper from '../packages/stepper'
 import Table from '../packages/table'
+import Overlay from '../packages/overlay'
 
 const components=[
   Row,
@@ -28,7 +30,8 @@ const components=[
   Input,
   Radio,
   Stepper,
-  Table
+  Table,
+  Overlay
 ]
 
 const install=function(Vue:any,opts={}){

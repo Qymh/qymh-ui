@@ -8,7 +8,7 @@
       :rightEmpty="true")
     q-row(mt=2)
       q-head-bar(
-        bkColor="orange"
+        bkColor="#F65A44"
         color="white"
         leftText="返回"
         centerText="商品"

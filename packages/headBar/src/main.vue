@@ -152,14 +152,17 @@
       if(this.$slots.left){
         let left:any=this.$slots.left[0].elm
         left.classList.add('slot_left')
+        left.addEventListener('click',this.leftClicked)
       }
       if(this.$slots.center){
         let center:any=this.$slots.center[0].elm
         center.classList.add('slot_center')
+        center.addEventListener('click',this.centerClicked)
       }
       if(this.$slots.right){
         let right:any=this.$slots.right[0].elm
         right.classList.add('slot_right')
+        right.addEventListener('click',this.rightClicked)
       }
     }
 

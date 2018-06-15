@@ -8,7 +8,7 @@
       :rightEmpty="true")
     q-row(h=5)
     q-tag(value="测试")
-    q-tag(ml=2 value="测试2" bkColor="orange")
+    q-tag(ml=2 value="测试2" bkColor="#F65A44")
     q-tag(
       ml=2 pt=3 pb=3 pl=5 pr=5 fontSize=16
       value="大" bkColor="deepskyblue")
@@ -18,14 +18,14 @@
       :hasBorder="!active"
       bkColor="white"
       color="#333"
-      activeBkColor="orange"
+      activeBkColor="#F65A44"
       @clicked="change")
     q-tag(
       ml=2
       value="无圆角值"
       :hasRadius="false"
       :hasBorder="true"
-      borderColor="orange"
+      borderColor="#F65A44"
       bkColor="white"
       color="#333")
 </template>

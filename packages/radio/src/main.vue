@@ -34,15 +34,15 @@
     private hasBorder:boolean
 
     // 边框颜色
-    @Prop({default:'orange'})
+    @Prop({default:'#F65A44'})
     private borderColor:string
 
     // 激活下的颜色
-    @Prop({default:'orange'})
+    @Prop({default:'#F65A44'})
     private activeColor:string
 
     // 激活下的背景颜色
-    @Prop({default:'orange'})
+    @Prop({default:'#F65A44'})
     private activeBkColor:string
 
     private get computedStyle(){

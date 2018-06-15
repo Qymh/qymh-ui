@@ -1,7 +1,7 @@
 <template lang="pug">
   .tabBar
     q-head-bar(
-      bkColor="orange"
+      bkColor="deepskyblue"
       color="#fff"
       :leftArrow="true"
       centerText="q-tab-bar"
@@ -27,20 +27,20 @@
         icon:'q-icon icon-newshot',
         iconColor:'',
         activeIcon:'q-icon icon-newshotfill',
-        activeIconColor:'orange',
+        activeIconColor:'#F65A44',
         text:'订单',
         textColor:'',
-        activeTextColor:'orange',
+        activeTextColor:'#F65A44',
         active:true
       },
       {
         icon:'q-icon icon-hot',
         iconColor:'',
         activeIcon:'q-icon icon-hotfill',
-        activeIconColor:'orange',
+        activeIconColor:'#F65A44',
         text:'热门',
         textColor:'',
-        activeTextColor:'orange',
+        activeTextColor:'#F65A44',
         active:false,
         detailsMsg:123,
         detailsMsgColor:'',
@@ -50,10 +50,10 @@
         icon:'q-icon icon-people',
         iconColor:'',
         activeIcon:'q-icon icon-peoplefill',
-        activeIconColor:'orange',
+        activeIconColor:'#F65A44',
         text:'个人',
         textColor:'',
-        activeTextColor:'orange',
+        activeTextColor:'#F65A44',
         active:false,
         detailsPoint:true,
         detailsPointColor:''

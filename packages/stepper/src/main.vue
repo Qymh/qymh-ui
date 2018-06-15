@@ -22,7 +22,7 @@
     private value:number
 
     // 传入的值的颜色
-    @Prop({default:'orange'})
+    @Prop({default:'#F65A44'})
     private color:string
 
     // 允许的最小值 
@@ -118,13 +118,14 @@
       float: left;
       line-height: normal;
       &_input{
-        width: 1rem;
+        width: 1.2rem;
         height: 0.6rem;
         text-align: center;
         border-left: 1px solid #666;
         border-right: 1px solid #666;
         border-top: 0;
         border-bottom: 0;
+        border-radius: 0;
         font-size: 12px;
       }
     }

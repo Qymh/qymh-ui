@@ -128,14 +128,14 @@
           title="左和上")
         //- 左和上
         q-row(dir="left")
-          q-row(bkColor="orange" col=50) 123
+          q-row(bkColor="#F65A44" col=50) 123
           q-row(col=50 dir="top")
             q-row(bkColor="lightGreen") 456
             q-row(bkColor="pink") 789
         //- 代码
         q-code(type="html").
           &ltq-row dir="left"&gt
-            &ltq-row bkColor="orange" col="50"&gt123&lt/q-row&gt
+            &ltq-row bkColor="#F65A44" col="50"&gt123&lt/q-row&gt
             &ltq-row dir="top" col="50"&gt
               &ltq-row bkColor="lightGreen"&gt456&lt/q-row&gt
               &ltq-row bkColor="pink"&gt789&lt/q-row&gt
@@ -150,14 +150,14 @@
           title="右和下")
         //- 右和下
         q-row(dir="right" mt=2)
-          q-row(bkColor="orange" col=50) 123
+          q-row(bkColor="#F65A44" col=50) 123
           q-row(col=50 dir="bottom")
             q-row(bkColor="lightGreen") 456
             q-row(bkColor="pink") 789
         //- 代码
         q-code(type="html").
           &ltq-row dir="right"&gt
-            &ltq-row bkColor="orange" col="50"&gt123&lt/q-row&gt
+            &ltq-row bkColor="#F65A44" col="50"&gt123&lt/q-row&gt
             &ltq-row dir="bottom" col="50"&gt
               &ltq-row bkColor="lightGreen"&gt456&lt/q-row&gt
               &ltq-row bkColor="pink"&gt789&lt/q-row&gt

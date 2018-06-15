@@ -1,11 +1,12 @@
 <template lang="pug">
   .home
     //- 头部
-    q-row(tag="header")
+    q-row(tag="header" position="fixed" t=0 l=0 col=100 bkColor="white")
       q-title-bar(
         :borderBottom="true"
         title="QymhUI"
         titleColor="deepskyblue")
+    q-row(h=12)
     //- 组件导航
     q-row(
       v-for="(infor,index) in homeInfor"

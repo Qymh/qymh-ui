@@ -36,6 +36,7 @@
     justify-content: center;
     padding: 0.4rem;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     &_box{
       border-collapse: collapse;
       width: 100%;

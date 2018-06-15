@@ -83,7 +83,16 @@
           if(value.indexOf('.')>-1&&(keyCode===190||keyCode===110)){
             e.returnValue=false
           }else{
-            e.returnValue=true
+            if(keyCode>=48&&keyCode<=57||
+              keyCode>=96&&keyCode<=105){
+              if(isNaN(e.key)){
+                e.returnValue=false
+              }else{
+                e.returnValue=true
+              }
+            }else{
+              e.returnValue=true
+            }
           }
         }else{
           e.returnValue=false
@@ -99,7 +108,16 @@
           keyCode>=37&&keyCode<=40||
           keyCode===8
         ){
-          e.returnValue=true
+          if(keyCode>=48&&keyCode<=57||
+            keyCode>=96&&keyCode<=105){
+            if(isNaN(e.key)){
+              e.returnValue=false
+            }else{
+              e.returnValue=true
+            }
+          }else{
+            e.returnValue=true
+          }
         }else{
           e.returnValue=false
         }

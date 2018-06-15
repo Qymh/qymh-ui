@@ -8,7 +8,7 @@
       :rightEmpty="true")
     q-row(h=2)
     q-search-bar(
-      bkColor="orange"
+      bkColor="#F65A44"
       color="white"
       searchBkColor="white"
       leftText="返回"
