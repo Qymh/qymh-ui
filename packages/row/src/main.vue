@@ -62,7 +62,7 @@
           style='center'
           break
         case 'end':
-          style='end'
+          style='flex-end'
           break
       }
       return style
@@ -79,7 +79,7 @@
           style='center'
           break
         case 'end':
-          style='end'
+          style='flex-end'
           break
       }
       return style

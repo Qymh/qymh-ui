@@ -9,7 +9,7 @@
     transition(
       name="details"
       :enter-active-class="ComputedEnterClass"
-      leave-active-class="animated fadeOutRight")
+      :leave-active-class="ComputedLeaveClass")
       .q_overlay_box(
         v-if="computedShow"
         :style="computedBoxStyle")
@@ -35,10 +35,23 @@
     @Prop({default:0.3})
     private opacity:number|string
 
+    // 蒙层背景颜色
+    @Prop({default:'#ffffff'})
+    private bkColor:string
+
+    // 蒙层的最小高度
+    @Prop({default:10})
+    private minHeight:number
+
+    // 蒙层的最大高度
+    @Prop({default:13})
+    private maxHeight:number
+
     // 蒙层是否展现
     @Prop({default:false})
     private show:boolean
 
+    // 监听蒙层的显示
     @Watch('show')
     onShowChanged(val:boolean){
       this.computedShow=this.show
@@ -59,7 +72,17 @@
       }
       if(this.position==='top'||this.position==='bottom'){
         style.minHeight='10rem'
+        if(this.position==='top'){
+          style.top=0
+        }else{
+          style.bottom=0
+        }
+        style.width='100%'
+        style.left=0
+        style.minHeight=this.minHeight+'rem'
+        style.maxHeight=this.maxHeight+'rem'
       }
+      style.backgroundColor=this.bkColor
       return style
     }
 
@@ -70,10 +93,40 @@
         case 'right':
           style='animated fadeInRight'
           break
+        case 'left':
+          style='animated fadeInLeft'
+          break
+        case 'top':
+          style='animated fadeInDown'
+          break
+        case 'bottom':
+          style='animated fadeInUp'
+          break
       }
       return style
     }
 
+    // 计算后的盒子离开样式
+    private get ComputedLeaveClass(){
+      let style:string=''
+      switch (this.position) {
+        case 'right':
+          style='animated fadeOutRight'
+          break
+        case 'left':
+          style="animated fadeOutLeft"
+          break
+        case 'top':
+          style='animated fadeOutUp'
+          break
+        case 'bottom':
+          style='animated fadeOutDown'
+          break
+      }
+      return style
+    }
+
+    // 获取视口高度宽度
     private mounted(){
       let clientHeight=document.documentElement.clientHeight||document.body.clientHeight||window.innerHeight
       let clientWidth=document.documentElement.clientWidth||document.body.clientWidth||window.innerWidth
@@ -81,8 +134,10 @@
       this.clientWidth=clientWidth
     }
 
+    // 隐藏蒙层
     private hide(){
       this.computedShow=false
+      this.$emit('hide')
     }
   }
 </script>
@@ -99,7 +154,6 @@
     &_box{
       position: fixed;
       z-index: 7;
-      background-color: #ffffff; 
     }
   }
 </style>

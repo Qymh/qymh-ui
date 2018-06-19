@@ -1,14 +1,14 @@
 <script lang="tsx">
   import {CreateElement} from 'vue'
-  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
+  import {Vue,Component,Prop,Emit, Watch} from 'vue-property-decorator'
   import Proto from '../../proto/input/main.vue'
   import createStyle from '../../proto/input/index'
 
   @Component({})
   export default class qInput extends Proto{
-    
-    // 输入的值
-    private inputValue:string=''
+    // 传入的值
+    @Prop({default:''})
+    private value:any
 
     // 是否有全局border
     @Prop({default:false})
@@ -133,6 +133,7 @@
           e.returnValue=true
         }
       }
+      this.$emit('input',e.target.value)
     }
 
     // 值改变
@@ -178,6 +179,7 @@
           }
         }
       }
+      this.$emit('input',e.target.value)
     }
 
     // 提交
@@ -222,7 +224,8 @@
         h('input',{
           attrs:{
             placeholder:this.placeholder,
-            type:this.type==='integer'?'number':this.type
+            type:this.type==='integer'?'number':this.type,
+            value:this.value
           },
           on:{
             keydown:this.keydown,
