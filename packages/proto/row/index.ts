@@ -40,19 +40,33 @@ export default function createStyle(vm:any){
     paddingBottom:vm.pb===0?'':`${vm.pb/10}rem`,
     // padding-left
     paddingLeft:vm.pl===0?'':`${vm.pl/10}rem`,
+    // border-radius
+    borderRadius:vm.radius===0?'':`${vm.radius/10}rem`,
 
     // color
     color:vm.color,
     // 背景颜色
     backgroundColor:vm.bkColor,
     // text-align
-    textAlign:vm.textAlign
+    textAlign:vm.textAlign,
+    // z-index
+    zIndex:vm.zIndex,
+    // display
+    display:vm.display,
+    // vertical
+    verticalAlign:vm.vertical,
+    // overflow
+    overflow:vm.overflow
   }
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'){
+    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'||item==='inline'||item==='baseline'){
       delete style[i]
+    }
+    // 更符合移动端overflow auto的标准
+    if(i==='overflow'&&item==='auto'){
+      style['-webkit-overflow-scrolling']='touch'
     }
   }
   

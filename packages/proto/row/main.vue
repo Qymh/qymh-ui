@@ -90,6 +90,30 @@
     // text-align
     @Prop({default:''})
     public textAlign:common.textAlign
+
+    // z-index
+    @Prop({default:'auto'})
+    public zIndex:number
+
+    // display
+    @Prop({default:'inline'})
+    public display:common.display
+
+    // vertical-align
+    @Prop({default:'baseline'})
+    public vertical:common.vertical
+
+    // overflow
+    @Prop({default:'visible'})
+    public overflow:common.overflow
+
+    // text-decoration
+    @Prop({default:'none'})
+    public decoration:common.decoration
+
+    // border-radius
+    @Prop({default:0})
+    public radius:number|string
     
   }
 </script>
