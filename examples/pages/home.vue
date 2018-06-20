@@ -20,6 +20,7 @@
         :centerText="infor.name"
         :rightArrow="true"
         @clicked="go(infor.href)")
+    q-row(h=12)
 </template>
 
 <script lang="ts">

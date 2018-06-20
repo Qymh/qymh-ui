@@ -61,7 +61,7 @@ export default function createStyle(vm:any){
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'||item==='inline'||item==='baseline'){
+    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'||item==='inline'||item==='baseline'||item==='visible'){
       delete style[i]
     }
     // 更符合移动端overflow auto的标准

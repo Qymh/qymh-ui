@@ -1,6 +1,6 @@
 <template lang="pug">
   .overlay
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         bkColor="deepskyblue"
         color="#fff"
@@ -85,6 +85,8 @@
         q-overlay(
           position="bottom"
           :show="bottomShow"
+          :minHeight=1
+          :maxHeight=3
           @hide="bottomClickedHide")
           q-head-bar(
             bkColor="deepskyblue" color="#fff"

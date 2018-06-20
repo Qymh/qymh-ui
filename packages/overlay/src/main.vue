@@ -3,7 +3,7 @@
     // 背景
     .q_overlay_bk(
       v-if="computedShow"
-      @click.stop="hide"
+      @touchend="hide"
       :style="{height:clientHeight+'px',width:clientWidth+'px',opacity:opacity}")
     // 盒子
     transition(
@@ -26,6 +26,8 @@
     private clientWidth:number=0
     // 避免双向绑定的show
     private computedShow:boolean=false
+    // 最后选择的元素
+    private $last:any=''
 
     // 蒙层出现方向 
     @Prop({default:''})
@@ -55,6 +57,26 @@
     @Watch('show')
     onShowChanged(val:boolean){
       this.computedShow=this.show
+      let baseHeight=document.body.clientHeight
+      let $body=document.body
+      if(this.show){
+        this.findElement($body,baseHeight)
+        let $scroller=this.$last
+        $scroller.style.position='fixed'
+        $scroller.style.top=0
+        $scroller.style.left=0
+        $scroller.style.height='100vh'
+        $scroller.style.width='100%'
+        $scroller.style.overflow='hidden'
+      }else{
+        let $scroller=this.$last
+        $scroller.style.position='relative'
+        $scroller.style.top='auto'
+        $scroller.style.left='auto'
+        $scroller.style.height='auto'
+        $scroller.style.width='auto'
+        $scroller.style.overflow='auto'
+      }
     }
 
     // 计算后的盒子样式
@@ -128,16 +150,36 @@
 
     // 获取视口高度宽度
     private mounted(){
-      let clientHeight=document.documentElement.clientHeight||document.body.clientHeight||window.innerHeight
+      let clientHeight=document.documentElement.scrollHeight||document.body.scrollHeight
       let clientWidth=document.documentElement.clientWidth||document.body.clientWidth||window.innerWidth
       this.clientHeight=clientHeight
       this.clientWidth=clientWidth
     }
 
+    private findElement(element:Element,height:number){
+      let $children=Array.from(element.children)
+      for(let i in $children){
+        let item:any=$children[i]
+        if(Math.ceil(item.clientHeight)===height){
+          if(item){
+            this.$last=item
+            this.findElement(item,height)
+          }
+        }
+      }
+    }
+
     // 隐藏蒙层
     private hide(){
-      this.computedShow=false
       this.$emit('hide')
+      this.computedShow=false
+      let $scroller=this.$last
+      $scroller.style.position='relative'
+      $scroller.style.top='auto'
+      $scroller.style.left='auto'
+      $scroller.style.height='auto'
+      $scroller.style.width='auto'
+      $scroller.style.overflow='auto'
     }
   }
 </script>
@@ -154,6 +196,8 @@
     &_box{
       position: fixed;
       z-index: 7;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 </style>

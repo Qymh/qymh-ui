@@ -1,10 +1,10 @@
 <template lang="pug">
-  .headBar(
+  .q_headBar(
     :style="computedStyle"
     @click="clicked")
     
     //- 左侧
-    .headBar_left(
+    .q_headBar_left(
       v-if="!$slots.left&&(leftArrow||leftEmpty||leftText)"
       :style="{color:leftColor,width:bothWidth+'rem'}"
       @click="leftClicked")
@@ -22,7 +22,7 @@
       v-if="$slots.left")
 
     //- 中间
-    .headBar_center(
+    .q_headBar_center(
       :style="{color:centerColor}"
       v-if="!$slots.center&&(centerText||centerEmpty)"
       @click="centerClicked(centerText)")
@@ -37,7 +37,7 @@
       v-if="$slots.center")
 
     //- 右侧
-    .headBar_right(
+    .q_headBar_right(
       :style="{color:rightColor,width:bothWidth+'rem'}"
       v-if="!$slots.right&&(rightArrow||rightEmpty||rightText)"
       @click="rightClicked(rightText||$event)")
@@ -189,7 +189,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .headBar{
+  .q_headBar{
     height:1.2rem;
     display: flex;
     flex-direction: row;

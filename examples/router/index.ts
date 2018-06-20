@@ -69,7 +69,10 @@ const routes:RouteConfig[]=[
 
 const router:Router=new Router({
   mode:'history',
-  routes:routes
+  routes:routes,
+  scrollBehavior(to, from, savedPosition){
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router
