@@ -11,4 +11,6 @@ declare namespace common{
   export type overflow='auto'|'scroll'|'hidden'|'visible'
   // text-decoration
   export type decoration='none'|'underline'|'overline'|'line-through'
+  // word-break
+  export type wordBreak='normal'|'break-all'|'keep-all'
 }
