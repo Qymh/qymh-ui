@@ -114,6 +114,10 @@
     // border-radius
     @Prop({default:0})
     public radius:number|string
+
+    // word-break
+    @Prop({default:'normal'})
+    public wordBreak:common.wordBreak
     
   }
 </script>

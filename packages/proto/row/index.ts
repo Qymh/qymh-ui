@@ -53,10 +53,12 @@ export default function createStyle(vm:any){
     zIndex:vm.zIndex,
     // display
     display:vm.display,
-    // vertical
+    // vertical-align
     verticalAlign:vm.vertical,
     // overflow
-    overflow:vm.overflow
+    overflow:vm.overflow,
+    // word-break
+    wordBreak:vm.wordBreak
   }
 
   for(let i in style){
