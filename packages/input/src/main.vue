@@ -6,6 +6,10 @@
 
   @Component({})
   export default class qInput extends Proto{
+
+    // 是否可以向父组件传递
+    private canEmit:boolean=true
+
     // 传入的值
     @Prop({default:''})
     private value:any
@@ -56,12 +60,14 @@
 
     // 按下
     private keydown(e:any){
+      this.canEmit=true
       // 默认不允许输入emoji
       if(!this.allowedEmoji){
-        let value=e.target.value
+        let value=e.key
         let emojiRexExp=/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g
         let bool=emojiRexExp.test(value)
         if(bool){
+          this.canEmit=false
           e.returnValue=false
         }else{
           e.returnValue=true
@@ -71,7 +77,7 @@
       // 数字
       if(this.type==='number'){
         let keyCode=Number.parseInt(e.keyCode)
-        let value=e.target.value.toString()
+        let value=e.key.toString()
         // 小键盘0~9 数字键盘0~9 后退键 上下左右 小数点
         if(
           keyCode>=48&&keyCode<=57||
@@ -86,6 +92,7 @@
             if(keyCode>=48&&keyCode<=57||
               keyCode>=96&&keyCode<=105){
               if(isNaN(e.key)){
+                this.canEmit=false
                 e.returnValue=false
               }else{
                 e.returnValue=true
@@ -95,6 +102,7 @@
             }
           }
         }else{
+          this.canEmit=false
           e.returnValue=false
         }
       }
@@ -111,6 +119,7 @@
           if(keyCode>=48&&keyCode<=57||
             keyCode>=96&&keyCode<=105){
             if(isNaN(e.key)){
+              this.canEmit=false
               e.returnValue=false
             }else{
               e.returnValue=true
@@ -119,21 +128,10 @@
             e.returnValue=true
           }
         }else{
+          this.canEmit=false
           e.returnValue=false
         }
       }
-      // 邮箱
-      else if(this.type==='email'){
-        let value=e.target.value
-        let emailRegExp=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
-        let bool=emailRegExp.test(value)
-        if(bool){
-          e.returnValue=false
-        }else{
-          e.returnValue=true
-        }
-      }
-      this.$emit('input',e.target.value)
     }
 
     // 值改变
@@ -156,6 +154,17 @@
         let value=e.target.value
         let mobileRexExp=/^[1][3,4,5,7,8][0-9]{9}$/
         let bool=mobileRexExp.test(value)
+        if(bool){
+        }else{
+          this.$emit('errors',this.type)
+          e.target.value=''
+        }
+      }
+      // 邮箱
+      else if(this.type==='email'){
+        let value=e.target.value
+        let emailRegExp=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+        let bool=emailRegExp.test(value)
         if(bool){
         }else{
           this.$emit('errors',this.type)
@@ -188,6 +197,13 @@
       $input.blur()
       e.preventDefault()
       this.$emit('submit',$input.value)
+    }
+
+    // 输入
+    private input(e:any){
+      if(this.canEmit){
+        this.$emit('input',e.target.value)
+      }
     }
 
     // dom渲染
@@ -229,7 +245,8 @@
           },
           on:{
             keydown:this.keydown,
-            change:this.valueChange
+            change:this.valueChange,
+            input:this.input
           },
           style:Object.assign($inputStyle,style)
         })

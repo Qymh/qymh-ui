@@ -162,13 +162,27 @@
             max=8
             placeholder="最小长度为3最大长度为8"
             @errors="errors"&gt
+      // 双向绑定
+      q-row(mb=10)
+        q-title-bar(
+          leftIcon="q-icon icon-newshot"
+          leftIconColor="deepskyblue"
+          :hasPadding="false"
+          title="双向绑定")
+        q-input(
+          type="email" v-model="name"
+          placeholder="输入双向绑定")
+        q-row(wordBreak="break-all") {{name}}
 </template>
 
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'
   @Component({})
   export default class ExInput extends Vue{
-    errors(type:string){
+
+    private name:any=''
+
+    private errors(type:string){
       if(type==='tel'){
         this.$notice.toast('电话输入不符合规范!')
       }
@@ -176,7 +190,7 @@
         this.$notice.toast('长度不符合规范!')
       }
     }
-    submit(value:string){
+    private submit(value:string){
       this.$notice.toast(`搜索的值为:${value}`)
     }
   }
