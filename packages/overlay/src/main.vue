@@ -156,6 +156,7 @@
       this.clientWidth=clientWidth
     }
 
+    // 查找容器盒子元素
     private findElement(element:Element,height:number){
       let $children=Array.from(element.children)
       for(let i in $children){

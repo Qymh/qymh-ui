@@ -85,8 +85,6 @@
         q-overlay(
           position="bottom"
           :show="bottomShow"
-          :minHeight=1
-          :maxHeight=3
           @hide="bottomClickedHide")
           q-head-bar(
             bkColor="deepskyblue" color="#fff"
