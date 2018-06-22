@@ -5,6 +5,10 @@
       "href":"/row"
     },
     {
+      "name":"q-text",
+      "href":"/text"
+    },
+    {
       "name":"q-title-bar",
       "href":"/titleBar"
     },

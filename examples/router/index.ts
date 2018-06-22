@@ -15,6 +15,7 @@ const Radio:AsyncComponent=()=>import('@/pages/radio.vue')
 const Stepper:AsyncComponent=()=>import('@/pages/Stepper.vue')
 const Table:AsyncComponent=()=>import('@/pages/Table.vue')
 const Overlay:AsyncComponent=()=>import('@/pages/Overlay.vue')
+const Text:AsyncComponent=()=>import('@/pages/text.vue')
 
 const routes:RouteConfig[]=[
   {
@@ -64,6 +65,10 @@ const routes:RouteConfig[]=[
   {
     path:'/overlay',
     component:Overlay
+  },
+  {
+    path:'/text',
+    component:Text
   }
 ]
 

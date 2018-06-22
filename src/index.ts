@@ -7,6 +7,7 @@ import './style/animate.scss'
 import '../packages/widget'
 
 import Row from '../packages/row'
+import Text from '../packages/text'
 import TitleBar from '../packages/titleBar'
 import HeadBar from '../packages/headBar'
 import SearchBar from '../packages/searchBar'
@@ -21,6 +22,7 @@ import Overlay from '../packages/overlay'
 
 const components=[
   Row,
+  Text,
   TitleBar,
   HeadBar,
   SearchBar,
@@ -31,7 +33,7 @@ const components=[
   Radio,
   Stepper,
   Table,
-  Overlay
+  Overlay,
 ]
 
 const install=function(Vue:any,opts={}){
