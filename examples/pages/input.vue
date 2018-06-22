@@ -169,10 +169,16 @@
           leftIconColor="deepskyblue"
           :hasPadding="false"
           title="双向绑定")
+        q-row(lh=9 fontSize=14) 直接在组件上使用<main>v-model</main>实现双向绑定
         q-input(
           type="email" v-model="name"
           placeholder="输入双向绑定")
-        q-row(wordBreak="break-all") {{name}}
+        q-row(lh=9 wordBreak="break-all")
+          q-row(tag="span" display="inline-block" fontSize=14) 双向绑定值:
+          q-row(tag="span" display="inline-block" fontSize=14) {{name}}
+        q-code(type="html").
+          &ltq-input type="text" v-model="name" placeholder="输入双向绑定"&gt
+          &lt/q-input&gt
 </template>
 
 <script lang="ts">

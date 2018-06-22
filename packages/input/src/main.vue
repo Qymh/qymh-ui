@@ -77,7 +77,7 @@
       // 数字
       if(this.type==='number'){
         let keyCode=Number.parseInt(e.keyCode)
-        let value=e.key.toString()
+        let value=e.target.value.toString()
         // 小键盘0~9 数字键盘0~9 后退键 上下左右 小数点
         if(
           keyCode>=48&&keyCode<=57||
@@ -118,7 +118,7 @@
         ){
           if(keyCode>=48&&keyCode<=57||
             keyCode>=96&&keyCode<=105){
-            if(isNaN(e.key)){
+            if(isNaN(e.target.value)){
               this.canEmit=false
               e.returnValue=false
             }else{
