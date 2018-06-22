@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import fastclick from 'fastclick'
+import fastclick from '@/lib/fastclick'
 import App from './App.vue'
 import router from './router'
 import Qymh from '../src/index'
