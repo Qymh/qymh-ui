@@ -4,6 +4,7 @@ import Router,{RouteConfig} from 'vue-router'
 Vue.use(Router)
 
 const Home:AsyncComponent=()=>import('@/pages/home.vue')
+const Text:AsyncComponent=()=>import('@/pages/text.vue')
 const Row:AsyncComponent=()=>import('@/pages/row.vue')
 const TitleBar:AsyncComponent=()=>import('@/pages/titleBar.vue')
 const HeadBar:AsyncComponent=()=>import('@/pages/headBar.vue')
@@ -15,7 +16,8 @@ const Radio:AsyncComponent=()=>import('@/pages/radio.vue')
 const Stepper:AsyncComponent=()=>import('@/pages/Stepper.vue')
 const Table:AsyncComponent=()=>import('@/pages/Table.vue')
 const Overlay:AsyncComponent=()=>import('@/pages/Overlay.vue')
-const Text:AsyncComponent=()=>import('@/pages/text.vue')
+const Files:AsyncComponent=()=>import('@/pages/files.vue')
+
 
 const routes:RouteConfig[]=[
   {
@@ -25,6 +27,10 @@ const routes:RouteConfig[]=[
   {
     path:'/row',
     component:Row
+  },
+  {
+    path:'/text',
+    component:Text
   },
   {
     path:'/titleBar',
@@ -67,8 +73,8 @@ const routes:RouteConfig[]=[
     component:Overlay
   },
   {
-    path:'/text',
-    component:Text
+    path:'/files',
+    component:Files
   }
 ]
 

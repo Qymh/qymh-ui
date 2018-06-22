@@ -47,6 +47,10 @@
     {
       "name":"q-overlay",
       "href":"/overlay"
+    },
+    {
+      "name":"q-files",
+      "href":"/files"
     }
   ]
 }

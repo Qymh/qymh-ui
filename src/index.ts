@@ -19,6 +19,7 @@ import Radio from '../packages/radio'
 import Stepper from '../packages/stepper'
 import Table from '../packages/table'
 import Overlay from '../packages/overlay'
+import Files from '../packages/files'
 
 const components=[
   Row,
@@ -34,6 +35,7 @@ const components=[
   Stepper,
   Table,
   Overlay,
+  Files
 ]
 
 const install=function(Vue:any,opts={}){
