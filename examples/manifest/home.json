@@ -1,55 +1,55 @@
 {
   "homeInfor":[
     {
-      "name":"q-row",
-      "href":"/row"
+      "name":"layout 布局",
+      "href":"/layout"
     },
     {
-      "name":"q-text",
+      "name":"text 文本",
       "href":"/text"
     },
     {
-      "name":"q-title-bar",
+      "name":"titleBar 标题",
       "href":"/titleBar"
     },
     {
-      "name":"q-head-bar",
+      "name":"headBar 头部导航",
       "href":"headBar"
     },
     {
-      "name":"q-search-bar",
+      "name":"searchBar 搜索导航",
       "href":"/searchBar"
     },
     {
-      "name":"q-tab-bar",
+      "name":"tabBar 底部导航",
       "href":"/tabBar"
     },
     {
-      "name":"q-tag",
+      "name":"tag 标签",
       "href":"/tag"
     },
     {
-      "name":"q-input",
-      "href":"/input"
+      "name":"form 表单",
+      "href":"/form"
     },
     {
-      "name":"q-radio",
+      "name":"radio 按钮",
       "href":"/radio"
     },
     {
-      "name":"q-stepper",
+      "name":"stepper 计步器",
       "href":"/stepper"
     },
     {
-      "name":"q-table",
+      "name":"table 表格",
       "href":"/table"
     },
     {
-      "name":"q-overlay",
+      "name":"overlay 蒙层",
       "href":"/overlay"
     },
     {
-      "name":"q-files",
+      "name":"files 文件上传",
       "href":"/files"
     }
   ]

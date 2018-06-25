@@ -9,6 +9,10 @@
 
     // 是否可以向父组件传递
     private canEmit:boolean=true
+    // 是否通过验证
+    private validator:boolean=true
+    // 验证出错的类型
+    private validatorArr:string[]=[]
 
     // 传入的值
     @Prop({default:''})
@@ -42,6 +46,10 @@
     @Prop({default:4})
     private fix:number
 
+    // 是否必填
+    @Prop({default:false})
+    private required:boolean
+
     // 是否允许输入emoji
     @Prop({default:false})
     private allowedEmoji:boolean
@@ -61,6 +69,7 @@
     // 按下
     private keydown(e:any){
       this.canEmit=true
+      this.validator=true
       // 默认不允许输入emoji
       if(!this.allowedEmoji){
         let value=e.key
@@ -68,6 +77,7 @@
         let bool=emojiRexExp.test(value)
         if(bool){
           this.canEmit=false
+          this.validator=false
           e.returnValue=false
         }else{
           e.returnValue=true
@@ -93,6 +103,7 @@
               keyCode>=96&&keyCode<=105){
               if(isNaN(e.key)){
                 this.canEmit=false
+                this.validator=false
                 e.returnValue=false
               }else{
                 e.returnValue=true
@@ -103,6 +114,7 @@
           }
         }else{
           this.canEmit=false
+          this.validator=false
           e.returnValue=false
         }
       }
@@ -120,6 +132,7 @@
             keyCode>=96&&keyCode<=105){
             if(isNaN(e.target.value)){
               this.canEmit=false
+              this.validator=false
               e.returnValue=false
             }else{
               e.returnValue=true
@@ -129,6 +142,7 @@
           }
         }else{
           this.canEmit=false
+          this.validator=false
           e.returnValue=false
         }
       }
@@ -142,8 +156,8 @@
         let value=e.target.value
         let vm:any=new Vue()
         if(isNaN(value)||!value){
-          vm.$notice.toast('请输入正确的数字!')
-          later=''
+          this.validator=false
+          this.$emit('errors',this.type)
         }else{
           later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
         }
@@ -156,8 +170,8 @@
         let bool=mobileRexExp.test(value)
         if(bool){
         }else{
+          this.validator=false
           this.$emit('errors',this.type)
-          e.target.value=''
         }
       }
       // 邮箱
@@ -167,8 +181,8 @@
         let bool=emailRegExp.test(value)
         if(bool){
         }else{
+          this.validator=false
           this.$emit('errors',this.type)
-          e.target.value=''
         }
       }
 
@@ -177,32 +191,38 @@
         let len=e.target.value.length
         if(this.max){
           if(len>this.max){
+            this.validator=false
             this.$emit('errors','max')
-            e.target.value=''
           }
         }
         if(this.min){
           if(len<this.min){
+            this.validator=false
             this.$emit('errors','min')
-            e.target.value=''
           }
         }
       }
-      this.$emit('input',e.target.value)
-    }
-
-    // 提交
-    private submit(e:any){
-      let $input=e.target.children[0]
-      $input.blur()
-      e.preventDefault()
-      this.$emit('submit',$input.value)
+      if(typeof this.value==='object'){
+        this.$emit('input',{
+          value:e.target.value,
+          validator:this.validator?this.validator:false
+        })
+      }else{
+        this.$emit('input',e.target.value)
+      }
     }
 
     // 输入
     private input(e:any){
       if(this.canEmit){
-        this.$emit('input',e.target.value)
+        if(typeof this.value==='object'){
+          this.$emit('input',{
+            value:e.target.value,
+            validator:this.validator?this.validator:false
+          })
+        }else{
+          this.$emit('input',e.target.value)
+        }
       }
     }
 
@@ -211,7 +231,7 @@
       let style=createStyle(this)
       let $inputStyle=Object.create(null)
       $inputStyle={
-        padding:0,
+        padding:'0.1rem 0.4rem 0.1rem 0.2rem',
         border:0,
         width:'100%',
         display:'inline-block',
@@ -228,29 +248,25 @@
         $inputStyle.borderBottomWidth='1px'
         $inputStyle.borderBottomColor=this.borderColor
       }
-      return h('form',{
-        attrs:{
-          action:'#',
-          methods:'#'
-        },
-        on:{
-          submit:this.submit,
-        }
-      },[
+      return(
         h('input',{
           attrs:{
             placeholder:this.placeholder,
             type:this.type==='integer'?'number':this.type,
-            value:this.value
+            value:typeof this.value==='object'?this.value.value:this.value
           },
           on:{
             keydown:this.keydown,
             change:this.valueChange,
             input:this.input
           },
+          class:{
+            'q-input':true
+          },
           style:Object.assign($inputStyle,style)
         })
-      ])
+      ) 
     }
   }  
 </script>
+

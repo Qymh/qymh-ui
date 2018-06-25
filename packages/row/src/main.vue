@@ -51,40 +51,6 @@
       return dir
     }
 
-    // 计算后的水平对齐方式
-    private get computedJustify(){
-      let style:string=''
-      switch (this.justify) {
-        case 'start':
-          style='flex-start'
-          break
-        case 'center':
-          style='center'
-          break
-        case 'end':
-          style='flex-end'
-          break
-      }
-      return style
-    }
-
-    // 计算后的垂直对齐
-    private get computedAlign(){
-      let style:string=''
-      switch (this.align) {
-        case 'start':
-          style='flex-start'
-          break
-        case 'center':
-          style='center'
-          break
-        case 'end':
-          style='flex-end'
-          break
-      }
-      return style
-    }
-
     @Emit('clicked')
     private clicked(){}
 
@@ -102,8 +68,8 @@
       return h(this.tag,{
         style:Object.assign({
           display:this.computedDisplay,
-          justifyContent:this.computedJustify,
-          alignItems:this.computedAlign
+          justifyContent:this.justify,
+          alignItems:this.align
         },selectableStyle,style),
         on:{
           click:this.clicked

@@ -31,7 +31,7 @@ export default function createStyle(vm:any){
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='normal'){
+    if(item==='auto'||item==='normal'||item.trim()===''){
       delete style[i]
     }
   }
