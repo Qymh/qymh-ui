@@ -5,18 +5,22 @@
   import createStyle from '../../proto/input/index'
 
   @Component({})
-  export default class qInput extends Proto{
+  export default class QInput extends Proto{
 
     // 是否可以向父组件传递
     private canEmit:boolean=true
-    // 是否通过验证
-    private validator:boolean=true
-    // 验证出错的类型
-    private validatorArr:string[]=[]
+    // 当前的父元素QForm
+    private qForm:any=''
+    // 当前存在的规则约束
+    private rules:any=''
 
     // 传入的值
     @Prop({default:''})
     private value:any
+
+    // 当前的约束对应属性名
+    @Prop({default:''})
+    private prop:any 
 
     // 是否有全局border
     @Prop({default:false})
@@ -46,14 +50,6 @@
     @Prop({default:4})
     private fix:number
 
-    // 是否必填
-    @Prop({default:false})
-    private required:boolean
-
-    // 是否允许输入emoji
-    @Prop({default:false})
-    private allowedEmoji:boolean
-
     // placeholder
     @Prop({default:''})
     private placeholder:string
@@ -69,41 +65,66 @@
     // 按下
     private keydown(e:any){
       this.canEmit=true
-      this.validator=true
-      // 默认不允许输入emoji
-      if(!this.allowedEmoji){
-        let value=e.key
-        let emojiRexExp=/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g
-        let bool=emojiRexExp.test(value)
-        if(bool){
-          this.canEmit=false
-          this.validator=false
-          e.returnValue=false
-        }else{
-          e.returnValue=true
-        }
-      }
-
-      // 数字
-      if(this.type==='number'){
-        let keyCode=Number.parseInt(e.keyCode)
-        let value=e.target.value.toString()
-        // 小键盘0~9 数字键盘0~9 后退键 上下左右 小数点
-        if(
-          keyCode>=48&&keyCode<=57||
-          keyCode>=96&&keyCode<=105||
-          keyCode>=37&&keyCode<=40||
-          keyCode===8||keyCode===190
-        ){
-          // 只能允许有一个小数点
-          if(value.indexOf('.')>-1&&(keyCode===190||keyCode===110)){
+      this.rules.forEach((rule:any)=>{
+        // 默认不允许输入emoji
+        if(!rule.allowedEmoji){
+          let value=e.key
+          let emojiRexExp=/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g
+          let bool=emojiRexExp.test(value)
+          if(bool){
+            this.canEmit=false
             e.returnValue=false
           }else{
+            e.returnValue=true
+          }
+        }
+  
+        // 数字
+        if(rule.type==='number'){
+          let keyCode=Number.parseInt(e.keyCode)
+          let value=e.target.value.toString()
+          // 小键盘0~9 数字键盘0~9 后退键 上下左右 小数点
+          if(
+            keyCode>=48&&keyCode<=57||
+            keyCode>=96&&keyCode<=105||
+            keyCode>=37&&keyCode<=40||
+            keyCode===8||keyCode===190
+          ){
+            // 只能允许有一个小数点
+            if(value.indexOf('.')>-1&&(keyCode===190||keyCode===110)){
+              e.returnValue=false
+            }else{
+              if(keyCode>=48&&keyCode<=57||
+                keyCode>=96&&keyCode<=105){
+                if(isNaN(e.key)){
+                  this.canEmit=false
+                  e.returnValue=false
+                }else{
+                  e.returnValue=true
+                }
+              }else{
+                e.returnValue=true
+              }
+            }
+          }else{
+            this.canEmit=false
+            e.returnValue=false
+          }
+        }
+        // 整数
+        else if(rule.type==='integer'){
+          let keyCode=Number.parseInt(e.keyCode)
+          // 小键盘0~9 数字键盘0~9 后退键 上下左右
+          if(
+            keyCode>=48&&keyCode<=57||
+            keyCode>=96&&keyCode<=105||
+            keyCode>=37&&keyCode<=40||
+            keyCode===8
+          ){
             if(keyCode>=48&&keyCode<=57||
               keyCode>=96&&keyCode<=105){
-              if(isNaN(e.key)){
+              if(isNaN(e.target.value)){
                 this.canEmit=false
-                this.validator=false
                 e.returnValue=false
               }else{
                 e.returnValue=true
@@ -111,118 +132,89 @@
             }else{
               e.returnValue=true
             }
-          }
-        }else{
-          this.canEmit=false
-          this.validator=false
-          e.returnValue=false
-        }
-      }
-      // 整数
-      else if(this.type==='integer'){
-        let keyCode=Number.parseInt(e.keyCode)
-        // 小键盘0~9 数字键盘0~9 后退键 上下左右
-        if(
-          keyCode>=48&&keyCode<=57||
-          keyCode>=96&&keyCode<=105||
-          keyCode>=37&&keyCode<=40||
-          keyCode===8
-        ){
-          if(keyCode>=48&&keyCode<=57||
-            keyCode>=96&&keyCode<=105){
-            if(isNaN(e.target.value)){
-              this.canEmit=false
-              this.validator=false
-              e.returnValue=false
-            }else{
-              e.returnValue=true
-            }
           }else{
-            e.returnValue=true
+            this.canEmit=false
+            e.returnValue=false
           }
-        }else{
-          this.canEmit=false
-          this.validator=false
-          e.returnValue=false
         }
-      }
+      })
     }
 
     // 值改变
-    private valueChange(e:any){
+    private valueBlur(e:any){
       let later:string|number=''
-      // 数字
-      if(this.type==='number'){
-        let value=e.target.value
-        let vm:any=new Vue()
-        if(isNaN(value)||!value){
-          this.validator=false
-          this.$emit('errors',this.type)
-        }else{
-          later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
+      let vm:any=new Vue()
+      this.rules.forEach((rule:any)=>{
+        // 检查必填
+        if(rule.required){
+          let value=e.target.value
+          if(value.trim()===''){
+            rule.isError=true
+          }
         }
-        e.target.value=later
-      }
-      // 电话
-      else if(this.type==='tel'){
-        let value=e.target.value
-        let mobileRexExp=/^[1][3,4,5,7,8][0-9]{9}$/
-        let bool=mobileRexExp.test(value)
-        if(bool){
-        }else{
-          this.validator=false
-          this.$emit('errors',this.type)
+        // 数字
+        if(rule.type==='number'){
+          let value=e.target.value
+          if(isNaN(value)||!value){
+            rule.isError=true
+          }else{
+            later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
+          }
+          e.target.value=later
         }
-      }
-      // 邮箱
-      else if(this.type==='email'){
-        let value=e.target.value
-        let emailRegExp=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-        let bool=emailRegExp.test(value)
-        if(bool){
-        }else{
-          this.validator=false
-          this.$emit('errors',this.type)
+        // 电话
+        else if(rule.type==='tel'){
+          let value=e.target.value
+          let mobileRexExp=/^[1][3,4,5,7,8][0-9]{9}$/
+          let bool=mobileRexExp.test(value)
+          if(bool){
+          }else{
+            rule.isError=true
+          }
         }
-      }
+        // 邮箱
+        else if(rule.type==='email'){
+          let value=e.target.value
+          let emailRegExp=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+          let bool=emailRegExp.test(value)
+          if(bool){
+          }else{
+            rule.isError=true
+          }
+        }
+        
+        // 长度检查
+        if(rule.max||rule.min){
+          let len=e.target.value.length
+          if(rule.max){
+            if(len>rule.max){
+              rule.isError=true
+            }
+          }
+          if(rule.min){
+            if(len<rule.min){
+              rule.isError=true
+            }
+          }
+        }
+      })
 
-      // 长度检查
-      if(this.max||this.min){
-        let len=e.target.value.length
-        if(this.max){
-          if(len>this.max){
-            this.validator=false
-            this.$emit('errors','max')
-          }
-        }
-        if(this.min){
-          if(len<this.min){
-            this.validator=false
-            this.$emit('errors','min')
-          }
-        }
-      }
-      if(typeof this.value==='object'){
-        this.$emit('input',{
-          value:e.target.value,
-          validator:this.validator?this.validator:false
-        })
-      }else{
-        this.$emit('input',e.target.value)
-      }
+      this.$emit('input',e.target.value)
     }
 
     // 输入
     private input(e:any){
       if(this.canEmit){
-        if(typeof this.value==='object'){
-          this.$emit('input',{
-            value:e.target.value,
-            validator:this.validator?this.validator:false
-          })
-        }else{
-          this.$emit('input',e.target.value)
-        }
+        this.$emit('input',e.target.value)
+      }
+    }
+
+    // 寻找q-form
+    private findQForm(vm:any):any{
+      if(vm.$parent.$options.name!=='QForm'){
+        this.findQForm(vm.$parent)
+      }else{
+        this.qForm=vm.$parent
       }
     }
 
@@ -257,7 +249,7 @@
           },
           on:{
             keydown:this.keydown,
-            change:this.valueChange,
+            blur:this.valueBlur,
             input:this.input
           },
           class:{
@@ -266,6 +258,16 @@
           style:Object.assign($inputStyle,style)
         })
       ) 
+    }
+
+    // 挂载完成
+    private mounted() {
+      this.findQForm(this)
+      for(let i of Object.keys(this.qForm.rules)){
+        if(i===this.prop){
+          this.rules=this.qForm.rules[i]
+        }
+      }
     }
   }  
 </script>

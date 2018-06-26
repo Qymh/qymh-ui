@@ -8,22 +8,34 @@
   
   @Component({})
   export default class QForm extends Vue{
+    // 表单数组
+    private qInput:any[]=[]
 
     @Prop({default:''})
     private model:any
+    
+    @Prop({default:''})
+    private rules:any
 
     private validate(){
       return new Promise(resolve=>{
-        let baned:string[]=[]
-        for(let i of Object.keys(this.model)){
-          let item=this.model[i]
-          if(typeof item==='object'){
-            item.validator===false&&baned.push(item.name)
-          }
-        }
-        console.log(baned)
         resolve
       })
+    }
+
+    private findQInput(vm:any){
+      vm.$children.forEach((p:any)=>{
+        if(p.$options.name==='QInput'){
+          this.qInput.push(p)
+        }else{
+          this.findQInput(p)
+        }
+      })
+    }
+
+    private mounted() {
+      this.findQInput(this)
+      console.log(this.qInput)
     }
   }
 </script>

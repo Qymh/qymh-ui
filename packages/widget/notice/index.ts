@@ -19,10 +19,10 @@ Notice.install=(Vue:any)=>{
     /**
      * 吐丝提醒
      * @param message 消息
-     * @param timeout 时间
      * @param position 位置
+     * @param timeout 时间
      */
-    toast(message:string,timeout:number=1500,position:string='center'){
+    toast(message:string,position:string='center',timeout:number=1500){
       let libHtml=ce('div')
       let innerIndex=index
       libHtml.classList.add('notice','notice_toast','fadeIn',`count_${index}`)
