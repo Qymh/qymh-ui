@@ -22,6 +22,10 @@
     @Prop({default:''})
     private align:row.align
 
+    // 段落堆叠
+    @Prop({default:''})
+    private wrap:row.wrap
+
     // flex值
     @Prop({default:0})
     private flex:number
@@ -52,7 +56,8 @@
     }
 
     @Emit('clicked')
-    private clicked(){}
+    private clicked(){
+    }
 
     // 虚拟Dom渲染
     private render(h:CreateElement){
@@ -69,7 +74,8 @@
         style:Object.assign({
           display:this.computedDisplay,
           justifyContent:this.justify,
-          alignItems:this.align
+          alignItems:this.align,
+          flexWrap:this.wrap
         },selectableStyle,style),
         on:{
           click:this.clicked

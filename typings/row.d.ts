@@ -5,4 +5,6 @@ declare namespace row{
   export type justify='flex-start'|'center'|'flex-end'
   // 垂直对齐
   export type align='flex-start'|'center'|'flex-end'
+  // 段落堆叠
+  export type wrap='nowrap'|'wrap'|'warp-reverse'
 }
