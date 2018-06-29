@@ -24,11 +24,11 @@
         q-row(flex="dir:left" h=12 align="center" fontSize=14)
           q-col(w=15 textAlign="center") 年龄:
           q-input(
-            prop="age"
-            type="integer"
-            v-model="datas.age"
+            prop="tel"
+            type="tel"
+            v-model="datas.tel"
             :required="true"
-            placeholder="请输入年龄:")
+            placeholder="请输入电话:")
         q-row(justify="flex-end")
           q-tag(value="提交" bkColor="deepskyblue" @clicked="submit")
         q-row
@@ -41,23 +41,26 @@
   export default class ExInput extends Vue{
     private datas:any={
       name:'',
-      age:''
+      tel:''
     }
 
     private rules:any={
       name:[
         {required:true,message:'名字不能为空'},
-        {min:3,max:5,message:'长度在3到5个字符'}
+        {min:3,max:5,message:'名字长度在3到5个字符'}
       ],
-      age:[
-        {required:true,message:'年龄不能为空'}
+      tel:[
+        {required:true,message:'电话不能为空'},
+        {type:'tel',message:'请输入正确的电话号码'}
       ]
     }
 
     private submit():void{
       let myForm:any=this.$refs.myForm
-      myForm.validate().then(()=>{
-        
+      myForm.validate().then((bool:boolean)=>{
+        if(bool){
+          this.$notice.toast('通过验证!')
+        }
       })
     }
   }

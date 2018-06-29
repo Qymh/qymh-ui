@@ -141,30 +141,32 @@
     }
 
     // 值改变
-    private valueBlur(e:any){
+    private valueBlur(){
       let later:string|number=''
       let vm:any=new Vue()
+      let $el:any=this.$el
       this.rules.forEach((rule:any)=>{
+        rule.isError=false
         // 检查必填
         if(rule.required){
-          let value=e.target.value
+          let value=$el.value
           if(value.trim()===''){
             rule.isError=true
           }
         }
         // 数字
         if(rule.type==='number'){
-          let value=e.target.value
+          let value=$el.value
           if(isNaN(value)||!value){
             rule.isError=true
           }else{
             later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
           }
-          e.target.value=later
+          $el.value=later
         }
         // 电话
         else if(rule.type==='tel'){
-          let value=e.target.value
+          let value=$el.value
           let mobileRexExp=/^[1][3,4,5,7,8][0-9]{9}$/
           let bool=mobileRexExp.test(value)
           if(bool){
@@ -174,7 +176,7 @@
         }
         // 邮箱
         else if(rule.type==='email'){
-          let value=e.target.value
+          let value=$el.value
           let emailRegExp=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
           let bool=emailRegExp.test(value)
           if(bool){
@@ -185,7 +187,7 @@
         
         // 长度检查
         if(rule.max||rule.min){
-          let len=e.target.value.length
+          let len=$el.value.length
           if(rule.max){
             if(len>rule.max){
               rule.isError=true
@@ -199,7 +201,7 @@
         }
       })
 
-      this.$emit('input',e.target.value)
+      this.$emit('input',$el.value)
     }
 
     // 输入
@@ -207,6 +209,11 @@
       if(this.canEmit){
         this.$emit('input',e.target.value)
       }
+    }
+
+    // 加强点击
+    private strictClick(e:any){
+      e.target.focus()
     }
 
     // 寻找q-form
@@ -250,7 +257,8 @@
           on:{
             keydown:this.keydown,
             blur:this.valueBlur,
-            input:this.input
+            input:this.input,
+            click:this.strictClick
           },
           class:{
             'q-input':true
@@ -266,6 +274,7 @@
       for(let i of Object.keys(this.qForm.rules)){
         if(i===this.prop){
           this.rules=this.qForm.rules[i]
+          this.valueBlur()
         }
       }
     }
