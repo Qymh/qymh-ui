@@ -9,8 +9,8 @@
       "href":"/text"
     },
     {
-      "name":"titleBar 标题",
-      "href":"/titleBar"
+      "name":"cell 块",
+      "href":"/cell"
     },
     {
       "name":"headBar 头部导航",
@@ -51,6 +51,10 @@
     {
       "name":"files 文件上传",
       "href":"/files"
+    },
+    {
+      "name":"swiper 轮播",
+      "href":"/swiper"
     }
   ]
 }

@@ -1,27 +1,30 @@
 <template lang="pug">
-  .titleBar(
+  .q-cell(
     @click="clicked"
     :style="computedStyle")
-    //- 左侧icon
-    .titleBar_leftIcon(v-if="leftIcon")
-      i(
-        :class="leftIcon"
-        :style="{color:leftIconColor}")
+    .q-cell-left(:style="{width:leftWidth?leftWidth+'rem':'auto'}")
+      //- 左侧icon
+      .q-cell-left-icon(v-if="leftIcon")
+        i(
+          :class="leftIcon"
+          :style="{color:leftIconColor}")
+      //- 左侧文字
+      .q-cell-left-text(v-if="leftText")
+        span(:style="{color:leftColor}") {{leftText}}
     //- 标题
-    .titleBar_title(v-if="title")
+    .q-cell-title(v-if="title&&!$slots.title")
       //- 标题文字
-      .titleBar_title_text(
+      .q-cell-title-text(
         :style="{color:titleColor}") {{title}}
-      //- 二级标题
-      .titleBar_title_details(
-        :style="{color:detailsColor}") {{details}}
+    //- 自定义标题
+    slot(name="title" v-if="$slots.title")
     //- 右侧描述
-    .titleBar_rightText(
+    .q-cell-rightText(
       v-if="rightText"
       @click="rightClicked")
       span {{rightText}}
     //- 右侧icon
-    .titleBar_rightIcon(
+    .q-cell-rightIcon(
       v-if="rightArrow"
       @click="rightClicked")
       i.q-icon.icon-right(:style="{color:rightArrowColor}")
@@ -31,7 +34,7 @@
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
 
   @Component({})
-  export default class QTitleBar extends Vue{
+  export default class QCell extends Vue{
     // 全局颜色
     @Prop({default:''})
     private bkColor:string
@@ -60,6 +63,18 @@
     @Prop({default:''})
     private leftIconColor:string
 
+    // 左侧文字
+    @Prop({default:''})
+    private leftText:string
+
+    // 左侧文字颜色
+    @Prop({default:'#333'})
+    private leftColor:string
+
+    // 左侧宽度
+    @Prop({default:''})
+    private leftWidth:string
+
     // title
     @Prop({default:''})
     private title:string
@@ -67,14 +82,6 @@
     // title颜色
     @Prop({default:''})
     private titleColor:string
-
-    // 二级title
-    @Prop({default:''})
-    private details:string
-
-    // 二级title颜色
-    @Prop({default:'#a1a1a1'})
-    private detailsColor:string
 
     // 右侧描述
     @Prop({default:''})
@@ -113,35 +120,41 @@
 
     @Emit('rightClicked')
     private rightClicked(){}
+
+    private mounted() {
+      if(this.$slots.title){
+        let title:any=this.$slots.title[0].elm
+        title.classList.add('q-cell-title')
+      }
+    }
   }
 </script>
 
 <style lang="scss" scoped>
-  .titleBar{
+  .q-cell{
     height:1.2rem;
     display: flex;
     align-items: center;
-    &_leftIcon{
-      display: flex;
-      flex-grow: 0;
-      margin-right: 0.2rem;
+    &-left{
+      &-icon{
+        display: flex;
+        flex-grow: 0;
+        margin-right: 0.2rem;
+      }
     }
-    &_title{
+    &-title{
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       flex-grow: 1;
-      &_details{
-        font-size: 14px;
-      }
     }
-    &_rightText{
+    &-rightText{
       display: flex;
       flex-grow: 0;
       font-size: 14px;
     }
-    &_rightIcon{
+    &-rightIcon{
       display: flex;
       flex-grow: 0;
     }

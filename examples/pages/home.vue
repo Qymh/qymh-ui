@@ -2,7 +2,7 @@
   .home
     //- 头部
     q-row(tag="header" position="fixed" t=0 l=0 col=100 bkColor="white")
-      q-title-bar(
+      q-cell(
         :borderBottom="true"
         title="QymhUI"
         titleColor="deepskyblue")

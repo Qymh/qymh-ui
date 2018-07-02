@@ -3,13 +3,14 @@ import './fonts/iconfont.css'
 import './style/highLight.scss'
 import './style/widget.scss'
 import './style/animate.scss'
+import 'swiper/dist/css/swiper.min.css'
 
 import '../packages/widget'
 
 import Row from '../packages/row'
 import Col from '../packages/col'
 import Text from '../packages/text'
-import TitleBar from '../packages/titleBar'
+import Cell from '../packages/cell'
 import HeadBar from '../packages/headBar'
 import SearchBar from '../packages/searchBar'
 import TabBar from '../packages/tabBar'
@@ -22,12 +23,13 @@ import Stepper from '../packages/stepper'
 import Table from '../packages/table'
 import Overlay from '../packages/overlay'
 import Files from '../packages/files'
+import Swiper from '../packages/swiper'
 
 const components=[
   Row,
   Col,
   Text,
-  TitleBar,
+  Cell,
   HeadBar,
   SearchBar,
   TabBar,
@@ -39,7 +41,8 @@ const components=[
   Stepper,
   Table,
   Overlay,
-  Files
+  Files,
+  Swiper
 ]
 
 const install=function(Vue:any,opts={}){
