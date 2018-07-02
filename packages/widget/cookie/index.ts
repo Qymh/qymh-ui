@@ -7,7 +7,7 @@ Cookie.install=(Vue:any)=>{
      * 获取cookie
      * @param key 键
      */
-    getCookie(key:string){
+    get(key:string){
       let bool=document.cookie.indexOf(key)>-1
       if(bool){
         let start:number=document.cookie.indexOf(key)+key.length+1
@@ -27,7 +27,7 @@ Cookie.install=(Vue:any)=>{
      * @param value 值
      * @param expireDays 保留日期
      */
-    setCookie(key:string,value:any,expireDays:number){
+    set(key:string,value:any,expireDays:number){
       let now=new Date()
       now.setDate(now.getDate()+expireDays)
       document.cookie=`${key}=${escape(value)};expires=${now.toUTCString}`
@@ -37,7 +37,7 @@ Cookie.install=(Vue:any)=>{
      * 删除Cookie
      * @param key 键
      */
-    deleteCookie(key:string|any[]){
+    delete(key:string|string[]){
       let now=new Date()
       now.setDate(now.getDate()-1)
 
@@ -56,7 +56,7 @@ Cookie.install=(Vue:any)=>{
     /**
      * 直接删除所有cookie
      */
-    deleteAllCookie(){
+    deleteAll(){
       let cookie=document.cookie
       let arr=cookie.split(';')
       let later=''

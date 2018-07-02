@@ -4,6 +4,7 @@ declare module "vue/types/vue" {
     $notice:any,
     $format:any,
     $tools:any,
-    $cookie:any
+    $cookie:any,
+    $storage:any
   }
 }
