@@ -6,7 +6,7 @@ Vue.use(Router)
 const Home:AsyncComponent=()=>import('@/pages/home.vue')
 const Text:AsyncComponent=()=>import('@/pages/text.vue')
 const Layout:AsyncComponent=()=>import('@/pages/layout.vue')
-const TitleBar:AsyncComponent=()=>import('@/pages/titleBar.vue')
+const Cell:AsyncComponent=()=>import('@/pages/cell.vue')
 const HeadBar:AsyncComponent=()=>import('@/pages/headBar.vue')
 const SearchBar:AsyncComponent=()=>import('@/pages/searchBar.vue')
 const TabBar:AsyncComponent=()=>import('@/pages/tabBar.vue')
@@ -17,6 +17,7 @@ const Stepper:AsyncComponent=()=>import('@/pages/Stepper.vue')
 const Table:AsyncComponent=()=>import('@/pages/Table.vue')
 const Overlay:AsyncComponent=()=>import('@/pages/Overlay.vue')
 const Files:AsyncComponent=()=>import('@/pages/files.vue')
+const Swiper:AsyncComponent=()=>import('@/pages/swiper.vue')
 
 
 const routes:RouteConfig[]=[
@@ -33,8 +34,8 @@ const routes:RouteConfig[]=[
     component:Text
   },
   {
-    path:'/titleBar',
-    component:TitleBar
+    path:'/cell',
+    component:Cell
   },
   {
     path:'/headBar',
@@ -75,6 +76,10 @@ const routes:RouteConfig[]=[
   {
     path:'/files',
     component:Files
+  },
+  {
+    path:'/swiper',
+    component:Swiper
   }
 ]
 

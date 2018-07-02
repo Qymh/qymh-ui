@@ -45,6 +45,7 @@
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
+    "swiper": "^4.3.3",
     "thread-loader": "^1.1.5",
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
