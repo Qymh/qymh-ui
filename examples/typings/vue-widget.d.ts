@@ -3,6 +3,7 @@ declare module "vue/types/vue" {
   interface Vue {
     $notice:any,
     $format:any,
-    $tools:any
+    $tools:any,
+    $cookie:any
   }
 }
