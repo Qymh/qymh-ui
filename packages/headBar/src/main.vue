@@ -1,10 +1,10 @@
 <template lang="pug">
-  .q_headBar(
+  .q-headBar(
     :style="computedStyle"
     @click="clicked")
     
     //- 左侧
-    .q_headBar_left(
+    .q-headBar-left(
       v-if="!$slots.left&&(leftArrow||leftEmpty||leftText)"
       :style="{color:leftColor,width:bothWidth+'rem'}"
       @click="leftClicked")
@@ -22,7 +22,7 @@
       v-if="$slots.left")
 
     //- 中间
-    .q_headBar_center(
+    .q-headBar-center(
       :style="{color:centerColor}"
       v-if="!$slots.center&&(centerText||centerEmpty)"
       @click="centerClicked(centerText)")
@@ -37,7 +37,7 @@
       v-if="$slots.center")
 
     //- 右侧
-    .q_headBar_right(
+    .q-headBar-right(
       :style="{color:rightColor,width:bothWidth+'rem'}"
       v-if="!$slots.right&&(rightArrow||rightEmpty||rightText)"
       @click="rightClicked(rightText||$event)")
@@ -72,6 +72,14 @@
     // 两边宽度
     @Prop({default:1})
     private bothWidth:string|number
+
+    // 是否有padding
+    @Prop({default:true})
+    private hasPadding:boolean
+
+    // padding值
+    @Prop({default:0.2})
+    private padding:number
 
     // 是否有上边线
     @Prop ({default:false})
@@ -144,6 +152,10 @@
         style.borderBottomWidth='1px'
         style.borderBottomColor=this.borderColor
       }
+      if(this.hasPadding){
+        style.paddingLeft=this.padding+'rem'
+        style.paddingRight=this.padding+'rem'
+      }
       return style
     }
 
@@ -151,17 +163,17 @@
     private mounted(){
       if(this.$slots.left){
         let left:any=this.$slots.left[0].elm
-        left.classList.add('slot_left')
+        left.classList.add('slot-left')
         left.addEventListener('click',this.leftClicked)
       }
       if(this.$slots.center){
         let center:any=this.$slots.center[0].elm
-        center.classList.add('slot_center')
+        center.classList.add('slot-center')
         center.addEventListener('click',this.centerClicked)
       }
       if(this.$slots.right){
         let right:any=this.$slots.right[0].elm
-        right.classList.add('slot_right')
+        right.classList.add('slot-right')
         right.addEventListener('click',this.rightClicked)
       }
     }
@@ -189,44 +201,44 @@
 </script>
 
 <style lang="scss" scoped>
-  .q_headBar{
+  .q-headBar{
     height:1.2rem;
     display: flex;
     flex-direction: row;
-    &_left{
+    &-left{
       flex-grow: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       .text{
         font-size: 12px;
       }
     }
-    &_center{
+    &-center{
       flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    &_right{
+    &-right{
       flex-grow: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       .text{
         font-size: 12px;
       }
     }
   }
-  .slot_left{
+  .slot-left{
     flex-grow: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     padding:0 0.1rem;
   }
-  .slot_center{
+  .slot-center{
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -234,10 +246,10 @@
     text-align: center;
     padding:0 0.1rem;
   }
-  .slot_right{
+  .slot-right{
     flex-grow: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     padding:0 0.1rem;
