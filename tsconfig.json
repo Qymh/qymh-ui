@@ -61,6 +61,9 @@
     "typings/input.d.ts",
     "typings/radio.d.ts",
     "typings/table.d.ts",
-    "typings/overlay.d.ts"
+    "typings/overlay.d.ts",
+    "typings/swiper.d.ts",
+    "typings/photoswipe.d.ts",
+    "typings/mobileSelect.d.ts"
   ]
 }

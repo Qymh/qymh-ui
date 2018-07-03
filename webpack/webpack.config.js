@@ -13,7 +13,7 @@ module.exports={
   },
   output:{
     path:resolve('dist'),
-    publicPath:'/',
+    publicPath:isDev?config.dev.publicPath:config.prod.publicPath,
     filename:isDev?'[name].js':'[name].[chunkhash].js'
   },
   module:{
