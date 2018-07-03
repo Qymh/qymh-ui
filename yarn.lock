@@ -4446,6 +4446,10 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
+mobile-select@^1.1.2:
+  version "1.1.2"
+  resolved "http://registry.npm.taobao.org/mobile-select/download/mobile-select-1.1.2.tgz#1dcb9e8b41bb4652579bc5d4c8eba61703bb457f"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/move-concurrently/download/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -5064,6 +5068,10 @@ pbkdf2@^3.0.3:
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/performance-now/download/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+
+photoswipe@^4.1.2:
+  version "4.1.2"
+  resolved "http://registry.npm.taobao.org/photoswipe/download/photoswipe-4.1.2.tgz#95c20a75cea23b70d6299641cad82e03cae7f797"
 
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
