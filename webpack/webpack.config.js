@@ -7,6 +7,8 @@ const config=require('./config')
 const resolve=config.lib.resolve
 const isDev=process.env.NODE_ENV==='development'
 
+console.log(isDev)
+
 module.exports={
   entry:{
     app:resolve('examples/app.ts')
@@ -40,19 +42,21 @@ module.exports={
           'babel-loader',
           {
             loader:'ts-loader',
-            options:{appendTsSuffixTo:[/\.vue$/]}
+            options:{
+              appendTsSuffixTo:[/\.vue$/],
+              transpileOnly:isDev
+            }
           }
         ],
         exclude:/node_modules/
       },
-      // js
-      {
-        test:/\.js$/,
-        use:isDev?
-        ['babel-loader']:['thread-loader','babel-loader'],
-        exclude:/node_modules/,
-        include:/src/
-      },
+      // // js
+      // {
+      //   test:/\.js$/,
+      //   use:isDev?
+      //   ['babel-loader']:['thread-loader','babel-loader'],
+      //   exclude:/node_modules/
+      // },
       // css
       {
         test:/\.css$/,

@@ -9,16 +9,6 @@ export default function createStyle(vm:any){
     lineHeight:vm.lh===-1?'auto':`${vm.lh/10}rem`,
     // 宽
     width:vm.w===-1&&vm.col===-1?'normal':vm.w!==-1?`${(vm.w/10)}rem`:`${vm.col}%`,
-    // 定位
-    position:vm.position,
-    // top
-    top:vm.t===-1?'auto':typeof vm.t==='number'?`${vm.t/10}rem`:`${vm.t}%`,
-    // right
-    right:vm.r===-1?'auto':typeof vm.r==='number'?`${vm.r/10}rem`:`${vm.r}%`,
-    // bottom
-    bottom:vm.b===-1?'auto':typeof vm.b==='number'?`${vm.b/10}rem`:`${vm.b}%`,
-    // left
-    left:vm.l===-1?'auto':typeof vm.l==='number'?`${vm.l/10}rem`:`${vm.l}%`,
     // 字体
     fontSize:vm.fontSize===-1?'inherit':`${vm.fontSize}px`,
 
@@ -42,35 +32,12 @@ export default function createStyle(vm:any){
     paddingLeft:vm.pl===0?'':`${vm.pl/10}rem`,
     // border-radius
     borderRadius:vm.radius===0?'':`${vm.radius/10}rem`,
-
-    // color
-    color:vm.color,
-    // 背景颜色
-    backgroundColor:vm.bkColor,
-    // text-align
-    textAlign:vm.textAlign,
-    // z-index
-    zIndex:vm.zIndex,
-    // display
-    display:vm.display,
-    // vertical-align
-    verticalAlign:vm.vertical,
-    // overflow
-    overflow:vm.overflow,
-    // word-break
-    wordBreak:vm.wordBreak,
-    // text-indent
-    textIndent:vm.indent===-1?'':`${vm.indent/10}rem`
   }
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'||item==='inline'||item==='baseline'||item==='visible'){
+    if(item==='auto'||item==='inherit'||item==='normal'){
       delete style[i]
-    }
-    // 更符合移动端overflow auto的标准
-    if(i==='overflow'&&item==='auto'){
-      style['-webkit-overflow-scrolling']='touch'
     }
   }
   

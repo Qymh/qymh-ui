@@ -61,19 +61,19 @@
 
     // top
     @Prop({default:-1})
-    public t:number
+    public t:number|string
 
     // right
     @Prop({default:-1})
-    public r:number
+    public r:number|string
 
     // bottom
     @Prop({default:-1})
-    public b:number
+    public b:number|string
 
     // left
     @Prop({default:-1})
-    public l:number
+    public l:number|string
 
     // 字体大小
     @Prop({default:-1})
@@ -119,5 +119,7 @@
     @Prop({default:'normal'})
     public wordBreak:common.wordBreak
     
+    @Prop({default:-1})
+    public indent:number|string
   }
 </script>

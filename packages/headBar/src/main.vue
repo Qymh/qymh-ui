@@ -58,9 +58,11 @@
 
 <script lang="ts">
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
+  import Proto from '../../proto/bar/main.vue'
+  import createStyle from '../../proto/bar'
 
   @Component({})
-  export default class QHeadBar extends Vue{
+  export default class QHeadBar extends Proto{
     // 全局字体颜色
     @Prop({default:''})
     private color:string
@@ -139,24 +141,25 @@
 
     // 计算样式
     private get computedStyle(){
-      let style=Object.create(null)
-      style.backgroundColor=this.bkColor
-      style.color=this.color
+      let style=createStyle(this)
+      let selectableStyle=Object.create(null)
+      selectableStyle.backgroundColor=this.bkColor
+      selectableStyle.color=this.color
       if(this.borderTop){
-        style.borderTopStyle='solid'
-        style.borderTopWidth='1px'
-        style.borderTopColor=this.borderColor
+        selectableStyle.borderTopStyle='solid'
+        selectableStyle.borderTopWidth='1px'
+        selectableStyle.borderTopColor=this.borderColor
       }
       if(this.borderBottom){
-        style.borderBottomStyle='solid'
-        style.borderBottomWidth='1px'
-        style.borderBottomColor=this.borderColor
+        selectableStyle.borderBottomStyle='solid'
+        selectableStyle.borderBottomWidth='1px'
+        selectableStyle.borderBottomColor=this.borderColor
       }
       if(this.hasPadding){
-        style.paddingLeft=this.padding+'rem'
-        style.paddingRight=this.padding+'rem'
+        selectableStyle.paddingLeft=this.padding+'rem'
+        selectableStyle.paddingRight=this.padding+'rem'
       }
-      return style
+      return Object.assign({},style,selectableStyle)
     }
 
     // 挂载样式

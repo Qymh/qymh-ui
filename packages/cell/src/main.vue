@@ -32,9 +32,11 @@
 
 <script lang="ts">
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
+  import Proto from '../../proto/bar/main.vue'
+  import createStyle from '../../proto/bar'
 
   @Component({})
-  export default class QCell extends Vue{
+  export default class QCell extends Proto{
     // 全局颜色
     @Prop({default:''})
     private bkColor:string
@@ -97,22 +99,23 @@
 
     // 计算样式
     private get computedStyle(){
-      let style=Object.create(null)
-      style.backgroundColor=this.bkColor
+      let style=createStyle(this)
+      let selectableStyle=Object.create(null)
+      selectableStyle.backgroundColor=this.bkColor
       if(this.borderTop){
-        style.borderTopStyle='solid'
-        style.borderTopWidth='1px'
-        style.borderTopColor=this.borderColor
+        selectableStyle.borderTopStyle='solid'
+        selectableStyle.borderTopWidth='1px'
+        selectableStyle.borderTopColor=this.borderColor
       }
       if(this.borderBottom){
-        style.borderBottomStyle='solid'
-        style.borderBottomWidth='1px'
-        style.borderBottomColor=this.borderColor
+        selectableStyle.borderBottomStyle='solid'
+        selectableStyle.borderBottomWidth='1px'
+        selectableStyle.borderBottomColor=this.borderColor
       }
       if(this.hasPadding){
-        style.padding='0rem 0.2rem'
+        selectableStyle.padding='0rem 0.2rem'
       }
-      return style
+      return Object.assign({},style,selectableStyle)
     }
 
     @Emit('clicked')

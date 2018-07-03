@@ -79,7 +79,7 @@ const config={
     // 热加载
     hot:true,
     // 启用gzip压缩
-    compress:false
+    compress:true
   },
   prod:{
     // 挂载路径
