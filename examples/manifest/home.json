@@ -55,6 +55,14 @@
     {
       "name":"swiper 轮播",
       "href":"/swiper"
+    },
+    {
+      "name":"photo 图片轮播",
+      "href":"/photo"
+    },
+    {
+      "name":"select 滑动选择",
+      "href":"/select"
     }
   ]
 }

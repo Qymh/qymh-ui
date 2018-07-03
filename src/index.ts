@@ -24,6 +24,8 @@ import Table from '../packages/table'
 import Overlay from '../packages/overlay'
 import Files from '../packages/files'
 import Swiper from '../packages/swiper'
+import Photo from '../packages/photo'
+import Select from '../packages/select'
 
 const components=[
   Row,
@@ -42,7 +44,9 @@ const components=[
   Table,
   Overlay,
   Files,
-  Swiper
+  Swiper,
+  Photo,
+  Select
 ]
 
 const install=function(Vue:any,opts={}){
