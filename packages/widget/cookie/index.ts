@@ -7,7 +7,7 @@ Cookie.install=(Vue:any)=>{
      * 获取cookie
      * @param key 键
      */
-    get(key:string){
+    get(key:string):string|number{
       let bool=document.cookie.indexOf(key)>-1
       if(bool){
         let start:number=document.cookie.indexOf(key)+key.length+1

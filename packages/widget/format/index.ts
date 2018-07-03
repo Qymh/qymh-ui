@@ -8,7 +8,7 @@ Format.install=(Vue:any)=>{
      * @param {String} value
      * @returns 清除后的value 
      */
-    clearEmpty(value:any){
+    clearEmpty(value:any):boolean{
       value=value.replace(/\s+$/g,'')
       value=value.replace(/^\s+/g,'')
       return value
@@ -18,7 +18,7 @@ Format.install=(Vue:any)=>{
      * @param {String} value 值
      * @returns 返回布尔值
      */
-    isEmoji(value:any){
+    isEmoji(value:any):boolean{
       let emojiRexExp=/\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g
       let bool=emojiRexExp.test(value)
       return bool
@@ -29,7 +29,7 @@ Format.install=(Vue:any)=>{
      * @param {String} value 值
      * @returns 返回布尔值
      */
-    isEmail(value:any){
+    isEmail(value:any):boolean{
       let emailRegExp=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
       let bool=emailRegExp.test(value)
       return bool
@@ -40,7 +40,7 @@ Format.install=(Vue:any)=>{
      * @param {String} value 值
      * @returns 返回布尔值
      */
-    isMobile(value:any){
+    isMobile(value:any):boolean{
       let mobileRexExp=/^[1][3,4,5,7,8][0-9]{9}$/
       let bool=mobileRexExp.test(value)
       return bool

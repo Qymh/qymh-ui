@@ -8,7 +8,7 @@ Storage.install=(Vue:any)=>{
      * @param key 键
      * @param local 是否启用localStorage缓存 默认false
      */
-    get(key:string,local:boolean=false):any{
+    get(key:string,local:boolean=false):string|null{
       return local&&window.localStorage.getItem(key)||window.sessionStorage.getItem(key)
     },
 
@@ -18,7 +18,7 @@ Storage.install=(Vue:any)=>{
      * @param value 值
      * @param local 是否启用localStorage缓存 默认false
      */
-    set(key:string,value:any,local:boolean=false){
+    set(key:string,value:string,local:boolean=false){
       local&&window.localStorage.setItem(key,value)||window.sessionStorage.setItem(key,value)
     },
 
