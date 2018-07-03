@@ -1,2 +1,2 @@
-import Photo from './src/main.vue'
-export default Photo
+import QPhoto from './src/main.vue'
+export default QPhoto
