@@ -53,6 +53,10 @@
       "href":"/files"
     },
     {
+      "name":"image 图片懒加载",
+      "href":"/image"
+    },
+    {
       "name":"swiper 轮播",
       "href":"/swiper"
     },

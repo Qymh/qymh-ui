@@ -23,6 +23,7 @@ import Stepper from '../packages/stepper'
 import Table from '../packages/table'
 import Overlay from '../packages/overlay'
 import Files from '../packages/files'
+import Image from '../packages/image'
 import Swiper from '../packages/swiper'
 import Photo from '../packages/photo'
 import Select from '../packages/select'
@@ -44,6 +45,7 @@ const components=[
   Table,
   Overlay,
   Files,
+  Image,
   Swiper,
   Photo,
   Select

@@ -27,6 +27,8 @@ const Routes:diyRoute.RouteConfig[]=[
   {name:'overlay'},
   // 文件 q-files
   {name:'files'},
+  // 图片懒加载 q-image
+  {name:'image'},
   // 滑动轮播 q-swiper
   {name:'swiper'},
   // 图片查看 q-photo
