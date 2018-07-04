@@ -1,20 +1,20 @@
 <template lang="pug">
-  .q_radio
+  .q-radio
     //- 方形选择器
-    .q_radio_rect(
+    .q-radio-rect(
       v-if="type==='rect'"
       @click="change(!active)"
       :style="computedStyle")
       span(
         v-show="active"
-        :style="{color:active?activeColor:''}") ✔
+        :style="{color:active?activeColor:''}") √
     //- 圆形选择器
-    .q_radio_circle(
+    .q-radio-circle(
       v-if="type==='circle'"
       @click="change(!active)"
       :style="computedStyle")
-      span.q_radio_circle_value(
-        v-show="active") ✔
+      span.q-radio-circle-value(
+        v-show="active") √
 </template>
 
 <script lang="ts">
@@ -66,11 +66,11 @@
 </script>
 
 <style lang="scss" scoped>
-  .q_radio{
+  .q-radio{
     display: inline-block;
     vertical-align: text-top;
   }
-  .q_radio_rect{
+  .q-radio-rect{
     height: 0.5rem;
     width: 0.5rem;
     line-height: 0.5rem;
@@ -79,7 +79,7 @@
     font-size: 10px;
     text-align: center;
   }
-  .q_radio_circle{
+  .q-radio-circle{
     height: 0.5rem;
     width: 0.5rem;
     line-height: 0.5rem;
@@ -87,7 +87,7 @@
     display: inline-block;
     font-size: 10px;
     text-align: center;
-    &_value{
+    &-value{
       color: #fff;
     }
   }

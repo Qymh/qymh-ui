@@ -1,29 +1,29 @@
 <template lang="pug">
-  .tabBar(:style="computedStyle")
-    div.tabBar_chunk(
+  .q-tabBar(:style="computedStyle")
+    div.q-tabBar-chunk(
       v-for="(tab,index) in tabArr"
       :key="index"
       @click="changeTab(tab,index)")
       //- 未激活状态
-      i.tabBar_chunk_icon(
+      i.q-tabBar-chunk-icon(
         v-if="!tab.active"
         :style="{color:tab.iconColor}"
         :class="tab.icon")
       //- 激活状态
-      i.tabBar_chunk_icon(
+      i.q-tabBar-chunk-icon(
         v-if="tab.active"
         :style="{color:tab.activeIconColor}"
         :class="tab.activeIcon")
       //- 侧边数据
-      span.tabBar_chunk_detailsMsg(
+      span.q-tabBar-chunk-detailsMsg(
         :style="{color:tab.detailsMsgColor,backgroundColor:tab.detailsMsgBkColor}"
         v-if="tab.detailsMsg") {{tab.detailsMsg}}
       //- 侧边点
-      span.tabBar_chunk_detailsPoint(
+      span.q-tabBar-chunk-detailsPoint(
         :style="{backgroundColor:tab.detailsPointColor}"
         v-if="tab.detailsPoint")
       //- 文字
-      span.tabBar_chunk_text(
+      span.q-tabBar-chunk-text(
         :style="{color:tab.active?tab.activeTextColor:tab.textColor}")
         |{{tab.text}}
 </template>
@@ -73,9 +73,9 @@
     private mounted(){
       let checkArr:tabBar.checkArr[]=[
         {type:'iconColor',base:'#333333'},
-        {type:'activeIconColor',base:'deepskyblue'},
+        {type:'activeIconColor',base:''},
         {type:'textColor',base:'#333333'},
-        {type:'activeTextColor',base:'deepskyblue'},
+        {type:'activeTextColor',base:''},
         {type:'active',base:false},
         {type:'detailsMsgColor',base:'white'},
         {type:'detailsMsgBkColor',base:'red'},
@@ -101,25 +101,25 @@
 </script>
 
 <style lang="scss" scoped>
-  .tabBar{
+  .q-tabBar{
     height: 1.2rem;
     display: flex;
     flex-direction: row;
-    &_chunk{
+    &-chunk{
       position: relative;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       align-items: center;
       justify-content: center;
-      &_icon{
+      &-icon{
         font-size: 18px;
       }
-      &_text{
+      &-text{
         padding-top: 0.1rem;
         font-size: 12px;
       }
-      &_detailsMsg{
+      &-detailsMsg{
         position: absolute;
         left: 55%;
         top: 0.1rem;
@@ -129,7 +129,7 @@
         border-radius: 0.2rem;
         font-size: 10px;
       }
-      &_detailsPoint{
+      &-detailsPoint{
         position: absolute;
         left: 55%;
         top: 0.1rem;

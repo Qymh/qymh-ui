@@ -71,12 +71,12 @@
         selectableStyle.flexDirection=this.computedDir
       }
       return h(this.tag,{
-        style:Object.assign({
+        style:Object.assign(style,selectableStyle,{
           display:this.computedDisplay,
           justifyContent:this.justify,
           alignItems:this.align,
           flexWrap:this.wrap
-        },selectableStyle,style),
+        }),
         on:{
           click:this.clicked
         }

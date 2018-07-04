@@ -1,13 +1,13 @@
 <template lang="pug">
   .q-headBar(
     :style="computedStyle"
-    @click="clicked")
+    @click="clicked($event)")
     
     //- 左侧
     .q-headBar-left(
       v-if="!$slots.left&&(leftArrow||leftEmpty||leftText)"
       :style="{color:leftTextColor,width:bothWidth+'rem'}"
-      @click="leftClicked")
+      @click="leftClicked($event,leftText)")
       //- 左箭头
       .arrow(v-if="leftArrow")
         i.q-icon.icon-back
@@ -25,7 +25,7 @@
     .q-headBar-center(
       :style="{color:centerTextColor}"
       v-if="!$slots.center&&(centerText||centerEmpty)"
-      @click="centerClicked(centerText)")
+      @click="centerClicked($event,centerText)")
       //- 中间文字
       .text(v-if="centerText")
         span {{centerText}}
@@ -40,7 +40,7 @@
     .q-headBar-right(
       :style="{color:rightTextColor,width:bothWidth+'rem'}"
       v-if="!$slots.right&&(rightArrow||rightEmpty||rightText)"
-      @click="rightClicked(rightText||$event)")
+      @click="rightClicked($event,rightText)")
       //- 右键头
       .arrow(v-if="rightArrow")
         i.q-icon.icon-right
@@ -187,7 +187,7 @@
 
     // 左侧点击事件
     @Emit('leftClicked')
-    public leftClicked(text:number){
+    public leftClicked(){
       if(this.leftArrow){
         this.$router.go(-1)
       }
@@ -195,11 +195,11 @@
 
     // 中间点击事件
     @Emit('centerClicked')
-    public centerClicked(text:any){}
+    public centerClicked(){}
 
     // 右侧点击事件
     @Emit('rightClicked')
-    public rightClicked(text:number){}
+    public rightClicked(){}
   } 
 </script>
 

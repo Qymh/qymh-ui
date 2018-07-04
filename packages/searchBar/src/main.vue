@@ -1,34 +1,39 @@
 <template lang="pug">
-  .searchBar(:style="computedStyle")
+  .q-searchBar(:style="computedStyle")
     //- 左侧
-    .left(@click="leftClicked")
-      .left_arrow(v-if="leftArrow")
-        i.q-icon.icon-back
-      .left_text(v-if="leftText")
+    .q-searchBar-left(
+      @click="leftClicked"
+      :style="{width:bothWidth+'rem',color:leftTextColor}")
+      .q-searchBar-left-arrow(v-if="leftArrow")
+        i.q-icon.icon-back(:style="{color:color}")
+      .q-searchBar-left-text(v-if="leftText")
         span {{leftText}}
     
     //- 中间
-    .center
-      .center_search(:style="{backgroundColor:searchBkColor}")
+    .q-searchBar-center
+      .q-searchBar-center-search(:style="{backgroundColor:searchBkColor}")
         //- 头部搜索icon
-        .center_search_front
+        .q-searchBar-center-search-front
           i.q-icon.icon-search
         //- 输入框
-        .center_search_input
-          form.center_search_input_form(action="#" method="#" @submit.prevent="submit")
+        .q-searchBar-center-search-input
+          form.q-searchBar-center-search-input-form(action="#" method="#" @submit.prevent="submit")
             input(
-              v-model="searchText"
+              :value="value"
+              @input="input"
               type="search"
-              placeholder="请输入...")
+              :placeholder="placeholder")
         //- 关闭按钮
-        .center_search_end(
+        .q-searchBar-center-search-end(
           v-if="clearable"
           @click.stop="clearSearchText")
           i.q-icon.icon-close
     
     //- 右侧
-    .right(@click="rightClicked(searchText)")
-      .right_text(:style="{color:rightColor}")
+    .q-searchBar-right(
+      @click="rightClicked"
+      :style="{width:bothWidth+'rem'}")
+      .q-searchBar-right-text(:style="{color:rightTextColor}")
         span {{rightText}}
 </template>
 
@@ -37,9 +42,6 @@
 
   @Component({})
   export default class QSearchBar extends Vue{
-    
-    // 搜索文字
-    private searchText:any=''
     
     // 全局字体颜色
     @Prop({default:''})
@@ -50,8 +52,16 @@
     private bkColor:string
 
     // 是否有边距
-    @Prop({default:false})
+    @Prop({default:true})
     private hasPadding:boolean
+
+    // padding值
+    @Prop({default:0.2})
+    private padding:number
+
+    // 两边的宽度
+    @Prop({default:1})
+    private bothWidth:number
 
    // 是否有上边线
     @Prop ({default:false})
@@ -62,8 +72,12 @@
     private borderBottom:boolean
 
     // 边框颜色
-    @Prop({default:''})
+    @Prop({default:'#d6d7dc'})
     private borderColor:string
+
+    // 搜索值
+    @Prop({default:''})
+    private value:any
 
     // 是否显示左侧箭头
     @Prop({default:false})
@@ -75,18 +89,18 @@
 
     // 左侧文字颜色
     @Prop({default:''})
-    private leftColor:string
+    private leftTextColor:string
     
     // 搜索的背景颜色
-    @Prop({default:'#f8f8f8'})
+    @Prop({default:'white'})
     private searchBkColor:string
     
     // 搜索的提醒文字
     @Prop({default:'请输入...'})
-    private searchPlaceholder:string
+    private placeholder:string
 
     // 搜索是否可清除
-    @Prop({default:true})
+    @Prop({default:false})
     private clearable:boolean
 
     // 右侧搜索文字
@@ -95,7 +109,7 @@
 
     // 右侧搜索文字颜色
     @Prop({default:''})
-    private rightColor:string
+    private rightTextColor:string
 
     // 计算样式
     private get computedStyle(){
@@ -113,115 +127,120 @@
         style.borderBottomColor=this.borderColor
       }
       if(this.hasPadding){
-        style.padding='0rem 0.2rem'
+        style.padding=this.padding+'rem'
       }
       return style
     }
 
+    // 输入
+    private input(e:any){
+      this.$emit('input',e.target.value)
+    }
+
     // 清空搜索值
     private clearSearchText(){
-      this.searchText=''
+      this.$emit('input','')
     }
 
     // 取消表单提交默认事件
-    private submit(){this.rightClicked(this.searchText)}
+    private submit(){this.rightClicked()}
 
     // 左侧点击事件
     @Emit('leftClicked')
-    public leftClicked(){}
+    public leftClicked(){
+      if(this.leftArrow){
+        this.$router.go(-1)
+      }
+    }
 
     // 右侧点击事件
     @Emit('rightClicked')
-    public rightClicked(searchText:string){}
+    public rightClicked(){}
   }
 </script>
 
 <style lang="scss" scoped>
-  .searchBar{
+  .q-searchBar{
     height: 1.2rem;
     display: flex;
     flex-direction: row;
-  }
-  .left{
-    width: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 0;
-    &_arrow{
-      color: #a1a1a1;
-    }
-    &_text{
-      font-size: 14px;
-    }
-  }
-  .center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    &_search{
-      height: 0.8rem;
-      width: 100%;
+    &-left{
       display: flex;
       align-items: center;
-      background-color: #f8f8f8;
-      border-radius: 0.5rem;
-      &_front{
-        flex-grow: 0;
-        margin-left: 0.3rem;
+      justify-content: flex-start;
+      flex-grow: 0;
+      &-arrow{
         color: #a1a1a1;
       }
-      &_input{
+      &-text{
+        font-size: 14px;
+      }
+    }
+    &-center{ 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      &-search{
         height: 0.8rem;
-        line-height: 0.8rem;
-        flex-grow: 1;
-        &_form{
-          height:100%;
-          width: 100%;
-          >input{
-            height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &-front{
+          flex-grow: 0;
+          margin-left: 0.3rem;
+          color: #a1a1a1;
+        }
+        &-input{
+          height: 0.8rem;
+          line-height: 0.8rem;
+          flex-grow: 1;
+          &-form{
+            height:100%;
             width: 100%;
-            display: flex;
-            align-items: center;
-            border: 0;
-            padding: 0;
-            padding-left: 0.3rem;
-            font-size: 14px;
-            vertical-align: middle;
-            color: #a1a1a1;
-            &::placeholder{
-              font-size: 16px;
+            >input{
+              height: 100%;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              border: 0;
+              padding: 0;
+              padding-left: 0.3rem;
+              font-size: 14px;
+              vertical-align: middle;
               color: #a1a1a1;
-            }
-            &::-webkit-search-cancel-button{
-              color: #a1a1a1;
-              -webkit-appearance: none;
-            }
-            &:focus{
-              outline: 0;
+              &::placeholder{
+                font-size: 16px;
+                color: #a1a1a1;
+              }
+              &::-webkit-search-cancel-button{
+                color: #a1a1a1;
+                -webkit-appearance: none;
+              }
+              &:focus{
+                outline: 0;
+              }
             }
           }
         }
-      }
-      &_end{
-        height: 100%;
-        padding-right: 0.3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 0;
-        color: #a1a1a1;
+        &-end{
+          height: 100%;
+          padding-right: 0.3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-grow: 0;
+          color: #a1a1a1;
+        }
       }
     }
-  }
-  .right{
-    width: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 0;
-    font-size: 14px;
+    &-right{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 0;
+      font-size: 14px;
+    }
   }
 </style>
 

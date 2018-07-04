@@ -1,11 +1,11 @@
 <template lang="pug">
-  .q_text
-    .q_text_value(:style="computedStyle")
+  .q-text(@click="clicked")
+    .q-text-value(:style="computedStyle")
       slot
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
   @Component({})
   export default class QText extends Vue{
     @Prop({default:0})
@@ -22,12 +22,16 @@
       }
       return style
     }
+
+    @Emit('clicked')
+    private clicked(){
+    } 
   }
 </script>
 
 <style lang="scss" scoped>
-  .q_text{
-    &_value{
+  .q-text{
+    &-value{
       height: 100%;
     }
   }

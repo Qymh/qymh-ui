@@ -16,11 +16,11 @@
 
     // 字体大小
     @Prop({default:12})
-    private fontSize:number|string
+    private fontSize:number
 
     // 内容
     @Prop({default:''})
-    private value:string|number
+    private value:string
 
     // 是否有边框
     @Prop({default:false})
@@ -56,9 +56,15 @@
       if(val){
         this.$el.style.backgroundColor=this.activeBkColor
         this.$el.style.color=this.activeColor
+        if(this.hasBorder){
+          this.$el.style.borderColor='transparent'
+        }
       }else{
         this.$el.style.backgroundColor=this.bkColor
         this.$el.style.color=this.color
+        if(this.hasBorder){
+          this.$el.style.borderColor=this.borderColor
+        }
       }
     }
 

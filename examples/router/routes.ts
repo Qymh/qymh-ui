@@ -21,8 +21,6 @@ const Routes:diyRoute.RouteConfig[]=[
   {name:'radio'},
   // 数据录入 q-stepper
   {name:'stepper'},
-  // 表格 q-table
-  {name:'/table'},
   // 蒙层 q-overlay
   {name:'overlay'},
   // 文件 q-files

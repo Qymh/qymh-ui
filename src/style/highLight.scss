@@ -1,6 +1,7 @@
 code {
   display: block;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   padding:20px 20px;
   background: #F8F8F8;
   font-family: "Consolas, 'Courier New', monospace" !important;
