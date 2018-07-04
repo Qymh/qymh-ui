@@ -180,6 +180,81 @@
             &ltq-row h=10 lh=10 color="white" bkColor="#BEE7E9" fontSize=20&gt
               字体:白色 背景:#BEE7E9
             &lt/q-row&gt
+        //- display
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="display")
+          q-row(h=10 indent=2 mb=2) display属性没变,仍然是display,默认值为<main>block</main>
+          q-row(h=10 bkColor="#BEE7E9")
+            q-col(display="inline-block") inline-block1
+            q-col(display="inline-block" ml=2) inline-block2
+            q-col(display="block") block
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9"&gt
+              &ltq-col display="inline-block"&gtinline-block1&lt/q-col&gt
+              &ltq-col display="inline-block"&gtinline-block2&lt/q-col&gt
+              &ltq-col display="block"&gtblock&lt/q-col&gt
+            &lt/q-row&gt
+        //- text-align
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="水平对齐方式")
+          q-row(lh=0 indent=2 mb=2) 水平对齐方式属性为<main>textAlign</main>
+          q-row(h=10 lh=10 textAlign="center" color="white" bkColor="#BEE7E9") 居中对齐
+          q-code(type="html").
+            &ltq-row h=10 lh=10 textAlign="center" color="white" bkColor="#BEE7E9"&gt
+              居中对齐
+            &lt/q-row&gt
+        //- vertical-align
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="垂直对齐方式")
+          q-row(lh=0 indent=2 mb=2) 垂直对齐方式属性缩写为<main>vertical</main>
+          q-row(h=10 bkColor="#BEE7E9")
+            q-col(h=10 ml=2 vertical="text-bottom" display="inline-block") text-bottom
+            q-col(h=10 ml=2 vertical="middle" display="inline-block") middle
+            q-col(h=10 ml=2 vertical="text-top" display="inline-block") text-top
+          q-code(type="html").
+            &ltq-row&gt
+              &ltq-col h=10 ml=2 vertical="text-bottom" display="inline-block"&gt
+                text-bottom
+              &lt/q-col&gt
+              &ltq-col h=10 ml=2 vertical="middle" display="inline-block"&gt
+                middle
+              &lt/q-col&gt
+              &ltq-col h=10 ml=2 vertical="text-top" display="inline-block"&gt
+                text-top
+              &lt/q-col&gt
+            &lt/q-row&gt
+        //- overflow
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="overflow")
+          q-row(lh=0 indent=2 mb=4) overflow属性没变还是<main>overflow</main>,
+            |当设置为<main>auto</main>或者<main>scroll</main>属性时,<br>会自动添加一个
+            |<main>-webkit-overflow-scrolling</main>兼容IOS
+          q-row(h=20 bkColor="#BEE7E9" overflow="auto" mb=2)
+            q-col(h=10 lh=10 textAlign="center" bkColor="#D6D5B7") 触摸此处向下滚动
+            q-col(h=10 lh=10 textAlign="center" bkColor="#D1BA74") 触摸此处向下滚动  
+            q-col(h=10 lh=10 textAlign="center" bkColor="#E6CEAC") 触摸此处向下滚动  
+            q-col(h=10 lh=10 textAlign="center" bkColor="#ECAD9E") 触摸此处向下滚动  
+            q-col(h=10 lh=10 textAlign="center" bkColor="#F4606C") 触摸此处向下滚动
+          q-code(type="html").
+            &ltq-row h=20 bkColor="#BEE7E9" overflow="auto" mb=2&gt
+              &ltq-col h=10 lh=10 textAlign="center" bkColor="#D6D5B7"&gt触摸此处向下滚动&lt/q-col&gt
+              &ltq-col h=10 lh=10 textAlign="center" bkColor="#D1BA74"&gt触摸此处向下滚动&lt/q-col&gt
+              &ltq-col h=10 lh=10 textAlign="center" bkColor="#E6CEAC"&gt触摸此处向下滚动&lt/q-col&gt
+              &ltq-col h=10 lh=10 textAlign="center" bkColor="#ECAD9E"&gt触摸此处向下滚动&lt/q-col&gt
+              &ltq-col h=10 lh=10 textAlign="center" bkColor="#F4606C"&gt触摸此处向下滚动&lt/q-col&gt
+            &lt/q-row&gt  
 </template>
 
 <script lang="ts">
