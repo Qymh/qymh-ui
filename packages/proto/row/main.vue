@@ -96,7 +96,7 @@
     public zIndex:number
 
     // display
-    @Prop({default:'inline'})
+    @Prop({default:''})
     public display:common.display
 
     // vertical-align

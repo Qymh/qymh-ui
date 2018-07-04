@@ -10,7 +10,7 @@
           :style="{color:leftIconColor}")
       //- 左侧文字
       .q-cell-left-text(v-if="leftText")
-        span(:style="{color:leftColor}") {{leftText}}
+        span(:style="{color:leftTextColor}") {{leftText}}
     //- 标题
     .q-cell-title(v-if="title&&!$slots.title")
       //- 标题文字
@@ -21,12 +21,12 @@
     //- 右侧描述
     .q-cell-rightText(
       v-if="rightText"
-      @click="rightClicked")
-      span {{rightText}}
+      @click.stop="rightClicked")
+      span(:style="{color:rightTextColor}") {{rightText}}
     //- 右侧icon
     .q-cell-rightIcon(
       v-if="rightArrow"
-      @click="rightClicked")
+      @click.stop="rightClicked")
       i.q-icon.icon-right(:style="{color:rightArrowColor}")
 </template>
 
@@ -71,7 +71,7 @@
 
     // 左侧文字颜色
     @Prop({default:'#333'})
-    private leftColor:string
+    private leftTextColor:string
 
     // 左侧宽度
     @Prop({default:''})
@@ -88,6 +88,10 @@
     // 右侧描述
     @Prop({default:''})
     private rightText:string
+
+    // 右侧文字颜色
+    @Prop({default:''})
+    private rightTextColor:string
 
     // 右侧箭头
     @Prop({default:false})
@@ -155,7 +159,7 @@
     &-rightText{
       display: flex;
       flex-grow: 0;
-      font-size: 14px;
+      font-size: 13px;
     }
     &-rightIcon{
       display: flex;

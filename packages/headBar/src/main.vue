@@ -6,7 +6,7 @@
     //- 左侧
     .q-headBar-left(
       v-if="!$slots.left&&(leftArrow||leftEmpty||leftText)"
-      :style="{color:leftColor,width:bothWidth+'rem'}"
+      :style="{color:leftTextColor,width:bothWidth+'rem'}"
       @click="leftClicked")
       //- 左箭头
       .arrow(v-if="leftArrow")
@@ -23,7 +23,7 @@
 
     //- 中间
     .q-headBar-center(
-      :style="{color:centerColor}"
+      :style="{color:centerTextColor}"
       v-if="!$slots.center&&(centerText||centerEmpty)"
       @click="centerClicked(centerText)")
       //- 中间文字
@@ -38,7 +38,7 @@
 
     //- 右侧
     .q-headBar-right(
-      :style="{color:rightColor,width:bothWidth+'rem'}"
+      :style="{color:rightTextColor,width:bothWidth+'rem'}"
       v-if="!$slots.right&&(rightArrow||rightEmpty||rightText)"
       @click="rightClicked(rightText||$event)")
       //- 右键头
@@ -109,7 +109,7 @@
 
     // 左侧文字颜色
     @Prop({default:''})
-    private leftColor:string
+    private leftTextColor:string
 
     // 是否有中间占空
     @Prop({default:false})
@@ -121,7 +121,7 @@
 
     // 中间文字颜色
     @Prop({default:''})
-    private centerColor:string
+    private centerTextColor:string
 
     // 是否有右侧占空
     @Prop({default:false})
@@ -137,7 +137,7 @@
 
     // 右侧文字颜色
     @Prop({default:''})
-    private rightColor:string
+    private rightTextColor:string
 
     // 计算样式
     private get computedStyle(){
@@ -213,8 +213,8 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      .text{
-        font-size: 12px;
+      .text,.arrow>i{
+        font-size: 13px;
       }
     }
     &-center{
@@ -228,8 +228,8 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      .text{
-        font-size: 12px;
+      .text,.arrow>i{
+        font-size: 13px;
       }
     }
   }

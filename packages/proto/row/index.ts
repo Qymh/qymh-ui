@@ -65,11 +65,11 @@ export default function createStyle(vm:any){
 
   for(let i in style){
     let item:string=style[i]
-    if(item==='auto'||item==='inherit'||item==='static'||item==='normal'||item==='inline'||item==='baseline'||item==='visible'){
+    if((item==='auto'&&i!=='overflow')||item==='inherit'||item==='static'||item==='normal'||item==='baseline'||item==='visible'){
       delete style[i]
     }
     // 更符合移动端overflow auto的标准
-    if(i==='overflow'&&item==='auto'){
+    if(i==='overflow'&&(item==='auto'||item==='scroll')){
       style['-webkit-overflow-scrolling']='touch'
     }
   }
