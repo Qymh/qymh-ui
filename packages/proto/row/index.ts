@@ -60,12 +60,21 @@ export default function createStyle(vm:any){
     // word-break
     wordBreak:vm.wordBreak,
     // text-indent
-    textIndent:vm.indent===-1?'':`${vm.indent/10}rem`
+    textIndent:vm.indent===-1?'':`${vm.indent/10}rem`,
+    // text-decoration
+    textDecoration:vm.decoration==='none'?'':vm.decoration
   }
 
   for(let i in style){
     let item:string=style[i]
-    if((item==='auto'&&i!=='overflow')||item==='inherit'||item==='static'||item==='normal'||item==='baseline'||item==='visible'){
+    if(
+      (item==='auto'&&i!=='overflow')||
+      item==='inherit'||
+      item==='static'||
+      item==='normal'||
+      item==='baseline'||
+      item==='visible'||
+      (item==='none'&&i==='textDecoration')){
       delete style[i]
     }
     // 更符合移动端overflow auto的标准
