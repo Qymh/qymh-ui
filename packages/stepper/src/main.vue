@@ -1,16 +1,18 @@
 <template lang="pug">
-  .q_stepper
-    .q_stepper_left(@click="leftClicked")
-      i.q-icon.icon-move(:style="{color:computedValue==min?'#d6d7dc':''}")
-    form.q_stepper_form(action="" method="")
-      input.q_stepper_form_input(
-        v-model="computedValue"
+  .q-stepper
+    .q-stepper-left(@click="leftClicked")
+      i.q-icon.icon-move(:style="{color:value==min?'#d6d7dc':''}")
+    form.q-stepper-form(action="" method="")
+      input.q-stepper-form-input(
+        :value="value"
         type="number"
-        @keydown="keydown($event)"
-        @change="valueChange($event)"
+        @keydown="keydown"
+        @change="valueChange"
+        @click="clickStrict"
+        @input="input"
         :style="{color:color}")
-    .q_stepper_right(@click="rightClicked")
-      i.q-icon.icon-add(:style="{color:computedValue==max&&max!==0?'#d6d7dc':''}")
+    .q-stepper-right(@click="rightClicked")
+      i.q-icon.icon-add(:style="{color:value==max&&max!==0?'#d6d7dc':''}")
 </template>
 
 <script lang="ts">
@@ -18,7 +20,7 @@
   @Component({})
   export default class QStepper extends Vue{
     // 传入的值
-    @Prop({default:0})
+    @Prop({default:''})
     private value:number
 
     // 传入的值的颜色
@@ -30,15 +32,21 @@
     private min:number
 
     // 允许的最大值
-    @Prop({default:0})
+    @Prop({default:''})
     private max:number
 
     // 输入框中保留的小数位数
     @Prop({default:4})
     private fix:number
 
-    // 避免双向绑定的value
-    private computedValue:number=this.value
+    // 加强点击
+    private clickStrict(e:any){
+      e.target.focus()
+    }
+
+    private input(e:any){
+      this.$emit('input',e.target.value)
+    }
 
     // 值输入的检测
     private keydown(e:any){
@@ -71,54 +79,58 @@
       }else{
         later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
       }
-      this.computedValue=later
+      this.$emit('input',later)
       this.$emit('valueChange',later)
     }
 
     // 左侧减少点击
     private leftClicked(){
-      if(this.computedValue-1<this.min){
-        this.computedValue=0
+      let value=this.value
+      if(value-1<this.min){
+        value=0
       }else{
-        this.computedValue--
-        this.computedValue=Number.parseFloat(this.computedValue.toFixed(this.fix))
+        value--
+        value=Number.parseFloat(value.toFixed(this.fix))
       }
-      this.$emit('leftClicked',this.computedValue)
+      this.$emit('input',value)
+      this.$emit('leftClicked',value)
     }
 
     // 右侧增加点击
     private rightClicked(){
-      if(this.computedValue+1>this.max&&this.max!==0){
-        this.computedValue=this.max
+      let value=this.value
+      if(value+1>this.max&&this.max){
+        value=this.max
       }else{
-        this.computedValue++
-        this.computedValue=Number.parseFloat(this.computedValue.toFixed(this.fix))
+        value++
+        value=Number.parseFloat(value.toFixed(this.fix))
       }
-      this.$emit('rightClicked',this.computedValue)
+      this.$emit('input',value)
+      this.$emit('rightClicked',value)
     }
   }
 </script>
 
 <style lang="scss" scoped>
-  .q_stepper{
+  .q-stepper{
     display: inline-block;
     border:1px solid #666;
     zoom: 1;
-    &_left{
+    &-left{
       height: 0.6rem;
       line-height: 0.6rem;
       text-align: center;
-      width: 0.7rem;
+      width: 0.6rem;
       display: inline-block;
       float: left;
       color: #333;
     }
-    &_form{
+    &-form{
       height: 0.6rem;
       float: left;
       line-height: normal;
-      &_input{
-        width: 1.2rem;
+      &-input{
+        width: 1.4rem;
         height: 0.6rem;
         text-align: center;
         border-left: 1px solid #666;
@@ -129,12 +141,12 @@
         font-size: 12px;
       }
     }
-    &_right{
+    &-right{
       float: left;
       height: 0.6rem;
       line-height: 0.6rem;
       text-align: center;
-      width: 0.7rem;
+      width: 0.6rem;
       display: inline-block;
       color: #333;
     }
