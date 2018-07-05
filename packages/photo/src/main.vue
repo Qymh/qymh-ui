@@ -54,6 +54,9 @@
         img.onload=function(e:any){
           resolve()
         }
+        img.onerror=function(e:any){
+          resolve()
+        }
       })
     }
 

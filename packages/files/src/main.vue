@@ -106,7 +106,7 @@
         }
         // 检查图片类型
         if(!typeRegExp.test(type)){
-          this.$notice.toast('图片格式仅支持png jpg jpeg!')
+          this.$notice.toast('已过滤到非png jpg jpeg格式的图片!')
           resolve(false)
         }
         // 检查大小

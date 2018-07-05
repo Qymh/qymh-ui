@@ -42,6 +42,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .code{
+    margin: 0.5rem 0;
+  }
   .btn_code{
     height: 1rem;
     display: flex;

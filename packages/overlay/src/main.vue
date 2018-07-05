@@ -1,16 +1,16 @@
 <template lang="pug">
-  .q_overlay
-    // 背景
-    .q_overlay_bk(
+  .q-overlay
+    //- 背景
+    .q-overlay-bk(
       v-if="computedShow"
       @touchend="hide"
       :style="{height:clientHeight+'px',width:clientWidth+'px',opacity:opacity}")
-    // 盒子
+    //- 盒子
     transition(
       name="details"
       :enter-active-class="ComputedEnterClass"
       :leave-active-class="ComputedLeaveClass")
-      .q_overlay_box(
+      .q-overlay-box(
         v-if="computedShow"
         :style="computedBoxStyle")
         slot
@@ -186,15 +186,15 @@
 </script>
 
 <style lang="scss" scoped>
-  .q_overlay{
-    &_bk{
+  .q-overlay{
+    &-bk{
       background-color: #333;
       position: fixed;
       left: 0;
       top: 0;
       z-index: 6;
     }
-    &_box{
+    &-box{
       position: fixed;
       z-index: 7;
       overflow: auto;

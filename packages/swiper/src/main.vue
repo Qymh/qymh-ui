@@ -10,24 +10,6 @@
   import Swiper from 'swiper'
   @Component({})
   export default class QSwiper extends Vue{
-    // swiper基本配置
-    private swiperBaseOptions:any={
-      // 自动播放
-      autoplay:{
-        delay:4000
-      },
-      // 分页器
-      pagination:{
-        el:'.swiper-pagination'
-      },
-      // 自动播放
-      loop:true,
-      lazy: {
-        loadPrevNext:true,
-        loadPrevNextAmount:1
-      }
-    }
-
     // swiper对象
     private swiperObj:any={}
 
@@ -36,7 +18,7 @@
     private swiperOptions:any
 
     private mounted() {
-      let options=Object.assign({},this.swiperBaseOptions,this.swiperOptions)
+      let options=this.swiperOptions
       let $slots=this.$slots.default
       for(let i:number=0,len:number=$slots.length;i<len;i++){
         let slot:any=$slots[i].elm
