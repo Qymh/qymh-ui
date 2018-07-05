@@ -1,27 +1,28 @@
 <template lang="pug">
-  .q-radio
+  .q-radio(:style="computedOuterStyle")
     //- 方形选择器
     .q-radio-rect(
       v-if="type==='rect'"
       @click="change(!active)"
       :style="computedStyle")
-      span(
-        v-show="active"
-        :style="{color:active?activeColor:''}") √
+      span(v-show="active")
+        i.q-icon.icon-check(:style="{color:active?activeColor:''}")
     //- 圆形选择器
     .q-radio-circle(
       v-if="type==='circle'"
       @click="change(!active)"
       :style="computedStyle")
       span.q-radio-circle-value(
-        v-show="active") √
+        v-show="active")
+        i.q-icon.icon-check(:style="{color:active?activeColor:''}")
 </template>
 
 <script lang="ts">
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
+  import Proto from '../../proto/tag/main.vue'
+  import createStyle from '../../proto/tag'
   @Component({})
-  export default class QRadio extends Vue{
-    
+  export default class QRadio extends Proto{
     // 激活状态
     private active:boolean=false
 
@@ -34,27 +35,40 @@
     private hasBorder:boolean
 
     // 边框颜色
-    @Prop({default:'#F65A44'})
+    @Prop({default:'#a1a1a1'})
     private borderColor:string
 
     // 激活下的颜色
-    @Prop({default:'#F65A44'})
+    @Prop({default:''})
     private activeColor:string
 
     // 激活下的背景颜色
-    @Prop({default:'#F65A44'})
+    @Prop({default:''})
     private activeBkColor:string
+
+    // 激活下的border颜色
+    @Prop({default:'transparent'})
+    private activeBorderColor:string
 
     private get computedStyle(){
       let style=Object.create(null)
       if(this.hasBorder){
         style.borderStyle='solid'
         style.borderWidth='1px'
-        style.borderColor=this.borderColor
+        if(this.active){
+          style.borderColor=this.activeBorderColor
+        }else{
+          style.borderColor=this.borderColor
+        }
       }
       if(this.active&&this.activeBkColor&&this.type==='circle'){
         style.backgroundColor=this.activeBkColor
       }
+      return style
+    }
+
+    private get computedOuterStyle(){
+      let style=createStyle(this)
       return style
     }
 
@@ -78,6 +92,14 @@
     display: inline-block;
     font-size: 10px;
     text-align: center;
+    >span{
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      >i{
+        font-size: 14px;
+      }
+    }
   }
   .q-radio-circle{
     height: 0.5rem;
@@ -89,6 +111,14 @@
     text-align: center;
     &-value{
       color: #fff;
+    }
+    >span{
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      >i{
+        font-size: 14px;
+      }
     }
   }
 </style>
