@@ -1,7 +1,7 @@
 <template lang="pug">
   .text
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         bkColor="deepskyblue"
         color="#fff"
@@ -18,12 +18,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
+            title="列子")
           q-row(tag="section")
             q-text(lines=1)
               q-row(tag="span" display="inline" lh=5 ml=1) 123123123123131231233123132313123123123123123123123123123123131231233123132313123123123123123123123123123123131231233123132313123123123123123123123123123123131231233123132313123123123123123123

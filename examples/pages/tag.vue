@@ -1,7 +1,7 @@
 <template lang="pug">
   .tag
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
@@ -18,12 +18,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
+            title="列子")
           q-tag(value="测试")
           q-tag(ml=2 value="测试2" bkColor="#F65A44")
           q-tag(
@@ -77,8 +77,8 @@
               change(){
                 this.active=!this.active
                 this.active?
-                this.$notice.toast('激活','bottom'):
-                this.$notice.toast('未激活','bottom')
+                this.$notice.toast('激活'):
+                this.$notice.toast('未激活')
               }
             }
       q-row(tag="section")
@@ -215,8 +215,8 @@
     public change(){
       this.active=!this.active
       this.active?
-      this.$notice.toast('激活','bottom'):
-      this.$notice.toast('未激活','bottom')
+      this.$notice.toast('激活'):
+      this.$notice.toast('未激活')
     }
   } 
 </script>

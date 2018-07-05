@@ -1,7 +1,7 @@
 <template lang="pug">
   .headBar
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
@@ -17,12 +17,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
+            title="列子")
           q-row(tag="section")
             q-head-bar(
               :leftArrow="true"
@@ -139,15 +139,15 @@
 
               methods:{
                 clicked(){
-                  this.$notice.toast('你触发了全局点击事件','bottom')
+                  this.$notice.toast('你触发了全局点击事件')
                 },
                 leftClicked(e){
                   e.stopPropagation()
-                  this.$notice.toast('你点击了左侧默认事件会回退到上一页','bottom')
+                  this.$notice.toast('你点击了左侧默认事件会回退到上一页')
                 },
                 centerClicked(e){
                   e.stopPropagation()
-                  this.$notice.toast('你点击了中间','bottom')
+                  this.$notice.toast('你点击了中间')
                 }
               }
       q-row(tag="section")
@@ -272,7 +272,7 @@
             {value:'String'},
             {value:'N'},
             {value:'#d6d7dc'},
-            {value:'是否有border颜色'}
+            {value:'border颜色'}
           ]
         },
         {
@@ -378,17 +378,17 @@
     }
 
     private clicked(){
-      this.$notice.toast('你触发了全局点击事件','bottom')
+      this.$notice.toast('你触发了全局点击事件')
     }
 
     private leftClicked(e:any){
       e.stopPropagation()
-      this.$notice.toast('你点击了左侧,默认事件会回退到上一页','bottom')
+      this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
     }
 
     private centerClicked(e:any){
       e.stopPropagation()
-      this.$notice.toast('你点击了中间','bottom')
+      this.$notice.toast('你点击了中间')
     }
   }
 </script>

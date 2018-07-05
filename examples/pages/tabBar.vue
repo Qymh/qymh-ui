@@ -19,12 +19,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
+            title="列子")
           q-row(tag="section")
             q-row(h=10 color="deepskyblue" align="center" justify="center") {{curIndex}}
             q-tab-bar(

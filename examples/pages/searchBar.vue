@@ -1,7 +1,7 @@
 <template lang="pug">
   .searchBar
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
@@ -18,12 +18,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
+            title="列子")
           q-row(tag="section")
             q-search-bar(
               leftText="返回"
@@ -291,11 +291,11 @@
     }
 
     private leftClicked(){
-      this.$notice.toast('你点击了左侧,默认事件会回退到上一页','bottom')
+      this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
     }
 
     private search(){
-      this.searchValue3?this.$notice.toast(`你当前搜索的值为${this.searchValue3}`,'bottom'):this.$notice.toast('你当前搜索的值为空','bottom')
+      this.searchValue3?this.$notice.toast(`你当前搜索的值为${this.searchValue3}`):this.$notice.toast('你当前搜索的值为空')
     }
   } 
 </script>

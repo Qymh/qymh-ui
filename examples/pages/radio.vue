@@ -1,7 +1,7 @@
 <template lang="pug">
   .radio
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
@@ -18,27 +18,156 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        //- 简单的列子
+        //- 列子
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
-            title="简单的列子")
-          q-radio(type="rect")
-          q-radio(type="circle")
-          q-radio(
-            type="circle"
-            borderColor="deepskyblue"
-            activeBkColor="deepskyblue"
-            @change="change")
+            title="列子")
+          q-row(tag="section")
+            q-row(lh=9 indent=2 mb=2) 你可以点击下方的列子尝试
+            q-radio(
+              ml=2
+              type="rect"
+              activeColor="#a1a1a1"
+              activeBorderColor="#a1a1a1")
+            q-radio(
+              ml=2
+              type="circle"
+              activeColor="white"
+              activeBkColor="#f65a44")
+            q-radio(
+              ml=2
+              type="circle"
+              borderColor="deepskyblue"
+              activeBkColor="deepskyblue"
+              @change="change")
+            q-code(type="html").
+              &ltq-radio
+                ml=2
+                type="rect"
+                activeColor="#a1a1a1"
+                activeBorderColor="#a1a1a1"&gt
+              &lt/q-radio&gt
+              &ltq-radio
+                ml=2
+                type="circle"
+                activeColor="white"
+                activeBkColor="#f65a44"&gt
+              &lt/q-radio&gt
+              &ltq-radio
+                ml=2
+                type="circle"
+                borderColor="deepskyblue"
+                activeBkColor="deepskyblue"
+                @change="change"&gt
+              &lt/q-radio&gt
+
+              methods:{
+                change(bool){
+                  bool?
+                  this.$notice.toast('激活'):
+                  this.$notice.toast('未激活')
+                }
+              }
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="API一览"
+          fontSize=16
+          :borderBottom="true")
+        //- Api
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="Api")
+          q-table(:tableOptions="tableOptions")
+        //- 事件回调
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="事件回调")
+          q-row(lh=9 indent=2 mb=2)
+            |<main>@change</main> 激活状态改变的时候触发,第一个参数为当前的激活状态布尔值
 </template>
 
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'
   @Component({})
   export default class ExRadio extends Vue{
+    private tableOptions:any={
+      titles:[
+        {value:'Prop'},
+        {value:'Type'},
+        {value:'Required'},
+        {value:'Default'},
+        {value:'Description'}
+      ],
+      datas:[
+        {
+          prop:[
+            {value:'radio'},
+            {value:'rect|circle'},
+            {value:'Y'},
+            {value:'rect'},
+            {value:'按钮类型'}
+          ]
+        },
+        {
+          prop:[
+            {value:'hasBorder'},
+            {value:'Boolean'},
+            {value:'N'},
+            {value:'true'},
+            {value:'是否有边框'}
+          ]
+        },
+        {
+          prop:[
+            {value:'borderColor'},
+            {value:'String'},
+            {value:'N'},
+            {value:'#a1a1a1'},
+            {value:'border颜色'}
+          ]
+        },
+        {
+          prop:[
+            {value:'activeColor'},
+            {value:'String'},
+            {value:'N'},
+            {value:'无'},
+            {value:'激活时的颜色'}
+          ]
+        },
+        {
+          prop:[
+            {value:'activeBkColor'},
+            {value:'String'},
+            {value:'N'},
+            {value:'无'},
+            {value:'激活时的背景颜色'}
+          ]
+        },
+        {
+          prop:[
+            {value:'activeBorderColor'},
+            {value:'String'},
+            {value:'N'},
+            {value:'transparent'},
+            {value:'激活时的border颜色'}
+          ]
+        }
+      ]
+    }
+
     private change(bool:boolean){
-      console.log(bool)
+      bool?
+      this.$notice.toast('激活'):
+      this.$notice.toast('未激活')
     }
   }
 </script>

@@ -21,12 +21,12 @@
             title="Demo演示"
             fontSize=16
             :borderBottom="true")
-          //- 简单的列子
+          //- 列子
           q-row(tag="section")
             q-cell(
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
-              title="简单的列子")
+              title="列子")
             //- 标题指向
             q-row(tag="section")
               q-cell(
