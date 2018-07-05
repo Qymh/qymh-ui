@@ -1,11 +1,12 @@
 <template lang="pug">
   .q-image(
     v-lazy:background-image="src"
-    :style="computedStyle")
+    :style="computedStyle"
+    @click="clicked")
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
   import lazyLoad from 'vue-lazyload'
   import Proto from '../../proto/image/main.vue'
   import createStyle from '../../proto/image'
@@ -14,12 +15,12 @@
   Vue.use(lazyLoad,IMAGECONFIG.lazyLoad)
   @Component({})
   export default class QImage extends Proto{
+    // 计算后的属性
+    private computedStyle:object={}
+
     // 图片地址
     @Prop({default:''})
     private src:string
-
-    // 计算后的属性
-    private computedStyle:object={}
 
     // 图片size
     @Prop({default:'contain'})
@@ -40,6 +41,10 @@
       style.backgroundRepeat=this.bkRepeat
       style.backgroundPosition=this.bkPosition
       this.computedStyle=style
+    }
+
+    @Emit('clicked')
+    private clicked(){
     }
   }
 </script>
