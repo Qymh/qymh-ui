@@ -57,7 +57,7 @@
             |即<main>w=1</main>解析后为<main>width:0.1rem</main>
           q-row(h=10 w=50 bkColor="#BEE7E9") 高度为1.0rem 宽度为5.0rem
           q-code(type="html").
-            &ltq-row h=10 w=10 bkColor="#BEE7E9"&gt
+            &ltq-row h=10 w=50 bkColor="#BEE7E9"&gt
               高度为1.0rem 宽度为5.0rem
             &lt/q-row&gt
         //- 行高
@@ -140,15 +140,17 @@
             |<main>b->bottom</main>
             |<main>l->left</main>
             |在这里有一个需要注意的地方,除了接受rem值,这4个值也可以接受百分比,
-            |当你给的参数类型是数字时,传入的是rem,比值为10比1,即<main>t=1</main>解析后为
+            |当你给的参数类型是数字时,传入的是rem,比值为10比1,即<main>:t=1</main>解析后为
             |<main>top:0.1rem</main>,但如果你传入的是字符,传入的便是百分比,比值为1比1,即
-            |<main>t="1"</main>解析后为<main>top:1%</main>,请仔细注意两者的类型区别,一个是有引号一个没有
+            |<main>t=1</main>解析后为<main>top:1%</main>,请仔细注意两者的类型区别,一个是有冒号一个没有
           q-row(h=10 position="relative" bkColor="#BEE7E9")
-            q-row(h=8 col=80 position="absolute" l="10" t=2 bkColor="#E6CEAC")
+            q-row(
+              h=8 col=80 position="absolute" l="10"
+              :t=2 bkColor="#E6CEAC")
               |left值为10% top值为0.1rem
           q-code(type="html").
             &ltq-row h=10 position="relative" bkColor="#BEE7E9"&gt
-              &ltq-row h=8 col=80 position="absolute" l="10" t=2 bkColor="#E6CEAC"&gt
+              &ltq-row h=8 col=80 position="absolute" l=10 :t=2 bkColor="#E6CEAC"&gt
                 left值为10% top值为0.1rem
               &lt/q-row&gt
             &lt/q-row&gt
@@ -238,7 +240,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="overflow")
-          q-row(lh=0 indent=2 mb=4) overflow属性没变还是<main>overflow</main>,
+          q-row(lh=9 indent=2 mb=4) overflow属性没变还是<main>overflow</main>,
             |当设置为<main>auto</main>或者<main>scroll</main>属性时,<br>会自动添加一个
             |<main>-webkit-overflow-scrolling</main>兼容IOS
           q-row(h=20 bkColor="#BEE7E9" overflow="auto" mb=2)
@@ -254,7 +256,92 @@
               &ltq-col h=10 lh=10 textAlign="center" bkColor="#E6CEAC"&gt触摸此处向下滚动&lt/q-col&gt
               &ltq-col h=10 lh=10 textAlign="center" bkColor="#ECAD9E"&gt触摸此处向下滚动&lt/q-col&gt
               &ltq-col h=10 lh=10 textAlign="center" bkColor="#F4606C"&gt触摸此处向下滚动&lt/q-col&gt
-            &lt/q-row&gt  
+            &lt/q-row&gt
+        //- word-break
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="word-break")
+          q-row(lh=9 indent=2 mb=2) word-break属性写为<main>word-break</main>
+          q-row(h=10 bkColor="#BEE7E9" wordBreak="break-all")
+            |123123123123123123123123123123123123123123123123123123123123123
+          q-code(type="html").
+            &ltq-row h=10 w=20 bkColor="#BEE7E9" wordBreak="hyphenate"&gt
+              12312312312312321312321
+            &lt/q-row&gt
+        //- word-break
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="首行缩进")
+          q-row(lh=9 indent=2 mb=2)
+            |text-indent属性缩写为<main>indent</main>,
+            |比值为10比1,即<main>indent=2</main>解析后为<main>text-indent:0.2rem</main>
+          q-row(h=10 bkColor="#BEE7E9" indent=10 wordBreak="break-all")
+            |123123123123123123123123123123123123123123123123123123123123123
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" indent=10 wordBreak="break-all"&gt
+              123123123123123123123123123123123123123123123123123123123123123
+            &lt/q-row&gt
+        //- text-decoration 
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="字体划线")
+          q-row(lh=9 indent=2 mb=2)
+            |text-decoration缩写为<main>decoration</main>
+          q-row(h=10 bkColor="#BEE7E9" dir="left")
+            q-col(ml=2 decoration="underline") 下划线
+            q-col(ml=2 decoration="line-through") 删除线
+            q-col(ml=2 decoration="overline") 上划线
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" dir="left"&gt
+              &ltq-col ml=2 decoration="underline"&gt下划线&lt/q-col&gt
+              &ltq-col ml=2 decoration="line-through"&gt删除线&lt/q-col&gt
+              &ltq-col ml=2 decoration="overline"&gt上划线&lt/q-col&gt
+            &lt/q-row&gt
+        //- border-radius
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="圆角")
+          q-row(lh=9 indent=2 mb=2)
+            |border-radius缩写为<main>radius</main>,
+            |这里有一点需要注意,这个值可以表rem或者百分比,
+            |当<main>radius</main>值为数字类型的时候,
+            |比值为10比1,即<main>:radius=1</main>解析为
+            |<main>border-radius:0.1rem</main>,
+            |当其为值类型的时候,比值为1比1,即<main>radius=50</main>解析为
+            |<main>border-radius:50%</main>,仔细观察他们的区别,一个有冒号,一个没有
+          q-row(h=10 bkColor="#BEE7E9" dir="left" align="center")
+            q-col(ml=2 h=8 w=8 bkColor="#ECAD9E" radius=50)
+            q-col(
+              ml=2 h=8 w=20 bkColor="#F4606C"
+              :radius=10)
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" dir="left" align="center"&gt
+              &ltq-col ml=2 h=8 w=8 bkColor="#ECAD9E" radius=50&gt&lt/q-col&gt
+              &ltq-col ml=2 h=8 w=20 bkColor="#F4606C" :radius=10&gt&lt/q-col&gt
+            &lt/q-row&gt
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="层级")
+          q-row(lh=9 indent=2 mb=2)
+            |z-ndex写为<main>z-index</main>
+          q-row(h=10 bkColor="#BEE7E9" position="relative")
+            q-row(h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5)
+            q-row(h=8 w=30 bkColor="#F4606C" position="absolute" t=0 l=0 zIndex=4)
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" position="relative"&gt
+              &ltq-row h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5&gt&lt/q-row&gt
+              &ltq-row h=8 w=30 bkColor="#F4606C" position="absolute" t=0 l=0 zIndex=4&gt&lt/q-row&gt
+            &lt/q-row&gt
 </template>
 
 <script lang="ts">
