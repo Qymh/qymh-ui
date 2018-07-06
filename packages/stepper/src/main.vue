@@ -78,6 +78,12 @@
         later=0
       }else{
         later=Number.parseFloat(Number.parseFloat(value).toFixed(this.fix))
+        if(later>this.max){
+          later=this.max
+        }
+        if(later<this.min){
+          later=this.min
+        }
       }
       this.$emit('input',later)
       this.$emit('valueChange',later)
@@ -113,7 +119,7 @@
 
 <style lang="scss" scoped>
   .q-stepper{
-    display: inline-block;
+    display: flex;
     border:1px solid #666;
     zoom: 1;
     &-left{
@@ -122,12 +128,10 @@
       text-align: center;
       width: 0.6rem;
       display: inline-block;
-      float: left;
       color: #333;
     }
     &-form{
       height: 0.6rem;
-      float: left;
       line-height: normal;
       &-input{
         width: 1.4rem;
@@ -139,10 +143,10 @@
         border-bottom: 0;
         border-radius: 0;
         font-size: 12px;
+        padding: 0;
       }
     }
     &-right{
-      float: left;
       height: 0.6rem;
       line-height: 0.6rem;
       text-align: center;
