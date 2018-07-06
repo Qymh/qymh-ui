@@ -41,7 +41,7 @@ export default function createStyle(vm:any){
     // padding-left
     paddingLeft:vm.pl===0?'':`${vm.pl/10}rem`,
     // border-radius
-    borderRadius:vm.radius===0?'':`${vm.radius/10}rem`,
+    borderRadius:vm.radius===-1?'':typeof vm.radius==='number'?`${vm.radius/10}rem`:`${vm.radius}%`,
 
     // color
     color:vm.color,

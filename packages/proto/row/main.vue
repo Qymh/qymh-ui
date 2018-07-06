@@ -5,55 +5,55 @@
   export default class Proto extends Vue{
     // 高
     @Prop({default:-1})
-    public h:number
+    public h:number|string
 
     // 行高
     @Prop({default:-1})
-    public lh:number
+    public lh:number|string
     
     // 宽
     @Prop({default:-1})
-    public w:number
+    public w:number|string
 
     // 高度百分比
     @Prop({default:-1})
-    public row:number
+    public row:number|string
 
     // 宽度百分比 
     @Prop({default:-1})
-    public col:number
+    public col:number|string
 
     // margin-top
     @Prop({default:0})
-    public mt:number
+    public mt:number|string
 
     // margin-right
     @Prop({default:0})
-    public mr:number
+    public mr:number|string
 
     // margin-bottom
     @Prop({default:0})
-    public mb:number
+    public mb:number|string
 
     // margin-left
     @Prop({default:0})
-    public ml:number
+    public ml:number|string
 
     // padding-top
     @Prop({default:0})
-    public pt:number
+    public pt:number|string
 
     // padding-right
     @Prop({default:0})
-    public pr:number
+    public pr:number|string
 
     // padding-bottom
     @Prop({default:0})
-    public pb:number
+    public pb:number|string
 
     // padding-left
     @Prop({default:0})
-    public pl:number
+    public pl:number|string
 
     // 定位
     @Prop({default:'static'})
@@ -93,7 +93,7 @@
 
     // z-index
     @Prop({default:'auto'})
-    public zIndex:number
+    public zIndex:number|string
 
     // display
     @Prop({default:''})
@@ -112,7 +112,7 @@
     public decoration:common.decoration
 
     // border-radius
-    @Prop({default:0})
+    @Prop({default:-1})
     public radius:number|string
 
     // word-break
