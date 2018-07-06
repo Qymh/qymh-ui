@@ -8,6 +8,7 @@
         :leftArrow="true"
         centerText="headBar 头部导航"
         :rightEmpty="true")
+    q-row(h=12)
     q-row(pl=2 pr=2)
       //- demo演示
       q-row(tag="section")

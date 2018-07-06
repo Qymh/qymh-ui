@@ -63,6 +63,10 @@
     {
       "name":"select 滑动选择",
       "href":"/select"
+    },
+    {
+      "name":"$notice 通知",
+      "href":"/notice"
     }
   ]
 }

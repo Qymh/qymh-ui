@@ -144,6 +144,8 @@ Notice.install=(Vue:any)=>{
         })
 
         $rightBtn.addEventListener('click',()=>{
+          let vm=new Vue()
+          vm.$notice.removeConfirm()
           resolve()
         })
 

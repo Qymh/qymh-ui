@@ -18,6 +18,11 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
+        q-row(dir="left" lh=9 indent=2)
+          q-col 二次封装
+          q-col(
+            tag="a" href="https://github.com/hilongjw/vue-lazyload" target="_blank"
+            color="deepskyblue" decoration="underline") vue-lazyload
         //- 列子
         q-row(tag="section")
           q-cell(

@@ -1,10 +1,63 @@
 <template lang="pug">
   .photo
-    q-row(@clicked="showPhoto" zIndex=999) 点击查看
-    q-row
-      q-photo(
-        v-show="images.length"
-        :images="images")
+    //- 标题
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
+      q-head-bar(
+        color="white"
+        bkColor="deepskyblue"
+        :leftArrow="true"
+        centerText="photo 图片轮播"
+        :rightEmpty="true")
+    q-row(h=12)
+    q-row(pl=2 pr=2)
+      //- demo演示
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="Demo演示"
+          fontSize=16
+          :borderBottom="true")
+        q-row(dir="left" lh=9 indent=2)
+          q-col 二次封装
+          q-col(
+            tag="a" href="https://github.com/dimsemenov/PhotoSwipe" target="_blank"
+            color="deepskyblue" decoration="underline") photoswipe
+        //- 列子
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="列子")
+          q-row(tag="section")
+            q-row(lh=12 @clicked="showPhoto") 点击查看图片
+            q-row
+              q-photo(
+                v-show="images.length"
+                :images="images")
+            q-code(type="html").
+              &ltq-row lh=12 @clicked="showPhoto"&gt
+                点击查看图片
+              &lt/q-row&gt
+              &ltq-row&gt
+                &ltq-photo
+                  v-show="images.length"
+                  :images="images"&gt&lt/q-photo&gt
+              &lt/q-row&gt
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-tagfill"
+            leftIconColor="deepskyblue"
+            title="API一览"
+            fontSize=16
+            :borderBottom="true")
+          //- Api
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="Api")
+            q-table(:tableOptions="tableOptions")
 </template>
 
 <script lang="ts">
@@ -12,6 +65,26 @@
   @Component({})
   export default class ExPhoto extends Vue{
     private images:string[]=[]
+    private tableOptions:any={
+      titles:[
+        {value:'Prop'},
+        {value:'Type'},
+        {value:'Required'},
+        {value:'Default'},
+        {value:'Description'}
+      ],
+      datas:[
+        {
+          prop:[
+            {value:'images'},
+            {value:'Array'},
+            {value:'Y'},
+            {value:'无'},
+            {value:'要展示的图片'}
+          ]
+        },
+      ]
+    }
 
     private showPhoto(){
       this.images=[

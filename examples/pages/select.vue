@@ -9,22 +9,139 @@
         centerText="select 滑动选择"
         :rightEmpty="true")
     q-row(h=12)
-    q-row(pl=2 pr=2 position="relative")
-      q-row
+    q-row(pl=2 pr=2)
+      //- demo演示
+      q-row(tag="section")
         q-cell(
-          :title="dateNow"
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="Demo演示"
+          fontSize=16
           :borderBottom="true")
-        q-select(
-          position="absolute"
-          t=0
-          r=0
-          col=100
-          row=100
-          id="date"
-          title="请选择日期"
-          :wheels="datesArr"
-          :seat="seat"
-          @chooseData="chooseData")
+        //- 列子
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="列子")
+          q-row(dir="left" lh=9 indent=2)
+            q-col 二次封装
+            q-col(
+              tag="a" href="https://github.com/onlyhom/mobileSelect.js" target="_blank"
+              color="deepskyblue" decoration="underline") mobileSelect.js
+          q-row
+            q-row(position="relative")
+              q-cell(
+                :title="dateNow"
+                :borderBottom="true")
+              q-select(
+                position="absolute"
+                t=0
+                r=0
+                col=100
+                row=100
+                id="date"
+                title="请选择日期"
+                :wheels="datesArr"
+                :seat="seat"
+                @chooseData="chooseData")
+            q-code(type="html").
+              &ltq-row position="relative"&gt
+                &ltq-cell
+                  :title="dateNow"
+                  :borderBottom="true"&gt&lt/q-cell&gt
+                &ltq-select
+                  position="absolute"
+                  t=0
+                  r=0
+                  col=100
+                  row=100
+                  id="date"
+                  title="请选择日期"
+                  :wheels="datesArr"
+                  :seat="seat"
+                  @chooseData="chooseData"&gt
+                &lt/q-select&gt
+              &lt/q-row&gt
+
+              data:{
+                return{
+                  datesArr:any[]=[
+                    {
+                      data:[]
+                    }
+                  ],
+                  seat=[]
+                }
+              },
+              mounted () {
+                this.$nextTick(()=>{
+                  let datesArr=this.datesArr[0].data
+                  let now=new Date()
+                  let currentYear=now.getFullYear()
+                  let currentMonth=now.getMonth()+1
+                  let currentDay=now.getDate()
+                  let currentYearIndex=currentYear%(currentYear-1)
+
+                  this.seat=[currentYearIndex,currentMonth-1,currentDay-1]
+                  
+                  // 加入年
+                  for(let year=currentYear-1;year&ltcurrentYear+2;year++){  
+                    datesArr.push({
+                      id:year,
+                      value:year+'年'
+                    })
+                  }
+
+                  // 加入月
+                  for(let i in datesArr){
+                    datesArr[i].childs=[]
+                    for(let month=1;month<=12;month++){
+                      datesArr[i].childs.push({
+                        id:month,
+                        value:month+'月'
+                      })
+                    }
+                  }
+
+                  // 加入日
+                  for(let i in datesArr){
+                    let year=datesArr[i].id
+                    for(let month=1;month<=12;month++){
+                      datesArr[i].childs[month-1].childs=[]
+                      let day=new Date(year,month,0).getDate()
+                      for(let j=1;j<=day;j++){
+                        datesArr[i].childs[month-1].childs.push({
+                          id:j,
+                          value:j+'日'
+                        })
+                      }
+                    }
+                  }
+                })
+              },
+              methods:{
+                chooseData(date){
+                  let year=date[0].value
+                  let month=date[1].value
+                  let day=date[2].value
+                  this.dateNow=`${year}${month}${day}`
+                }
+              }
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="API一览"
+          fontSize=16
+          :borderBottom="true")
+        //- Api
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="Api")
+          q-table(:tableOptions="tableOptions")
 </template>
 
 <script lang="ts">
@@ -44,6 +161,54 @@
 
     // 当前选择的日期
     private dateNow:string='请选择日期'
+    
+    private tableOptions:any={
+      titles:[
+        {value:'Prop'},
+        {value:'Type'},
+        {value:'Required'},
+        {value:'Default'},
+        {value:'Description'}
+      ],
+      datas:[
+        {
+          prop:[
+            {value:'id'},
+            {value:'String'},
+            {value:'Y'},
+            {value:'无'},
+            {value:'选择器的唯一id'}
+          ]
+        },
+        {
+          prop:[
+            {value:'title'},
+            {value:'String'},
+            {value:'Y'},
+            {value:'无'},
+            {value:'选择器标题'}
+          ]
+        },
+        {
+          prop:[
+            {value:'wheels'},
+            {value:'Array'},
+            {value:'Y'},
+            {value:'无'},
+            {value:'滚轴数据数组'}
+          ]
+        },
+        {
+          prop:[
+            {value:'seat'},
+            {value:'Array'},
+            {value:'N'},
+            {value:'无'},
+            {value:'滚轴位置'}
+          ]
+        }
+      ]
+    }
 
     // 挂载
     private mounted () {
