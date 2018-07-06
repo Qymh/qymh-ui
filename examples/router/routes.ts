@@ -32,7 +32,9 @@ const Routes:diyRoute.RouteConfig[]=[
   // 图片查看 q-photo
   {name:'photo'},
   // 滑动选择 q-select
-  {name:'select'}
+  {name:'select'},
+  // 提醒
+  {name:'notice'}
 ]
 
 export default Routes
