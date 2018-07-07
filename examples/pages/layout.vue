@@ -327,13 +327,14 @@
               &ltq-col ml=2 h=8 w=8 bkColor="#ECAD9E" radius=50&gt&lt/q-col&gt
               &ltq-col ml=2 h=8 w=20 bkColor="#F4606C" :radius=10&gt&lt/q-col&gt
             &lt/q-row&gt
+        //- z-index
         q-row(tag="section")
           q-cell(
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="层级")
           q-row(lh=9 indent=2 mb=2)
-            |z-ndex写为<main>z-index</main>
+            |z-ndex写为<main>zIndex</main>
           q-row(h=10 bkColor="#BEE7E9" position="relative")
             q-row(h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5)
             q-row(h=8 w=30 bkColor="#F4606C" position="absolute" t=0 l=0 zIndex=4)
@@ -342,7 +343,20 @@
               &ltq-row h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5&gt&lt/q-row&gt
               &ltq-row h=8 w=30 bkColor="#F4606C" position="absolute" t=0 l=0 zIndex=4&gt&lt/q-row&gt
             &lt/q-row&gt
-</template>
+        //- tag
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="元素标签")
+          q-row(lh=9 indent=2 mb=2)
+            |默认<main>tag</main>为div,可以输入任何Html元素标签
+          q-row(tag="section" h=10 bkColor="#BEE7E9") 我是一个section元素
+          q-code(type="html").
+            &ltq-row tag="section" h=10 bkColor="#BEE7E9"&gt
+              我是一个section元素
+            &lt/q-row&gt
+</template> 
 
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'

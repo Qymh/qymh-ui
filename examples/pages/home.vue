@@ -28,8 +28,7 @@
           color="white"
           :leftEmpty="true"
           centerText="I'm coming soon"
-          :rightArrow="true"
-          @clicked="go(item.href)")
+          :rightArrow="true")
       //- 组件
       q-row(tag="section")
         q-cell(

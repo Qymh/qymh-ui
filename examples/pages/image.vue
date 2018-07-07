@@ -8,8 +8,7 @@
         :leftArrow="true"
         centerText="image 图片懒加载"
         :rightEmpty="true")
-    q-row(h=12)
-    q-row(pl=2 pr=2)
+    q-row(pl=2 pr=2 mt=12)
       //- demo演示
       q-row(tag="section")
         q-cell(
