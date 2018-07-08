@@ -3,14 +3,19 @@
     //- 左侧
     .q-searchBar-left(
       @click="leftClicked"
-      :style="{width:bothWidth+'rem',color:leftTextColor}")
+      :style="{width:bothWidth+'rem',color:leftTextColor}"
+      v-if="!$slots.left&&(leftArrow||leftText)")
       .q-searchBar-left-arrow(v-if="leftArrow")
         i.q-icon.icon-back(:style="{color:color}")
       .q-searchBar-left-text(v-if="leftText")
         span {{leftText}}
+    //- 自定义左侧
+    slot(
+      name="left"
+      v-if="$slots.left")
     
     //- 中间
-    .q-searchBar-center
+    .q-searchBar-center(v-if="!$slots.center")
       .q-searchBar-center-search(:style="{backgroundColor:searchBkColor}")
         //- 头部搜索icon
         .q-searchBar-center-search-front
@@ -28,13 +33,22 @@
           v-if="clearable"
           @click.stop="clearSearchText")
           i.q-icon.icon-close
+    //- 自定义中间
+    slot(
+      name="center"
+      v-if="$slots.center")
     
     //- 右侧
     .q-searchBar-right(
       @click="rightClicked"
-      :style="{width:bothWidth+'rem'}")
+      :style="{width:bothWidth+'rem'}"
+      v-if="!$slots.right&&rightText")
       .q-searchBar-right-text(:style="{color:rightTextColor}")
         span {{rightText}}
+    //- 自定义右侧
+    slot(
+      name="right"
+      v-if="$slots.right")
 </template>
 
 <script lang="ts">
@@ -130,6 +144,23 @@
         style.padding=this.padding+'rem'
       }
       return style
+    }
+
+    // 挂载
+    private mounted() {
+      if(this.$slots.left){
+        let left:any=this.$slots.left[0].elm
+        left.classList.add('slot-left')
+        left.addEventListener('click',this.leftClicked)
+      }
+      if(this.$slots.center){
+        let center:any=this.$slots.center[0].elm
+        center.classList.add('slot-center')
+      }
+      if(this.$slots.right){
+        let right:any=this.$slots.right[0].elm
+        right.classList.add('slot-right')
+      }
     }
 
     // 输入
@@ -241,6 +272,30 @@
       flex-grow: 0;
       font-size: 14px;
     }
+  }
+  .slot-left{
+    flex-grow: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding:0 0.1rem;
+  }
+  .slot-center{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:0 0.1rem;
+  }
+  .slot-right{
+    flex-grow: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding:0 0.1rem;
   }
 </style>
 

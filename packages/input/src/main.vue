@@ -65,6 +65,9 @@
     // 按下
     private keydown(e:any){
       this.canEmit=true
+      if(!this.rules.length){
+        return
+      }
       this.rules.forEach((rule:any)=>{
         // 默认不允许输入emoji
         if(!rule.allowedEmoji){
@@ -145,6 +148,9 @@
       let later:string|number=''
       let vm:any=new Vue()
       let $el:any=this.$el
+      if(!this.rules.length){
+        return
+      }
       this.rules.forEach((rule:any)=>{
         rule.isError=false
         // 检查必填

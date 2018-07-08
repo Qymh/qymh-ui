@@ -82,9 +82,14 @@
 <style lang="scss" scoped>
   .q-radio{
     display: inline-block;
-    vertical-align: text-top;
+    height: 0.5rem;
+    width: 0.5rem;
+    position: relative;
   }
   .q-radio-rect{
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 0.5rem;
     width: 0.5rem;
     line-height: 0.5rem;
@@ -102,6 +107,9 @@
     }
   }
   .q-radio-circle{
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 0.5rem;
     width: 0.5rem;
     line-height: 0.5rem;

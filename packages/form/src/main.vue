@@ -1,15 +1,21 @@
 <template lang="pug">
-  form.q-form(methods="#" action="#" @submit.prevent="validate")
+  form.q-form(
+    methods="#" action="#" @submit.prevent="validate"
+    :style="style")
     slot
 </template>
 
 <script lang="ts">
+  import Proto from '../../proto/input/main.vue'
+  import createStyle from '../../proto/input/index'
   import {Vue,Component,Prop} from 'vue-property-decorator'
   
   @Component({})
-  export default class QForm extends Vue{
+  export default class QForm extends Proto{
     // 表单数组
     private qInput:any[]=[]
+    // 计算后的style
+    private style:any={}
 
     // 数据
     @Prop({default:''})
@@ -55,6 +61,7 @@
     // 挂载 
     private mounted() {
       this.findQInput(this)
+      this.style=createStyle(this)
     }
   }
 </script>
