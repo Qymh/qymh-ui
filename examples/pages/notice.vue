@@ -89,9 +89,9 @@
     }
     private loading(){  
       this.$notice.loading()
-      setTimeout(() => {
-        this.$notice.removeLoading()
-      }, 1000);
+      // setTimeout(() => {
+        // this.$notice.removeLoading()
+      // }, 1000);
     }
     private confirm(){
       this.$notice.confirm('我是一个弹窗').then(()=>{

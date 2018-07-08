@@ -12,6 +12,14 @@ function remove(elm:Element):void{
   }
 }
 
+function parseHtml(html:string):any{
+  let outerDom=document.createElement('div')
+  outerDom.innerHTML=html
+
+  let children=Array.from(outerDom.children)
+  return children[0]
+}
+
 let index:number=0
 
 Notice.install=(Vue:any)=>{
@@ -77,14 +85,29 @@ Notice.install=(Vue:any)=>{
      */
     loading(){
       let bkHtml=ce('div')
-      let loadingHtml=ce('div')
-      let loadingChunkHtml=ce('div')
       bkHtml.classList.add('notice_background')
-      loadingHtml.classList.add('notice_loading')
-      loadingChunkHtml.classList.add('notice_loading_chunk')
+      let loadingHtmlString=`
+      <div class="notice_loading">
+        <div class="lds-css ng-scope">
+          <div class="lds-spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        <div>
+      </div>`
+      let loadingHtml=parseHtml(loadingHtmlString)
 
       let $body=document.body
-      loadingHtml.appendChild(loadingChunkHtml)
       $body.appendChild(bkHtml)
       $body.appendChild(loadingHtml)
     },
