@@ -30,14 +30,6 @@
             ml=2 pt=3 pb=3 pl=5 pr=5 fontSize=16
             value="大" bkColor="deepskyblue")
           q-tag(
-            :active="active"
-            ml=2 value="点击交互"
-            :hasBorder="true"
-            bkColor="white"
-            color="#333"
-            activeBkColor="#F65A44"
-            @clicked="change")
-          q-tag(
             ml=2
             value="无圆角值"
             :hasRadius="false"
@@ -51,14 +43,6 @@
             &ltq-tag ml=2 pt=3 pb=3 pl=5 pr=5 fontSize=16
             value="大" bkColor="deepskyblue"&gt&lt/q-tag&gt
             &ltq-tag
-              :active="active"
-              ml=2 value="点击交互"
-              :hasBorder="true"
-              bkColor="white"
-              color="#333"
-              activeBkColor="#F65A44"
-              @clicked="change"&gt&lt/q-tag&gt
-            &ltq-tag
               ml=2
               value="无圆角值"
               :hasRadius="false"
@@ -67,20 +51,43 @@
               bkColor="white"
               color="#333"&gt
             &lt/q-tag&gt
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="事件回调")
+          q-row(tag="section")
+            q-tag(
+              :active="active"
+              ml=2 value="点击交互"
+              :hasBorder="true"
+              bkColor="white"
+              color="#333"
+              activeBkColor="#F65A44"
+              @clicked="change")
+            q-code(type="html").
+              &ltq-tag
+                :active="active"
+                ml=2 value="点击交互"
+                :hasBorder="true"
+                bkColor="white"
+                color="#333"
+                activeBkColor="#F65A44"
+                @clicked="change"&gt&lt/q-tag&gt
 
-            data:{
-              return{
-                active=false
+              data:{
+                return{
+                  active=false
+                }
+              },
+              methods:{
+                change(){
+                  this.active=!this.active
+                  this.active?
+                  this.$notice.toast('激活'):
+                  this.$notice.toast('未激活')
+                }
               }
-            },
-            methods:{
-              change(){
-                this.active=!this.active
-                this.active?
-                this.$notice.toast('激活'):
-                this.$notice.toast('未激活')
-              }
-            }
       q-row(tag="section")
         q-cell(
           leftIcon="q-icon icon-tagfill"
@@ -103,6 +110,7 @@
             title="事件回调")
           q-row(lh=9 indent=2 mb=2)
             |<main>@clicked</main>点击后的回调
+          
 </template>
 
 <script lang="ts">

@@ -22,7 +22,6 @@
           q-col(
             tag="a" href="https://github.com/nolimits4web/swiper"
             target="_blank" color="deepskyblue" decoration="underline") swiper
-          q-col swiperOptions的配置和官方给的配置是一样的
         //- 列子
         q-row(tag="section")
           q-cell(
@@ -39,7 +38,7 @@
                 justify="center"
                 v-for="(item,index) in swiperArr"
                 :key="index")
-                q-col(color="white") {{item.value}}
+                q-col(color="red") {{item.value}}
             q-code(type="html").
               &ltq-swiper :swiperOptions="swiperOptions"&gt
                 &ltq-row
@@ -50,7 +49,7 @@
                   justify="center"
                   v-for="(item,index) in swiperArr"
                   :key="index"&gt
-                  &ltq-col color="white"&gt{ { item.value } }&lt/q-col&gt
+                  &ltq-col color="red"&gt{ { item.value } }&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-swiper&gt
 
@@ -85,6 +84,7 @@
             leftIconColor="deepskyblue"
             title="Api")
           q-table(:tableOptions="tableOptions")
+          q-row(h=12 align="center") swiperOptions的配置和官方给的配置是一样的
 </template>
 
 <script lang="ts">

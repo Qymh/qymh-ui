@@ -63,7 +63,40 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(lh=9 indent=2 mb=2) comming soon
+          q-row(lh=9 indent=2 mb=2) 插槽的值有三个<br>
+            |<main>slot="left"</main>表左侧<br>
+            |<main>slot="center"</main>表中间<br>
+            |<main>slot="right"</main>表右侧<br>
+            |当你写入插槽的时候只有左侧的点击事件是保留的,
+            |其他地方需要自己绑定事件,你可以点击下面的列子尝试
+          q-row(tag="section")
+            q-search-bar(@leftClicked="slotBack")
+              q-row(
+                fontSize=12
+                slot="left") 返回
+              q-row(slot="center")
+                q-form(col=100)
+                  q-input(
+                    v-model="searchValueSlot"
+                    borderColor="#f65a44"
+                    placeholder="请输入...")
+              q-row(
+                slot="right" @clicked="slotSearch")
+                q-col.q-icon.icon-search(tag="i" fontSize=12)
+            q-row(h=12 align="center") 双向绑定的值:{{searchValueSlot}}
+            q-code(type="html").
+              &ltq-search-bar @leftClicked="slotBack"&gt
+                &ltq-row fontSize=12 slot="left"&gt返回&lt/q-row&gt
+                &ltq-row slot="center"&gt
+                  &ltq-form col=100&gt
+                    &ltq-input v-model="searchValueSlot"borderColor="#f65a44"placeholder="请输入..."&gt&lt/q-input&gt
+                  &lt/q-form&gt
+                &lt/q-row&gt
+                &ltq-row fontSize=12 slot="right" @clicked="slotSearch"&gt
+                  &ltq-col tag="i" fontSize=12 class="q-icon icon-search"&gt&lt/q-col&gt
+                &lt/q-row&gt
+              &lt/q-search-bar&gt
+              &ltq-row h=12 align="center"&gt双向绑定的值:{ { searchValueSlot } }&lt/q-row&gt
         //- 事件回调
         q-row(tag="section")
           q-cell(
@@ -105,7 +138,10 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(lh=9 indent=2 mb=2) comming soon
+          q-row(lh=9 indent=2 mb=2) 有三个插槽
+            |<main>slot="left"</main>表左侧<br>
+            |<main>slot="center"</main>表中间<br>
+            |<main>slot="right"</main>表右侧<br>
         //- 事件回调
         q-row(tag="section")
           q-cell(
@@ -125,6 +161,7 @@
     private searchValue1:any=''
     private searchValue2:any=''
     private searchValue3:any=''
+    private searchValueSlot:any=''
     private tableOptions:any={
       titles:[
         {value:'Prop'},
@@ -296,6 +333,14 @@
 
     private search(){
       this.searchValue3?this.$notice.toast(`你当前搜索的值为${this.searchValue3}`):this.$notice.toast('你当前搜索的值为空')
+    }
+
+    private slotBack(){
+      this.$notice.toast('你点击了左侧')
+    }
+
+    private slotSearch(){
+      this.$notice.toast(`你搜索的值为:${this.searchValueSlot&&this.searchValueSlot||'空'}`)
     }
   } 
 </script>

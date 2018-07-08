@@ -36,12 +36,6 @@
               type="circle"
               activeColor="white"
               activeBkColor="#f65a44")
-            q-radio(
-              ml=2
-              type="circle"
-              borderColor="deepskyblue"
-              activeBkColor="deepskyblue"
-              @change="change")
             q-code(type="html").
               &ltq-radio
                 ml=2
@@ -55,6 +49,20 @@
                 activeColor="white"
                 activeBkColor="#f65a44"&gt
               &lt/q-radio&gt
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="事件回调")
+          q-row(tag="section")
+            q-radio(
+              ml=2
+              type="circle"
+              borderColor="deepskyblue"
+              activeBkColor="deepskyblue"
+              @change="change")
+            q-row(h=12 bkColor="deepskyblue")
+            q-code(type="html").
               &ltq-radio
                 ml=2
                 type="circle"
