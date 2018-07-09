@@ -29,7 +29,7 @@ const prodWebpackConfig=merge(webpackConfig,{
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           chunks: 'initial',
-          name: 'vendors',
+          name: 'vendors'
         },
         // 
         'async-vendors': {
@@ -53,13 +53,13 @@ const prodWebpackConfig=merge(webpackConfig,{
       }
     }),
     // 每次打包清除掉dist的所有文件
-    new CleanWebpackPlugin(['dist'],{
+    new CleanWebpackPlugin(resolve('dist'),{
       root:resolve('./'),
       allowExternal:true,
     }),
     // 提取css
     new MiniCssExtractPlugin({
-      filename:'[name].[hash].css'
+      filename:'css/[name].[hash].css'
     }),
     /** 根据模块相对路径生成模块hashId 用于打包后模块缓存 **/
     new webpack.HashedModuleIdsPlugin()

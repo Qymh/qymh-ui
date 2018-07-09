@@ -2,19 +2,20 @@ const webpack=require('webpack')
 const path=require('path')
 const {VueLoaderPlugin}=require('vue-loader')
 const HtmlWebpackPlugin=require('html-webpack-plugin')
-const MiniCssExtractPlugin=require('mini-css-extract-plugin')
+const CleanWebpackPlugin=require('clean-webpack-plugin')
 const config=require('./config')
 const resolve=config.lib.resolve
-const isDev=process.env.NODE_ENV==='development'
 
 module.exports={
+  mode:'production',
   entry:{
-    app:resolve('examples/app.ts')
+    app:resolve('src/index.ts')
   },
   output:{
-    path:resolve('dist'),
-    publicPath:isDev?config.dev.publicPath:config.prod.publicPath,
-    filename:isDev?'js/[name].js':'[name].[chunkhash].js'
+    path:resolve('component'),
+    publicPath:'/',
+    filename:'[name].js',
+    libraryTarget: 'commonjs2'
   },
   module:{
     rules:[
@@ -24,7 +25,7 @@ module.exports={
         loader:'vue-loader',
         options: {
           compilerOptions: {
-            preserveWhitespace: isDev
+            preserveWhitespace: true
           }
         }
       },
@@ -41,7 +42,7 @@ module.exports={
             loader:'ts-loader',
             options:{
               appendTsSuffixTo:[/\.vue$/],
-              transpileOnly:isDev
+              transpileOnly:false
             }
           }
         ],
@@ -51,8 +52,6 @@ module.exports={
       {
         test:/\.css$/,
         use:[
-          isDev?
-          'vue-style-loader':MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader'
         ]
@@ -61,8 +60,6 @@ module.exports={
       {
         test:/\.scss$/,
         use:[
-          isDev?
-          'vue-style-loader':MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader'
@@ -85,15 +82,6 @@ module.exports={
           limit:8192,
           name:'fonts/[name]_[hash:7].[ext]'
         }
-      },
-      // 视频
-      {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
-        loader:'url-loader',
-        options:{
-          limit:8192,
-          name:'media/[name]_[hash:7].[ext]'
-        }
       }
     ]
   },
@@ -103,17 +91,19 @@ module.exports={
     // 别名
     alias:{
       // vue
-      vue$:'vue/dist/vue.esm.js',
-      // examples
-      '@':resolve('examples')
+      vue$:'vue/dist/vue.esm.js'
     }
   },
   plugins:[
-    new HtmlWebpackPlugin({
-      filename:'index.html',
-      template:resolve('examples/index.html')
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new VueLoaderPlugin()
+    // 每次打包清除掉dist的所有文件
+    new CleanWebpackPlugin(['component'],{
+      root:resolve('./'),
+      allowExternal:true,
+    }),
   ],
   stats:{
     colors: true,

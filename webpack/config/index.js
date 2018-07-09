@@ -85,7 +85,7 @@ const config={
     // 挂载路径
     publicPath:'/',
     // 源地图
-    devtool:'none',
+    devtool:false,
 
     /** uglifyjs **/
     cache:true,
