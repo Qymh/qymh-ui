@@ -7,12 +7,8 @@
 
 <script lang="ts">
   import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
-  import lazyLoad from 'vue-lazyload'
   import Proto from '../../proto/image/main.vue'
   import createStyle from '../../proto/image'
-  import {IMAGECONFIG} from '../../../src/qymhui.config'
-
-  Vue.use(lazyLoad,IMAGECONFIG.lazyLoad)
   @Component({})
   export default class QImage extends Proto{
     // 计算后的属性

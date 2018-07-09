@@ -7,8 +7,6 @@
 
 <script lang="ts">
   import {Vue,Component,Prop,Watch} from 'vue-property-decorator'
-  import MobileSelect from 'mobile-select'
-  import 'mobile-select/mobile-select.css'
   import Proto from '../../proto/select/main.vue'
   import createStyle from '../../proto/select'
 
@@ -40,6 +38,7 @@
     onWheelsChange(val:any[]){
       let vm=this
       vm.$nextTick(()=>{
+        let MobileSelect=this.$tree.MobileSelect
         let select=new MobileSelect({
           trigger:`#${vm.id}`,
           title:vm.title,

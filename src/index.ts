@@ -5,6 +5,11 @@ import './style/widget.scss'
 import './style/animate.scss'
 import 'swiper/dist/css/swiper.min.css'
 
+import Vue from 'vue'
+import lazyLoad from 'vue-lazyload'
+import {IMAGECONFIG} from './qymhui.config'
+Vue.use(lazyLoad,IMAGECONFIG)
+
 import '../packages/widget'
 
 import Row from '../packages/row'
@@ -51,12 +56,55 @@ const components=[
   Select
 ]
 
+const componentsName:string[]=[
+  'QRow',
+  'QCol',
+  'QText',
+  'QCell',
+  'QHeadBar',
+  'QSearchBar',
+  'QTabBar',
+  'QTag',
+  'QCode',
+  'QForm',
+  'QInput',
+  'QRadio',
+  'QStepper',
+  'QTable',
+  'QOverlay',
+  'QFiles',
+  'QImage',
+  'QSwiper',
+  'QPhoto',
+  'QSelect'
+]
+
 const install=function(Vue:any,opts={}){
-  components.map(component=>{
-    Vue.component(component.name,component)
+  components.map((component:any,i)=>{
+    Vue.component(componentsName[i],component)
   })
 }
 
 export default{
-  install
+  install,
+  Row,
+  Col,
+  Text,
+  Cell,
+  HeadBar,
+  SearchBar,
+  TabBar,
+  Tag,
+  Code,
+  Form,
+  Input,
+  Radio,
+  Stepper,
+  Table,
+  Overlay,
+  Files,
+  Image,
+  Swiper,
+  Photo,
+  Select
 }

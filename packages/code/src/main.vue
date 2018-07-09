@@ -16,7 +16,6 @@
 
 <script lang="ts">
   import {Vue,Component,Prop} from 'vue-property-decorator'
-  import HighLight from 'highlight.js'
 
   @Component({})
   export default class QCode extends Vue{
@@ -34,7 +33,7 @@
     private mounted(){
       this.$nextTick(()=>{
         let code=this.$slots.default[0].text
-        let value=HighLight.highlightAuto(code,[this.type]).value
+        let value=this.$tree.HighLight.highlightAuto(code,[this.type]).value
         this.computedCode=value
       })
     }

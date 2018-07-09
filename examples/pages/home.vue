@@ -91,8 +91,10 @@
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'
   import home from '@/manifest/home.json'
+  import QRow from '../../packages/row/index.ts'
 
-  @Component({})
+  @Component({
+  })
   export default class ExHome extends Vue{
     // 首页信息
     private homeInfor:any[]=[]

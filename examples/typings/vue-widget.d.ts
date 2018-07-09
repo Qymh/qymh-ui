@@ -5,6 +5,7 @@ declare module "vue/types/vue" {
     $format:any,
     $tools:any,
     $cookie:any,
-    $storage:any
+    $storage:any,
+    $tree:any
   }
 }
