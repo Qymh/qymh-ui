@@ -66,6 +66,10 @@
       {
         "name":"select 滑动选择",
         "href":"/select"
+      },
+      {
+        "name":"scroll 滑动加载",
+        "href":"/scroll"
       }
     ],
     "widget":[
@@ -74,8 +78,8 @@
         "href":"/notice"
       },
       {
-        "name":"$cookie 存储",
-        "href":"/cookie"
+        "name":"storage 存储",
+        "href":"/storage"
       }
     ]
   }
