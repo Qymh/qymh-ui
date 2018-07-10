@@ -7,53 +7,55 @@ import 'swiper/dist/css/swiper.min.css'
 
 import Vue from 'vue'
 import lazyLoad from 'vue-lazyload'
-import {IMAGECONFIG} from './qymhui.config'
-Vue.use(lazyLoad,IMAGECONFIG)
+import {QIMAGECONFIG} from './qymhui.config'
+Vue.use(lazyLoad,QIMAGECONFIG)
 
 import '../packages/widget'
 
-import Row from '../packages/row'
-import Col from '../packages/col'
-import Text from '../packages/text'
-import Cell from '../packages/cell'
-import HeadBar from '../packages/headBar'
-import SearchBar from '../packages/searchBar'
-import TabBar from '../packages/tabBar'
-import Tag from '../packages/tag'
-import Code from '../packages/code'
-import Form from '../packages/form'
-import Input from '../packages/input'
-import Radio from '../packages/radio'
-import Stepper from '../packages/stepper'
-import Table from '../packages/table'
-import Overlay from '../packages/overlay'
-import Files from '../packages/files'
-import Image from '../packages/image'
-import Swiper from '../packages/swiper'
-import Photo from '../packages/photo'
-import Select from '../packages/select'
+import QRow from '../packages/row'
+import QCol from '../packages/col'
+import QText from '../packages/text'
+import QCell from '../packages/cell'
+import QHeadBar from '../packages/headBar'
+import QSearchBar from '../packages/searchBar'
+import QTabBar from '../packages/tabBar'
+import QTag from '../packages/tag'
+import QCode from '../packages/code'
+import QForm from '../packages/form'
+import QInput from '../packages/input'
+import QRadio from '../packages/radio'
+import QStepper from '../packages/stepper'
+import QTable from '../packages/table'
+import QOverlay from '../packages/overlay'
+import QFiles from '../packages/files'
+import QImage from '../packages/image'
+import QSwiper from '../packages/swiper'
+import QPhoto from '../packages/photo'
+import QSelect from '../packages/select'
+import QScroll from '../packages/scroll'
 
 const components=[
-  Row,
-  Col,
-  Text,
-  Cell,
-  HeadBar,
-  SearchBar,
-  TabBar,
-  Tag,
-  Code,
-  Form,
-  Input,
-  Radio,
-  Stepper,
-  Table,
-  Overlay,
-  Files,
-  Image,
-  Swiper,
-  Photo,
-  Select
+  QRow,
+  QCol,
+  QText,
+  QCell,
+  QHeadBar,
+  QSearchBar,
+  QTabBar,
+  QTag,
+  QCode,
+  QForm,
+  QInput,
+  QRadio,
+  QStepper,
+  QTable,
+  QOverlay,
+  QFiles,
+  QImage,
+  QSwiper,
+  QPhoto,
+  QSelect,
+  QScroll
 ]
 
 const componentsName:string[]=[
@@ -76,7 +78,8 @@ const componentsName:string[]=[
   'QImage',
   'QSwiper',
   'QPhoto',
-  'QSelect'
+  'QSelect',
+  'QScroll'
 ]
 
 const install=function(Vue:any,opts={}){
@@ -87,24 +90,25 @@ const install=function(Vue:any,opts={}){
 
 export default{
   install,
-  Row,
-  Col,
-  Text,
-  Cell,
-  HeadBar,
-  SearchBar,
-  TabBar,
-  Tag,
-  Code,
-  Form,
-  Input,
-  Radio,
-  Stepper,
-  Table,
-  Overlay,
-  Files,
-  Image,
-  Swiper,
-  Photo,
-  Select
+  QRow,
+  QCol,
+  QText,
+  QCell,
+  QHeadBar,
+  QSearchBar,
+  QTabBar,
+  QTag,
+  QCode,
+  QForm,
+  QInput,
+  QRadio,
+  QStepper,
+  QTable,
+  QOverlay,
+  QFiles,
+  QImage,
+  QSwiper,
+  QPhoto,
+  QSelect,
+  QScroll
 }
