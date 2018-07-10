@@ -31,10 +31,16 @@ const Routes:diyRoute.RouteConfig[]=[
   {name:'swiper'},
   // 图片查看 q-photo
   {name:'photo'},
+  // 滚动加载 q-scroll
+  {name:'scroll'},
+  // 滚动加载列子
+  {name:'scrollExample',path:'/scroll/example'},
   // 滑动选择 q-select
   {name:'select'},
   // 提醒
-  {name:'notice'}
+  {name:'notice'},
+  // 存储
+  {name:'storage'}
 ]
 
 export default Routes

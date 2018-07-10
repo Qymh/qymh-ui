@@ -106,8 +106,8 @@ Notice.install=(Vue:any)=>{
         <div>
       </div>`
       let loadingHtml=parseHtml(loadingHtmlString)
-
       let $body=document.body
+
       $body.appendChild(bkHtml)
       $body.appendChild(loadingHtml)
     },

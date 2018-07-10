@@ -44,11 +44,11 @@ Cookie.install=(Vue:any)=>{
       if(Array.isArray(key)){
         for(let i in key){
           let item:string=key[i]
-          let value:any=this.getCookie(item)
+          let value:any=this.get(item)
           document.cookie=`${item}=${escape(value)};expires=${now.toUTCString()}`
         }
       }else{
-        let value=this.getCookie(key)
+        let value=this.get(key)
         document.cookie=`${key}=${escape(value)};expires=${now.toUTCString()}`
       }
     },

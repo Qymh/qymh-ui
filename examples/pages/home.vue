@@ -91,7 +91,6 @@
 <script lang="ts">
   import {Vue,Component} from 'vue-property-decorator'
   import home from '@/manifest/home.json'
-  import QRow from '../../packages/row/index.ts'
 
   @Component({
   })
