@@ -27,7 +27,7 @@
           bkColor="deepskyblue"
           color="white"
           :leftEmpty="true"
-          centerText="I'm coming soon"
+          centerText="coming soon"
           :rightArrow="true")
       //- 组件
       q-row(tag="section")

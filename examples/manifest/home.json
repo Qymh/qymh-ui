@@ -78,7 +78,7 @@
         "href":"/notice"
       },
       {
-        "name":"storage 存储",
+        "name":"$storage $cookie 存储",
         "href":"/storage"
       }
     ]
