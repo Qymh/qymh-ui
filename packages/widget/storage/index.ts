@@ -38,3 +38,5 @@ Storage.install=(Vue:any)=>{
     }
   }
 }
+
+Vue.use(Storage)
