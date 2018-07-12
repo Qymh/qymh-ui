@@ -63,22 +63,5 @@
       color: #a1a1a1;
     }
   }
-  .animated {
-    animation-duration: 0.4s;
-    animation-fill-mode: both;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .fadeIn {
-    animation-name: fadeIn;
-  }
 </style>
 

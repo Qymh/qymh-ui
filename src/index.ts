@@ -4,6 +4,8 @@ import './style/highLight.scss'
 import './style/widget.scss'
 import './style/animate.scss'
 import 'swiper/dist/css/swiper.min.css'
+import 'mobile-select/mobile-select.css'
+import 'mescroll.js/mescroll.min.css'
 
 import Vue from 'vue'
 import lazyLoad from 'vue-lazyload'

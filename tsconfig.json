@@ -64,6 +64,7 @@
     "typings/overlay.d.ts",
     "typings/swiper.d.ts",
     "typings/photoswipe.d.ts",
-    "typings/mobileSelect.d.ts"
+    "typings/mobileSelect.d.ts",
+    "typings/mescroll.d.ts"
   ]
 }
