@@ -28,6 +28,8 @@
     private computedShow:boolean=false
     // 最后选择的元素
     private $last:any=''
+    // 滚轴高度
+    private scrollTop:number=0
 
     // 蒙层出现方向 
     @Prop({default:''})
@@ -58,12 +60,13 @@
     onShowChanged(val:boolean){
       this.computedShow=this.show
       let baseHeight=document.body.clientHeight
-      let $body=document.body
+      let $html=document.getElementsByTagName('html')[0]
+      this.findElement($html,baseHeight)
       if(this.show){
-        this.findElement($body,baseHeight)
+        this.scrollTop=window.pageYOffset||document.documentElement.scrollTop
         let $scroller=this.$last
         $scroller.style.position='fixed'
-        $scroller.style.top=0
+        $scroller.style.top=-this.scrollTop+'px'
         $scroller.style.left=0
         $scroller.style.height='100vh'
         $scroller.style.width='100%'
@@ -76,6 +79,7 @@
         $scroller.style.height='auto'
         $scroller.style.width='auto'
         $scroller.style.overflow='auto'
+        window.scrollTo(0,this.scrollTop)
       }
     }
 
