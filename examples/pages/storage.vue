@@ -26,12 +26,12 @@
             title="$cookie")
           q-row(tag="section")
             q-row(h=12 align="center") cookie:{{cookieNow}}
-            q-row(h=10 align="center" @clicked="setCookie") 点击设置cookie
-            q-row(h=10 align="center" @clicked="deleteCookie") 点击删除cookie
+            q-row(h=10 align="center" @clicked="setCookie" decoration="underline" color="deepskyblue") 点击设置cookie
+            q-row(h=10 align="center" @clicked="deleteCookie" decoration="underline" color="deepskyblue") 点击删除cookie
             q-code(type="html").
               &ltq-row h=12 align="center"&gtcookie:{ { cookieNow } }&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="setCookie"&gt点击设置cookie&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="deleteCookie"&gt点击删除cookie&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="setCookie" decoration="underline" color="deepskyblue"&gt点击设置cookie&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="deleteCookie" decoration="underline" color="deepskyblue"&gt点击删除cookie&lt/q-row&gt
 
               data:{
                 return{
@@ -56,15 +56,15 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="$storage")
-          q-row(lh=9 indent=2 mb=2) 设置<main>sessionStorage</main>,你可以设置后刷新本页面此数据将不存在
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 设置<main>sessionStorage</main>,你可以设置后刷新本页面此数据将不存在
           q-row(tag="section")
             q-row(h=12 align="center") cookie:{{sessionStorage}}
-            q-row(h=10 align="center" @clicked="setSessionStorage") 点击设置sessionStorage
-            q-row(h=10 align="center" @clicked="deleteSessionStorage") 点击删除sessionStorage
+            q-row(h=10 align="center" @clicked="setSessionStorage" decoration="underline" color="deepskyblue") 点击设置sessionStorage
+            q-row(h=10 align="center" @clicked="deleteSessionStorage" decoration="underline" color="deepskyblue") 点击删除sessionStorage
             q-code(type="html").
               &ltq-row h=12 align="center"&gtsessionStorage:{ { sessionStorage  } }&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="setSessionStorage"&gt点击设置sessionStorage&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="deleteSessionStorage"&gt点击删除sessionStorage&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="setSessionStorage" decoration="underline" color="deepskyblue"&gt点击设置sessionStorage&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="deleteSessionStorage" decoration="underline" color="deepskyblue"&gt点击删除sessionStorage&lt/q-row&gt
 
               data:{
                 return{
@@ -83,15 +83,15 @@
                   this.sessionStorage=`session=${this.$storage.get('session')}`
                 }
               }
-          q-row(lh=9 indent=2 mb=2) 设置<main>localStorage</main>,设置后刷新本页面数据仍会存在
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 设置<main>localStorage</main>,设置后刷新本页面数据仍会存在
           q-row(tag="section")
             q-row(h=12 align="center") localStorage:{{localStorage}}
-            q-row(h=10 align="center" @clicked="setLocalStorage") 点击设置localStorage
-            q-row(h=10 align="center" @clicked="deleteLocalStorage") 点击删除localStorage
+            q-row(h=10 align="center" @clicked="setLocalStorage" decoration="underline" color="deepskyblue") 点击设置localStorage
+            q-row(h=10 align="center" @clicked="deleteLocalStorage" decoration="underline" color="deepskyblue") 点击删除localStorage
             q-code(type="html").
               &ltq-row h=12 align="center"&gtlocalStorage:{ { localStorage } }&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="setLocalStorage"&gt点击设置localStorage&lt/q-row&gt
-              &ltq-row h=10 align="center" @clicked="deleteLocalStorage"&gt点击删除localStorage&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="setLocalStorage" decoration="underline" color="deepskyblue"&gt点击设置localStorage&lt/q-row&gt
+              &ltq-row h=10 align="center" @clicked="deleteLocalStorage" decoration="underline" color="deepskyblue"&gt点击删除localStorage&lt/q-row&gt
 
               data:{
                 return{
@@ -110,6 +110,77 @@
                   this.localStorage=`local=${this.$storage.get('local',true)}`
                 }
               }
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="API一览"
+          fontSize=16
+          :borderBottom="true")
+        //- Api
+        q-row(tag="section")
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$cookie.set(key,value)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>key</main>键名<br>
+              |<main>value</main>值<br>
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$cookie.get(key,value)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>value</main>值<br>
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$cookie.delete(key)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>key</main>键名<br>可以是键名数组同时删除多个cookie
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$cookie.deleteAll")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |没有参数,直接删除所有cookie
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$storage.set(key,value,local)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>key</main>键名<br>
+              |<main>value</main>值<br>
+              |<main>local</main>为true时启用<main>localStorage</main>,默认为false
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$storage.get(key)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>key</main>键名<br>
+              |<main>local</main>为true时启用<main>localStorage</main>,默认为false
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$storage.delete(key)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |<main>key</main>键名<br>可以是键名数组同时删除多个storage
+              |<main>local</main>为true时启用<main>localStorage</main>,默认为false
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="$storage.deleteAll(key)")
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              |没有参数,直接删除所有storage
+              |<main>local</main>为true时启用<main>localStorage</main>,默认为false
 </template>
 
 <script lang="ts">
