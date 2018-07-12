@@ -17,7 +17,7 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(lh=9 indent=2 mb=2 dir="left" wrap="wrap")
+        q-row(fontSize=14 lh=9 indent=2 mb=2 dir="left" wrap="wrap")
           q-col 二次封装
           q-col(
             tag="a" href="https://github.com/nolimits4web/swiper"

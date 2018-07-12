@@ -93,7 +93,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
             |<main>@getFiles</main>上传文件后返回<br>
             |有两个参数,第一个是<main>files</main>数组,第二个是图片的<main>src</main>数组
 </template>

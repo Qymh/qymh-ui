@@ -74,7 +74,7 @@
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
               title="自定义title")
-            q-row(lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
               |自定义title用<main>slot="title"</main>插槽实现,
               |现在仅一个插槽,之后会支持左侧,右侧插槽
             //- 自定义title
@@ -104,7 +104,7 @@
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
               title="点击事件")
-            q-row(lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
               |点击事件目前有两个,一个全局点击事件<main>@clicked</main>,
               |一个右侧文字和箭头的点击事件<main>@rightClicked</main>,
               |之后会支持到更细节的点击,你可以点击下方的列子看看效果
@@ -162,7 +162,7 @@
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
               title="插槽(ToDoMore)")
-            q-row(lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
               |目前仅有一个<main>slot="title"</main>
           //-事件
           q-row(tag="section")
@@ -170,7 +170,7 @@
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
               title="事件回调(ToDoMore)")
-            q-row(lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 indent=2 mb=2)
               |<main>@clicked</main>全局点击<br>
               |<main>@rightClicked</main>右侧点击<br>
 </template>

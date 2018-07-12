@@ -25,7 +25,7 @@
             title="列子")
           //- 左侧
           q-row(tag="section")
-            q-row(lh=9 @clicked="leftClicked") 点击我显示左侧蒙层
+            q-row(fontSize=14 lh=9 @clicked="leftClicked") 点击我显示左侧蒙层
             q-overlay(
               position="left"
               :show="leftShow"
@@ -51,7 +51,7 @@
               }
           //- 右侧
           q-row(tag="section")
-            q-row(lh=9 @clicked="rightClicked") 点击我显示右侧蒙层(有内部结构)
+            q-row(fontSize=14 lh=9 @clicked="rightClicked") 点击我显示右侧蒙层(有内部结构)
             q-overlay(
               position="right"
               :show="rightShow"
@@ -89,7 +89,7 @@
               }
           //- 顶层
           q-row(tag="section")
-            q-row(lh=9 @clicked="topClicked") 点击我显示顶部蒙层
+            q-row(fontSize=14 lh=9 @clicked="topClicked") 点击我显示顶部蒙层
             q-overlay(
               position="top"
               :show="topShow"
@@ -97,7 +97,7 @@
               :maxHeight="14"
               bkColor="#eee"
               @hide="topClickedHide")
-              q-row(lh=9 pl=2 pr=2)
+              q-row(fontSize=14 lh=9 pl=2 pr=2)
                 q-col 1.没有提供任何点击的元素控件,只能点击下方的黑色背景隐藏蒙层
                 q-col 2.设置了蒙层背景颜色为#eee(默认为#fff)
                 q-col 3.设置了最小高度为11rem(默认为10) 最大高度为14rem(默认为13)
@@ -131,7 +131,7 @@
               }
           //- 底部
           q-row(tag="section")
-            q-row(lh=9 @clicked="bottomClicked") 点击我显示底部蒙层(较复杂的列子)
+            q-row(fontSize=14 lh=9 @clicked="bottomClicked") 点击我显示底部蒙层(较复杂的列子)
             q-overlay(
               position="bottom"
               :show="bottomShow"
@@ -149,13 +149,13 @@
                   ref="myForm"
                   :model="datas"
                   :rules="rules")
-                  q-row(lh=9 fontSize="14" color="#a1a1a1") 姓名:(3~7个字符)
+                  q-row(fontSize=14 lh=9 color="#a1a1a1") 姓名:(3~7个字符)
                   q-input(
                     prop="name"
                     v-model="datas.name"
                     lh=9 type="text"
                     placeholder="请输入你的名字")
-                  q-row(lh=9 fontSize="14" color="#a1a1a1") 电话:
+                  q-row(fontSize=14 lh=9 color="#a1a1a1") 电话:
                   q-input(
                     prop="tel" v-model="datas.tel" lh=9 type="tel"
                     placeholder="请输入你的电话")
@@ -252,7 +252,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
             <main>@hide</main>蒙层隐藏的时候触发
 </template>
 

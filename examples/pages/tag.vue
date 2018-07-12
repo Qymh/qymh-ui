@@ -108,7 +108,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
             |<main>@clicked</main>点击后的回调
           
 </template>

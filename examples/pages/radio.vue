@@ -25,7 +25,7 @@
             leftIconColor="deepskyblue"
             title="列子")
           q-row(tag="section")
-            q-row(lh=9 indent=2 mb=2) 你可以点击下方的列子尝试
+            q-row(fontSize=14 lh=9 indent=2 mb=2) 你可以点击下方的列子尝试
             q-radio(
               ml=2
               type="rect"
@@ -98,7 +98,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
             |<main>@change</main> 激活状态改变的时候触发,第一个参数为当前的激活状态布尔值
 </template>
 

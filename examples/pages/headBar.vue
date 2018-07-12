@@ -58,7 +58,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(lh=9 indent=2 mb=2) 插槽有三个
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 插槽有三个
             |<main>slot="left"</main>
             |<main>slot="center"</main>
             |<main>slot="right"</main>
@@ -105,7 +105,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2) 事件回调有4个
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 事件回调有4个
             |<main>@leftClicked</main>
             |<main>@centerClicked</main>
             |<main>@rightClicked</main>
@@ -171,7 +171,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(lh=9 indent=2 mb=2) 目前有三个插槽
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 目前有三个插槽
             |<main>slot="left"</main>表左侧
             |<main>slot="center"</main>表中间
             |<main>slot="right"</main>表右侧
@@ -181,7 +181,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(lh=9 indent=2 mb=2) 目前有四个
+          q-row(fontSize=14 lh=9 indent=2 mb=2) 目前有四个
             |<main>@clicked</main>表全局点击<br>
             |<main>@leftClicked</main>表左侧点击<br>
             |<main>@centerClicked</main>表中间点击<br>
