@@ -32,16 +32,18 @@
         let isTrue=true
         for(let item of this.qInput){
           let rules=item.rules
-          rules.forEach((p:any)=>{
-            if(isToast){
-              return
-            }
-            if(p.isError){
-              isTrue=false
-              isToast=true
-              this.$notice.toast(p.message)
-            }
-          })
+          if(rules.length){
+            rules.forEach((p:any)=>{
+              if(isToast){
+                return
+              }
+              if(p.isError){
+                isTrue=false
+                isToast=true
+                this.$notice.toast(p.message)
+              }
+            })
+          }
         }
         resolve(isTrue)
       })
