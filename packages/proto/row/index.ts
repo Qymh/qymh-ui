@@ -62,12 +62,23 @@ export default function createStyle(vm:any){
     // text-indent
     textIndent:vm.indent===-1?'':`${vm.indent/10}rem`,
     // text-decoration
-    textDecoration:vm.decoration==='none'?'':vm.decoration
+    textDecoration:vm.decoration==='none'?'':vm.decoration,
+    // border
+    border:vm.border||'',
+    // border-top
+    borderTop:vm.borderTop||'',
+    // border-right
+    borderRight:vm.borderRight||'',
+    // border-bottom
+    borderBottom:vm.borderBottom||'',
+    // border-left
+    borderLeft:vm.borderLeft||'',
   }
 
   for(let i in style){
     let item:string=style[i]
     if(
+      item===''||
       (item==='auto'&&i!=='overflow')||
       item==='inherit'||
       item==='static'||

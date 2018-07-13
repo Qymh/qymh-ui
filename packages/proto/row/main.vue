@@ -119,7 +119,25 @@
     @Prop({default:'normal'})
     public wordBreak:common.wordBreak
     
+    // text-indent
     @Prop({default:-1})
     public indent:number|string
+
+    // border
+    @Prop({default:''})
+    public border:string
+    // border-top
+    @Prop({default:''})
+    public borderTop:string
+    // border-right
+    @Prop({default:''})
+    public borderRight:string
+    // border-bottom
+    @Prop({default:''})
+    public borderBottom:string
+    // border-left
+    @Prop({default:''})
+    public borderLeft:string
+    
   }
 </script>
