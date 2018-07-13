@@ -61,7 +61,6 @@
               borderColor="deepskyblue"
               activeBkColor="deepskyblue"
               @change="change")
-            q-row(h=12 bkColor="deepskyblue")
             q-code(type="html").
               &ltq-radio
                 ml=2
@@ -118,10 +117,10 @@
         {
           prop:[
             {value:'radio'},
-            {value:'rect|circle'},
+            {value:'String'},
             {value:'Y'},
             {value:'rect'},
-            {value:'按钮类型'}
+            {value:'rect:正方形 circle:圆形'}
           ]
         },
         {

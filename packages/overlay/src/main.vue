@@ -61,8 +61,8 @@
       this.computedShow=this.show
       let baseHeight=document.body.clientHeight
       let $html=document.getElementsByTagName('html')[0]
-      this.findElement($html,baseHeight)
       if(this.show){
+        this.findElement($html,baseHeight)
         this.scrollTop=window.pageYOffset||document.documentElement.scrollTop
         let $scroller=this.$last
         $scroller.style.position='fixed'
@@ -176,8 +176,6 @@
 
     // 隐藏蒙层
     private hide(){
-      this.$emit('hide')
-      this.computedShow=false
       let $scroller=this.$last
       $scroller.style.position='relative'
       $scroller.style.top='auto'
@@ -185,6 +183,9 @@
       $scroller.style.height='auto'
       $scroller.style.width='auto'
       $scroller.style.overflow='auto'
+      window.scrollTo(0,this.scrollTop)
+      this.$emit('hide')
+      this.computedShow=false
     }
   }
 </script>
