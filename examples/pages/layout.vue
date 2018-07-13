@@ -334,7 +334,7 @@
             leftIconColor="deepskyblue"
             title="层级")
           q-row(fontSize=14 lh=9 indent=2 mb=2)
-            |z-ndex写为<main>zIndex</main>
+            |z-index写为<main>zIndex</main>
           q-row(h=10 bkColor="#BEE7E9" position="relative")
             q-row(h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5)
             q-row(h=8 w=30 bkColor="#F4606C" position="absolute" t=0 l=0 zIndex=4)
@@ -355,6 +355,106 @@
           q-code(type="html").
             &ltq-row tag="section" h=10 bkColor="#BEE7E9"&gt
               我是一个section元素
+            &lt/q-row&gt
+        //- border 
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="border")
+          q-row(fontSize=14 lh=9 indent=2 mb=2) border的控制一共有5个属性<br>
+            |<main>border</main> 全局border<br>
+            |<main>borderTop</main> 顶部border<br>
+            |<main>borderRight</main> 右侧border<br>
+            |<main>borderBottom</main> 底部border<br>
+            |<main>borderLeft</main> 左侧border<br>
+          q-row(h=10 bkColor="#BEE7E9" borderTop="1px solid red" borderBottom="1px solid red")
+          q-row(mt=2 h=10 bkColor="#ffffff" border="1px solid #a1a1a1")
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" borderTop="1px solid red" borderBottom="1px solid red"&gt&lt/q-row&gt
+            &ltq-row mt=2 h=10 bkColor="#ffffff" border="1px solid #a1a1a1"&gt&lt/q-row&gt
+        //- flex-direction
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="flex-direction")
+          q-row(fontSize=14 lh=9 indent=2 mb=2) flex-direction 简写为dir 有4个属性值<br>
+            |<main>dir:top</main>解析为flex-direction:column<br>
+            |<main>dir:bottom</main>解析为flex-direction:column-reverse<br>
+            |<main>dir:left</main>解析为 flex-direction:row<br>
+            |<main>dir:right</main>解析为 flex-direction:row-reverse<br>
+          q-row(dir="top" h=10 bkColor="#BEE7E9")
+            q-col(h=5 col=50 bkColor="#ECAD9E")
+            q-col(h=5 col=50 bkColor="#F4606C")
+          q-code(type="html").
+            &ltq-row dir="top" h=10 bkColor="#BEE7E9"&gt
+              &ltq-col h=5 col=50 bkColor="#ECAD9E"&gt&lt/q-col&gt
+              &ltq-col h=5 col=50 bkColor="#F4606C"&gt&lt/q-col&gt
+            &lt/q-row&gt
+          q-row(dir="left" h=10 )
+            q-row(dir="top" h=10 col=50)
+              q-col(h=5 bkColor="#ECAD9E")
+              q-col(h=5 bkColor="#F4606C")
+            q-row(h=10 col=50 bkColor="#E6CEAC")
+          q-code(type="html").
+            &ltq-row dir="left" h=10"&gt
+              &ltq-row dir="top" h=10 col=50&gt
+                &ltq-col h=5 bkColor="#ECAD9E"&gt&lt/q-col&gt
+                &ltq-col h=5 bkColor="#F4606C"&gt&lt/q-col&gt
+              &lt/q-row&gt
+              &ltq-row h=10 col=50 bkColor="#E6CEAC"&gt&lt/q-row&gt
+            &lt/q-row&gt
+        //- justify-content and align-items
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="justify-content and align-items")
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
+            |水平布局和垂直布局的属性值就是官方提供的值,
+            |我们把这两个属性分别缩写为<main>justify</main><main>align</main>
+          q-row(h=10 bkColor="#BEE7E9" justify="center" align="center") 水平垂直居中
+          q-code(type="html").
+            &ltq-row h=10 bkColor="#BEE7E9" justify="center" align="center"&gt
+              水平垂直居中
+            &lt/q-row&gt
+        //- flex-wrap
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="flex-wrap")
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
+            |<main>flex-wrap</main>属性值就是官方提供的值,
+            |我们将这个属性缩写为<main>wrap</main>
+          q-row(dir="left" wrap="wrap")
+            q-col(h=10 col=40 bkColor="#ECAD9E")
+            q-col(h=10 col=40 bkColor="#F4606C")
+            q-col(h=10 col=40 bkColor="#E6CEAC")
+          q-code(type="html").
+            &ltq-row dir="left" wrap="wrap"&gt
+              &ltq-col h=10 col=40 bkColor="#ECAD9E"&gt&lt/q-col&gt
+              &ltq-col h=10 col=40 bkColor="#F4606C"&gt&lt/q-col&gt
+              &ltq-col h=10 col=40 bkColor="#E6CEAC"&gt&lt/q-col&gt
+            &lt/q-row&gt
+        //- flex-grow
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="flex-grow")
+          q-row(fontSize=14 lh=9 indent=2 mb=2)
+            |<main>flex-grow</main>缩写为<main>flex</main>,属性值是数字表扩展比率
+          q-row(dir="left")
+            q-row(flex=1 bkColor="#ECAD9E") 1
+            q-row(flex=2 bkColor="#F4606C") 2
+            q-row(flex=3 bkColor="#E6CEAC") 3
+          q-code(type="html").
+            &ltq-row dir="left"&gt
+              &ltq-row flex=1 bkColor="#ECAD9E"&gt1&lt/q-row&gt
+              &ltq-row flex=2 bkColor="#F4606C"&gt2&lt/q-row&gt
+              &ltq-row flex=3 bkColor="#E6CEAC"&gt3&lt/q-row&gt
             &lt/q-row&gt
 </template> 
 
