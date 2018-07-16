@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import HighLight from 'highlight.js'
+import HighLight from '../../../src/lib/highlight'
 import Swiper from 'swiper'
 import MobileSelect from 'mobile-select'
 import MeScroll from 'mescroll.js'

@@ -83,7 +83,7 @@ const config={
   },
   prod:{
     // 挂载路径
-    publicPath:'/',
+    publicPath:'https://cdn.qymh.org.cn/ui/',
     // 源地图
     devtool:false,
 
