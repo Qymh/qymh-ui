@@ -1,4 +1,3 @@
-
 import './fonts/iconfont.css'
 import './style/highLight.scss'
 import './style/widget.scss'
@@ -9,8 +8,8 @@ import 'mescroll.js/mescroll.min.css'
 
 import Vue from 'vue'
 import lazyLoad from 'vue-lazyload'
-import {QIMAGECONFIG} from './qymhui.config'
-Vue.use(lazyLoad,QIMAGECONFIG)
+import { QIMAGECONFIG } from './qymhui.config'
+Vue.use(lazyLoad, QIMAGECONFIG)
 
 import '../packages/widget'
 
@@ -36,7 +35,7 @@ import QPhoto from '../packages/photo'
 import QSelect from '../packages/select'
 import QScroll from '../packages/scroll'
 
-const components=[
+const components = [
   QRow,
   QCol,
   QText,
@@ -60,7 +59,7 @@ const components=[
   QScroll
 ]
 
-const componentsName:string[]=[
+const componentsName: string[] = [
   'QRow',
   'QCol',
   'QText',
@@ -84,13 +83,13 @@ const componentsName:string[]=[
   'QScroll'
 ]
 
-const install=function(Vue:any,opts={}){
-  components.map((component:any,i)=>{
-    Vue.component(componentsName[i],component)
+const install = function(Vue: any, opts = {}) {
+  components.map((component: any, i) => {
+    Vue.component(componentsName[i], component)
   })
 }
 
-export default{
+export default {
   install,
   QRow,
   QCol,

@@ -81,79 +81,78 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExStepper extends Vue{
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExStepper extends Vue {
+  private value: number = 0
 
-    private value:number=0
-
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'value'},
-            {value:'Number'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'双向绑定的值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'color'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#F65A44'},
-            {value:'传入值的颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'min'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'0'},
-            {value:'允许的最小值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'max'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'无'},
-            {value:'允许的最大值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'fix'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'4'},
-            {value:'输入框中保留的小数'}
-          ]
-        }
-      ]
-    }
-
-    private substract(val:number){
-      this.$notice.toast(`你增加了计数器的值,当前值为:${this.value}`)
-    }
-
-    private change(val:number){
-      this.$notice.toast(`你改变了计数器的值,当前值为:${this.value}`)
-    }
-
-    private increase(val:number){
-      this.$notice.toast(`你减少了计数器的值,当前值为:${this.value}`)
-    }
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'value' },
+          { value: 'Number' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '双向绑定的值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#F65A44' },
+          { value: '传入值的颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'min' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '0' },
+          { value: '允许的最小值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'max' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '允许的最大值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'fix' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '4' },
+          { value: '输入框中保留的小数' }
+        ]
+      }
+    ]
   }
+
+  private substract(val: number) {
+    this.$notice.toast(`你增加了计数器的值,当前值为:${this.value}`)
+  }
+
+  private change(val: number) {
+    this.$notice.toast(`你改变了计数器的值,当前值为:${this.value}`)
+  }
+
+  private increase(val: number) {
+    this.$notice.toast(`你减少了计数器的值,当前值为:${this.value}`)
+  }
+}
 </script>

@@ -69,28 +69,28 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExText extends Vue{
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'lines'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'无'},
-            {value:'限制显示的行数'}
-          ]
-        },
-      ]
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExText extends Vue {
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'lines' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '限制显示的行数' }
+        ]
+      }
+    ]
   }
+}
 </script>

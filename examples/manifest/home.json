@@ -1,85 +1,85 @@
 {
-  "homeInfor":{
-    "components":[
+  "homeInfor": {
+    "components": [
       {
-        "name":"layout 布局",
-        "href":"/layout"
+        "name": "layout 布局",
+        "href": "/layout"
       },
       {
-        "name":"cell 块",
-        "href":"/cell"
+        "name": "cell 块",
+        "href": "/cell"
       },
       {
-        "name":"headBar 头部导航",
-        "href":"headBar"
+        "name": "headBar 头部导航",
+        "href": "headBar"
       },
       {
-        "name":"searchBar 搜索导航",
-        "href":"/searchBar"
+        "name": "searchBar 搜索导航",
+        "href": "/searchBar"
       },
       {
-        "name":"tabBar 底部导航",
-        "href":"/tabBar"
+        "name": "tabBar 底部导航",
+        "href": "/tabBar"
       },
       {
-        "name":"text 文本",
-        "href":"/text"
+        "name": "text 文本",
+        "href": "/text"
       },
       {
-        "name":"tag 标签",
-        "href":"/tag"
+        "name": "tag 标签",
+        "href": "/tag"
       },
       {
-        "name":"form 表单",
-        "href":"/form"
+        "name": "form 表单",
+        "href": "/form"
       },
       {
-        "name":"radio 按钮",
-        "href":"/radio"
+        "name": "radio 按钮",
+        "href": "/radio"
       },
       {
-        "name":"stepper 计数器",
-        "href":"/stepper"
+        "name": "stepper 计数器",
+        "href": "/stepper"
       },
       {
-        "name":"overlay 蒙层",
-        "href":"/overlay"
+        "name": "overlay 蒙层",
+        "href": "/overlay"
       },
       {
-        "name":"files 文件上传",
-        "href":"/files"
+        "name": "files 文件上传",
+        "href": "/files"
       }
     ],
-    "plugins":[
+    "plugins": [
       {
-        "name":"image 图片懒加载",
-        "href":"/image"
+        "name": "image 图片懒加载",
+        "href": "/image"
       },
       {
-        "name":"swiper 轮播",
-        "href":"/swiper"
+        "name": "swiper 轮播",
+        "href": "/swiper"
       },
       {
-        "name":"photo 图片轮播",
-        "href":"/photo"
+        "name": "photo 图片轮播",
+        "href": "/photo"
       },
       {
-        "name":"select 滑动选择",
-        "href":"/select"
+        "name": "select 滑动选择",
+        "href": "/select"
       },
       {
-        "name":"scroll 滑动加载",
-        "href":"/scroll"
+        "name": "scroll 滑动加载",
+        "href": "/scroll"
       }
     ],
-    "widget":[
+    "widget": [
       {
-        "name":"$notice 通知",
-        "href":"/notice"
+        "name": "$notice 通知",
+        "href": "/notice"
       },
       {
-        "name":"$storage $cookie 存储",
-        "href":"/storage"
+        "name": "$storage $cookie 存储",
+        "href": "/storage"
       }
     ]
   }

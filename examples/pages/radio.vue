@@ -102,79 +102,77 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExRadio extends Vue{
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'radio'},
-            {value:'String'},
-            {value:'Y'},
-            {value:'rect'},
-            {value:'rect:正方形 circle:圆形'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasBorder'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有边框'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#a1a1a1'},
-            {value:'border颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'activeColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'激活时的颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'activeBkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'激活时的背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'activeBorderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'transparent'},
-            {value:'激活时的border颜色'}
-          ]
-        }
-      ]
-    }
-
-    private change(bool:boolean){
-      bool?
-      this.$notice.toast('激活'):
-      this.$notice.toast('未激活')
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExRadio extends Vue {
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'radio' },
+          { value: 'String' },
+          { value: 'Y' },
+          { value: 'rect' },
+          { value: 'rect:正方形 circle:圆形' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasBorder' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有边框' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#a1a1a1' },
+          { value: 'border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'activeColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '激活时的颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'activeBkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '激活时的背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'activeBorderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'transparent' },
+          { value: '激活时的border颜色' }
+        ]
+      }
+    ]
   }
+
+  private change(bool: boolean) {
+    bool ? this.$notice.toast('激活') : this.$notice.toast('未激活')
+  }
+}
 </script>

@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import {AxiosResponse,AxiosError} from 'axios'
+import { AxiosResponse, AxiosError } from 'axios'
 import ax from './ax'
 
-const Axios=Object.create(null)
+const Axios = Object.create(null)
 
-Axios.install=((Vue:any)=>{
-  Vue.prototype.$axios={
+Axios.install = (Vue: any) => {
+  Vue.prototype.$axios = {
     /**
      * get请求
      * @param vm 环境
@@ -13,16 +13,18 @@ Axios.install=((Vue:any)=>{
      * @param data 请求参数
      * @param loading 是否有加载提示
      */
-    get(vm:Vue,api:string,data:any,loading:boolean=true){
-      return new Promise((resolve,reject)=>{
-        loading&&vm.$notice.loading()
-        ax.get(api,data).then((res:AxiosResponse)=>{
-          loading&&vm.$notice.removeLoading()
-          resolve(res)
-        }).catch((error:AxiosError)=>{
-          loading&&vm.$notice.removeLoading()
-          reject(error)
-        })
+    get(vm: Vue, api: string, data: any, loading: boolean = true) {
+      return new Promise((resolve, reject) => {
+        loading && vm.$notice.loading()
+        ax.get(api, data)
+          .then((res: AxiosResponse) => {
+            loading && vm.$notice.removeLoading()
+            resolve(res)
+          })
+          .catch((error: AxiosError) => {
+            loading && vm.$notice.removeLoading()
+            reject(error)
+          })
       })
     },
 
@@ -33,17 +35,19 @@ Axios.install=((Vue:any)=>{
      * @param data 请求参数
      * @param loading 是否有加载提示
      */
-    post(vm:Vue,api:string,data:any,loading:boolean=true){
-      return new Promise((resolve,reject)=>{
-        loading&&vm.$notice.loading()
-        ax.post(api,data).then((res:AxiosResponse)=>{
-          loading&&vm.$notice.removeLoading()
-          resolve(res)
-        }).catch((error:AxiosError)=>{
-          loading&&vm.$notice.removeLoading()
-          reject(error)
-        })
+    post(vm: Vue, api: string, data: any, loading: boolean = true) {
+      return new Promise((resolve, reject) => {
+        loading && vm.$notice.loading()
+        ax.post(api, data)
+          .then((res: AxiosResponse) => {
+            loading && vm.$notice.removeLoading()
+            resolve(res)
+          })
+          .catch((error: AxiosError) => {
+            loading && vm.$notice.removeLoading()
+            reject(error)
+          })
       })
     }
   }
-})
+}

@@ -1,51 +1,50 @@
 <script lang="tsx">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-  @Component
-  export default class Proto extends Vue{
-    // 高
-    @Prop({default:-1})
-    public h:number
+@Component
+export default class Proto extends Vue {
+  // 高
+  @Prop({ default: -1 })
+  public h: number
 
-    // 行高
-    @Prop({default:-1})
-    public lh:number
-    
-    // 宽
-    @Prop({default:-1})
-    public w:number
+  // 行高
+  @Prop({ default: -1 })
+  public lh: number
 
-    // padding-top
-    @Prop({default:0})
-    public pt:number
+  // 宽
+  @Prop({ default: -1 })
+  public w: number
 
-    // padding-right
-    @Prop({default:0})
-    public pr:number
+  // padding-top
+  @Prop({ default: 0 })
+  public pt: number
 
-    // padding-bottom
-    @Prop({default:0})
-    public pb:number
+  // padding-right
+  @Prop({ default: 0 })
+  public pr: number
 
-    // padding-left
-    @Prop({default:0})
-    public pl:number
+  // padding-bottom
+  @Prop({ default: 0 })
+  public pb: number
 
-    // 字体大小
-    @Prop({default:-1})
-    public fontSize:number
+  // padding-left
+  @Prop({ default: 0 })
+  public pl: number
 
-    // 字体颜色
-    @Prop({default:''})
-    public color:string
+  // 字体大小
+  @Prop({ default: -1 })
+  public fontSize: number
 
-    // 背景颜色
-    @Prop({default:''})
-    public bkColor:string
+  // 字体颜色
+  @Prop({ default: '' })
+  public color: string
 
-    // border-radius
-    @Prop({default:0})
-    public radius:number|string
-    
-  }
+  // 背景颜色
+  @Prop({ default: '' })
+  public bkColor: string
+
+  // border-radius
+  @Prop({ default: 0 })
+  public radius: number | string
+}
 </script>

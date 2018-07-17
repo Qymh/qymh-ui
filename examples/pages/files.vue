@@ -99,86 +99,86 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExFiles extends Vue{
-    private files:any=[]
-    private images:any=[]
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'multiple'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否允许多文件上传'}
-          ]
-        },
-        {
-          prop:[
-            {value:'maxCount'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'3'},
-            {value:'最大上传数量'},
-          ]
-        },
-        {
-          prop:[
-            {value:'maxSize'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'4'},
-            {value:'最大上传大小,单位M'},
-          ]
-        },
-        {
-          prop:[
-            {value:'value'},
-            {value:'String'},
-            {value:'Y'},
-            {value:'点击上传'},
-            {value:'上传的文字提醒'},
-          ]
-        },
-        {
-          prop:[
-            {value:'hasBorder'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有边框'},
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#a1a1a1'},
-            {value:'边框颜色'},
-          ]
-        }
-      ]
-    }
-
-    private getFiles(data:any){
-      this.files=data.files
-      this.images=data.images
-    }
-
-    private remove(index:any){
-      let myFiles:any=this.$refs.myFiles
-      myFiles.files.splice(index,1)
-      myFiles.images.splice(index,1)
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExFiles extends Vue {
+  private files: any = []
+  private images: any = []
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'multiple' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否允许多文件上传' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'maxCount' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '3' },
+          { value: '最大上传数量' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'maxSize' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '4' },
+          { value: '最大上传大小,单位M' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'value' },
+          { value: 'String' },
+          { value: 'Y' },
+          { value: '点击上传' },
+          { value: '上传的文字提醒' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasBorder' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有边框' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#a1a1a1' },
+          { value: '边框颜色' }
+        ]
+      }
+    ]
   }
+
+  private getFiles(data: any) {
+    this.files = data.files
+    this.images = data.images
+  }
+
+  private remove(index: any) {
+    let myFiles: any = this.$refs.myFiles
+    myFiles.files.splice(index, 1)
+    myFiles.images.splice(index, 1)
+  }
+}
 </script>

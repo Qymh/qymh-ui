@@ -145,125 +145,125 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  import {Route} from 'vue-router'
-  @Component({})
-  export default class ExSelect extends Vue{
-    // 日期数组
-    private datesArr:any[]=[
+import { Vue, Component } from 'vue-property-decorator'
+import { Route } from 'vue-router'
+@Component({})
+export default class ExSelect extends Vue {
+  // 日期数组
+  private datesArr: any[] = [
+    {
+      data: []
+    }
+  ]
+
+  // 默认位置
+  private seat: number[] = []
+
+  // 当前选择的日期
+  private dateNow: string = '请选择日期'
+
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
       {
-        data:[]
+        prop: [
+          { value: 'id' },
+          { value: 'String' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '选择器的唯一id' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'title' },
+          { value: 'String' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '选择器标题' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'wheels' },
+          { value: 'Array' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '滚轴数据数组' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'seat' },
+          { value: 'Array' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '滚轴位置' }
+        ]
       }
     ]
+  }
 
-    // 默认位置
-    private seat:number[]=[]
+  // 挂载
+  private mounted() {
+    this.$nextTick(() => {
+      let datesArr = this.datesArr[0].data
+      let now = new Date()
+      let currentYear = now.getFullYear()
+      let currentMonth = now.getMonth() + 1
+      let currentDay = now.getDate()
+      let currentYearIndex = currentYear % (currentYear - 1)
 
-    // 当前选择的日期
-    private dateNow:string='请选择日期'
-    
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'id'},
-            {value:'String'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'选择器的唯一id'}
-          ]
-        },
-        {
-          prop:[
-            {value:'title'},
-            {value:'String'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'选择器标题'}
-          ]
-        },
-        {
-          prop:[
-            {value:'wheels'},
-            {value:'Array'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'滚轴数据数组'}
-          ]
-        },
-        {
-          prop:[
-            {value:'seat'},
-            {value:'Array'},
-            {value:'N'},
-            {value:'无'},
-            {value:'滚轴位置'}
-          ]
-        }
-      ]
-    }
+      this.seat = [currentYearIndex, currentMonth - 1, currentDay - 1]
 
-    // 挂载
-    private mounted () {
-      this.$nextTick(()=>{
-        let datesArr=this.datesArr[0].data
-        let now=new Date()
-        let currentYear=now.getFullYear()
-        let currentMonth=now.getMonth()+1
-        let currentDay=now.getDate()
-        let currentYearIndex=currentYear%(currentYear-1)
+      // 加入年
+      for (let year = currentYear - 1; year < currentYear + 2; year++) {
+        datesArr.push({
+          id: year,
+          value: year + '年'
+        })
+      }
 
-        this.seat=[currentYearIndex,currentMonth-1,currentDay-1]
-        
-        // 加入年
-        for(let year=currentYear-1;year<currentYear+2;year++){  
-          datesArr.push({
-            id:year,
-            value:year+'年'
+      // 加入月
+      for (let i in datesArr) {
+        datesArr[i].childs = []
+        for (let month = 1; month <= 12; month++) {
+          datesArr[i].childs.push({
+            id: month,
+            value: month + '月'
           })
         }
+      }
 
-        // 加入月
-        for(let i in datesArr){
-          datesArr[i].childs=[]
-          for(let month=1;month<=12;month++){
-            datesArr[i].childs.push({
-              id:month,
-              value:month+'月'
+      // 加入日
+      for (let i in datesArr) {
+        let year = datesArr[i].id
+        for (let month = 1; month <= 12; month++) {
+          datesArr[i].childs[month - 1].childs = []
+          let day = new Date(year, month, 0).getDate()
+          for (let j = 1; j <= day; j++) {
+            datesArr[i].childs[month - 1].childs.push({
+              id: j,
+              value: j + '日'
             })
           }
         }
-
-        // 加入日
-        for(let i in datesArr){
-          let year=datesArr[i].id
-          for(let month=1;month<=12;month++){
-            datesArr[i].childs[month-1].childs=[]
-            let day=new Date(year,month,0).getDate()
-            for(let j=1;j<=day;j++){
-              datesArr[i].childs[month-1].childs.push({
-                id:j,
-                value:j+'日'
-              })
-            }
-          }
-        }
-      })
-    }
-
-    // 接收选择的日期
-    private chooseData(date:any){
-      let year=date[0].value
-      let month=date[1].value
-      let day=date[2].value
-      this.dateNow=`${year}${month}${day}`
-    }
+      }
+    })
   }
+
+  // 接收选择的日期
+  private chooseData(date: any) {
+    let year = date[0].value
+    let month = date[1].value
+    let day = date[2].value
+    this.dateNow = `${year}${month}${day}`
+  }
+}
 </script>

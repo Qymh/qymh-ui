@@ -176,173 +176,172 @@
 </template>
  
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
-  @Component
-  export default class ExBarTitle extends Vue{
-
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'bkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'全局背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasPadding'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有两边的边距'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderTop'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有顶部border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderBottom'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有底部border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#d6d7dc'},
-            {value:'border的颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftIcon'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧Icon的class名'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftIconColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧Icon的颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftWidth'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字的宽度'}
-          ]
-        },
-        {
-          prop:[
-            {value:'title'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'中间title'}
-          ]
-        },
-        {
-          prop:[
-            {value:'titleColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'中间title颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightArrow'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'右侧箭头'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightArrowColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#a1a1a1'},
-            {value:'右侧箭头颜色'}
-          ]
-        }
-      ]
-    }
-
-    private hotClicked(){
-      this.$notice.toast('你点击了整个块!')
-    }
-
-    private hotRightClicked(){
-      this.$notice.toast('你点击了查看更多!')
-    }
+@Component
+export default class ExBarTitle extends Vue {
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '全局背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasPadding' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有两边的边距' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderTop' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有顶部border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderBottom' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有底部border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: 'border的颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftIcon' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧Icon的class名' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftIconColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧Icon的颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftWidth' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字的宽度' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'title' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '中间title' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'titleColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '中间title颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightArrow' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '右侧箭头' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightArrowColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#a1a1a1' },
+          { value: '右侧箭头颜色' }
+        ]
+      }
+    ]
   }
+
+  private hotClicked() {
+    this.$notice.toast('你点击了整个块!')
+  }
+
+  private hotRightClicked() {
+    this.$notice.toast('你点击了查看更多!')
+  }
+}
 </script>

@@ -17,55 +17,55 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExScroll extends Vue{
-    private scrollArr:number[]=[]
-    private index:number=0
-    private size:number=10
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExScroll extends Vue {
+  private scrollArr: number[] = []
+  private index: number = 0
+  private size: number = 10
 
-    private created () {
-      let arr=new Array(50)
-      arr.fill(1)
-      this.scrollArr=arr
-    }
-
-    private back(){
-      this.$router.go(-1)
-    }
-
-    private get computedScrollArr(){
-      return this.scrollArr.slice(0,this.index*this.size)
-    }
-
-    private get totalPage(){
-      return this.scrollArr.length/this.size
-    }
-
-    private mounted () {
-      let $app:any=document.querySelector('.app')
-      $app.style.height='100%'
-      $app.style.width='100%'
-    }
-
-    private refresh(){
-      let myScroll:any=this.$refs.myScroll  
-      myScroll.scrollObj.resetUpScroll()
-    }
-
-    private load(page:any){
-      let myScroll:any=this.$refs.myScroll  
-      setTimeout(() => {
-        this.index=page.num
-        myScroll.success(10,this.totalPage)
-      }, 200);
-    }
-
-    private beforeRouteLeave(to:any, from:any, next:any) {
-      let $app:any=document.querySelector('.app')
-      $app.style.height='auto'
-      $app.style.width='auto'
-      next()
-    }
+  private created() {
+    let arr = new Array(50)
+    arr.fill(1)
+    this.scrollArr = arr
   }
+
+  private back() {
+    this.$router.go(-1)
+  }
+
+  private get computedScrollArr() {
+    return this.scrollArr.slice(0, this.index * this.size)
+  }
+
+  private get totalPage() {
+    return this.scrollArr.length / this.size
+  }
+
+  private mounted() {
+    let $app: any = document.querySelector('.app')
+    $app.style.height = '100%'
+    $app.style.width = '100%'
+  }
+
+  private refresh() {
+    let myScroll: any = this.$refs.myScroll
+    myScroll.scrollObj.resetUpScroll()
+  }
+
+  private load(page: any) {
+    let myScroll: any = this.$refs.myScroll
+    setTimeout(() => {
+      this.index = page.num
+      myScroll.success(10, this.totalPage)
+    }, 200)
+  }
+
+  private beforeRouteLeave(to: any, from: any, next: any) {
+    let $app: any = document.querySelector('.app')
+    $app.style.height = 'auto'
+    $app.style.width = 'auto'
+    next()
+  }
+}
 </script>

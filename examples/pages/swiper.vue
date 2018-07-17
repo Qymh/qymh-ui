@@ -88,52 +88,48 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExSwiper extends Vue{
-    private swiperArr=[
-      {value:1},
-      {value:2},
-      {value:3}
-    ]
-    private swiperOptions:any={
-      // 自动播放
-      autoplay:{
-        delay:4000
-      },
-      // 自动播放
-      loop:true,
-      // 分页器
-      pagination:{
-        el:'.swiper-pagination',
-        bulletActiveClass: 'my-bullet-active',
-      }
-    }
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'swiperOptions'},
-            {value:'Object'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'swiper配置'}
-          ]
-        }
-      ]
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExSwiper extends Vue {
+  private swiperArr = [{ value: 1 }, { value: 2 }, { value: 3 }]
+  private swiperOptions: any = {
+    // 自动播放
+    autoplay: {
+      delay: 4000
+    },
+    // 自动播放
+    loop: true,
+    // 分页器
+    pagination: {
+      el: '.swiper-pagination',
+      bulletActiveClass: 'my-bullet-active'
     }
   }
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'swiperOptions' },
+          { value: 'Object' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: 'swiper配置' }
+        ]
+      }
+    ]
+  }
+}
 </script>
 
 <style lang="scss">
-  .my-bullet-active{
-    background-color: deeppink;
-  }
+.my-bullet-active {
+  background-color: deeppink;
+}
 </style>

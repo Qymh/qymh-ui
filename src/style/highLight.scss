@@ -2,17 +2,16 @@ code {
   display: block;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
-  padding:20px 20px;
-  background: #F8F8F8;
+  padding: 20px 20px;
+  background: #f8f8f8;
   font-family: "Consolas, 'Courier New', monospace" !important;
   font-size: 15px !important;
   line-height: 0.5rem;
 }
 
-
 .hljs,
 .hljs-subst {
-  color: #434f54
+  color: #434f54;
 }
 
 .hljs-keyword,
@@ -28,7 +27,7 @@ code {
 .hljs-bullet,
 .hljs-code,
 .hljs-addition {
-  color:deeppink;
+  color: deeppink;
 }
 
 .hljs-regexp,
@@ -54,34 +53,34 @@ code {
 .hljs-title,
 .hljs-section {
   color: #880000;
-  font-weight: bold
+  font-weight: bold;
 }
 
 .hljs-comment {
-  color: rgba(149, 165, 166, 0.8)
+  color: rgba(149, 165, 166, 0.8);
 }
 
 .hljs-meta-keyword {
-  color: #728E00
+  color: #728e00;
 }
 
 .hljs-meta {
-  color: #728E00;
-  color: #434f54
+  color: #728e00;
+  color: #434f54;
 }
 
 .hljs-emphasis {
-  font-style: italic
+  font-style: italic;
 }
 
 .hljs-strong {
-  font-weight: bold
+  font-weight: bold;
 }
 
 .hljs-function {
-  color: #728E00
+  color: #728e00;
 }
 
 .hljs-number {
-  color: #8A7B52
+  color: #8a7b52;
 }

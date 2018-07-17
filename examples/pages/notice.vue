@@ -126,22 +126,22 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExNotice extends Vue{
-    private toast(){
-      this.$notice.toast('触发提醒')
-    }
-    private loading(){  
-      this.$notice.loading()
-      setTimeout(() => {
-        this.$notice.removeLoading()
-      }, 1000);
-    }
-    private confirm(){
-      this.$notice.confirm('我是一个弹窗').then(()=>{
-        this.$notice.toast('你点击了确定')
-      })
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExNotice extends Vue {
+  private toast() {
+    this.$notice.toast('触发提醒')
   }
+  private loading() {
+    this.$notice.loading()
+    setTimeout(() => {
+      this.$notice.removeLoading()
+    }, 1000)
+  }
+  private confirm() {
+    this.$notice.confirm('我是一个弹窗').then(() => {
+      this.$notice.toast('你点击了确定')
+    })
+  }
+}
 </script>

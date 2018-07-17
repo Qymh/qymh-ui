@@ -31,139 +31,139 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop,Emit} from 'vue-property-decorator'
-  import Proto from '../../proto/bar/main.vue'
-  import createStyle from '../../proto/bar'
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+import Proto from '../../proto/bar/main.vue'
+import createStyle from '../../proto/bar'
 
-  @Component({})
-  export default class QCell extends Proto{
-    // 全局颜色
-    @Prop({default:''})
-    private bkColor:string
+@Component({})
+export default class QCell extends Proto {
+  // 全局颜色
+  @Prop({ default: '' })
+  private bkColor: string
 
-    // 是否有边距
-    @Prop({default:true})
-    private hasPadding:boolean
+  // 是否有边距
+  @Prop({ default: true })
+  private hasPadding: boolean
 
-    // 是否有上边线
-    @Prop ({default:false})
-    private borderTop:boolean
+  // 是否有上边线
+  @Prop({ default: false })
+  private borderTop: boolean
 
-    // 是否有下边线
-    @Prop ({default:false})
-    private borderBottom:boolean
+  // 是否有下边线
+  @Prop({ default: false })
+  private borderBottom: boolean
 
-    // border颜色
-    @Prop({default:'#d6d7dc'})
-    private borderColor:'string'
+  // border颜色
+  @Prop({ default: '#d6d7dc' })
+  private borderColor: 'string'
 
-    // 左侧icon
-    @Prop({default:''})
-    private leftIcon:string
+  // 左侧icon
+  @Prop({ default: '' })
+  private leftIcon: string
 
-    // 左侧icon颜色
-    @Prop({default:''})
-    private leftIconColor:string
+  // 左侧icon颜色
+  @Prop({ default: '' })
+  private leftIconColor: string
 
-    // 左侧文字
-    @Prop({default:''})
-    private leftText:string
+  // 左侧文字
+  @Prop({ default: '' })
+  private leftText: string
 
-    // 左侧文字颜色
-    @Prop({default:'#333'})
-    private leftTextColor:string
+  // 左侧文字颜色
+  @Prop({ default: '#333' })
+  private leftTextColor: string
 
-    // 左侧宽度
-    @Prop({default:''})
-    private leftWidth:string
+  // 左侧宽度
+  @Prop({ default: '' })
+  private leftWidth: string
 
-    // title
-    @Prop({default:''})
-    private title:string
+  // title
+  @Prop({ default: '' })
+  private title: string
 
-    // title颜色
-    @Prop({default:''})
-    private titleColor:string
+  // title颜色
+  @Prop({ default: '' })
+  private titleColor: string
 
-    // 右侧描述
-    @Prop({default:''})
-    private rightText:string
+  // 右侧描述
+  @Prop({ default: '' })
+  private rightText: string
 
-    // 右侧文字颜色
-    @Prop({default:''})
-    private rightTextColor:string
+  // 右侧文字颜色
+  @Prop({ default: '' })
+  private rightTextColor: string
 
-    // 右侧箭头
-    @Prop({default:false})
-    private rightArrow:boolean
+  // 右侧箭头
+  @Prop({ default: false })
+  private rightArrow: boolean
 
-    // 右侧箭头颜色
-    @Prop({default:'#a1a1a1'})
-    private rightArrowColor:string
+  // 右侧箭头颜色
+  @Prop({ default: '#a1a1a1' })
+  private rightArrowColor: string
 
-    // 计算样式
-    private get computedStyle(){
-      let style=createStyle(this)
-      let selectableStyle=Object.create(null)
-      selectableStyle.backgroundColor=this.bkColor
-      if(this.borderTop){
-        selectableStyle.borderTopStyle='solid'
-        selectableStyle.borderTopWidth='1px'
-        selectableStyle.borderTopColor=this.borderColor
-      }
-      if(this.borderBottom){
-        selectableStyle.borderBottomStyle='solid'
-        selectableStyle.borderBottomWidth='1px'
-        selectableStyle.borderBottomColor=this.borderColor
-      }
-      if(this.hasPadding){
-        selectableStyle.padding='0rem 0.2rem'
-      }
-      return Object.assign({},style,selectableStyle)
+  // 计算样式
+  private get computedStyle() {
+    let style = createStyle(this)
+    let selectableStyle = Object.create(null)
+    selectableStyle.backgroundColor = this.bkColor
+    if (this.borderTop) {
+      selectableStyle.borderTopStyle = 'solid'
+      selectableStyle.borderTopWidth = '1px'
+      selectableStyle.borderTopColor = this.borderColor
     }
+    if (this.borderBottom) {
+      selectableStyle.borderBottomStyle = 'solid'
+      selectableStyle.borderBottomWidth = '1px'
+      selectableStyle.borderBottomColor = this.borderColor
+    }
+    if (this.hasPadding) {
+      selectableStyle.padding = '0rem 0.2rem'
+    }
+    return Object.assign({}, style, selectableStyle)
+  }
 
-    @Emit('clicked')
-    private clicked(){}
+  @Emit('clicked')
+  private clicked() {}
 
-    @Emit('rightClicked')
-    private rightClicked(){}
+  @Emit('rightClicked')
+  private rightClicked() {}
 
-    private mounted() {
-      if(this.$slots.title){
-        let title:any=this.$slots.title[0].elm
-        title.classList.add('q-cell-title')
-      }
+  private mounted() {
+    if (this.$slots.title) {
+      let title: any = this.$slots.title[0].elm
+      title.classList.add('q-cell-title')
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .q-cell{
-    height:1.2rem;
-    display: flex;
-    align-items: center;
-    &-left{
-      &-icon{
-        display: flex;
-        flex-grow: 0;
-        margin-right: 0.2rem;
-      }
-    }
-    &-title{
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-grow: 1;
-    }
-    &-rightText{
+.q-cell {
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  &-left {
+    &-icon {
       display: flex;
       flex-grow: 0;
-      font-size: 13px;
-    }
-    &-rightIcon{
-      display: flex;
-      flex-grow: 0;
+      margin-right: 0.2rem;
     }
   }
+  &-title {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  &-rightText {
+    display: flex;
+    flex-grow: 0;
+    font-size: 13px;
+  }
+  &-rightIcon {
+    display: flex;
+    flex-grow: 0;
+  }
+}
 </style>

@@ -114,117 +114,115 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExTag extends Vue{
-    private active:boolean=false
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'bkColor'},
-            {value:'String'},
-            {value:'#d6d7dc'},
-            {value:'无'},
-            {value:'背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'color'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'字体颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'fontSize'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'12'},
-            {value:'字体大小'}
-          ]
-        },
-        {
-          prop:[
-            {value:'value'},
-            {value:'String'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'标签内容'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasBorder'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'有无边框'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasRadius'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有圆角'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#d6d7dc'},
-            {value:'是否有border颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'active'},
-            {value:'Boolean'},
-            {value:'Y'},
-            {value:'false'},
-            {value:'是否激活按钮'}
-          ]
-        },
-        {
-          prop:[
-            {value:'activeBkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'激活后的背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'activeColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'激活后的字体颜色'}
-          ]
-        }
-      ]
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExTag extends Vue {
+  private active: boolean = false
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: '#d6d7dc' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '字体颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'fontSize' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '12' },
+          { value: '字体大小' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'value' },
+          { value: 'String' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '标签内容' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasBorder' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '有无边框' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasRadius' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有圆角' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: '是否有border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'active' },
+          { value: 'Boolean' },
+          { value: 'Y' },
+          { value: 'false' },
+          { value: '是否激活按钮' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'activeBkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '激活后的背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'activeColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '激活后的字体颜色' }
+        ]
+      }
+    ]
+  }
 
-    public change(){
-      this.active=!this.active
-      this.active?
-      this.$notice.toast('激活'):
-      this.$notice.toast('未激活')
-    }
-  } 
+  public change() {
+    this.active = !this.active
+    this.active ? this.$notice.toast('激活') : this.$notice.toast('未激活')
+  }
+}
 </script>

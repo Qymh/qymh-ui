@@ -1,67 +1,66 @@
 import errorImage from './images/default.png'
 
 // q-image配置
-export const QIMAGECONFIG={
+export const QIMAGECONFIG = {
   // 懒加载配置
-  lazyLoad:{
-    preLoad:1.3,
-    loading:'',
-    error:errorImage,
-    attemp:1
+  lazyLoad: {
+    preLoad: 1.3,
+    loading: '',
+    error: errorImage,
+    attemp: 1
   }
 }
 
 // q-scroll配置
-export const QSCROLLCONFIG={
+export const QSCROLLCONFIG = {
   // 下拉刷新
-  down(vm){
-    return{
+  down(vm) {
+    return {
       // 是否启用
-      use:true,
+      use: true,
       // 是否初次调用
-      auto:false,
+      auto: false,
       // 回调
-      callback(mescroll){
+      callback(mescroll) {
         vm.$emit('refresh')
       }
     }
   },
   // 上拉加载
-  up(vm){
-    return{
+  up(vm) {
+    return {
       // 是否启用
-      use:true,
+      use: true,
       // 是否初次调用
-      auto:true,
+      auto: true,
       // 是否启用滚动条
-      scrollbar:{
-        use:true
+      scrollbar: {
+        use: true
       },
       // 回调
-      callback(page,mescroll){
-        vm.$emit('load',page)
+      callback(page, mescroll) {
+        vm.$emit('load', page)
       },
       // 无数据时的提示
-      htmlNodata:'<p class="upwarp-nodata">-- 没有更多的数据 --</p>'
+      htmlNodata: '<p class="upwarp-nodata">-- 没有更多的数据 --</p>'
     }
   }
 }
 
-
 // $axios配置
-export const AXIOSCONFIG={
+export const AXIOSCONFIG = {
   // 域名
-  domain:'http://p.3.cn',
+  domain: 'http://p.3.cn',
   // 是否输入日志
-  log:true,
+  log: true,
   // 超时
-  timeout:20000,
+  timeout: 20000,
   // 请求拦截器
-  requestFn(config){
+  requestFn(config) {
     return config
   },
   // 响应拦截器
-  responseFn(response){
+  responseFn(response) {
     return response
   }
-} 
+}

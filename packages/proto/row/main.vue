@@ -1,143 +1,142 @@
 <script lang="tsx">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-  @Component
-  export default class Proto extends Vue{
-    // 高
-    @Prop({default:-1})
-    public h:number|string
+@Component
+export default class Proto extends Vue {
+  // 高
+  @Prop({ default: -1 })
+  public h: number | string
 
-    // 行高
-    @Prop({default:-1})
-    public lh:number|string
-    
-    // 宽
-    @Prop({default:-1})
-    public w:number|string
+  // 行高
+  @Prop({ default: -1 })
+  public lh: number | string
 
-    // 高度百分比
-    @Prop({default:-1})
-    public row:number|string
+  // 宽
+  @Prop({ default: -1 })
+  public w: number | string
 
-    // 宽度百分比 
-    @Prop({default:-1})
-    public col:number|string
+  // 高度百分比
+  @Prop({ default: -1 })
+  public row: number | string
 
-    // margin-top
-    @Prop({default:0})
-    public mt:number|string
+  // 宽度百分比
+  @Prop({ default: -1 })
+  public col: number | string
 
-    // margin-right
-    @Prop({default:0})
-    public mr:number|string
+  // margin-top
+  @Prop({ default: 0 })
+  public mt: number | string
 
-    // margin-bottom
-    @Prop({default:0})
-    public mb:number|string
+  // margin-right
+  @Prop({ default: 0 })
+  public mr: number | string
 
-    // margin-left
-    @Prop({default:0})
-    public ml:number|string
+  // margin-bottom
+  @Prop({ default: 0 })
+  public mb: number | string
 
-    // padding-top
-    @Prop({default:0})
-    public pt:number|string
+  // margin-left
+  @Prop({ default: 0 })
+  public ml: number | string
 
-    // padding-right
-    @Prop({default:0})
-    public pr:number|string
+  // padding-top
+  @Prop({ default: 0 })
+  public pt: number | string
 
-    // padding-bottom
-    @Prop({default:0})
-    public pb:number|string
+  // padding-right
+  @Prop({ default: 0 })
+  public pr: number | string
 
-    // padding-left
-    @Prop({default:0})
-    public pl:number|string
+  // padding-bottom
+  @Prop({ default: 0 })
+  public pb: number | string
 
-    // 定位
-    @Prop({default:'static'})
-    public position:common.position
+  // padding-left
+  @Prop({ default: 0 })
+  public pl: number | string
 
-    // top
-    @Prop({default:-1})
-    public t:number|string
+  // 定位
+  @Prop({ default: 'static' })
+  public position: common.position
 
-    // right
-    @Prop({default:-1})
-    public r:number|string
+  // top
+  @Prop({ default: -1 })
+  public t: number | string
 
-    // bottom
-    @Prop({default:-1})
-    public b:number|string
+  // right
+  @Prop({ default: -1 })
+  public r: number | string
 
-    // left
-    @Prop({default:-1})
-    public l:number|string
+  // bottom
+  @Prop({ default: -1 })
+  public b: number | string
 
-    // 字体大小
-    @Prop({default:-1})
-    public fontSize:number
+  // left
+  @Prop({ default: -1 })
+  public l: number | string
 
-    // 字体颜色
-    @Prop({default:''})
-    public color:string
+  // 字体大小
+  @Prop({ default: -1 })
+  public fontSize: number
 
-    // 背景颜色
-    @Prop({default:''})
-    public bkColor:string
+  // 字体颜色
+  @Prop({ default: '' })
+  public color: string
 
-    // text-align
-    @Prop({default:''})
-    public textAlign:common.textAlign
+  // 背景颜色
+  @Prop({ default: '' })
+  public bkColor: string
 
-    // z-index
-    @Prop({default:'auto'})
-    public zIndex:number|string
+  // text-align
+  @Prop({ default: '' })
+  public textAlign: common.textAlign
 
-    // display
-    @Prop({default:''})
-    public display:common.display
+  // z-index
+  @Prop({ default: 'auto' })
+  public zIndex: number | string
 
-    // vertical-align
-    @Prop({default:'baseline'})
-    public vertical:common.vertical
+  // display
+  @Prop({ default: '' })
+  public display: common.display
 
-    // overflow
-    @Prop({default:'visible'})
-    public overflow:common.overflow
+  // vertical-align
+  @Prop({ default: 'baseline' })
+  public vertical: common.vertical
 
-    // text-decoration
-    @Prop({default:'none'})
-    public decoration:common.decoration
+  // overflow
+  @Prop({ default: 'visible' })
+  public overflow: common.overflow
 
-    // border-radius
-    @Prop({default:-1})
-    public radius:number|string
+  // text-decoration
+  @Prop({ default: 'none' })
+  public decoration: common.decoration
 
-    // word-break
-    @Prop({default:'normal'})
-    public wordBreak:common.wordBreak
-    
-    // text-indent
-    @Prop({default:-1})
-    public indent:number|string
+  // border-radius
+  @Prop({ default: -1 })
+  public radius: number | string
 
-    // border
-    @Prop({default:''})
-    public border:string
-    // border-top
-    @Prop({default:''})
-    public borderTop:string
-    // border-right
-    @Prop({default:''})
-    public borderRight:string
-    // border-bottom
-    @Prop({default:''})
-    public borderBottom:string
-    // border-left
-    @Prop({default:''})
-    public borderLeft:string
-    
-  }
+  // word-break
+  @Prop({ default: 'normal' })
+  public wordBreak: common.wordBreak
+
+  // text-indent
+  @Prop({ default: -1 })
+  public indent: number | string
+
+  // border
+  @Prop({ default: '' })
+  public border: string
+  // border-top
+  @Prop({ default: '' })
+  public borderTop: string
+  // border-right
+  @Prop({ default: '' })
+  public borderRight: string
+  // border-bottom
+  @Prop({ default: '' })
+  public borderBottom: string
+  // border-left
+  @Prop({ default: '' })
+  public borderLeft: string
+}
 </script>

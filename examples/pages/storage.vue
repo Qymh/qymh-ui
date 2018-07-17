@@ -184,54 +184,54 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExStorage extends Vue{
-    private cookieNow:string=''
-    private sessionStorage:string=''
-    private localStorage:string=''
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExStorage extends Vue {
+  private cookieNow: string = ''
+  private sessionStorage: string = ''
+  private localStorage: string = ''
 
-    private setCookie(){
-      this.$cookie.set('test','1')
-      this.$notice.toast('设置成功')
-      this.cookieNow=document.cookie
-    }
-    private deleteCookie(){
-      this.$cookie.delete('test')
-      this.$notice.toast('删除成功')
-      this.cookieNow=document.cookie
-    }
-
-    private setSessionStorage(){
-      this.$storage.set('session','1')
-      this.$notice.toast('设置成功')
-      this.sessionStorage=`session=${this.$storage.get('session')}`
-    }
-
-    private deleteSessionStorage(){
-      this.$storage.delete('session',1)
-      this.$notice.toast('删除成功')
-      this.sessionStorage=`session=${this.$storage.get('session')}`
-    }
-
-    private setLocalStorage(){
-      this.$storage.set('local','1',true)
-      this.$notice.toast('设置成功')
-      this.localStorage=`local=${this.$storage.get('local',true)}`
-    }
-
-    private deleteLocalStorage(){
-      this.$storage.delete('local',true)
-      this.$notice.toast('删除成功')
-      this.localStorage=`local=${this.$storage.get('local',true)}`
-    }
-
-    private beforeRouteEnter (to:any, from:any, next:any) {
-      next((vm:any)=>{
-        vm.cookieNow=document.cookie
-        vm.sessionStorage=`session=${vm.$storage.get('session')}`
-        vm.localStorage=`local=${vm.$storage.get('local',true)}`
-      })
-    }
+  private setCookie() {
+    this.$cookie.set('test', '1')
+    this.$notice.toast('设置成功')
+    this.cookieNow = document.cookie
   }
+  private deleteCookie() {
+    this.$cookie.delete('test')
+    this.$notice.toast('删除成功')
+    this.cookieNow = document.cookie
+  }
+
+  private setSessionStorage() {
+    this.$storage.set('session', '1')
+    this.$notice.toast('设置成功')
+    this.sessionStorage = `session=${this.$storage.get('session')}`
+  }
+
+  private deleteSessionStorage() {
+    this.$storage.delete('session', 1)
+    this.$notice.toast('删除成功')
+    this.sessionStorage = `session=${this.$storage.get('session')}`
+  }
+
+  private setLocalStorage() {
+    this.$storage.set('local', '1', true)
+    this.$notice.toast('设置成功')
+    this.localStorage = `local=${this.$storage.get('local', true)}`
+  }
+
+  private deleteLocalStorage() {
+    this.$storage.delete('local', true)
+    this.$notice.toast('删除成功')
+    this.localStorage = `local=${this.$storage.get('local', true)}`
+  }
+
+  private beforeRouteEnter(to: any, from: any, next: any) {
+    next((vm: any) => {
+      vm.cookieNow = document.cookie
+      vm.sessionStorage = `session=${vm.$storage.get('session')}`
+      vm.localStorage = `local=${vm.$storage.get('local', true)}`
+    })
+  }
+}
 </script>

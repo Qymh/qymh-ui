@@ -130,107 +130,107 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExTabBar extends Vue{
-    
-    private curIndex:number=0
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],datas:[
-        {
-          prop:[
-            {value:'bkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderTop'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有上border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderBottom'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有下border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#d6d7dc'},
-            {value:'是否有border颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'tabArr'},
-            {value:'Array'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'tab数组'},
-          ]
-        },
-      ]
-    }
-
-    public tabArr:any[]=[
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExTabBar extends Vue {
+  private curIndex: number = 0
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
       {
-        icon:'q-icon icon-newshot',
-        iconColor:'',
-        activeIcon:'q-icon icon-newshotfill',
-        activeIconColor:'#F65A44',
-        text:'订单',
-        textColor:'',
-        activeTextColor:'#F65A44',
-        active:true
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
       },
       {
-        icon:'q-icon icon-hot',
-        iconColor:'',
-        activeIcon:'q-icon icon-hotfill',
-        activeIconColor:'#F65A44',
-        text:'热门',
-        textColor:'',
-        activeTextColor:'#F65A44',
-        active:false,
-        detailsMsg:123,
-        detailsMsgColor:'',
-        detailsMsgBkColor:'',
+        prop: [
+          { value: 'borderTop' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有上border' }
+        ]
       },
       {
-        icon:'q-icon icon-people',
-        iconColor:'',
-        activeIcon:'q-icon icon-peoplefill',
-        activeIconColor:'#F65A44',
-        text:'个人',
-        textColor:'',
-        activeTextColor:'#F65A44',
-        active:false,
-        detailsPoint:true,
-        detailsPointColor:''
+        prop: [
+          { value: 'borderBottom' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有下border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: '是否有border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'tabArr' },
+          { value: 'Array' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: 'tab数组' }
+        ]
       }
     ]
-
-    public changeTab(index:number){
-      this.curIndex=index
-    }
   }
+
+  public tabArr: any[] = [
+    {
+      icon: 'q-icon icon-newshot',
+      iconColor: '',
+      activeIcon: 'q-icon icon-newshotfill',
+      activeIconColor: '#F65A44',
+      text: '订单',
+      textColor: '',
+      activeTextColor: '#F65A44',
+      active: true
+    },
+    {
+      icon: 'q-icon icon-hot',
+      iconColor: '',
+      activeIcon: 'q-icon icon-hotfill',
+      activeIconColor: '#F65A44',
+      text: '热门',
+      textColor: '',
+      activeTextColor: '#F65A44',
+      active: false,
+      detailsMsg: 123,
+      detailsMsgColor: '',
+      detailsMsgBkColor: ''
+    },
+    {
+      icon: 'q-icon icon-people',
+      iconColor: '',
+      activeIcon: 'q-icon icon-peoplefill',
+      activeIconColor: '#F65A44',
+      text: '个人',
+      textColor: '',
+      activeTextColor: '#F65A44',
+      active: false,
+      detailsPoint: true,
+      detailsPointColor: ''
+    }
+  ]
+
+  public changeTab(index: number) {
+    this.curIndex = index
+  }
+}
 </script>

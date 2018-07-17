@@ -1,3 +1,3 @@
-declare namespace radio{
-  export type type='circle'|'rect'
+declare namespace radio {
+  export type type = 'circle' | 'rect'
 }

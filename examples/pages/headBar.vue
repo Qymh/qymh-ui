@@ -191,205 +191,204 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExHeadBar extends Vue{
-
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'bkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'color'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'字体颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'bothWidth'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'1'},
-            {value:'两边保留的宽度'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasPadding'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有两边的边距'}
-          ]
-        },
-        {
-          prop:[
-            {value:'padding'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'0.2'},
-            {value:'两边的边距值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderTop'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有上border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderBottom'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有下border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#d6d7dc'},
-            {value:'border颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftEmpty'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有左侧占空'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftArrow'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否显示左侧箭头'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'centerEmpty'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有中间占空'}
-          ]
-        },
-        {
-          prop:[
-            {value:'centerText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'中间文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'centerTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'中间文字颜色'}
-          ]
-        },
-         {
-          prop:[
-            {value:'rightEmpty'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有右侧占空'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightArrow'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否显示右侧箭头'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字颜色'}
-          ]
-        }
-      ]
-    }
-
-    private clicked(){
-      this.$notice.toast('你触发了全局点击事件')
-    }
-
-    private leftClicked(e:any){
-      e.stopPropagation()
-      this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
-    }
-
-    private centerClicked(e:any){
-      e.stopPropagation()
-      this.$notice.toast('你点击了中间')
-    }
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExHeadBar extends Vue {
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '字体颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'bothWidth' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '1' },
+          { value: '两边保留的宽度' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasPadding' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有两边的边距' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'padding' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '0.2' },
+          { value: '两边的边距值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderTop' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有上border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderBottom' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有下border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: 'border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftEmpty' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有左侧占空' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftArrow' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否显示左侧箭头' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'centerEmpty' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有中间占空' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'centerText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '中间文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'centerTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '中间文字颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightEmpty' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有右侧占空' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightArrow' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否显示右侧箭头' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字颜色' }
+        ]
+      }
+    ]
   }
+
+  private clicked() {
+    this.$notice.toast('你触发了全局点击事件')
+  }
+
+  private leftClicked(e: any) {
+    e.stopPropagation()
+    this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
+  }
+
+  private centerClicked(e: any) {
+    e.stopPropagation()
+    this.$notice.toast('你点击了中间')
+  }
+}
 </script>

@@ -456,20 +456,35 @@
               &ltq-row flex=2 bkColor="#F4606C"&gt2&lt/q-row&gt
               &ltq-row flex=3 bkColor="#E6CEAC"&gt3&lt/q-row&gt
             &lt/q-row&gt
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="API一览"
+          fontSize=16
+          :borderBottom="true")
+        q-row(lh=9 index=2 mb=2 fontSize=14)
+          |我们将api分成了几个部分
+        //- Api
+        q-row(tag="section")
+          q-cell(
+            leftIcon="q-icon icon-edit"
+            leftIconColor="deepskyblue"
+            title="高宽")
 </template> 
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
-  @Component({})
-  export default class exRow extends Vue{
-    
-  }
+@Component({})
+export default class exRow extends Vue {
+  private size: any = {}
+}
 </script>
 
 <style lang="scss" scoped>
-  .demo{
-    background-color: deepskyblue;
-    color: #fff;
-  }
+.demo {
+  background-color: deepskyblue;
+  color: #fff;
+}
 </style>

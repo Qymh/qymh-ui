@@ -172,43 +172,41 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  @Component({})
-  export default class ExInput extends Vue{
-
-    private noFormat:any={
-      name:'',
-      age:''
-    }
-
-    private format:any={
-      name:'',
-      tel:''
-    }
-
-    private rules:any={
-      name:[
-        {required:true,message:'名字不能为空'},
-        {min:3,max:5,message:'名字长度在3到5个字符'}
-      ],
-      tel:[
-        {required:true,message:'电话不能为空'},
-        {type:'tel',message:'请输入正确的电话号码'}
-      ]
-    }
-
-    private submit1(){
-      this.$notice.toast(`名字:${this.noFormat.name};年龄:${this.noFormat.age}`)
-    }
-
-    private submit2(){
-      let myForm:any=this.$refs.myForm2
-      myForm.validate().then((bool:boolean)=>{
-        if(bool){
-          this.$notice.toast(`名字:${this.format.name};电话:${this.format.tel}`)
-        }
-      })
-    }
-
+import { Vue, Component } from 'vue-property-decorator'
+@Component({})
+export default class ExInput extends Vue {
+  private noFormat: any = {
+    name: '',
+    age: ''
   }
+
+  private format: any = {
+    name: '',
+    tel: ''
+  }
+
+  private rules: any = {
+    name: [
+      { required: true, message: '名字不能为空' },
+      { min: 3, max: 5, message: '名字长度在3到5个字符' }
+    ],
+    tel: [
+      { required: true, message: '电话不能为空' },
+      { type: 'tel', message: '请输入正确的电话号码' }
+    ]
+  }
+
+  private submit1() {
+    this.$notice.toast(`名字:${this.noFormat.name};年龄:${this.noFormat.age}`)
+  }
+
+  private submit2() {
+    let myForm: any = this.$refs.myForm2
+    myForm.validate().then((bool: boolean) => {
+      if (bool) {
+        this.$notice.toast(`名字:${this.format.name};电话:${this.format.tel}`)
+      }
+    })
+  }
+}
 </script>

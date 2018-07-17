@@ -17,52 +17,53 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop} from 'vue-property-decorator'
-  @Component({})
-  export default class QTable extends Vue{
-    // table设置
-    @Prop({default:{}})
-    private tableOptions:table.tableArr
+import { Vue, Component, Prop } from 'vue-property-decorator'
+@Component({})
+export default class QTable extends Vue {
+  // table设置
+  @Prop({ default: {} })
+  private tableOptions: table.tableArr
 
-    // 字体突出显示的颜色
-    @Prop({default:'deepskyblue'})
-    private color:string
-  }
+  // 字体突出显示的颜色
+  @Prop({ default: 'deepskyblue' })
+  private color: string
+}
 </script>
 
 <style lang="scss" scoped>
-  .q_table{
-    display: flex;
-    justify-content: center;
-    padding: 0.4rem;
+.q_table {
+  display: flex;
+  justify-content: center;
+  padding: 0.4rem;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  &_box {
+    border-collapse: collapse;
+    width: 100%;
     overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    &_box{
-      border-collapse: collapse;
-      width: 100%;
-      overflow: auto;
-      border-spacing: 0;
-      display: block;
-      word-break: keep-all;
-      th,td{
-        min-width: 3rem;
-        padding: 0.1rem 0.2rem;
-        font-weight: normal;
-        border: 1px solid #666;
-        text-align: center;
-      }
-      th{
-        height: 1rem;
-      }
-      td{
-        height: 2rem;
-      }
-      tbody{
-        tr:nth-child(even){
-          background-color: #f8f8f8;
-        }
+    border-spacing: 0;
+    display: block;
+    word-break: keep-all;
+    th,
+    td {
+      min-width: 3rem;
+      padding: 0.1rem 0.2rem;
+      font-weight: normal;
+      border: 1px solid #666;
+      text-align: center;
+    }
+    th {
+      height: 1rem;
+    }
+    td {
+      height: 2rem;
+    }
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f8f8f8;
       }
     }
   }
+}
 </style>
 

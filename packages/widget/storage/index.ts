@@ -1,15 +1,18 @@
 import Vue from 'vue'
-const Storage=Object.create(null)
+const Storage = Object.create(null)
 
-Storage.install=(Vue:any)=>{
-  Vue.prototype.$storage={
+Storage.install = (Vue: any) => {
+  Vue.prototype.$storage = {
     /**
      * 获取缓存
      * @param key 键
      * @param local 是否启用localStorage缓存 默认false
      */
-    get(key:string,local:boolean=false):string|null{
-      return local&&window.localStorage.getItem(key)||window.sessionStorage.getItem(key)
+    get(key: string, local: boolean = false): string | null {
+      return (
+        (local && window.localStorage.getItem(key)) ||
+        window.sessionStorage.getItem(key)
+      )
     },
 
     /**
@@ -18,8 +21,9 @@ Storage.install=(Vue:any)=>{
      * @param value 值
      * @param local 是否启用localStorage缓存 默认false
      */
-    set(key:string,value:string,local:boolean=false){
-      local&&window.localStorage.setItem(key,value)||window.sessionStorage.setItem(key,value)
+    set(key: string, value: string, local: boolean = false) {
+      ;(local && window.localStorage.setItem(key, value)) ||
+        window.sessionStorage.setItem(key, value)
     },
 
     /**
@@ -27,13 +31,15 @@ Storage.install=(Vue:any)=>{
      * @param key 键
      * @param local 值
      */
-    delete(key:string|string[],local:boolean=false){
-      if(Array.isArray(key)){
-        for(let item of key){
-          local&&window.localStorage.setItem(item,'')||window.sessionStorage.setItem(item,'')
+    delete(key: string | string[], local: boolean = false) {
+      if (Array.isArray(key)) {
+        for (let item of key) {
+          ;(local && window.localStorage.setItem(item, '')) ||
+            window.sessionStorage.setItem(item, '')
         }
-      }else{
-        local&&window.localStorage.setItem(key,'')||window.sessionStorage.setItem(key,'')
+      } else {
+        ;(local && window.localStorage.setItem(key, '')) ||
+          window.sessionStorage.setItem(key, '')
       }
     }
   }

@@ -89,22 +89,21 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
-  import home from '@/manifest/home.json'
+import { Vue, Component } from 'vue-property-decorator'
+import home from '@/manifest/home.json'
 
-  @Component({
-  })
-  export default class ExHome extends Vue{
-    // 首页信息
-    private homeInfor:any[]=[]
+@Component({})
+export default class ExHome extends Vue {
+  // 首页信息
+  private homeInfor: any[] = []
 
-    // 路由跳转
-    private go(path:string):void{
-      this.$router.push(path)
-    }
-
-    private created(){
-      this.homeInfor=home.homeInfor
-    }
+  // 路由跳转
+  private go(path: string): void {
+    this.$router.push(path)
   }
+
+  private created() {
+    this.homeInfor = home.homeInfor
+  }
+}
 </script>

@@ -154,193 +154,197 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 
-  @Component({})
-  export default class ExSearchBar extends Vue{
-    private searchValue1:any=''
-    private searchValue2:any=''
-    private searchValue3:any=''
-    private searchValueSlot:any=''
-    private tableOptions:any={
-      titles:[
-        {value:'Prop'},
-        {value:'Type'},
-        {value:'Required'},
-        {value:'Default'},
-        {value:'Description'}
-      ],
-      datas:[
-        {
-          prop:[
-            {value:'bkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'color'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'字体颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'bothWidth'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'1'},
-            {value:'两边保留的宽度'}
-          ]
-        },
-        {
-          prop:[
-            {value:'hasPadding'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'true'},
-            {value:'是否有两边的边距'}
-          ]
-        },
-        {
-          prop:[
-            {value:'padding'},
-            {value:'Number'},
-            {value:'N'},
-            {value:'0.2'},
-            {value:'两边的边距值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderTop'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有上border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderBottom'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否有下border'}
-          ]
-        },
-        {
-          prop:[
-            {value:'borderColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'#d6d7dc'},
-            {value:'是否有border颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'value'},
-            {value:'Any'},
-            {value:'Y'},
-            {value:'无'},
-            {value:'搜索的双向绑定值'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftArrow'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否显示左侧箭头'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'leftTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'左侧文字颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'searchBkColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'white'},
-            {value:'搜索栏的背景颜色'}
-          ]
-        },
-        {
-          prop:[
-            {value:'placeholder'},
-            {value:'String'},
-            {value:'N'},
-            {value:'请输入...'},
-            {value:'搜索框的提示文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'clearable'},
-            {value:'Boolean'},
-            {value:'N'},
-            {value:'false'},
-            {value:'是否可清除搜索的文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightText'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字'}
-          ]
-        },
-        {
-          prop:[
-            {value:'rightTextColor'},
-            {value:'String'},
-            {value:'N'},
-            {value:'无'},
-            {value:'右侧文字颜色'}
-          ]
-        }
-      ]
-    }
+@Component({})
+export default class ExSearchBar extends Vue {
+  private searchValue1: any = ''
+  private searchValue2: any = ''
+  private searchValue3: any = ''
+  private searchValueSlot: any = ''
+  private tableOptions: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '字体颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'bothWidth' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '1' },
+          { value: '两边保留的宽度' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasPadding' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有两边的边距' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'padding' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '0.2' },
+          { value: '两边的边距值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderTop' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有上border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderBottom' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有下border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: '是否有border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'value' },
+          { value: 'Any' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '搜索的双向绑定值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftArrow' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否显示左侧箭头' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'leftTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '左侧文字颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'searchBkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'white' },
+          { value: '搜索栏的背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'placeholder' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '请输入...' },
+          { value: '搜索框的提示文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'clearable' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否可清除搜索的文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightText' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rightTextColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '右侧文字颜色' }
+        ]
+      }
+    ]
+  }
 
-    private leftClicked(){
-      this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
-    }
+  private leftClicked() {
+    this.$notice.toast('你点击了左侧,默认事件会回退到上一页')
+  }
 
-    private search(){
-      this.searchValue3?this.$notice.toast(`你当前搜索的值为${this.searchValue3}`):this.$notice.toast('你当前搜索的值为空')
-    }
+  private search() {
+    this.searchValue3
+      ? this.$notice.toast(`你当前搜索的值为${this.searchValue3}`)
+      : this.$notice.toast('你当前搜索的值为空')
+  }
 
-    private slotBack(){
-      this.$notice.toast('你点击了左侧')
-    }
+  private slotBack() {
+    this.$notice.toast('你点击了左侧')
+  }
 
-    private slotSearch(){
-      this.$notice.toast(`你搜索的值为:${this.searchValueSlot&&this.searchValueSlot||'空'}`)
-    }
-  } 
+  private slotSearch() {
+    this.$notice.toast(
+      `你搜索的值为:${(this.searchValueSlot && this.searchValueSlot) || '空'}`
+    )
+  }
+}
 </script>
