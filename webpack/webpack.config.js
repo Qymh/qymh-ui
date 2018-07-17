@@ -18,6 +18,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        loader: 'tslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre',
+      },
       // vue
       {
         test: /\.vue$/,
