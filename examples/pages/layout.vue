@@ -1,7 +1,7 @@
 <template lang="pug">
   .row
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=1)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
@@ -467,10 +467,50 @@
           |我们将api分成了几个部分
         //- Api
         q-row(tag="section")
-          q-cell(
-            leftIcon="q-icon icon-edit"
-            leftIconColor="deepskyblue"
-            title="高宽")
+          //- 高度
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="高宽")
+            q-row(lh=9 index=2 mb=2 fontSize=14)
+              |默认值-1为设置默认auto
+            q-table(:tableOptions="size")
+          //- 边距 
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="边距")
+            q-table(:tableOptions="distance")
+          //- 定位 
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="定位")
+            q-table(:tableOptions="position")
+          //- border 
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="border")
+            q-table(:tableOptions="border")
+          //- flex
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="flex")
+            q-table(:tableOptions="flex")
+          //- 杂项
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="杂项")
+            q-table(:tableOptions="sundry")
 </template> 
 
 <script lang="ts">
@@ -478,7 +518,428 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component({})
 export default class exRow extends Vue {
-  private size: any = {}
+  private size: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'h' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '高度' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'lh' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '行高' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'w' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '宽度' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'row' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '高度百分比' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'col' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '宽度百分比' }
+        ]
+      }
+    ]
+  }
+
+  private distance: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'mt' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'margin-top' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'mr' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'margin-right' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'mb' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'margin-bottom' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'ml' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'margin-left' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'pt' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'padding-top' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'pr' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'padding-right' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'pb' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'padding-bottom' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'pl' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: 'padding-left' }
+        ]
+      },
+    ]
+  }
+
+  private position :any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'position' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '0' },
+          { value: '定位值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 't' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: 'top' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'r' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: 'right' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'bottom' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: 'bottom' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'left' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: 'left' }
+        ]
+      }
+    ]
+  }
+
+  private border :any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'border' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'border-top' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'border-top' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'border-right' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'border-right' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'border-bottom' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'border-bottom' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'border-left' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'border-left' }
+        ]
+      }
+    ]
+  }
+
+  private flex :any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'dir' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'flex-direction top|right|bottom|left' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'align' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'align-items' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'justify' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'justify-content' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'flex' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'flex-grow' }
+        ]
+      }
+    ]
+  }
+
+  private sundry :any={
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'fontSize' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '字体大小' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '字体颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'textAlign' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '居中样式' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'zIndex' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'auto' },
+          { value: '层叠' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'display' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: 'display' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'vertical' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'baseline' },
+          { value: '垂直样式' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'overflow' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'visible' },
+          { value: 'overflow' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'decoration' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'none' },
+          { value: '字体划线' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'radius' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '圆角' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'wordBreak' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'normal' },
+          { value: '文字打断' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'indent' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '-1' },
+          { value: '首行缩进' }
+        ]
+      }
+    ]
+  }
 }
 </script>
 
