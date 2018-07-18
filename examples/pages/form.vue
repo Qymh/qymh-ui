@@ -94,14 +94,11 @@
               q-row(h=12 dir="left" align="center")
                 q-row(w=15 align="center" justify="center") 名字:
                 q-input(
-                  prop="name" v-model="format.name"
-                  :required="true"
-                  min=3 max=5 placeholder="名字长度在3到5个字符")
+                  prop="name" v-model="format.name" placeholder="名字长度在3到5个字符")
               q-row(h=12 dir="left" align="center")
                 q-row(w=15 align="center" justify="center") 电话:
                 q-input(
                   prop="tel" type="tel"
-                  :required="true"
                   v-model="format.tel" placeholder="请输入你的电话")
               q-row(h=12 justify="flex-end" align="center")
                 q-row(
@@ -117,15 +114,12 @@
                 &ltq-row h=12 dir="left" align="center"&gt
                   &ltq-row w=15 align="center" justify="center"&gt名字:&lt/q-row&gt
                   &ltq-input
-                    prop="name" v-model="format.name"
-                    :required="true"
-                    min=3 max=5 placeholder="名字长度在3到5个字符"&gt&lt/q-input&gt
+                    prop="name" v-model="format.name" placeholder="名字长度在3到5个字符"&gt&lt/q-input&gt
                 &lt/q-row&gt
                 &ltq-row h=12 dir="left" align="center"&gt
                   &ltq-row w=15 align="center" justify="center"&gt电话:&lt/q-row&gt
                   &ltq-input
                     prop="tel" type="tel"
-                    :required="true"
                     v-model="format.tel" placeholder="请输入你的电话"&gt&lt/q-input&gt
                 &lt/q-row&gt
                 &ltq-row h=12 justify="flex-end" align="center"&gt
@@ -169,6 +163,27 @@
                   })
                 }
               }
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tagfill"
+          leftIconColor="deepskyblue"
+          title="API一览"
+          fontSize=16
+          :borderBottom="true")
+        //- Api
+        q-row(tag="section")
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="q-form")
+            q-table(:tableOptions="qForm")
+          q-row(tag="section")
+            q-cell(
+              leftIcon="q-icon icon-edit"
+              leftIconColor="deepskyblue"
+              title="q-input")
+            q-table(:tableOptions="qInput")
 </template>
 
 <script lang="ts">
@@ -193,6 +208,138 @@ export default class ExInput extends Vue {
     tel: [
       { required: true, message: '电话不能为空' },
       { type: 'tel', message: '请输入正确的电话号码' }
+    ]
+  }
+  
+  private qForm: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'model' },
+          { value: 'Object' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '动态绑定的值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'rules' },
+          { value: 'Object' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '验证规则' }
+        ]
+      }
+    ]
+  }
+
+  private qInput: any = {
+    titles: [
+      { value: 'Prop' },
+      { value: 'Type' },
+      { value: 'Required' },
+      { value: 'Default' },
+      { value: 'Description' }
+    ],
+    datas: [
+      {
+        prop: [
+          { value: 'v-model' },
+          { value: 'Any' },
+          { value: 'Y' },
+          { value: '无' },
+          { value: '动态绑定的值' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'type' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: 'text' },
+          { value: '输入框类型' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'placeholder' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '' },
+          { value: '输入框提醒文字' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'fix' },
+          { value: 'Number' },
+          { value: 'N' },
+          { value: '4' },
+          { value: '默认保留小数位数' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'prop' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '验证规则下对应属性名' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'hasBorder' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'false' },
+          { value: '是否有全局border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderBottom' },
+          { value: 'Boolean' },
+          { value: 'N' },
+          { value: 'true' },
+          { value: '是否有下border' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'borderColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '#d6d7dc' },
+          { value: 'border颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'color' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '字体颜色' }
+        ]
+      },
+      {
+        prop: [
+          { value: 'bkColor' },
+          { value: 'String' },
+          { value: 'N' },
+          { value: '无' },
+          { value: '背景颜色' }
+        ]
+      }
     ]
   }
 
