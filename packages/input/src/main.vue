@@ -12,6 +12,8 @@ export default class QInput extends Proto {
   private qForm: any = ''
   // 当前存在的规则约束
   private rules: any = ''
+  // 是QInput
+  private isQInput: boolean = true
 
   // 传入的值
   @Prop({ default: '' })
@@ -225,7 +227,7 @@ export default class QInput extends Proto {
 
   // 寻找q-form
   private findQForm(vm: any): any {
-    if (vm.$parent.$options.name !== 'QForm') {
+    if (!vm.$parent.isQForm) {
       this.findQForm(vm.$parent)
     } else {
       this.qForm = vm.$parent

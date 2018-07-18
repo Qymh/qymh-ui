@@ -1,7 +1,7 @@
 // 构造全局样式
 export default function createStyle(vm: any) {
-  let style: any = {
-    /** 可选属性为auto **/
+  const style: any = {
+    // 可选属性为auto
     // 高
     height:
       vm.h === -1 && vm.row === -1
@@ -21,7 +21,7 @@ export default function createStyle(vm: any) {
     // 字体
     fontSize: vm.fontSize === -1 ? 'inherit' : `${vm.fontSize}px`,
 
-    /** 可选属性为空 **/
+    // 可选属性为空
     // padding-top
     paddingTop: vm.pt === 0 ? '' : `${vm.pt / 10}rem`,
     // padding-right
@@ -39,10 +39,12 @@ export default function createStyle(vm: any) {
     backgroundColor: vm.bkColor
   }
 
-  for (let i in style) {
-    let item: string = style[i]
-    if (item === 'auto' || item === 'inherit' || item === 'normal') {
-      delete style[i]
+  for (const i in style) {
+    if (style.hasOwnProperty(i)) {
+      const item: string = style[i]
+      if (item === 'auto' || item === 'inherit' || item === 'normal') {
+        delete style[i]
+      }
     }
   }
 

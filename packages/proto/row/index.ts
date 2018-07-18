@@ -1,7 +1,7 @@
 // 构造全局样式
 export default function createStyle(vm: any) {
-  let style: any = {
-    /** 可选属性为auto **/
+  const style: any = {
+    // 可选属性为auto
 
     // 高
     height:
@@ -52,7 +52,7 @@ export default function createStyle(vm: any) {
     // 字体
     fontSize: vm.fontSize === -1 ? 'inherit' : `${vm.fontSize}px`,
 
-    /** 可选属性为空 **/
+    // 可选属性为空
 
     // margin-top
     marginTop: vm.mt === 0 ? '' : `${vm.mt / 10}rem`,
@@ -110,23 +110,25 @@ export default function createStyle(vm: any) {
     borderLeft: vm.borderLeft || ''
   }
 
-  for (let i in style) {
-    let item: string = style[i]
-    if (
-      item === '' ||
-      (item === 'auto' && i !== 'overflow') ||
-      item === 'inherit' ||
-      item === 'static' ||
-      item === 'normal' ||
-      item === 'baseline' ||
-      item === 'visible' ||
-      (item === 'none' && i === 'textDecoration')
-    ) {
-      delete style[i]
-    }
-    // 更符合移动端overflow auto的标准
-    if (i === 'overflow' && (item === 'auto' || item === 'scroll')) {
-      style['-webkit-overflow-scrolling'] = 'touch'
+  for (const i in style) {
+    if (style.hasOwnProperty(i)) {
+      const item: string = style[i]
+      if (
+        item === '' ||
+        (item === 'auto' && i !== 'overflow') ||
+        item === 'inherit' ||
+        item === 'static' ||
+        item === 'normal' ||
+        item === 'baseline' ||
+        item === 'visible' ||
+        (item === 'none' && i === 'textDecoration')
+      ) {
+        delete style[i]
+      }
+      // 更符合移动端overflow auto的标准
+      if (i === 'overflow' && (item === 'auto' || item === 'scroll')) {
+        style['-webkit-overflow-scrolling'] = 'touch'
+      }
     }
   }
 

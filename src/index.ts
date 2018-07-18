@@ -83,7 +83,7 @@ const componentsName: string[] = [
   'QScroll'
 ]
 
-const install = function(Vue: any, opts = {}) {
+const install = function(Vue: any) {
   components.map((component: any, i) => {
     Vue.component(componentsName[i], component)
   })

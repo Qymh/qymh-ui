@@ -14,16 +14,10 @@ module.exports = {
   output: {
     path: resolve('dist'),
     publicPath: isDev ? config.dev.publicPath : config.prod.publicPath,
-    filename: isDev ? 'js/[name].js' : '[name].[chunkhash].js'
+    filename: isDev ? '[name].js' : 'js/[name].[chunkhash].js'
   },
   module: {
     rules: [
-      {
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-        exclude: /node_modules/,
-        enforce: 'pre',
-      },
       // vue
       {
         test: /\.vue$/,

@@ -23,7 +23,6 @@ export default class QSwiper extends Vue {
       let slot: any = $slots[i].elm
       slot.classList.add('swiper-slide')
     }
-    console.log(this.$tree)
     let Swiper = this.$tree.Swiper
     this.swiperObj = new Swiper('.swiper-container', options)
   }

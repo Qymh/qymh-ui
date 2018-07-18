@@ -19,7 +19,7 @@ if ('addEventListener' in document) {
   document.addEventListener(
     'DOMContentLoaded',
     () => {
-      ;(fastclick as any).attach(document.body)
+      fastclick.attach(document.body)
     },
     false
   )

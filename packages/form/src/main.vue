@@ -16,6 +16,7 @@ export default class QForm extends Proto {
   private qInput: any[] = []
   // 计算后的style
   private style: any = {}
+  private isQForm: boolean = true
 
   // 数据
   @Prop({ default: '' })
@@ -52,7 +53,7 @@ export default class QForm extends Proto {
   // 寻找q-input
   private findQInput(vm: any) {
     vm.$children.forEach((p: any) => {
-      if (p.$options.name === 'QInput') {
+      if (p.isQInput) {
         this.qInput.push(p)
       } else {
         this.findQInput(p)

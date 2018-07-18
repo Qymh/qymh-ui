@@ -8,10 +8,10 @@ const Tree = Object.create(null)
 
 Tree.install = (Vue: any) => {
   Vue.prototype.$tree = {
-    HighLight: HighLight,
-    Swiper: Swiper,
-    MobileSelect: MobileSelect,
-    MeScroll: MeScroll
+    HighLight,
+    Swiper,
+    MobileSelect,
+    MeScroll
   }
 }
 

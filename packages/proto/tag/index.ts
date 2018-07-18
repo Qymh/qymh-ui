@@ -1,6 +1,6 @@
 // 构造全局样式
 export default function createStyle(vm: any) {
-  let style: any = {
+  const style: any = {
     // margin-top
     marginTop: vm.mt === 0 ? '' : `${vm.mt / 10}rem`,
     // margin-right
@@ -19,10 +19,12 @@ export default function createStyle(vm: any) {
     paddingLeft: vm.pl === 0 ? '' : `${vm.pl / 10}rem`
   }
 
-  for (let i in style) {
-    let item: string = style[i]
-    if (!item) {
-      delete style[i]
+  for (const i in style) {
+    if (style.hasOwnProperty(i)) {
+      const item: string = style[i]
+      if (!item) {
+        delete style[i]
+      }
     }
   }
 

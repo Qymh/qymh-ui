@@ -5,55 +5,55 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 export default class Proto extends Vue {
   // 高
   @Prop({ default: -1 })
-  public h: number | string
+  public h: string
 
   // 行高
   @Prop({ default: -1 })
-  public lh: number | string
+  public lh: string
 
   // 宽
   @Prop({ default: -1 })
-  public w: number | string
+  public w: string
 
   // 高度百分比
   @Prop({ default: -1 })
-  public row: number | string
+  public row: string
 
   // 宽度百分比
   @Prop({ default: -1 })
-  public col: number | string
+  public col: string
 
   // margin-top
   @Prop({ default: 0 })
-  public mt: number | string
+  public mt: string
 
   // margin-right
   @Prop({ default: 0 })
-  public mr: number | string
+  public mr: string
 
   // margin-bottom
   @Prop({ default: 0 })
-  public mb: number | string
+  public mb: string
 
   // margin-left
   @Prop({ default: 0 })
-  public ml: number | string
+  public ml: string
 
   // padding-top
   @Prop({ default: 0 })
-  public pt: number | string
+  public pt: string
 
   // padding-right
   @Prop({ default: 0 })
-  public pr: number | string
+  public pr: string
 
   // padding-bottom
   @Prop({ default: 0 })
-  public pb: number | string
+  public pb: string
 
   // padding-left
   @Prop({ default: 0 })
-  public pl: number | string
+  public pl: string
 
   // 定位
   @Prop({ default: 'static' })
@@ -77,7 +77,7 @@ export default class Proto extends Vue {
 
   // 字体大小
   @Prop({ default: -1 })
-  public fontSize: number
+  public fontSize: string
 
   // 字体颜色
   @Prop({ default: '' })
@@ -93,7 +93,7 @@ export default class Proto extends Vue {
 
   // z-index
   @Prop({ default: 'auto' })
-  public zIndex: number | string
+  public zIndex: string
 
   // display
   @Prop({ default: '' })
@@ -121,7 +121,7 @@ export default class Proto extends Vue {
 
   // text-indent
   @Prop({ default: -1 })
-  public indent: number | string
+  public indent: string
 
   // border
   @Prop({ default: '' })

@@ -37,8 +37,7 @@
     // 在表达式和声明上有隐含的any类型时报错
     "noImplicitAny": true,
     "lib": ["dom", "es5", "es6", "es7", "es2015.promise"],
-    "sourceMap": true,
-    "pretty": true
+    "sourceMap": true
   },
   "files": [
     "typings/common.d.ts",

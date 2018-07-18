@@ -38,7 +38,7 @@ Tools.install = (Vue: any) => {
      * @returns 返回布尔值
      */
     isEmail(value: any): boolean {
-      let emailRegExp = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
+      let emailRegExp = /^([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/
       let bool = emailRegExp.test(value)
       return bool
     },

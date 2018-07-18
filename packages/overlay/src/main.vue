@@ -59,6 +59,8 @@ export default class QOverlay extends Vue {
   @Watch('show')
   onShowChanged(val: boolean) {
     this.computedShow = this.show
+    let a = 1
+    let b=1
     let baseHeight = document.body.clientHeight
     let $html = document.getElementsByTagName('html')[0]
     if (this.show) {
@@ -201,11 +203,11 @@ export default class QOverlay extends Vue {
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 6;
+    z-index: 6 !important;
   }
   &-box {
     position: fixed;
-    z-index: 7;
+    z-index: 7 !important;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
   }

@@ -1,6 +1,6 @@
 <template lang="pug">
   .overlay
-    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=1)
       q-head-bar(
         bkColor="deepskyblue"
         color="#fff"

@@ -1,6 +1,6 @@
 // 构造全局样式
 export default function createStyle(vm: any) {
-  let style: any = {
+  const style: any = {
     // 高
     height:
       vm.h === -1 && vm.row === -1
@@ -27,10 +27,12 @@ export default function createStyle(vm: any) {
     left: vm.l === -1 ? 'auto' : `${vm.l / 10}rem`
   }
 
-  for (let i in style) {
-    let item: string = style[i]
-    if (item === 'auto' || item === 'static' || item === 'normal') {
-      delete style[i]
+  for (const i in style) {
+    if (style.hasOwnProperty(i)) {
+      const item: string = style[i]
+      if (item === 'auto' || item === 'static' || item === 'normal') {
+        delete style[i]
+      }
     }
   }
 

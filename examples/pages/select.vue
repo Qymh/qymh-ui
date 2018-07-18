@@ -1,7 +1,7 @@
 <template lang="pug">
   .select
     //- 标题
-    q-row(position="fixed" t=0 l=0 col=100 zIndex=5)
+    q-row(position="fixed" t=0 l=0 col=100 zIndex=1)
       q-head-bar(
         color="white"
         bkColor="deepskyblue"
