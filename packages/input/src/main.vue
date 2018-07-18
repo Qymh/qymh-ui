@@ -55,14 +55,6 @@ export default class QInput extends Proto {
   @Prop({ default: '' })
   private placeholder: string
 
-  // 最小长度
-  @Prop({ default: 0 })
-  private min: number
-
-  // 最大长度
-  @Prop({ default: 0 })
-  private max: number
-
   // 按下
   private keydown(e: any) {
     this.canEmit = true

@@ -518,6 +518,9 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component({})
 export default class exRow extends Vue {
+
+  private isFinish :boolean =false
+
   private size: any = {
     titles: [
       { value: 'Prop' },
@@ -939,6 +942,12 @@ export default class exRow extends Vue {
         ]
       }
     ]
+  }
+
+  private mounted () {
+    this.$nextTick(()=>{
+      this.isFinish=true
+    })
   }
 }
 </script>
