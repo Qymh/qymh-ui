@@ -37,6 +37,7 @@ Notice.install = (Vue: any) => {
     ) {
       let libHtml = ce('div')
       let innerIndex = index
+      let beforeIndex = index - 1
       libHtml.classList.add(
         'notice',
         'notice_toast',
@@ -51,17 +52,22 @@ Notice.install = (Vue: any) => {
       let $body = document.body
       $body.appendChild(libHtml)
 
+      let $noticeToastNow = document.getElementsByClassName(`count_${beforeIndex}`)[0]
+      $noticeToastNow && remove($noticeToastNow)
+
       let timer: any = setTimeout(() => {
         let $noticeToast = document.getElementsByClassName(
           `count_${innerIndex}`
         )[0]
-        $noticeToast.classList.remove('fadeIn')
-        $noticeToast.classList.add('fadeOut')
-        let innerTimer: any = setTimeout(() => {
-          remove($noticeToast)
-          innerTimer = null
-          timer = null
-        }, 300)
+        if ($noticeToast) {
+          $noticeToast.classList.remove('fadeIn')
+          $noticeToast.classList.add('fadeOut')
+          let innerTimer: any = setTimeout(() => {
+            remove($noticeToast)
+            innerTimer = null
+            timer = null
+          }, 300)
+        }
       }, timeout)
     },
 
