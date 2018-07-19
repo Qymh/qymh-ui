@@ -80,6 +80,10 @@
       {
         "name": "$storage $cookie 存储",
         "href": "/storage"
+      },
+      {
+        "name": "$axios 请求",
+        "href": "/axios"
       }
     ]
   }

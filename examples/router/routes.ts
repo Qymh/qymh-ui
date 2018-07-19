@@ -40,7 +40,9 @@ const Routes: diyRoute.RouteConfig[] = [
   // 提醒
   { name: 'notice' },
   // 存储
-  { name: 'storage' }
+  { name: 'storage' },
+  // 请求
+  { name: 'axios' }
 ]
 
 export default Routes

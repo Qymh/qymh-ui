@@ -8,8 +8,8 @@ import 'mescroll.js/mescroll.min.css'
 
 import Vue from 'vue'
 import lazyLoad from 'vue-lazyload'
-import { QIMAGECONFIG } from './qymhui.config'
-Vue.use(lazyLoad, QIMAGECONFIG)
+import CONFIG from './qymhui.config'
+Vue.use(lazyLoad, CONFIG.qimage)
 
 import '../packages/widget'
 
@@ -83,7 +83,7 @@ const componentsName: string[] = [
   'QScroll'
 ]
 
-const install = function(Vue: any) {
+const install = function(Vue: any, opts: any) {
   components.map((component: any, i) => {
     Vue.component(componentsName[i], component)
   })
