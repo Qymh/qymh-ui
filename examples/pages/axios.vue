@@ -28,7 +28,7 @@ import * as api from '@/lib/api'
 @Component({})
 export default class ExAxios extends Vue {
   private getProduct() {
-    this.$axios.jsonp(this, api.getProduct, { tel: 15388151815 }).then((data: any) => {
+    this.$axios.get(this, api.getProduct,{}).then((data: any) => {
       console.log(data)
     })
   }

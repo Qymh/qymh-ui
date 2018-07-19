@@ -17,7 +17,7 @@ Axios.install = (Vue: any) => {
     get(vm: Vue, api: string, data: any, loading: boolean = true) {
       return new Promise((resolve, reject) => {
         loading && vm.$notice.loading()
-        ax.get(api, data)
+        ax.get(api, {data})
           .then((res: AxiosResponse) => {
             loading && vm.$notice.removeLoading()
             resolve(res)
@@ -39,7 +39,7 @@ Axios.install = (Vue: any) => {
     post(vm: Vue, api: string, data: any, loading: boolean = true) {
       return new Promise((resolve, reject) => {
         loading && vm.$notice.loading()
-        ax.post(api, data)
+        ax.post(api, {data})
           .then((res: AxiosResponse) => {
             loading && vm.$notice.removeLoading()
             resolve(res)

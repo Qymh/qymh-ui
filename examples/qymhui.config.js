@@ -13,28 +13,24 @@ module.exports={
   $axios: {
     domain: SERVERCONFIG.domain,
     timeout: SERVERCONFIG.timeout,
-    requestFn(config) {
+    requestFn: (config) => {
       let { data } = config
-      if (SERVERCONFIG.isDebug) {
-        console.log(`serverApi:${config.baseURL}${config.url}`)
-        if (Object.keys(data).length > 0) {
-          console.log(`request data ${JSON.stringify(data)}`)
-        }
+      console.log(`serverApi:${config.baseURL}${config.url}`)
+      if (Object.keys(data).length > 0) {
+        console.log(`request data ${JSON.stringify(data)}`)
       }
       return config
     },
-    responseFn(response) {
+    responseFn: (response) => {
       let { status, data } = response
-      if (SERVERCONFIG.isDebug) {
-        if (status >= 200 && status <= 300) {
-          console.log('---response data ---')
-          console.log(data)
-        } else {
-          console.log('--- error ---')
-          console.log(data)
-          let vm = new Vue()
-          vm.$notice.toast(status === 0 ? '网络链接异常' : `网络异常,错误代码:${status}`)
-        }
+      if (status >= 200 && status <= 300) {
+        console.log('---response data ---')
+        console.log(data)
+      } else {
+        console.log('--- error ---')
+        console.log(data)
+        let vm = new Vue()
+        vm.$notice.toast(status === 0 ? '网络链接异常' : `网络异常,错误代码:${status}`)
       }
       return response
     }

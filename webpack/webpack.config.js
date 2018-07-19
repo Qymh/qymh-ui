@@ -11,7 +11,8 @@ const findConfig = config.lib.findConfig
 const entry = {
   app: resolve('examples/app.ts')
 }
-const userConfig = require(findConfig(entry.app))
+let userConfig = require(findConfig(entry.app))
+config.lib.toJSON(userConfig)
 
 module.exports = {
   entry,

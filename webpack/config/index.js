@@ -41,17 +41,19 @@ const config = {
     // 寻找config
     findConfig: (entry) => {
       const root = path.parse(entry).dir
-      if(fs.existsSync(path.join(root,'qymhui.config.js'))){
-        return path.join(root,'qymhui.config.js')
+      if (fs.existsSync(path.join(root, 'qymhui.config.js'))) {
+        return path.join(root, 'qymhui.config.js')
       }
       return ''
     },
+    // 保留函数的tojson
     toJSON: (obj) => {
-      for(let i in obj){
+      for (let i in obj) {
         let item = obj[i]
-        if(typeof item === 'function'){
+        if (typeof item !== 'function' && typeof item === 'object') {
+          config.lib.toJSON(item)
         } else {
-          JSON.stringify(obj[i])
+          obj[i] = (item).toString()
         }
       }
     }

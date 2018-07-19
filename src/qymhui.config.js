@@ -9,7 +9,20 @@ function deepObjectMerge(FirstOBJ, SecondOBJ) {
   return FirstOBJ
 }
 
-console.log(userConfig)
+function toParse(obj) {
+  for(let i in obj){
+    let item=obj[i]
+    if(typeof item === 'object'){
+      toParse(item)
+    }else if(typeof item === 'string'){
+      if(item.indexOf('{')>-1){
+        obj[i]=eval(`${item.trim()}`)
+      }
+    }
+  }
+}
+
+toParse(userConfig)
 
 // q-image配置
 const baseConfig = {
@@ -60,16 +73,18 @@ const baseConfig = {
     // 超时
     timeout: 20000,
     // 请求拦截器
-    requestFn(config) {
+    requestFn: (config) => {
       return config
     },
     // 响应拦截器
-    responseFn(response) {
+    responseFn: (response) => {
       return response
     }
   }
 }
 
 const mergeConfig= deepObjectMerge(baseConfig,userConfig)
+
+console.log(mergeConfig)
 
 export default mergeConfig

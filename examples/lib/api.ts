@@ -1,1 +1,1 @@
-export const getProduct:string = '/cc/json/mobile_tel_segment.htm'
+export const getProduct:string = '/v2/book/1220562'
