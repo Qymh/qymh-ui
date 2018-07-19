@@ -1,6 +1,7 @@
 const path = require('path')
 const os = require('os')
-const isUseLocalIp = process.argv[2].trim() === '--useLocalIp'
+const fs = require('fs')
+const isUseLocalIp = process.argv[2] && process.argv[2].trim() === '--useLocalIp'
 
 const config = {
   lib: {
@@ -36,6 +37,23 @@ const config = {
       msg += `\nyour browser will open at http://${ips[ips.length - 1] ||
         '127.0.0.1'}:${port}\n`
       return msg
+    },
+    // 寻找config
+    findConfig: (entry) => {
+      const root = path.parse(entry).dir
+      if(fs.existsSync(path.join(root,'qymhui.config.js'))){
+        return path.join(root,'qymhui.config.js')
+      }
+      return ''
+    },
+    toJSON: (obj) => {
+      for(let i in obj){
+        let item = obj[i]
+        if(typeof item === 'function'){
+        } else {
+          JSON.stringify(obj[i])
+        }
+      }
     }
   },
   dev: {
@@ -65,7 +83,7 @@ const config = {
     // 404返回index
     historyApiFallback: true,
     // 自动打开浏览器
-    open: true,
+    open: false,
     // 不启用iframe模式
     inline: true,
     // 警告信息
@@ -84,7 +102,7 @@ const config = {
   },
   prod: {
     // 挂载路径
-    publicPath: '/',
+    publicPath: 'https://cdn.qymh.org.cn/ui/',
     // 源地图
     devtool: false,
 

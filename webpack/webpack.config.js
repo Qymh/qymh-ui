@@ -6,11 +6,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('./config')
 const resolve = config.lib.resolve
 const isDev = process.env.NODE_ENV === 'development'
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const findConfig = config.lib.findConfig
+const entry = {
+  app: resolve('examples/app.ts')
+}
+const userConfig = require(findConfig(entry.app))
 
 module.exports = {
-  entry: {
-    app: resolve('examples/app.ts')
-  },
+  entry,
   output: {
     path: resolve('dist'),
     publicPath: isDev ? config.dev.publicPath : config.prod.publicPath,
@@ -41,7 +45,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               appendTsSuffixTo: [/\.vue$/],
-              transpileOnly: isDev
+              transpileOnly: true
             }
           }
         ],
@@ -111,7 +115,19 @@ module.exports = {
       filename: 'index.html',
       template: resolve('examples/index.html')
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      vue: true,
+      workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+    }),
+    // 定义环境
+    new webpack.DefinePlugin({
+      process: {
+        env: {
+          UI_ENV: JSON.stringify(userConfig)
+        }
+      }
+    })
   ],
   stats: {
     colors: true,
