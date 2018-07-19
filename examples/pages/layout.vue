@@ -263,7 +263,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="word-break")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) word-break属性写为<main>word-break</main>
+          q-row(fontSize=14 lh=9 indent=2 mb=2) word-break属性写为<main>wordBreak</main>
           q-row(h=10 bkColor="#BEE7E9" wordBreak="break-all")
             |123123123123123123123123123123123123123123123123123123123123123
           q-code(type="html").
@@ -700,7 +700,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'bottom' },
+          { value: 'b' },
           { value: 'String' },
           { value: 'N' },
           { value: '-1' },
@@ -709,7 +709,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'left' },
+          { value: 'l' },
           { value: 'String' },
           { value: 'N' },
           { value: '-1' },
@@ -739,7 +739,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'border-top' },
+          { value: 'borderTop' },
           { value: 'String' },
           { value: 'N' },
           { value: '无' },
@@ -748,7 +748,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'border-right' },
+          { value: 'borderRight' },
           { value: 'String' },
           { value: 'N' },
           { value: '无' },
@@ -757,7 +757,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'border-bottom' },
+          { value: 'borderBottom' },
           { value: 'String' },
           { value: 'N' },
           { value: '无' },
@@ -766,7 +766,7 @@ export default class exRow extends Vue {
       },
       {
         prop: [
-          { value: 'border-left' },
+          { value: 'borderLeft' },
           { value: 'String' },
           { value: 'N' },
           { value: '无' },

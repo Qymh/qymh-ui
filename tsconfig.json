@@ -52,6 +52,7 @@
     "typings/swiper.d.ts",
     "typings/photoswipe.d.ts",
     "typings/mobileSelect.d.ts",
-    "typings/mescroll.d.ts"
+    "typings/mescroll.d.ts",
+    "typings/jsonp.d.ts"
   ]
 }

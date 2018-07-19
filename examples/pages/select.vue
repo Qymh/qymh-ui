@@ -31,9 +31,12 @@
               color="deepskyblue" decoration="underline") mobileSelect.js
           q-row
             q-row(position="relative")
-              q-cell(
-                :title="dateNow"
-                :borderBottom="true")
+              q-row(
+                h=10
+                align="center"
+                decoration="underline"
+                color="deepskyblue"
+                fontSize=14) {{dateNow}}
               q-select(
                 position="absolute"
                 t=0
@@ -160,7 +163,7 @@ export default class ExSelect extends Vue {
   private seat: number[] = []
 
   // 当前选择的日期
-  private dateNow: string = '请选择日期'
+  private dateNow: string = '点击选择日期'
 
   private tableOptions: any = {
     titles: [

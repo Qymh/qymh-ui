@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
-import { QSCROLLCONFIG } from '../../../src/qymhui.config'
+import CONFIG from '../../../src/qymhui.config'
 @Component({})
 export default class QScroll extends Vue {
   private scrollObj: any = {}
@@ -15,8 +15,8 @@ export default class QScroll extends Vue {
     this.$nextTick(() => {
       let MeScroll = this.$tree.MeScroll
       let options = {
-        down: QSCROLLCONFIG.down(this),
-        up: QSCROLLCONFIG.up(this)
+        down: CONFIG.qscroll.down(this),
+        up: CONFIG.qscroll.up(this)
       }
       this.scrollObj = new MeScroll('mescroll', options)
     })

@@ -60,7 +60,7 @@ export default class QOverlay extends Vue {
   onShowChanged(val: boolean) {
     this.computedShow = this.show
     let a = 1
-    let b=1
+    let b = 1
     let baseHeight = document.body.clientHeight
     let $html = document.getElementsByTagName('html')[0]
     if (this.show) {

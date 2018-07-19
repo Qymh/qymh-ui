@@ -36,63 +36,68 @@
 </template>
 
 <script lang="ts">
-  import {Vue,Component,Prop,Watch} from 'vue-property-decorator'
-  import PhotoSwipe from 'photoswipe/dist/photoswipe'
-  import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
-  import 'photoswipe/dist/photoswipe.css'
-  import 'photoswipe/dist/default-skin/default-skin.css'
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+import PhotoSwipe from 'photoswipe/dist/photoswipe'
+import PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default'
+import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe/dist/default-skin/default-skin.css'
 
-  @Component({})
-  export default class QPhoto extends Vue{
-    // 传入的图片
-    @Prop({default:[]})
-    private images:string[]
+@Component({})
+export default class QPhoto extends Vue {
+  // 传入的图片
+  @Prop({ default: [] })
+  private images: string[]
 
-    // 加载图片
-    private loadImage(img:any){
-      return new Promise(resolve=>{
-        img.onload=function(e:any){
-          resolve()
-        }
-        img.onerror=function(e:any){
-          resolve()
-        }
+  // 加载图片
+  private loadImage(img: any) {
+    return new Promise(resolve => {
+      img.onload = function(e: any) {
+        resolve()
+      }
+      img.onerror = function(e: any) {
+        resolve()
+      }
+    })
+  }
+
+  // 观察图片改变
+  @Watch('images')
+  async onImagesChange(val: any) {
+    let computedImages: any[] = []
+    for (let item of val) {
+      let image = new Image()
+      image.src = item
+      await this.loadImage(image)
+      computedImages.push({
+        src: item,
+        w: image.width,
+        h: image.height
       })
     }
-
-    // 观察图片改变
-    @Watch('images')
-    async onImagesChange(val:any){
-      let computedImages:any[]=[]
-      for(let item of val){
-        let image=new Image()
-        image.src=item
-        await this.loadImage(image)
-        computedImages.push({
-          src:item,
-          w:image.width,
-          h:image.height
-        })
-      }
-      let elm=document.querySelectorAll('.pswp')[0]
-      let options={
-        index:0
-      }
-      let gallery=new PhotoSwipe(elm,PhotoSwipeUI_Default,computedImages,options)
-      gallery.init()
+    let elm = document.querySelectorAll('.pswp')[0]
+    let options = {
+      index: 0
     }
+    let gallery = new PhotoSwipe(
+      elm,
+      PhotoSwipeUI_Default,
+      computedImages,
+      options
+    )
+    gallery.init()
   }
+}
 </script>
 
 <style lang="scss" scoped>
-  .counter{
-    position: relative;
-    text-align: center;
-    color: #fff;
-    top:1rem;
-    z-index: 9;
-  }
-  .pswp{
-    z-index: 8 !important;
-  }
+.counter {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  top: 1rem;
+  z-index: 9;
+}
+.pswp {
+  z-index: 8 !important;
+}
 </style>
