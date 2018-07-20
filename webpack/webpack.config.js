@@ -14,10 +14,12 @@ const entry = {
 let userConfig = require(findConfig(entry.app))
 config.lib.toJSON(userConfig)
 
+console.log(config.packPath)
+
 module.exports = {
   entry,
   output: {
-    path: resolve('docs'),
+    path: resolve(config.packPath),
     publicPath: isDev ? config.dev.publicPath : config.prod.publicPath,
     filename: isDev ? '[name].js' : 'js/[name].[chunkhash].js'
   },

@@ -2,6 +2,7 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs')
 const isUseLocalIp = process.argv[2] && process.argv[2].trim() === '--useLocalIp'
+const isGitHub = process.argv[process.argv.length-1].indexOf('github') > -1
 
 const config = {
   lib: {
@@ -104,14 +105,15 @@ const config = {
   },
   prod: {
     // 挂载路径
-    publicPath: './',
+    publicPath: isGitHub ? './' : 'https://cdn.qymh.org.cn/ui/',
     // 源地图
     devtool: false,
 
     /** uglifyjs **/
     cache: true,
     parallel: true
-  }
+  },
+  packPath: isGitHub ? 'docs':'dist'
 }
 
 module.exports = config

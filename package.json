@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.js",
     "dev:ip": "cross-env NODE_ENV=development webpack-dev-server --useLocalIp --config webpack/webpack.dev.js",
-    "build:demo": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.demo.js",
+    "build:example": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.example.js --example",
+    "build:github": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.example.js --github",
     "build:component": "cross-env NODE_ENV=production webpack --progress --config webpack/webpack.component.js"
   },
   "dependencies": {

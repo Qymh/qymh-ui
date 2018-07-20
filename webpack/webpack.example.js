@@ -7,6 +7,7 @@ const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 const webpackConfig = require('./webpack.config')
 const config = require('./config').prod
 const resolve = require('./config').lib.resolve
+const packPath = require('./config').packPath
 
 const prodWebpackConfig = merge(webpackConfig, {
   mode: 'production',
@@ -53,7 +54,7 @@ const prodWebpackConfig = merge(webpackConfig, {
       }
     }),
     // 每次打包清除掉dist的所有文件
-    new CleanWebpackPlugin(resolve('docs'), {
+    new CleanWebpackPlugin(resolve(packPath), {
       root: resolve('./'),
       allowExternal: true
     }),
