@@ -24,6 +24,7 @@
         .q-searchBar-center-search-input
           form.q-searchBar-center-search-input-form(action="#" method="#" @submit.prevent="submit")
             input(
+              ref="myInput"
               :value="value"
               @input="input"
               type="search"
@@ -184,9 +185,12 @@
       }
     }
 
-    // 右侧点击事件
-    @Emit('rightClicked')
-    public rightClicked(){}
+    // 右侧点击
+    public rightClicked(){
+      let myInput: any = this.$refs.myInput
+      myInput.blur()
+      this.$emit('rightClicked')
+    }
   }
 </script>
 
