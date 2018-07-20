@@ -17,7 +17,7 @@ config.lib.toJSON(userConfig)
 module.exports = {
   entry,
   output: {
-    path: resolve('dist'),
+    path: resolve('docs'),
     publicPath: isDev ? config.dev.publicPath : config.prod.publicPath,
     filename: isDev ? '[name].js' : 'js/[name].[chunkhash].js'
   },

@@ -104,7 +104,7 @@ const config = {
   },
   prod: {
     // 挂载路径
-    publicPath: 'https://cdn.qymh.org.cn/ui/',
+    publicPath: '/',
     // 源地图
     devtool: false,
 

@@ -53,7 +53,7 @@ const prodWebpackConfig = merge(webpackConfig, {
       }
     }),
     // 每次打包清除掉dist的所有文件
-    new CleanWebpackPlugin(resolve('dist'), {
+    new CleanWebpackPlugin(resolve('docs'), {
       root: resolve('./'),
       allowExternal: true
     }),
