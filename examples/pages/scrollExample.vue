@@ -1,6 +1,6 @@
 <template lang="pug">
   q-row(tag="section" dir="top" row="100")
-    q-row(tag="header")
+    q-row(tag="header" flex="0")
       q-head-bar(
         :leftArrow="true"
         centerText="header"

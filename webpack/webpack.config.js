@@ -14,8 +14,6 @@ const entry = {
 let userConfig = require(findConfig(entry.app))
 config.lib.toJSON(userConfig)
 
-console.log(config.packPath)
-
 module.exports = {
   entry,
   output: {
