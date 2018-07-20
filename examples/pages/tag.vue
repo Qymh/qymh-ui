@@ -66,7 +66,7 @@
               activeBkColor="#F65A44"
               @clicked="change")
             q-row
-              main template
+              q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-tag
                 :active="active"
@@ -76,7 +76,7 @@
                 color="#333"
                 activeBkColor="#F65A44"
                 @clicked="change"&gt&lt/q-tag&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -111,7 +111,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>@clicked</main>点击后的回调
           
 </template>

@@ -39,7 +39,7 @@
                   r=0 t=0 w=5 h=5 radius=5 bkColor="deepskyblue"
                   fontSize="12" color="white" @clicked="remove(index)")
                   q-col X
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-row&gt
                 &ltq-files ref="myFiles" @getFiles="getFiles" color="#a1a1a1"&gt&lt/q-files&gt
@@ -56,7 +56,7 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-row&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -95,7 +95,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>@getFiles</main>上传文件后返回<br>
             |有两个参数,第一个是<main>files</main>数组,第二个是图片的<main>src</main>数组
 </template>

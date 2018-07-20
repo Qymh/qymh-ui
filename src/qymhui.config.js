@@ -85,6 +85,4 @@ const baseConfig = {
 
 const mergeConfig= deepObjectMerge(baseConfig,userConfig)
 
-console.log(mergeConfig)
-
 export default mergeConfig

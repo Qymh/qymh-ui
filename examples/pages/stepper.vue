@@ -25,7 +25,7 @@
             leftIconColor="deepskyblue"
             title="列子")
           q-row(tag="section")
-            q-row(fontSize=14 lh=9 indent=2 mb=2) 一个双向绑定的计数器
+            q-row(fontSize=14 lh=9 mb=2) 一个双向绑定的计数器
             q-row(h=12 dir="left" align="center")
               q-stepper(
                 v-model="value"
@@ -34,7 +34,7 @@
                 @rightClicked="substract"
                 @leftClicked="increase")
               q-row(ml=4) value:{{value}}
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-stepper
                 v-model="value"
@@ -42,7 +42,7 @@
                 @valueChange="change"
                 @rightClicked="substract"
                 @leftClicked="increase"&gt&lt/q-stepper&gt
-            main javascript
+            main vue
             q-code.
               methods: {
                 substract(val) {
@@ -75,7 +75,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>@leftClicked</main>减号点击<br>
             |<main>@valueChange</main>值改变触发<br>
             |<main>@rightClicked</main>加号点击<br>

@@ -63,7 +63,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 插槽的值有三个<br>
+          q-row(fontSize=14 lh=9 mb=2) 插槽的值有三个<br>
             |<main>slot="left"</main>表左侧<br>
             |<main>slot="center"</main>表中间<br>
             |<main>slot="right"</main>表右侧<br>
@@ -104,7 +104,7 @@
             leftIconColor="deepskyblue"
             title="事件回调")
           q-row(tag="section")
-            q-row(fontSize=14 lh=9 indent=2 mb=2) 事件回调有两个
+            q-row(fontSize=14 lh=9 mb=2) 事件回调有两个
               |<main>@leftClicked</main>左侧点击事件和
               |<main>@rightClicked</main>右侧点击事件
               |当你设置了显示左侧箭头<main>:leftArrow="true"</main>,左侧点击事件默认是回退页面到上一页
@@ -138,7 +138,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="插槽")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 有三个插槽
+          q-row(fontSize=14 lh=9 mb=2) 有三个插槽
             |<main>slot="left"</main>表左侧<br>
             |<main>slot="center"</main>表中间<br>
             |<main>slot="right"</main>表右侧<br>
@@ -148,7 +148,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 事件回调有两个<br>
+          q-row(fontSize=14 lh=9 mb=2) 事件回调有两个<br>
             |<main>@leftClicked</main>左侧点击事件<br>
             |<main>@rightClicked</main>右侧点击事件<br>
 </template>

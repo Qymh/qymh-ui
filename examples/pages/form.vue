@@ -18,7 +18,7 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(fontSize=14 lh=9 indent=2 mb=2)
+        q-row(fontSize=14 lh=9 mb=2)
           |控制表单的组件有两个,一个<main>q-form</main>,一个<main>q-input</main>,
           |这两个组件优势体现在,一个是验证,验证提供了友好的api,不用根据类型一个一个调用事件,
           |第二个优势是移动端的键盘类型,通过<main>type</main>传的值可以判断到底是提供数字键盘、字符键盘、搜索键盘
@@ -46,7 +46,7 @@
                   align="center"
                   @clicked="submit1")
                   q-col(color="white") 提交
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-form ref="myForm1"&gt
                 &ltq-row h=12 dir="left" align="center"&gt
@@ -69,7 +69,7 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-form&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -111,7 +111,7 @@
                   align="center"
                   @clicked="submit2")
                   q-col(color="white") 提交
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-form ref="myForm2" :model="format" :rules="rules"&gt
                 &ltq-row h=12 dir="left" align="center"&gt
@@ -137,7 +137,7 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-form&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {

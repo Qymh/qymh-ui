@@ -18,7 +18,7 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(dir="left" lh=9 indent=2)
+        q-row(dir="left" lh=9)
           q-col 二次封装
           q-col(
             tag="a" href="https://github.com/dimsemenov/PhotoSwipe" target="_blank"
@@ -35,7 +35,7 @@
               q-photo(
                 v-show="images.length"
                 :images="images")
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-row lh=12 @clicked="showPhoto"&gt
                 点击查看图片
@@ -45,7 +45,7 @@
                   v-show="images.length"
                   :images="images"&gt&lt/q-photo&gt
               &lt/q-row&gt
-            main javascript
+            main vue
             q-code.
               data () {
                   return {

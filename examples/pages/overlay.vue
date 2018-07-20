@@ -31,12 +31,12 @@
               :show="leftShow"
               @hide="leftClickedHide")
               q-row 没有提供任何点击的元素控件,只能点击右侧的黑色背景隐藏蒙层
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-overlay position="left" :show="leftShow" @hide="leftClickedHide"&gt
                 &ltq-row&gt没有提供任何点击的元素控件,只能点击右侧的黑色背景隐藏蒙层&lt/q-row&gt
               &lt/q-overlay&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -66,7 +66,7 @@
                 @rightClicked="rightClickedHide")
                 q-row(w=10 slot="right")
                   i.q-icon.icon-close
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-overlay position="right" :show="rightShow"
                 @hide="rightClickedHide"&gt
@@ -76,7 +76,7 @@
                     &lt/q-row&gt
                   &lt/q-head-bar&gt
               &lt/q-overlay&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -105,7 +105,7 @@
                 q-col 1.没有提供任何点击的元素控件,只能点击下方的黑色背景隐藏蒙层
                 q-col 2.设置了蒙层背景颜色为#eee(默认为#fff)
                 q-col 3.设置了最小高度为11rem(默认为10) 最大高度为14rem(默认为13)
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-overlay
                 position="top"
@@ -120,7 +120,7 @@
                   &ltq-col&gt3.设置了最小高度为11rem(默认为10) 最大高度为14rem(默认为13)&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-overlay&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -170,7 +170,7 @@
                       pl=10 pr=10 pt=3 pb=3
                       bkColor="deepskyblue" color="#fff" value="提交"
                       @clicked="submit")
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-overlay
                 position="bottom"
@@ -203,7 +203,7 @@
                   &lt/q-form&gt
                 &lt/q-row&gt
               &lt/q-overlay&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -271,7 +271,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             <main>@hide</main>蒙层隐藏的时候触发
 </template>
 

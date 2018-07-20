@@ -31,7 +31,7 @@
               :tabArr="tabArr"
               bkColor="#fafafa"
               @changeTab="changeTab")
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-row
                 h=10
@@ -42,7 +42,7 @@
                 :tabArr="tabArr"
                 bkColor="#fafafa"
                 @changeTab="changeTab"&gt&lt/q-tab-bar&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -90,7 +90,7 @@
                   this.curIndex = index
                 }
               }
-            q-row(fontSize=14 lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 mb=2)
               |参数比较多,我们一个一个来解释一下,以下就是tabArr属性的全部api<br>
               |<main>icon</main>指icon的class类名<br>
               |<main>iconColor</main>指icon未激活下的颜色<br>
@@ -125,7 +125,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>@changeTab</main>当tab改变的时候触发,
             |第一个参数是当前位置的索引
 </template>

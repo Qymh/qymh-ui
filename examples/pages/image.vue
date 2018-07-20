@@ -17,7 +17,7 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(dir="left" lh=9 indent=2)
+        q-row(dir="left" lh=9)
           q-col 二次封装
           q-col(
             tag="a" href="https://github.com/hilongjw/vue-lazyload" target="_blank"
@@ -81,7 +81,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="事件回调")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>@clicked</main>点击回调
 </template>
 

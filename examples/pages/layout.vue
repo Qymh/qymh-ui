@@ -19,7 +19,7 @@
           title="介绍"
           fontSize=16
           :borderBottom="true")
-        q-col(lh=9 indent=2 mb=2) 在平常的布局中,我们会对元素进行命名然后再写层叠样式,
+        q-col(lh=9 mb=2) 在平常的布局中,我们会对元素进行命名然后再写层叠样式,
           |这个过程中带来了一些麻烦,最大的麻烦就是命名过长过复杂,在<main>BEM</main>命名准则条件下,我们采用下划线连接父元素与无数子元素比如
           |<main>.a_b_c</main><main>.w_q_d</main>,举例子的这些名称符号还是仅仅一个字母,如果在正常的开发环境下,命名的长度是很可怕的,
           |当然这也是可以减少开发量的,比如采用预处理器诸如<main>scss</main><main>less</main>,通过<main>&</main>连接元素,
@@ -39,7 +39,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="高度")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 高度属性值我们缩写为<main>h</main>,比值为10比1,
+          q-row(fontSize=14 lh=9 mb=2) 高度属性值我们缩写为<main>h</main>,比值为10比1,
             |即<main>h=1</main>解析后为<main>height:0.1rem</main>,属性<main>bkColor</main>代表背景颜色,
             |这里为了区分,在属性上加了背景颜色,之后会介绍到这个属性
           q-row(h=10 bkColor="#BEE7E9") 高度为1.0rem
@@ -53,7 +53,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="宽度")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 宽度属性值我们缩写为<main>w</main>,比值为10比1,
+          q-row(fontSize=14 lh=9 mb=2) 宽度属性值我们缩写为<main>w</main>,比值为10比1,
             |即<main>w=1</main>解析后为<main>width:0.1rem</main>
           q-row(h=10 w=50 bkColor="#BEE7E9") 高度为1.0rem 宽度为5.0rem
           q-code(type="html").
@@ -66,7 +66,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="行高")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 行高属性值我们缩写为<main>lh</main>,比值为10比1,
+          q-row(fontSize=14 lh=9 mb=2) 行高属性值我们缩写为<main>lh</main>,比值为10比1,
             |即<main>lh=1</main>解析后为<main>line-height:0.1rem</main>
           q-row(h=10 lh=10 bkColor="#BEE7E9") 高度为1.0rem 行高为1.0rem
           q-code(type="html").
@@ -79,7 +79,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="高宽百分比")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 高度百分比我们缩写为<main>row</main>
+          q-row(fontSize=14 lh=9 mb=2) 高度百分比我们缩写为<main>row</main>
             |宽度百分比我们缩写为<main>col</main>,两个的比值为1比1,
             |即<main>row=10</main>解析后为<main>height:10%</main>,
             <main>col=50</main>解析后为<main>width:50%</main>
@@ -97,7 +97,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="margin")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) margin外边距我们缩写为4个值
+          q-row(fontSize=14 lh=9 mb=2) margin外边距我们缩写为4个值
             |<main>mt->margin-top</main>
             |<main>mr->margin-right</main>
             |<main>mb->margin-bottom</main>
@@ -116,7 +116,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="padding")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) padding外边距我们缩写为4个值
+          q-row(fontSize=14 lh=9 mb=2) padding外边距我们缩写为4个值
             |<main>pt->padding-top</main>
             |<main>pr->padding-right</main>
             |<main>pb->padding-bottom</main>
@@ -133,7 +133,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="定位")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 关于定位有5个属性,<main>position</main>仍然是position,
+          q-row(fontSize=14 lh=9 mb=2) 关于定位有5个属性,<main>position</main>仍然是position,
             |其余4个属性我们将其缩写为
             |<main>t->top</main>
             |<main>r->right</main>
@@ -160,7 +160,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="颜色")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) 颜色有两个属性,<main>color</main>
+          q-row(fontSize=14 lh=9 mb=2) 颜色有两个属性,<main>color</main>
             |表字体颜色,<main>bkColor</main>表背景颜色,颜色接收的值可以是
             |颜色缩写名字比如白色<main>white</main>,也可以接收颜色的16进制比如白色
             |<main>#ffffff</main>,目前暂时不能接收rgb的写法
@@ -240,7 +240,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="overflow")
-          q-row(fontSize=14 lh=9 indent=2 mb=4) overflow属性没变还是<main>overflow</main>,
+          q-row(fontSize=14 lh=9 mb=4) overflow属性没变还是<main>overflow</main>,
             |当设置为<main>auto</main>或者<main>scroll</main>属性时,<br>会自动添加一个
             |<main>-webkit-overflow-scrolling</main>兼容IOS
           q-row(h=20 bkColor="#BEE7E9" overflow="auto" mb=2)
@@ -263,7 +263,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="word-break")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) word-break属性写为<main>wordBreak</main>
+          q-row(fontSize=14 lh=9 mb=2) word-break属性写为<main>wordBreak</main>
           q-row(h=10 bkColor="#BEE7E9" wordBreak="break-all")
             |123123123123123123123123123123123123123123123123123123123123123
           q-code(type="html").
@@ -276,7 +276,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="首行缩进")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |text-indent属性缩写为<main>indent</main>,
             |比值为10比1,即<main>indent=2</main>解析后为<main>text-indent:0.2rem</main>
           q-row(h=10 bkColor="#BEE7E9" indent=10 wordBreak="break-all")
@@ -291,7 +291,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="字体划线")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |text-decoration缩写为<main>decoration</main>
           q-row(h=10 bkColor="#BEE7E9" dir="left")
             q-col(ml=2 decoration="underline") 下划线
@@ -309,7 +309,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="圆角")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |border-radius缩写为<main>radius</main>,
             |这里有一点需要注意,这个值可以表rem或者百分比,
             |当<main>radius</main>值为数字类型的时候,
@@ -333,7 +333,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="层级")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |z-index写为<main>zIndex</main>
           q-row(h=10 bkColor="#BEE7E9" position="relative")
             q-row(h=5 w=20 bkColor="#ECAD9E" position="absolute" t=0 l=0 zIndex=5)
@@ -349,7 +349,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="元素标签")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |默认<main>tag</main>为div,可以输入任何Html元素标签
           q-row(tag="section" h=10 bkColor="#BEE7E9") 我是一个section元素
           q-code(type="html").
@@ -362,7 +362,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="border")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) border的控制一共有5个属性<br>
+          q-row(fontSize=14 lh=9 mb=2) border的控制一共有5个属性<br>
             |<main>border</main> 全局border<br>
             |<main>borderTop</main> 顶部border<br>
             |<main>borderRight</main> 右侧border<br>
@@ -379,7 +379,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="flex-direction")
-          q-row(fontSize=14 lh=9 indent=2 mb=2) flex-direction 简写为dir 有4个属性值<br>
+          q-row(fontSize=14 lh=9 mb=2) flex-direction 简写为dir 有4个属性值<br>
             |<main>dir:top</main>解析为flex-direction:column<br>
             |<main>dir:bottom</main>解析为flex-direction:column-reverse<br>
             |<main>dir:left</main>解析为 flex-direction:row<br>
@@ -411,7 +411,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="justify-content and align-items")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |水平布局和垂直布局的属性值就是官方提供的值,
             |我们把这两个属性分别缩写为<main>justify</main><main>align</main>
           q-row(h=10 bkColor="#BEE7E9" justify="center" align="center") 水平垂直居中
@@ -425,7 +425,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="flex-wrap")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>flex-wrap</main>属性值就是官方提供的值,
             |我们将这个属性缩写为<main>wrap</main>
           q-row(dir="left" wrap="wrap")
@@ -444,7 +444,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="flex-grow")
-          q-row(fontSize=14 lh=9 indent=2 mb=2)
+          q-row(fontSize=14 lh=9 mb=2)
             |<main>flex-grow</main>缩写为<main>flex</main>,属性值是数字表扩展比率
           q-row(dir="left")
             q-row(flex=1 bkColor="#ECAD9E") 1

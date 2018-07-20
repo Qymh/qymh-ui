@@ -24,7 +24,7 @@
             leftIcon="q-icon icon-edit"
             leftIconColor="deepskyblue"
             title="列子")
-          q-row(dir="left" lh=9 indent=2)
+          q-row(dir="left" lh=9)
             q-col 二次封装
             q-col(
               tag="a" href="https://github.com/onlyhom/mobileSelect.js" target="_blank"
@@ -49,7 +49,7 @@
                 :wheels="weekArr"
                 :seat="weekSeat"
                 @chooseData="chooseNum")
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-row position="relative"&gt
                 &ltq-row
@@ -71,7 +71,7 @@
                   @chooseData="chooseNum"&gt
                 &lt/q-select&gt
               &lt/q-row&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {
@@ -109,7 +109,7 @@
                 :wheels="datesArr"
                 :seat="seat"
                 @chooseData="chooseData")
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-row position="relative"&gt
                 &ltq-cell
@@ -128,7 +128,7 @@
                   @chooseData="chooseData"&gt
                 &lt/q-select&gt
               &lt/q-row&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {

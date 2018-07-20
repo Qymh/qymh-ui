@@ -17,7 +17,7 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(fontSize=14 lh=9 indent=2 mb=2 dir="left" wrap="wrap")
+        q-row(fontSize=14 lh=9 mb=2 dir="left" wrap="wrap")
           q-col 二次封装
           q-col(
             tag="a" href="https://github.com/nolimits4web/swiper"
@@ -39,7 +39,7 @@
                 v-for="(item,index) in swiperArr"
                 :key="index")
                 q-col(color="red") {{item.value}}
-            main template
+            q-row(mt=4) <main>template</main>
             q-code(type="html").
               &ltq-swiper :swiperOptions="swiperOptions"&gt
                 &ltq-row
@@ -53,7 +53,7 @@
                   &ltq-col color="red"&gt{ { item.value } }&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-swiper&gt
-            main javascript
+            main vue
             q-code.
               data() {
                 return {

@@ -18,12 +18,12 @@
           title="Demo演示"
           fontSize=16
           :borderBottom="true")
-        q-row(fontSize=14 lh=9 indent=2 mb=2 dir="left" wrap="wrap")
+        q-row(fontSize=14 lh=9 mb=2 dir="left" wrap="wrap")
           q-col 二次封装
           q-col(
             tag="a" href="https://github.com/mescroll/mescroll"
             target="_blank" color="deepskyblue" decoration="underline") mescroll.js
-        q-row(fontSize=14 lh=9 indent=2 mb=2)
+        q-row(fontSize=14 lh=9 mb=2)
           |配置项和官方的配置项相同,请在<main>qymhui.config.js</main>里面输入自己的配置项,以下是默认的配置项
           |<main>down</main>和<main>up</main>分别代表了下拉刷新和上拉加载,第一个参数表当前vue的this值
         q-code(type="javascript").
@@ -68,10 +68,10 @@
             leftIconColor="deepskyblue"
             title="列子")
           q-row(tag="section")
-            q-row(fontSize=14 lh=9 indent=2 mb=2 dir="left")
+            q-row(fontSize=14 lh=9 mb=2 dir="left")
               q-col 这个列子需要到新的一个页面查看
-              q-col(tag="a" color="deepskyblue" href="/scroll/example") 点击跳转
-            q-row(fontSize=14 lh=9 indent=2 mb=2)
+              q-col(tag="a" color="deepskyblue" href="#/scroll/example") 点击跳转
+            q-row(fontSize=14 lh=9 mb=2)
               |<main>template</main>
             q-code(type="html").
               &ltq-row tag="section" dir="top" row="100"&gt
@@ -99,7 +99,7 @@
                   &ltq-col color="white"&gtfooter&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-row&gt
-            q-row(fontSize=14 lh=9 indent=2 mb=2)
+            q-row(fontSize=14 lh=9 mb=2)
               |<main>javascript</main>
             q-code.
               data: {

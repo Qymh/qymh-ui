@@ -1,1 +1,1 @@
-export const getProduct:string = '/v2/book/1220562'
+export const getWeather:string = '/cc/json/mobile_tel_segment.htm'
