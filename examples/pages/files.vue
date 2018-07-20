@@ -39,6 +39,7 @@
                   r=0 t=0 w=5 h=5 radius=5 bkColor="deepskyblue"
                   fontSize="12" color="white" @clicked="remove(index)")
                   q-col X
+            main template
             q-code(type="html").
               &ltq-row&gt
                 &ltq-files ref="myFiles" @getFiles="getFiles" color="#a1a1a1"&gt&lt/q-files&gt
@@ -55,22 +56,23 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-row&gt
-
-              data:{
-                return{
-                  files:[],
-                  images:[]
+            main javascript
+            q-code.
+              data() {
+                return {
+                  files: [],
+                  images: []
                 }
               },
-              methods:{
-                getFiles(data){
-                  this.files=data.files
-                  this.images=data.images
+              methods: {
+                getFiles(data) {
+                  this.files = data.files
+                  this.images = data.images
                 },
-                remove(index){
-                  let myFiles:any=this.$refs.myFiles
-                  myFiles.files.splice(index,1)
-                  myFiles.images.splice(index,1)
+                remove(index) {
+                  let myFiles = this.$refs.myFiles
+                  myFiles.files.splice(index, 1)
+                  myFiles.images.splice(index, 1)
                 }
               }
       q-row(tag="section")

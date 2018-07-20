@@ -65,6 +65,8 @@
               color="#333"
               activeBkColor="#F65A44"
               @clicked="change")
+            q-row
+              main template
             q-code(type="html").
               &ltq-tag
                 :active="active"
@@ -74,18 +76,19 @@
                 color="#333"
                 activeBkColor="#F65A44"
                 @clicked="change"&gt&lt/q-tag&gt
-
-              data:{
-                return{
-                  active=false
+            main javascript
+            q-code.
+              data() {
+                return {
+                  active = false
                 }
               },
-              methods:{
-                change(){
-                  this.active=!this.active
-                  this.active?
-                  this.$notice.toast('激活'):
-                  this.$notice.toast('未激活')
+              methods: {
+                change() {
+                  this.active = !this.active
+                  this.active ?
+                    this.$notice.toast('激活') :
+                    this.$notice.toast('未激活')
                 }
               }
       q-row(tag="section")

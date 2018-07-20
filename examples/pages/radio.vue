@@ -61,6 +61,8 @@
               borderColor="deepskyblue"
               activeBkColor="deepskyblue"
               @change="change")
+            q-row
+              main template
             q-code(type="html").
               &ltq-radio
                 ml=2
@@ -69,12 +71,13 @@
                 activeBkColor="deepskyblue"
                 @change="change"&gt
               &lt/q-radio&gt
-
-              methods:{
-                change(bool){
-                  bool?
-                  this.$notice.toast('激活'):
-                  this.$notice.toast('未激活')
+            main javascript
+            q-code.
+              methods: {
+                change(bool) {
+                  bool ?
+                    this.$notice.toast('激活') :
+                    this.$notice.toast('未激活')
                 }
               }
       q-row(tag="section")

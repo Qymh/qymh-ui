@@ -35,7 +35,7 @@ const baseConfig = {
   },
   qscroll: {
     // 下拉刷新
-    down(vm) {
+    down: (vm) => {
       return {
         // 是否启用
         use: true,
@@ -48,7 +48,7 @@ const baseConfig = {
       }
     },
     // 上拉加载
-    up(vm) {
+    up: (vm) => {
       return {
         // 是否启用
         use: true,
@@ -59,7 +59,7 @@ const baseConfig = {
           use: true
         },
         // 回调
-        callback(page, mescroll) {
+        callback: (page, mescroll) => {
           vm.$emit('load', page)
         },
         // 无数据时的提示

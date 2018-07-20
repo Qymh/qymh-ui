@@ -34,6 +34,7 @@
                 @rightClicked="substract"
                 @leftClicked="increase")
               q-row(ml=4) value:{{value}}
+            main template
             q-code(type="html").
               &ltq-stepper
                 v-model="value"
@@ -41,15 +42,16 @@
                 @valueChange="change"
                 @rightClicked="substract"
                 @leftClicked="increase"&gt&lt/q-stepper&gt
-
-              methods:{
-                substract(val:number){
+            main javascript
+            q-code.
+              methods: {
+                substract(val) {
                   this.$notice.toast(`你增加了计数器的值,当前值为:${this.value}`)
                 },
-                change(val:number){
+                change(val) {
                   this.$notice.toast(`你改变了计数器的值,当前值为:${this.value}`)
                 },
-                increase(val:number){
+                increase(val) {
                   this.$notice.toast(`你减少了计数器的值,当前值为:${this.value}`)
                 }
               }

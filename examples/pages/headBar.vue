@@ -126,6 +126,7 @@
               @clicked="clicked"
               @leftClicked="leftClicked"
               @centerClicked="centerClicked")
+            main template
             q-code(type="html").
               &ltq-head-bar
                 bkColor="#f65a44"
@@ -137,16 +138,17 @@
                 @leftClicked="leftClicked"
                 @centerClicked="centerClicked"&gt
               &lt/q-head-bar&gt
-
-              methods:{
-                clicked(){
+            main javascript
+            q-code.
+              methods: {
+                clicked() {
                   this.$notice.toast('你触发了全局点击事件')
                 },
-                leftClicked(e){
+                leftClicked(e) {
                   e.stopPropagation()
                   this.$notice.toast('你点击了左侧默认事件会回退到上一页')
                 },
-                centerClicked(e){
+                centerClicked(e) {
                   e.stopPropagation()
                   this.$notice.toast('你点击了中间')
                 }

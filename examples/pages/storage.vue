@@ -28,26 +28,28 @@
             q-row(h=12 align="center") cookie:{{cookieNow}}
             q-row(h=10 align="center" @clicked="setCookie" decoration="underline" color="deepskyblue") 点击设置cookie
             q-row(h=10 align="center" @clicked="deleteCookie" decoration="underline" color="deepskyblue") 点击删除cookie
+            main template
             q-code(type="html").
               &ltq-row h=12 align="center"&gtcookie:{ { cookieNow } }&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="setCookie" decoration="underline" color="deepskyblue"&gt点击设置cookie&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="deleteCookie" decoration="underline" color="deepskyblue"&gt点击删除cookie&lt/q-row&gt
-
-              data:{
-                return{
-                  cookieNow=''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  cookieNow = ''
                 }
               },
-              methods:{
-                setCookie(){
-                  this.$cookie.set('test','1')
+              methods: {
+                setCookie() {
+                  this.$cookie.set('test', '1')
                   this.$notice.toast('设置成功')
-                  this.cookieNow=document.cookie
+                  this.cookieNow = document.cookie
                 },
-                deleteCookie(){
+                deleteCookie() {
                   this.$cookie.delete('test')
                   this.$notice.toast('删除成功')
-                  this.cookieNow=document.cookie
+                  this.cookieNow = document.cookie
                 }
               }
         //- 列子
@@ -61,26 +63,28 @@
             q-row(h=12 align="center") cookie:{{sessionStorage}}
             q-row(h=10 align="center" @clicked="setSessionStorage" decoration="underline" color="deepskyblue") 点击设置sessionStorage
             q-row(h=10 align="center" @clicked="deleteSessionStorage" decoration="underline" color="deepskyblue") 点击删除sessionStorage
+            main template
             q-code(type="html").
               &ltq-row h=12 align="center"&gtsessionStorage:{ { sessionStorage  } }&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="setSessionStorage" decoration="underline" color="deepskyblue"&gt点击设置sessionStorage&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="deleteSessionStorage" decoration="underline" color="deepskyblue"&gt点击删除sessionStorage&lt/q-row&gt
-
-              data:{
-                return{
-                  sessionStorage=''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  sessionStorage = ''
                 }
               },
-              methods:{
-                setSessionStorage(){
-                  this.$storage.set('session','1')
+              methods: {
+                setSessionStorage() {
+                  this.$storage.set('session', '1')
                   this.$notice.toast('设置成功')
-                  this.sessionStorage=`session=${this.$storage.get('session')}`
+                  this.sessionStorage = `session=${this.$storage.get('session')}`
                 },
-                deleteSessionStorage(){
-                  this.$storage.delete('session',1)
+                deleteSessionStorage() {
+                  this.$storage.delete('session', 1)
                   this.$notice.toast('删除成功')
-                  this.sessionStorage=`session=${this.$storage.get('session')}`
+                  this.sessionStorage = `session=${this.$storage.get('session')}`
                 }
               }
           q-row(fontSize=14 lh=9 indent=2 mb=2) 设置<main>localStorage</main>,设置后刷新本页面数据仍会存在
@@ -88,26 +92,28 @@
             q-row(h=12 align="center") localStorage:{{localStorage}}
             q-row(h=10 align="center" @clicked="setLocalStorage" decoration="underline" color="deepskyblue") 点击设置localStorage
             q-row(h=10 align="center" @clicked="deleteLocalStorage" decoration="underline" color="deepskyblue") 点击删除localStorage
+            main template
             q-code(type="html").
               &ltq-row h=12 align="center"&gtlocalStorage:{ { localStorage } }&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="setLocalStorage" decoration="underline" color="deepskyblue"&gt点击设置localStorage&lt/q-row&gt
               &ltq-row h=10 align="center" @clicked="deleteLocalStorage" decoration="underline" color="deepskyblue"&gt点击删除localStorage&lt/q-row&gt
-
-              data:{
-                return{
-                  localStorage:''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  localStorage: ''
                 }
               },
-              methods:{
-                setLocalStorage(){
-                  this.$storage.set('local','1',true)
+              methods: {
+                setLocalStorage() {
+                  this.$storage.set('local', '1', true)
                   this.$notice.toast('设置成功')
-                  this.localStorage=`local=${this.$storage.get('local',true)}`
+                  this.localStorage = `local=${this.$storage.get('local',true)}`
                 },
-                deleteLocalStorage(){
-                  this.$storage.delete('local',true)
+                deleteLocalStorage() {
+                  this.$storage.delete('local', true)
                   this.$notice.toast('删除成功')
-                  this.localStorage=`local=${this.$storage.get('local',true)}`
+                  this.localStorage = `local=${this.$storage.get('local',true)}`
                 }
               }
       q-row(tag="section")

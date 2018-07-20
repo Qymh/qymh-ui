@@ -29,7 +29,68 @@
             q-col(
               tag="a" href="https://github.com/onlyhom/mobileSelect.js" target="_blank"
               color="deepskyblue" decoration="underline") mobileSelect.js
-          q-row
+          //- 星期列子
+          q-row(tag="section")
+            q-row(position="relative")
+              q-row(
+                h=10
+                align="center"
+                decoration="underline"
+                color="deepskyblue"
+                fontSize=14) {{weekNow}}
+              q-select(
+                position="absolute"
+                t=0
+                r=0
+                col=100
+                row=100
+                id="num"
+                title="请选择星期"
+                :wheels="weekArr"
+                :seat="weekSeat"
+                @chooseData="chooseNum")
+            main template
+            q-code(type="html").
+              &ltq-row position="relative"&gt
+                &ltq-row
+                  h=10
+                  align="center"
+                  decoration="underline"
+                  color="deepskyblue"
+                  fontSize=14&gt&lt/q-row&gt
+                &ltq-select
+                  position="absolute"
+                  t=0
+                  r=0
+                  col=100
+                  row=100
+                  id="num"
+                  title="请选择星期"
+                  :wheels="weekArr"
+                  :seat="weekSeat"
+                  @chooseData="chooseNum"&gt
+                &lt/q-select&gt
+              &lt/q-row&gt
+            main javascript
+            q-code.
+              data() {
+                return {
+                  weekArr: [
+                    {
+                      data: ['周日','周一','周二','周三','周四','周五','周六']
+                    }
+                  ],
+                  weekSeat: [0],
+                  weekNow: '点击选择星期'
+                }
+              },
+              methods: {
+                chooseNum(date){
+                  this.weekNow = date[0]
+                }
+              }
+          //- 日期列子 
+          q-row(tag="section")
             q-row(position="relative")
               q-row(
                 h=10
@@ -48,6 +109,7 @@
                 :wheels="datesArr"
                 :seat="seat"
                 @chooseData="chooseData")
+            main template
             q-code(type="html").
               &ltq-row position="relative"&gt
                 &ltq-cell
@@ -66,69 +128,68 @@
                   @chooseData="chooseData"&gt
                 &lt/q-select&gt
               &lt/q-row&gt
-
-              data:{
-                return{
-                  datesArr:any[]=[
-                    {
-                      data:[]
-                    }
-                  ],
-                  seat=[]
+            main javascript
+            q-code.
+              data() {
+                return {
+                  datesArr: any[] = [{
+                    data: []
+                  }],
+                  seat = []
                 }
               },
-              mounted () {
-                this.$nextTick(()=>{
-                  let datesArr=this.datesArr[0].data
-                  let now=new Date()
-                  let currentYear=now.getFullYear()
-                  let currentMonth=now.getMonth()+1
-                  let currentDay=now.getDate()
-                  let currentYearIndex=currentYear%(currentYear-1)
+              mounted() {
+                this.$nextTick(() => {
+                  let datesArr = this.datesArr[0].data
+                  let now = new Date()
+                  let currentYear = now.getFullYear()
+                  let currentMonth = now.getMonth() + 1
+                  let currentDay = now.getDate()
+                  let currentYearIndex = currentYear % (currentYear - 1)
 
-                  this.seat=[currentYearIndex,currentMonth-1,currentDay-1]
-                  
+                  this.seat = [currentYearIndex, currentMonth - 1, currentDay - 1]
+
                   // 加入年
-                  for(let year=currentYear-1;year&ltcurrentYear+2;year++){  
+                  for (let year = currentYear - 1; year & ltcurrentYear + 2; year++) {
                     datesArr.push({
-                      id:year,
-                      value:year+'年'
+                      id: year,
+                      value: year + '年'
                     })
                   }
 
                   // 加入月
-                  for(let i in datesArr){
-                    datesArr[i].childs=[]
-                    for(let month=1;month<=12;month++){
+                  for (let i in datesArr) {
+                    datesArr[i].childs = []
+                    for (let month = 1; month <= 12; month++) {
                       datesArr[i].childs.push({
-                        id:month,
-                        value:month+'月'
+                        id: month,
+                        value: month + '月'
                       })
                     }
                   }
 
                   // 加入日
-                  for(let i in datesArr){
-                    let year=datesArr[i].id
-                    for(let month=1;month<=12;month++){
-                      datesArr[i].childs[month-1].childs=[]
-                      let day=new Date(year,month,0).getDate()
-                      for(let j=1;j<=day;j++){
-                        datesArr[i].childs[month-1].childs.push({
-                          id:j,
-                          value:j+'日'
+                  for (let i in datesArr) {
+                    let year = datesArr[i].id
+                    for (let month = 1; month <= 12; month++) {
+                      datesArr[i].childs[month - 1].childs = []
+                      let day = new Date(year, month, 0).getDate()
+                      for (let j = 1; j <= day; j++) {
+                        datesArr[i].childs[month - 1].childs.push({
+                          id: j,
+                          value: j + '日'
                         })
                       }
                     }
                   }
                 })
               },
-              methods:{
-                chooseData(date){
-                  let year=date[0].value
-                  let month=date[1].value
-                  let day=date[2].value
-                  this.dateNow=`${year}${month}${day}`
+              methods: {
+                chooseData(date) {
+                  let year = date[0].value
+                  let month = date[1].value
+                  let day = date[2].value
+                  this.dateNow = `${year}${month}${day}`
                 }
               }
       q-row(tag="section")
@@ -159,11 +220,24 @@ export default class ExSelect extends Vue {
     }
   ]
 
+  // 星期
+  private weekArr: any[] = [
+    {
+      data: ['周日','周一','周二','周三','周四','周五','周六']
+    }
+  ]
+
   // 默认位置
   private seat: number[] = []
 
+  // 数字默认位置
+  private weekSeat: number[] = [0]
+
   // 当前选择的日期
   private dateNow: string = '点击选择日期'
+
+  // 当前选择的星期
+  private weekNow: string|number = '点击选择星期'
 
   private tableOptions: any = {
     titles: [
@@ -267,6 +341,10 @@ export default class ExSelect extends Vue {
     let month = date[1].value
     let day = date[2].value
     this.dateNow = `${year}${month}${day}`
+  }
+
+  private chooseNum(date: any){
+    this.weekNow = date[0]
   }
 }
 </script>

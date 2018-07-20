@@ -31,22 +31,24 @@
               :show="leftShow"
               @hide="leftClickedHide")
               q-row 没有提供任何点击的元素控件,只能点击右侧的黑色背景隐藏蒙层
+            main template
             q-code(type="html").
               &ltq-overlay position="left" :show="leftShow" @hide="leftClickedHide"&gt
                 &ltq-row&gt没有提供任何点击的元素控件,只能点击右侧的黑色背景隐藏蒙层&lt/q-row&gt
               &lt/q-overlay&gt
-
-              data:{
-                return{
-                  leftShow=false
+            main javascript
+            q-code.
+              data() {
+                return {
+                  leftShow = false
                 }
               },
-              methods:{
-                leftClicked(){
-                  this.leftShow=!this.leftShow
+              methods: {
+                leftClicked() {
+                  this.leftShow = !this.leftShow
                 },
-                leftClickedHide(){
-                  this.leftShow=false
+                leftClickedHide() {
+                  this.leftShow = false
                 }
               }
           //- 右侧
@@ -64,6 +66,7 @@
                 @rightClicked="rightClickedHide")
                 q-row(w=10 slot="right")
                   i.q-icon.icon-close
+            main template
             q-code(type="html").
               &ltq-overlay position="right" :show="rightShow"
                 @hide="rightClickedHide"&gt
@@ -73,18 +76,19 @@
                     &lt/q-row&gt
                   &lt/q-head-bar&gt
               &lt/q-overlay&gt
-
-              data:{
-                return{
-                  rightShow=false
+            main javascript
+            q-code.
+              data() {
+                return {
+                  rightShow = false
                 }
               },
-              methods:{
-                rightClicked(){
-                  this.rightShow=!this.rightShow
+              methods: {
+                rightClicked() {
+                  this.rightShow = !this.rightShow
                 },
-                rightClickedHide(){
-                  this.rightShow=false
+                rightClickedHide() {
+                  this.rightShow = false
                 }
               }
           //- 顶层
@@ -101,6 +105,7 @@
                 q-col 1.没有提供任何点击的元素控件,只能点击下方的黑色背景隐藏蒙层
                 q-col 2.设置了蒙层背景颜色为#eee(默认为#fff)
                 q-col 3.设置了最小高度为11rem(默认为10) 最大高度为14rem(默认为13)
+            main template
             q-code(type="html").
               &ltq-overlay
                 position="top"
@@ -115,18 +120,19 @@
                   &ltq-col&gt3.设置了最小高度为11rem(默认为10) 最大高度为14rem(默认为13)&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-overlay&gt
-
-              data:{
-                return{
-                  topShow=false
+            main javascript
+            q-code.
+              data() {
+                return {
+                  topShow = false
                 }
               },
-              methods:{
-                topClicked(){
-                  this.topShow=!this.topShow
+              methods: {
+                topClicked() {
+                  this.topShow = !this.topShow
                 },
-                topClickedHide(){
-                  this.topShow=false
+                topClickedHide() {
+                  this.topShow = false
                 }
               }
           //- 底部
@@ -164,6 +170,7 @@
                       pl=10 pr=10 pt=3 pb=3
                       bkColor="deepskyblue" color="#fff" value="提交"
                       @clicked="submit")
+            main template
             q-code(type="html").
               &ltq-overlay
                 position="bottom"
@@ -196,37 +203,49 @@
                   &lt/q-form&gt
                 &lt/q-row&gt
               &lt/q-overlay&gt
-
-              data:{
-                return{
-                  datas={
-                    name:'',
-                    tel:''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  datas = {
+                    name: '',
+                    tel: ''
                   },
-                  bottomShow=false,
-                  rules:{
-                    name:[
-                      {required:true,message:'名字不能为空'},
-                      {min:3,max:7,message:'名字长度在3到7个字符'}
+                  bottomShow = false,
+                  rules: {
+                    name: [{
+                        required: true,
+                        message: '名字不能为空'
+                      },
+                      {
+                        min: 3,
+                        max: 7,
+                        message: '名字长度在3到7个字符'
+                      }
                     ],
-                    tel:[
-                      {required:true,message:'电话不能为空'},
-                      {type:'tel',message:'请输入正确的电话号码'}
+                    tel: [{
+                        required: true,
+                        message: '电话不能为空'
+                      },
+                      {
+                        type: 'tel',
+                        message: '请输入正确的电话号码'
+                      }
                     ]
                   }
                 }
               },
-              methods:{
-                bottomClicked(){
-                  this.bottomShow=!this.bottomShow
+              methods: {
+                bottomClicked() {
+                  this.bottomShow = !this.bottomShow
                 },
-                bottomClickedHide(){
-                  this.bottomShow=false
+                bottomClickedHide() {
+                  this.bottomShow = false
                 },
-                submit(){
-                  let myForm=this.$refs.myForm
-                  myForm.validate().then((bool)=>{
-                    if(bool){
+                submit() {
+                  let myForm = this.$refs.myForm
+                  myForm.validate().then((bool) => {
+                    if (bool) {
                       this.$notice.toast('通过验证!')
                     }
                   })

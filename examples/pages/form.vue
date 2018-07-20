@@ -46,6 +46,7 @@
                   align="center"
                   @clicked="submit1")
                   q-col(color="white") 提交
+            main template
             q-code(type="html").
               &ltq-form ref="myForm1"&gt
                 &ltq-row h=12 dir="left" align="center"&gt
@@ -68,17 +69,18 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-form&gt
-
-              data:{
-                return{
-                  noFormat:{
-                    name:'',
-                    age:''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  noFormat: {
+                    name: '',
+                    age: ''
                   }
                 }
               },
-              methods:{
-                submit1(){
+              methods: {
+                submit1() {
                   this.$notice.toast(`名字:${this.noFormat.name};年龄:${this.noFormat.age}`)
                 }
               }
@@ -109,6 +111,7 @@
                   align="center"
                   @clicked="submit2")
                   q-col(color="white") 提交
+            main template
             q-code(type="html").
               &ltq-form ref="myForm2" :model="format" :rules="rules"&gt
                 &ltq-row h=12 dir="left" align="center"&gt
@@ -134,30 +137,42 @@
                   &lt/q-row&gt
                 &lt/q-row&gt
               &lt/q-form&gt
-
-              data:{
-                return{
-                  format:{
-                    name:'',
-                    tel:''
+            main javascript
+            q-code.
+              data() {
+                return {
+                  format: {
+                    name: '',
+                    tel: ''
                   },
-                  rules:{
-                    name:[
-                      {required:true,message:'名字不能为空'},
-                      {min:3,max:5,message:'名字长度在3到5个字符'}
+                  rules: {
+                    name: [{
+                        required: true,
+                        message: '名字不能为空'
+                      },
+                      {
+                        min: 3,
+                        max: 5,
+                        message: '名字长度在3到5个字符'
+                      }
                     ],
-                    tel:[
-                      {required:true,message:'电话不能为空'},
-                      {type:'tel',message:'请输入正确的电话号码'}
+                    tel: [{
+                        required: true,
+                        message: '电话不能为空'
+                      },
+                      {
+                        type: 'tel',
+                        message: '请输入正确的电话号码'
+                      }
                     ]
                   }
                 }
               },
-              methods:{
-                submit2(){
-                  let myForm:any=this.$refs.myForm2
-                  myForm.validate().then((bool:boolean)=>{
-                    if(bool){
+              methods: {
+                submit2() {
+                  let myForm = this.$refs.myForm2
+                  myForm.validate().then((bool) => {
+                    if (bool) {
                       this.$notice.toast(`名字:${this.format.name};电话:${this.format.tel}`)
                     }
                   })

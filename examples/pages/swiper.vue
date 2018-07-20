@@ -39,6 +39,7 @@
                 v-for="(item,index) in swiperArr"
                 :key="index")
                 q-col(color="red") {{item.value}}
+            main template
             q-code(type="html").
               &ltq-swiper :swiperOptions="swiperOptions"&gt
                 &ltq-row
@@ -52,19 +53,20 @@
                   &ltq-col color="red"&gt{ { item.value } }&lt/q-col&gt
                 &lt/q-row&gt
               &lt/q-swiper&gt
-
-              data:{
-                return{
-                  swiperOptions:{
+            main javascript
+            q-code.
+              data() {
+                return {
+                  swiperOptions: {
                     // 自动播放
-                    autoplay:{
-                      delay:4000
+                    autoplay: {
+                      delay: 4000
                     },
                     // 自动播放
-                    loop:true,
+                    loop: true,
                     // 分页器
-                    pagination:{
-                      el:'.swiper-pagination',
+                    pagination: {
+                      el: '.swiper-pagination',
                       bulletActiveClass: 'my-bullet-active',
                     }
                   }

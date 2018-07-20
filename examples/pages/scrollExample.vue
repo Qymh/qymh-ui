@@ -1,7 +1,12 @@
 <template lang="pug">
   q-row(tag="section" dir="top" row="100")
-    q-row(flex=0 h=12 bkColor="deepskyblue" tag="header" align="center" justify="center")
-      q-col(color="white") header
+    q-row(tag="header")
+      q-head-bar(
+        :leftArrow="true"
+        centerText="header"
+        :rightEmpty="true"
+        bkColor="deepskyblue"
+        color="white")
     q-scroll(@refresh="refresh" @load="load" ref="myScroll")
       q-row(
         h=15
@@ -13,7 +18,7 @@
         :key="index")
         q-col {{index+1}}
     q-row(flex=0 h=12 bkColor="deepskyblue" tag="footer" align="center" justify="center")
-      q-col(color="white" @clicked="back") 点我回退到上一个页面
+      q-col(color="white") footer
 </template>
 
 <script lang="ts">
@@ -28,10 +33,6 @@ export default class ExScroll extends Vue {
     let arr = new Array(50)
     arr.fill(1)
     this.scrollArr = arr
-  }
-
-  private back() {
-    this.$router.go(-1)
   }
 
   private get computedScrollArr() {
@@ -58,7 +59,7 @@ export default class ExScroll extends Vue {
     setTimeout(() => {
       this.index = page.num
       myScroll.success(10, this.totalPage)
-    }, 200)
+    }, 1000)
   }
 
   private beforeRouteLeave(to: any, from: any, next: any) {

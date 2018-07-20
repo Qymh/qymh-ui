@@ -31,6 +31,7 @@
               :tabArr="tabArr"
               bkColor="#fafafa"
               @changeTab="changeTab")
+            main template
             q-code(type="html").
               &ltq-row
                 h=10
@@ -41,52 +42,52 @@
                 :tabArr="tabArr"
                 bkColor="#fafafa"
                 @changeTab="changeTab"&gt&lt/q-tab-bar&gt
-
-              data:{
-                return{
-                  curIndex:0,
-                  tabArr=[
-                    {
-                      icon:'q-icon icon-newshot',
-                      iconColor:'',
-                      activeIcon:'q-icon icon-newshotfill',
-                      activeIconColor:'#F65A44',
-                      text:'订单',
-                      textColor:'',
-                      activeTextColor:'#F65A44',
-                      active:true
+            main javascript
+            q-code.
+              data() {
+                return {
+                  curIndex: 0,
+                  tabArr = [{
+                      icon: 'q-icon icon-newshot',
+                      iconColor: '',
+                      activeIcon: 'q-icon icon-newshotfill',
+                      activeIconColor: '#F65A44',
+                      text: '订单',
+                      textColor: '',
+                      activeTextColor: '#F65A44',
+                      active: true
                     },
                     {
-                      icon:'q-icon icon-hot',
-                      iconColor:'',
-                      activeIcon:'q-icon icon-hotfill',
-                      activeIconColor:'#F65A44',
-                      text:'热门',
-                      textColor:'',
-                      activeTextColor:'#F65A44',
-                      active:false,
-                      detailsMsg:123,
-                      detailsMsgColor:'',
-                      detailsMsgBkColor:'',
+                      icon: 'q-icon icon-hot',
+                      iconColor: '',
+                      activeIcon: 'q-icon icon-hotfill',
+                      activeIconColor: '#F65A44',
+                      text: '热门',
+                      textColor: '',
+                      activeTextColor: '#F65A44',
+                      active: false,
+                      detailsMsg: 123,
+                      detailsMsgColor: '',
+                      detailsMsgBkColor: '',
                     },
                     {
-                      icon:'q-icon icon-people',
-                      iconColor:'',
-                      activeIcon:'q-icon icon-peoplefill',
-                      activeIconColor:'#F65A44',
-                      text:'个人',
-                      textColor:'',
-                      activeTextColor:'#F65A44',
-                      active:false,
-                      detailsPoint:true,
-                      detailsPointColor:''
+                      icon: 'q-icon icon-people',
+                      iconColor: '',
+                      activeIcon: 'q-icon icon-peoplefill',
+                      activeIconColor: '#F65A44',
+                      text: '个人',
+                      textColor: '',
+                      activeTextColor: '#F65A44',
+                      active: false,
+                      detailsPoint: true,
+                      detailsPointColor: ''
                     }
                   ]
                 }
               },
-              methods:{
-                changeTab(index){
-                  this.curIndex=index
+              methods: {
+                changeTab(index) {
+                  this.curIndex = index
                 }
               }
             q-row(fontSize=14 lh=9 indent=2 mb=2)

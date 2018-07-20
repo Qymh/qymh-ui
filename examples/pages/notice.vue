@@ -30,11 +30,13 @@
             |第三个指提醒的时长,单位ms,默认1500
           q-row(tag="section")
             q-row(@clicked="toast" decoration="underline" color="deepskyblue") 点击我触发提醒
+            main template
             q-code(type="html").
               &ltq-row @clicked="toast"&gt点击我触发提醒&lt/q-row&gt
-
-              methods:{
-                toast(){
+            main javascript
+            q-code.
+              methods: {
+                toast() {
                   this.$notice.toast('触发提醒')
                 }
               }
@@ -46,11 +48,13 @@
             title="加载")
           q-row(tag="section")
             q-row(@clicked="loading" decoration="underline" color="deepskyblue") 点击我触发加载,1秒后加载消失
+            main template
             q-code(type="html").
               &ltq-row @clicked="loading"&gt点击我触发加载,1秒后加载消失&lt/q-row&gt
-
-              methods:{
-                loading(){
+            main javascript
+            q-code.
+              methods: {
+                loading() {
                   this.$notice.loading()
                   setTimeout(() => {
                     this.$notice.removeLoading()
@@ -69,10 +73,13 @@
             |第三个指弹窗右侧的文字,默认为确认
           q-row(tag="section")
             q-row(@clicked="confirm" decoration="underline" color="deepskyblue") 点击我触发弹窗
+            main template
             q-code(type="html").
               &ltq-row @clicked="confirm"&gt点击我触发弹窗&lt/q-row&gt
-              methods:{
-                confirm(){
+            main javascript
+            q-code.
+              methods: {
+                confirm() {
                   this.$notice.confirm('我是一个弹窗').then(()=>{
                     this.$notice.toast('你点击了确定')
                   })

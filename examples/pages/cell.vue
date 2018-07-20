@@ -119,7 +119,8 @@
                 :borderBottom="true"
                 @clicked="hotClicked"
                 @rightClicked="hotRightClicked")
-            q-code.
+            main template
+            q-code(type="html").
               &ltq-cell
                 leftIcon="q-icon icon-hotfill"
                 leftIconColor="red"
@@ -132,12 +133,13 @@
                 @clicked="hotClicked"
                 @rightClicked="hotRightClicked"&gt
               &lt/q-cell&gt
-
-              methods:{
-                hotClicked(){
+            main javascript
+            q-code.
+              methods: {
+                hotClicked() {
                   this.$notice.toast('你点击了整个块!')
                 },
-                hotRightClicked(){
+                hotRightClicked() {
                   this.$notice.toast('你点击了查看更多!')
                 }
               }

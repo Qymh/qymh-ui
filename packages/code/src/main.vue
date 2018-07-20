@@ -22,6 +22,9 @@ export default class QCode extends Vue {
   @Prop({ default: 'javascript' })
   private type: string
 
+  @Prop({ default: false })
+  private always: boolean
+
   private showCode: boolean = false
 
   private computedCode: string = ''
@@ -35,6 +38,10 @@ export default class QCode extends Vue {
       let code = this.$slots.default[0].text
       let value = this.$tree.HighLight.highlightAuto(code, [this.type]).value
       this.computedCode = value
+
+      if (this.always) {
+        this.showCode = true
+      }
     })
   }
 }

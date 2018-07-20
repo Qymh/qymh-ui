@@ -55,6 +55,20 @@ export default class QSelect extends Proto {
   private mounted() {
     let style = createStyle(this)
     this.computedStyle = style
+    let vm = this
+    vm.$nextTick(() => {
+      let MobileSelect = this.$tree.MobileSelect
+      let select = new MobileSelect({
+        trigger: `#${vm.id}`,
+        title: vm.title,
+        wheels: vm.wheels,
+        position: vm.seat,
+        callback(indexArr: any, data: any) {
+          vm.$emit('chooseData', data)
+        }
+      })
+      vm.selectObj = select
+    })
   }
 }
 </script>
