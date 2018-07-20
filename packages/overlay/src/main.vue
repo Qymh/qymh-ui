@@ -61,7 +61,7 @@ export default class QOverlay extends Vue {
     this.computedShow = this.show
     let a = 1
     let b = 1
-    let baseHeight = document.body.clientHeight
+    let baseHeight = document.body.clientHeight || document.documentElement.clientHeight || window.innerHeight
     let $html = document.getElementsByTagName('html')[0]
     if (this.show) {
       this.findElement($html, baseHeight)
@@ -70,7 +70,7 @@ export default class QOverlay extends Vue {
       $scroller.style.position = 'fixed'
       $scroller.style.top = -this.scrollTop + 'px'
       $scroller.style.left = 0
-      $scroller.style.height = '100vh'
+      $scroller.style.height = baseHeight + 'px'
       $scroller.style.width = '100%'
       $scroller.style.overflow = 'hidden'
     } else {

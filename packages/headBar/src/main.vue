@@ -206,6 +206,7 @@
 <style lang="scss" scoped>
   .q-headBar{
     height:1.2rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
     &-left{
