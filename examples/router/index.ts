@@ -16,7 +16,7 @@ for (let item of RoutesArr) {
 }
 
 const router: Router = new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: routes,
   scrollBehavior(to, from, savedPosition) {
     return { x: 0, y: 0 }
