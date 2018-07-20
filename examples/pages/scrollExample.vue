@@ -47,6 +47,7 @@ export default class ExScroll extends Vue {
     let $app: any = document.querySelector('.app')
     $app.style.height = '100%'
     $app.style.width = '100%'
+    document.body.style.height = '100%'
   }
 
   private refresh() {
@@ -66,6 +67,7 @@ export default class ExScroll extends Vue {
     let $app: any = document.querySelector('.app')
     $app.style.height = 'auto'
     $app.style.width = 'auto'
+    document.body.style.height = 'auto'
     next()
   }
 }
