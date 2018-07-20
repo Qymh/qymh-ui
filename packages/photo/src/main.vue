@@ -48,6 +48,9 @@ export default class QPhoto extends Vue {
   @Prop({ default: [] })
   private images: string[]
 
+  // 是否正在读取图片
+  private isLoading: boolean = false
+
   // 加载图片
   private loadImage(img: any) {
     return new Promise(resolve => {
@@ -63,6 +66,10 @@ export default class QPhoto extends Vue {
   // 观察图片改变
   @Watch('images')
   async onImagesChange(val: any) {
+    if (this.isLoading) {
+      return
+    }
+    this.isLoading = true
     let computedImages: any[] = []
     for (let item of val) {
       let image = new Image()
@@ -85,6 +92,7 @@ export default class QPhoto extends Vue {
       options
     )
     gallery.init()
+    this.isLoading = false
   }
 }
 </script>
