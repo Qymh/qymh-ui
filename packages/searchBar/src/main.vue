@@ -99,7 +99,7 @@
     private leftArrow:boolean
 
     // 左侧文字
-    @Prop({default:false})
+    @Prop({default:''})
     private leftText:string
 
     // 左侧文字颜色

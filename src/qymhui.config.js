@@ -1,31 +1,20 @@
 import errorImage from './images/default.png'
 const userConfig = process.env.UI_ENV
-
-function deepObjectMerge(FirstOBJ, SecondOBJ) {
-  for (const key in SecondOBJ) {
-      FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ?
-          deepObjectMerge(FirstOBJ[key], SecondOBJ[key]) : FirstOBJ[key] = SecondOBJ[key]
-  }
-  return FirstOBJ
-}
-
-function toParse(obj) {
-  for(let i in obj){
-    let item=obj[i]
-    if(typeof item === 'object'){
-      toParse(item)
-    }else if(typeof item === 'string'){
-      if(item.indexOf('{')>-1){
-        obj[i]=eval(`${item.trim()}`)
-      }
-    }
-  }
-}
+import {
+  deepObjectMerge,
+  toParse,
+  qcell,
+  qheadbar,
+  qsearchbar
+} from './config'
 
 toParse(userConfig)
 
-// q-image配置
 const baseConfig = {
+  qcell,
+  qheadbar,
+  qsearchbar,
+  // q-image
   qimage: {
     // 懒加载配置
     preLoad: 1.3,
@@ -33,6 +22,7 @@ const baseConfig = {
     error: errorImage,
     attemp: 1
   },
+  // qscroll
   qscroll: {
     // 下拉刷新
     down: (vm) => {
@@ -67,6 +57,7 @@ const baseConfig = {
       }
     }
   },
+  // $axios
   $axios: {
     // 是否输入日志
     log: true,
