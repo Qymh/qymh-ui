@@ -42,7 +42,9 @@ const Routes: diyRoute.RouteConfig[] = [
   // 存储
   { name: 'storage' },
   // 请求
-  { name: 'axios' }
+  { name: 'axios' },
+  // config
+  { name: 'config'}
 ]
 
 export default Routes
