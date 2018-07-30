@@ -23,7 +23,7 @@ export const qcell = {
 export const qheadbar = {
   color: '',
   bkColor: '',
-  bothWidth: true,
+  bothWidth: 1,
   hasPadding: true,
   padding: 0.2,
   borderTop: false,
