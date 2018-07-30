@@ -2,10 +2,12 @@
   .home
     //- 头部
     q-row(tag="header" position="fixed" t=0 l=0 col=100 zIndex=5 bkColor="white" fontSize=16)
-      q-cell(
-        :borderBottom="true"
-        title="QymhUI"
-        titleColor="deepskyblue")
+      q-row(h=12 borderBottom="1px solid #d6d7dc" dir="left" pl=2 pr=2)
+        q-row(flex=1 row=100 align="center" )
+          q-col(color="deepskyblue") QymhUI
+        q-row(flex=1 justify="flex-end" row=100 align="center" )
+          q-row(row=100 w=10 align="center" justify="center" tag="a" href="https://github.com/Qymh/qymh-ui" target="_blank")
+            q-col.q-icon.icon-github(tag="i" color="#a1a1a1")
     q-row(h=12)
     q-row(pl=2 pr=2)
       //- 介绍
