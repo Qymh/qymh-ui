@@ -1,19 +1,19 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import CONFIG from '../../../src/qymhui.config'
+const CONFIG = require('../../../src/qymhui.config').default.$axios
 
 const ax: AxiosInstance = axios.create({
-  baseURL: CONFIG.$axios.domain,
-  timeout: CONFIG.$axios.timeout
+  baseURL: CONFIG.domain,
+  timeout: CONFIG.timeout
 })
 
 // 请求拦截器
 ax.interceptors.request.use((config: AxiosRequestConfig) => {
-  return CONFIG.$axios.requestFn(config)
+  return CONFIG.requestFn(config)
 })
 
 // 响应拦截器
 ax.interceptors.response.use((response: AxiosResponse) => {
-  return CONFIG.$axios.responseFn(response)
+  return CONFIG.responseFn(response)
 })
 
 export default ax

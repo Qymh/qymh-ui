@@ -3,47 +3,48 @@ import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator'
 import { CreateElement } from 'vue'
 import Proto from '../../proto/tag/main.vue'
 import createStyle from '../../proto/tag/index'
+const config = require('../../../src/qymhui.config').default.qtag
 
 @Component
 export default class QTag extends Proto {
   // 背景颜色
-  @Prop({ default: '#d6d7dc' })
+  @Prop({ default: config.bkColor })
   private bkColor: string
 
   // 字体颜色
-  @Prop({ default: 'white' })
+  @Prop({ default: config.color })
   private color: string
 
   // 字体大小
-  @Prop({ default: 12 })
+  @Prop({ default: config.fontSize })
   private fontSize: number
 
   // 内容
-  @Prop({ default: '' })
+  @Prop({ default: config.value })
   private value: string
 
   // 是否有边框
-  @Prop({ default: false })
+  @Prop({ default: config.hasBorder })
   private hasBorder: boolean
 
   // 是否有圆角值
-  @Prop({ default: true })
+  @Prop({ default: config.hasRadius })
   private hasRadius: boolean
 
   // 边框颜色
-  @Prop({ default: '#d6d7dc' })
+  @Prop({ default: config.borderColor })
   private borderColor: string
 
   // 是否激活
-  @Prop({ default: false })
+  @Prop({ default: config.active })
   private active: boolean
 
   // 激活背景颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.activeBkColor })
   private activeBkColor: string
 
   // 激活字体颜色
-  @Prop({ default: 'white' })
+  @Prop({ default: config.activeColor })
   private activeColor: string
 
   // 点击

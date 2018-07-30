@@ -17,26 +17,28 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+const config = require('../../../src/qymhui.config').default.qstepper
+
 @Component({})
 export default class QStepper extends Vue {
   // 传入的值
-  @Prop({ default: '' })
+  @Prop({ default: config.value })
   private value: number
 
   // 传入的值的颜色
-  @Prop({ default: '#F65A44' })
+  @Prop({ default: config.color })
   private color: string
 
   // 允许的最小值
-  @Prop({ default: 0 })
+  @Prop({ default: config.min })
   private min: number
 
   // 允许的最大值
-  @Prop({ default: '' })
+  @Prop({ default: config.max })
   private max: number
 
   // 输入框中保留的小数位数
-  @Prop({ default: 4 })
+  @Prop({ default: config.fix })
   private fix: number
 
   // 加强点击

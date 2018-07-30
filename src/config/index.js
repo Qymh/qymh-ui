@@ -1,6 +1,3 @@
-import errorImage from '../images/default.png'
-
-
 // q-cell
 export const qcell = {
   bkColor: '',
@@ -94,6 +91,7 @@ export const qtag = {
   activeColor: 'white'
 }
 
+// q-input
 export const qinput = {
   hasBorder: false,
   borderBottom: true,
@@ -105,6 +103,7 @@ export const qinput = {
   placeholder: ''
 }
 
+// q-radio
 export const qradio = {
   type: 'rect',
   hasBorder: true,
@@ -114,6 +113,7 @@ export const qradio = {
   activeBorderColor: 'transparent'
 }
 
+// q-stepper
 export const qstepper = {
   color: '#F65A44',
   min: 0,
@@ -121,6 +121,7 @@ export const qstepper = {
   fix: 4
 }
 
+// q-overlay
 export const qoverlay = {
   position: '',
   opacity: 0.3,
@@ -130,6 +131,7 @@ export const qoverlay = {
   show: false
 }
 
+// q-files
 export const qfiles = {
   multiple: true,
   maxCount: 3,
@@ -139,13 +141,90 @@ export const qfiles = {
   borderColor: '#a1a1a1'
 }
 
+// q-image
 export const qimage = {
   preLoad: 1.3,
   loading: '',
-  error: errorImage,
-  attemp: 1
+  attemp: 1,
+  bkSize: 'contain',
+  bkRepeat: 'no-repeat',
+  bkPosition: '50%'
 }
 
+// q-scroll
+export const qscroll = {
+  // 下拉刷新
+  down: (vm) => {
+    return {
+      // 是否启用
+      use: true,
+      // 是否初次调用
+      auto: false,
+      // 回调
+      callback(mescroll) {
+        vm.$emit('refresh')
+      }
+    }
+  },
+  // 上拉加载
+  up: (vm) => {
+    return {
+      // 是否启用
+      use: true,
+      // 是否初次调用
+      auto: true,
+      // 是否启用滚动条
+      scrollbar: {
+        use: true
+      },
+      // 回调
+      callback: (page, mescroll) => {
+        vm.$emit('load', page)
+      },
+      // 无数据时的提示
+      htmlNodata: '<p class="upwarp-nodata">-- 没有更多的数据 --</p>'
+    }
+  }
+}
+
+// $notice
+export const $notice = {
+  // 提醒
+  toast: {
+    position: 'bottom',
+    timeout: 1500
+  },
+  // 弹窗
+  confirm: {
+    text: '请输入文字',
+    btnLeft: '确定',
+    btnRight: '取消'
+  }
+}
+
+// $cookie
+export const $cookie = {
+  // 过期时间
+  enpireDays: 7
+}
+
+// $axios
+export const $axios = {
+  // 是否输入日志
+  log: true,
+  // 超时
+  timeout: 20000,
+  // 请求拦截器
+  requestFn: (config) => {
+    return config
+  },
+  // 响应拦截器
+  responseFn: (response) => {
+    return response
+  }
+}
+
+// 解析
 export const toParse = (obj) => {
   for(let i in obj){
     let item=obj[i]
@@ -159,6 +238,7 @@ export const toParse = (obj) => {
   }
 }
 
+// 深度拷贝
 export const deepObjectMerge= (FirstOBJ, SecondOBJ) => {
   for (const key in SecondOBJ) {
       FirstOBJ[key] = FirstOBJ[key] && FirstOBJ[key].toString() === "[object Object]" ?

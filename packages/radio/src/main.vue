@@ -21,33 +21,35 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 import Proto from '../../proto/tag/main.vue'
 import createStyle from '../../proto/tag'
+const config = require('../../../src/qymhui.config').default.qradio
+
 @Component({})
 export default class QRadio extends Proto {
   // 激活状态
   private active: boolean = false
 
   // 类型
-  @Prop({ default: 'rect' })
+  @Prop({ default: config.type })
   private type: radio.type
 
   // 是否有边框
-  @Prop({ default: true })
+  @Prop({ default: config.hasBorder })
   private hasBorder: boolean
 
   // 边框颜色
-  @Prop({ default: '#a1a1a1' })
+  @Prop({ default: config.borderColor })
   private borderColor: string
 
   // 激活下的颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.activeColor })
   private activeColor: string
 
   // 激活下的背景颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.activeBkColor })
   private activeBkColor: string
 
   // 激活下的border颜色
-  @Prop({ default: 'transparent' })
+  @Prop({ default: config.activeBorderColor })
   private activeBorderColor: string
 
   private get computedStyle() {

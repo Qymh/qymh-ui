@@ -3,6 +3,7 @@ import { CreateElement } from 'vue'
 import { Vue, Component, Prop, Emit, Watch } from 'vue-property-decorator'
 import Proto from '../../proto/input/main.vue'
 import createStyle from '../../proto/input/index'
+const config = require('../../../src/qymhui.config').default.qinput
 
 @Component({})
 export default class QInput extends Proto {
@@ -24,35 +25,35 @@ export default class QInput extends Proto {
   private prop: any
 
   // 是否有全局border
-  @Prop({ default: false })
+  @Prop({ default: config.hasBorder })
   private hasBorder: boolean
 
   // 是否仅有底部border
-  @Prop({ default: true })
+  @Prop({ default: config.borderBottom })
   private borderBottom: boolean
 
   // border颜色
-  @Prop({ default: '#d6d7dc' })
+  @Prop({ default: config.borderColor })
   private borderColor: string
 
   // 背景颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.bkColor })
   private bkColor: string
 
   // 字体颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.color })
   private color: string
 
   // 输入框类型
-  @Prop({ default: 'text' })
+  @Prop({ default: config.type })
   private type: input.type
 
   // 默认保留多少位
-  @Prop({ default: 4 })
+  @Prop({ default: config.fix })
   private fix: number
 
   // placeholder
-  @Prop({ default: '' })
+  @Prop({ default: config.placeholder })
   private placeholder: string
 
   // 按下

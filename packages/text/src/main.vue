@@ -6,9 +6,11 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+const config = require('../../../src/qymhui.config').default.qtext
+
 @Component({})
 export default class QText extends Vue {
-  @Prop({ default: 0 })
+  @Prop({ default: config.lines })
   private lines: number
 
   private get computedStyle() {

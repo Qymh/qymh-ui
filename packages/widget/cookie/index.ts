@@ -1,5 +1,6 @@
 import Vue from 'vue'
 const Cookie = Object.create(null)
+const config = require('../../../src/qymhui.config').default.$notice
 
 Cookie.install = (Vue: any) => {
   Vue.prototype.$cookie = {
@@ -27,7 +28,7 @@ Cookie.install = (Vue: any) => {
      * @param value 值
      * @param expireDays 保留日期
      */
-    set(key: string, value: any, expireDays: number) {
+    set(key: string, value: any, expireDays: number = config.enpireDays) {
       let now = new Date()
       now.setDate(now.getDate() + expireDays)
       document.cookie = `${key}=${escape(value)};expires=${now.toUTCString}`

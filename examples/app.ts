@@ -15,15 +15,15 @@ Component.registerHooks([
   'beforeRouteUpdate'
 ])
 
-if ('addEventListener' in document) {
-  document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-      (fastclick as any).attach(document.body)
-    },
-    false
-  )
-}
+// if ('addEventListener' in document) {
+//   document.addEventListener(
+//     'DOMContentLoaded',
+//     () => {
+//       (fastclick as any).attach(document.body)
+//     },
+//     false
+//   )
+// }
 
 Vue.use(Qymh)
 

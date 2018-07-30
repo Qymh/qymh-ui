@@ -14,6 +14,8 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import Proto from '../../proto/files/main.vue'
 import createStyle from '../../proto/files'
+const config = require('../../../src/qymhui.config').default.qfiles
+
 @Component({})
 export default class QFiles extends Proto {
   // 本地保存的上传图片
@@ -23,27 +25,27 @@ export default class QFiles extends Proto {
   private files: any[] = []
 
   // 是否允许多文件上传
-  @Prop({ default: true })
+  @Prop({ default: config.multiple })
   private multiple: boolean
 
   // 最大上传数量
-  @Prop({ default: 3 })
+  @Prop({ default: config.maxCount })
   private maxCount: number
 
   // 最大上传大小
-  @Prop({ default: 4 })
+  @Prop({ default: config.maxSize })
   private maxSize: number
 
   // 按钮文字
-  @Prop({ default: '点击上传' })
+  @Prop({ default: config.value })
   private value: string
 
   // 是否有边框
-  @Prop({ default: true })
+  @Prop({ default: config.hasBorder })
   private hasBorder: boolean
 
   // 边框颜色
-  @Prop({ default: '#a1a1a1' })
+  @Prop({ default: config.borderColor })
   private borderColor: string
 
   // 获取高宽

@@ -1,6 +1,6 @@
 import Vue from 'vue'
-
 const Notice = Object.create(null)
+const config = require('../../../src/qymhui.config').default.$notice
 
 function ce(tag: string): HTMLElement {
   return document.createElement(tag)
@@ -32,8 +32,8 @@ Notice.install = (Vue: any) => {
      */
     toast(
       message: string,
-      position: string = 'bottom',
-      timeout: number = 1500
+      position: string = config.toast.position,
+      timeout: number = config.toast.timeout
     ) {
       let libHtml = ce('div')
       let innerIndex = index
@@ -148,9 +148,9 @@ Notice.install = (Vue: any) => {
      * @param {String} btnRight 右侧文字
      */
     confirm(
-      text: string = '请输入文字',
-      btnLeft: string = '确定',
-      btnRight: string = '取消'
+      text: string = config.confirm.text,
+      btnLeft: string = config.confirm.btnLeft,
+      btnRight: string = config.confirm.btnRight
     ) {
       return new Promise(resolve => {
         let libHtml = ce('div')

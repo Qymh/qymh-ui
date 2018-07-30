@@ -86,6 +86,25 @@
             :centerText="item.name"
             :rightArrow="true"
             @clicked="go(item.href)")
+      //- diy
+      q-row(tag="section")
+        q-cell(
+          leftIcon="q-icon icon-tag"
+          leftIconColor="deepskyblue"
+          title="Diy")
+        q-row(
+          v-for="(item,index) in homeInfor.diy"
+          :key="index"
+          mb=2
+          fontSize=14)
+          q-head-bar(
+            :showBorder="true"
+            bkColor="deepskyblue"
+            color="white"
+            :leftEmpty="true"
+            :centerText="item.name"
+            :rightArrow="true"
+            @clicked="go(item.href)")
 </template>
 
 <script lang="ts">

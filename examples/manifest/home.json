@@ -85,6 +85,12 @@
         "name": "$axios 请求",
         "href": "/axios"
       }
+    ],
+    "diy": [
+      {
+        "name": "qymhui.config.js",
+        "href": "/config"
+      }
     ]
   }
 }

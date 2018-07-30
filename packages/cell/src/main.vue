@@ -34,71 +34,72 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
 import Proto from '../../proto/bar/main.vue'
 import createStyle from '../../proto/bar'
+const config = require('../../../src/qymhui.config').default.qcell
 
 @Component({})
 export default class QCell extends Proto {
   // 全局颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.bkColor })
   private bkColor: string
 
   // 是否有边距
-  @Prop({ default: true })
+  @Prop({ default:  config.hasPadding })
   private hasPadding: boolean
 
   // 是否有上边线
-  @Prop({ default: false })
+  @Prop({ default: config.borderTop })
   private borderTop: boolean
 
   // 是否有下边线
-  @Prop({ default: false })
+  @Prop({ default: config.borderBottom })
   private borderBottom: boolean
 
   // border颜色
-  @Prop({ default: '#d6d7dc' })
+  @Prop({ default: config.borderColor })
   private borderColor: 'string'
 
   // 左侧icon
-  @Prop({ default: '' })
+  @Prop({ default: config.leftIcon })
   private leftIcon: string
 
   // 左侧icon颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.leftIconColor })
   private leftIconColor: string
 
   // 左侧文字
-  @Prop({ default: '' })
+  @Prop({ default: config.leftText })
   private leftText: string
 
   // 左侧文字颜色
-  @Prop({ default: '#333' })
+  @Prop({ default: config.leftTextColor })
   private leftTextColor: string
 
   // 左侧宽度
-  @Prop({ default: '' })
+  @Prop({ default: config.leftWidth })
   private leftWidth: string
 
   // title
-  @Prop({ default: '' })
+  @Prop({ default: config.title })
   private title: string
 
   // title颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.titleColor })
   private titleColor: string
 
   // 右侧描述
-  @Prop({ default: '' })
+  @Prop({ default: config.rightText })
   private rightText: string
 
   // 右侧文字颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.rightTextColor })
   private rightTextColor: string
 
   // 右侧箭头
-  @Prop({ default: false })
+  @Prop({ default: config.rightArrow })
   private rightArrow: boolean
 
   // 右侧箭头颜色
-  @Prop({ default: '#a1a1a1' })
+  @Prop({ default: config.rightArrowColor })
   private rightArrowColor: string
 
   // 计算样式

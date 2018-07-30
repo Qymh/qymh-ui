@@ -3,7 +3,7 @@
     //- 背景
     .q-overlay-bk(
       v-if="computedShow"
-      @touchend="hide"
+      @click="hide"
       :style="{height:clientHeight+'px',width:clientWidth+'px',opacity:opacity}")
     //- 盒子
     transition(
@@ -18,6 +18,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator'
+const config = require('../../../src/qymhui.config').default.qoverlay
+
 @Component({})
 export default class QOverlay extends Vue {
   // 视口高度
@@ -32,27 +34,27 @@ export default class QOverlay extends Vue {
   private scrollTop: number = 0
 
   // 蒙层出现方向
-  @Prop({ default: '' })
+  @Prop({ default: config.position })
   private position: overlay.position
 
   // 蒙层透明度
-  @Prop({ default: 0.3 })
+  @Prop({ default: config.opacity })
   private opacity: number | string
 
   // 蒙层背景颜色
-  @Prop({ default: '#ffffff' })
+  @Prop({ default: config.bkColor })
   private bkColor: string
 
   // 蒙层的最小高度
-  @Prop({ default: 10 })
+  @Prop({ default: config.minHeight })
   private minHeight: number
 
   // 蒙层的最大高度
-  @Prop({ default: 13 })
+  @Prop({ default: config.maxHeight })
   private maxHeight: number
 
   // 蒙层是否展现
-  @Prop({ default: false })
+  @Prop({ default: config.show })
   private show: boolean
 
   // 监听蒙层的显示

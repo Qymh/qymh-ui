@@ -30,22 +30,24 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+const config = require('../../../src/qymhui.config').default.qtabbar
+
 @Component({})
 export default class QTabBar extends Vue {
   // 全局背景颜色
-  @Prop({ default: '' })
+  @Prop({ default: config.bkColor })
   private bkColor: string
 
   // 是否有上边线
-  @Prop({ default: false })
+  @Prop({ default: config.borderTop })
   private borderTop: boolean
 
   // 是否有下边线
-  @Prop({ default: false })
+  @Prop({ default: config.borderBottom })
   private borderBottom: boolean
 
   // 边距颜色
-  @Prop({ default: '#d6d7dc' })
+  @Prop({ default: config.borderColor })
   private borderColor: string
 
   // tab数组
