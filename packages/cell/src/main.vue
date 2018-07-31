@@ -2,7 +2,10 @@
   .q-cell(
     @click="clicked"
     :style="computedStyle")
-    .q-cell-left(:style="{width:leftWidth?leftWidth+'rem':'auto'}")
+    .q-cell-left(
+      v-if="!$slots.left&&(leftIcon||leftText)"
+      :style="{width:leftWidth?leftWidth+'rem':'auto'}"
+      @click.stop="leftClicked")
       //- 左侧icon
       .q-cell-left-icon(v-if="leftIcon")
         i(
@@ -11,23 +14,27 @@
       //- 左侧文字
       .q-cell-left-text(v-if="leftText")
         span(:style="{color:leftTextColor}") {{leftText}}
+    slot(name="left" v-if="$slots.left")
     //- 标题
-    .q-cell-title(v-if="title&&!$slots.title")
+    .q-cell-title(
+      v-if="title&&!$slots.title")
       //- 标题文字
       .q-cell-title-text(
         :style="{color:titleColor}") {{title}}
     //- 自定义标题
     slot(name="title" v-if="$slots.title")
-    //- 右侧描述
-    .q-cell-rightText(
-      v-if="rightText"
+    .q-cell-right(
+      v-if="!$slots.right&&(rightText||rightArrow)"
       @click.stop="rightClicked")
-      span(:style="{color:rightTextColor}") {{rightText}}
-    //- 右侧icon
-    .q-cell-rightIcon(
-      v-if="rightArrow"
-      @click.stop="rightClicked")
-      i.q-icon.icon-right(:style="{color:rightArrowColor}")
+      //- 右侧描述
+      .q-cell-right-text(
+        v-if="rightText")
+        span(:style="{color:rightTextColor}") {{rightText}}
+      //- 右侧icon
+      .q-cell-right-icon(
+        v-if="rightArrow")
+        i.q-icon.icon-right(:style="{color:rightArrowColor}")
+    slot(name="right" v-if="$slots.right")
 </template>
 
 <script lang="ts">
@@ -43,7 +50,7 @@ export default class QCell extends Proto {
   private bkColor: string
 
   // 是否有边距
-  @Prop({ default:  config.hasPadding })
+  @Prop({ default: config.hasPadding })
   private hasPadding: boolean
 
   // 是否有上边线
@@ -127,13 +134,30 @@ export default class QCell extends Proto {
   private clicked() {}
 
   @Emit('rightClicked')
-  private rightClicked() {}
+  private rightClicked() {
+  }
+
+  @Emit('leftClicked')
+  private leftClicked() {
+  }
 
   private mounted() {
-    if (this.$slots.title) {
-      let title: any = this.$slots.title[0].elm
-      title.classList.add('q-cell-title')
-    }
+    this.$nextTick(() => {
+      if (this.$slots.title) {
+        let title: any = this.$slots.title[0].elm
+        title.classList.add('q-cell-title')
+      }
+      if (this.$slots.left) {
+        let left: any = this.$slots.left[0].elm
+        left.classList.add('q-cell-left')
+        left.addEventListener('click', this.leftClicked)
+      }
+      if (this.$slots.right) {
+        let right: any = this.$slots.left[0].elm
+        right.classList.add('q-cell-right')
+        right.addEventListener('click', this.rightClicked)
+      }
+    })
   }
 }
 </script>
@@ -144,10 +168,10 @@ export default class QCell extends Proto {
   display: flex;
   align-items: center;
   &-left {
+    margin-right: 0.2rem;
     &-icon {
       display: flex;
       flex-grow: 0;
-      margin-right: 0.2rem;
     }
   }
   &-title {
@@ -157,14 +181,16 @@ export default class QCell extends Proto {
     justify-content: center;
     flex-grow: 1;
   }
-  &-rightText {
+  &-right {
     display: flex;
     flex-grow: 0;
-    font-size: 13px;
-  }
-  &-rightIcon {
-    display: flex;
-    flex-grow: 0;
+    &-text {
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+    }
+    &-icon {
+    }
   }
 }
 </style>

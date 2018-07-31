@@ -68,35 +68,37 @@
                   rightText="查看更多"
                   rightTextColor="#a1a1a1"
                   :borderBottom="true"&gt&lt/q-cell&gt
-          //- 自定义title
+          //- slots
           q-row(tag="section")
             q-cell(
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
-              title="自定义title")
+              title="slots")
             q-row(fontSize=14 lh=9 mb=2)
-              |自定义title用<main>slot="title"</main>插槽实现,
-              |现在仅一个插槽,之后会支持左侧,右侧插槽
+              |目前有3个自定义slot<br>
+              |<main>slot="left"</main>表左侧<br>
+              |<main>slot="title"</main>表title<br>
+              |<main>slot="right"</main>表右侧
             //- 自定义title
             q-row(tag="section")
-              q-cell(
-                leftText="名字:"
-                leftWidth=1
-                :borderBottom="true")
-                q-form(slot="title")
-                  q-input(
-                    placeholder="请输入你的名字"
-                    :borderBottom="false")
+              q-cell(:borderBottom="true")
+                q-row(slot="left")
+                  q-col(fontSize=12) 左侧
+                q-row(slot="title")
+                  q-col(fontSize=14) 标题
+                q-row(slot="right")
+                  q-col(fontSize=12) 右侧
               q-code(type="html").
-                &ltq-cell
-                  leftText="名字:"
-                  leftWidth=1
-                  :borderBottom="true"&gt
-                  &ltq-form slot="title" &gt
-                    &ltq-input 
-                      placeholder="请输入你的名字"
-                      :borderBottom="false"&gt&lt/q-input&gt
-                  &lt/q-form&gt  
+                &ltq-cell :borderBottom="true"&gt
+                  &ltq-row slot="left"&gt
+                    &ltq-col fontSize=12&gt左侧&lt/q-col&gt
+                  &lt/q-row&gt
+                  &ltq-row slot="title"&gt
+                    &ltq-col fontSize=14&gt标题&lt/q-col&gt
+                  &lt/q-row&gt
+                  &ltq-row slot="right"&gt
+                    &ltq-col fontSize=12&gt右侧&lt/q-col&gt
+                  &lt/q-row&gt
                 &lt/q-cell&gt
           //- 点击事件
           q-row(tag="section")
@@ -105,9 +107,10 @@
               leftIconColor="deepskyblue"
               title="点击事件")
             q-row(fontSize=14 lh=9 mb=2)
-              |点击事件目前有两个,一个全局点击事件<main>@clicked</main>,
-              |一个右侧文字和箭头的点击事件<main>@rightClicked</main>,
-              |之后会支持到更细节的点击,你可以点击下方的列子看看效果
+              |点击事件目前有三个<br>
+              |全局点击事件<main>@clicked</main><br>
+              |左侧点击事件<main>@leftClicked</main><br>
+              |右侧点击事件<main>@rightClicked</main>
             q-cell(
                 leftIcon="q-icon icon-hotfill"
                 leftIconColor="red"
@@ -163,18 +166,21 @@
             q-cell(
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
-              title="插槽(ToDoMore)")
+              title="插槽")
             q-row(fontSize=14 lh=9 mb=2)
-              |目前仅有一个<main>slot="title"</main>
+              |<main>slot="left"</main>表左侧<br>
+              |<main>slot="title"</main>表title<br>
+              |<main>slot="right"</main>表右侧
           //-事件
           q-row(tag="section")
             q-cell(
               leftIcon="q-icon icon-edit"
               leftIconColor="deepskyblue"
-              title="事件回调(ToDoMore)")
+              title="事件回调")
             q-row(fontSize=14 lh=9 mb=2)
-              |<main>@clicked</main>全局点击<br>
-              |<main>@rightClicked</main>右侧点击<br>
+              |全局点击事件<main>@clicked</main><br>
+              |左侧点击事件<main>@leftClicked</main><br>
+              |右侧点击事件<main>@rightClicked</main>
 </template>
  
 <script lang="ts">
