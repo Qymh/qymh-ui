@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 const config = require('../../../src/qymhui.config').default.qscroll
-console.log(config)
+
 @Component({})
 export default class QScroll extends Vue {
   private scrollObj: any = {}

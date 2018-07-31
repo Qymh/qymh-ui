@@ -20,7 +20,6 @@
     slot(
       name="left"
       v-if="$slots.left")
-
     //- 中间
     .q-headBar-center(
       :style="{color:centerTextColor}"
