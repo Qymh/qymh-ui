@@ -114,6 +114,7 @@ export default class QCell extends Proto {
     let style = createStyle(this)
     let selectableStyle = Object.create(null)
     selectableStyle.backgroundColor = this.bkColor
+    selectableStyle.height = config.baseHeight + 'rem'
     if (this.borderTop) {
       selectableStyle.borderTopStyle = 'solid'
       selectableStyle.borderTopWidth = '1px'
@@ -164,7 +165,6 @@ export default class QCell extends Proto {
 
 <style lang="scss" scoped>
 .q-cell {
-  height: 1.2rem;
   display: flex;
   align-items: center;
   &-left {

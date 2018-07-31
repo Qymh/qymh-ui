@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const fs = require('fs')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -11,10 +12,11 @@ const findConfig = config.lib.findConfig
 const entry = {
   app: resolve('examples/app.ts')
 }
-let userConfig = require(findConfig(entry.app))
+const configPath = findConfig(entry.app)
+let userConfig = require(configPath)
 config.lib.toJSON(userConfig)
 
-module.exports = {
+const baseConfig ={
   entry,
   output: {
     path: resolve(config.packPath),
@@ -119,7 +121,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin({
       vue: true,
-      workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+      workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE
     }),
     // 定义环境
     new webpack.DefinePlugin({
@@ -138,3 +140,5 @@ module.exports = {
     chunkModules: false
   }
 }
+
+module.exports = baseConfig

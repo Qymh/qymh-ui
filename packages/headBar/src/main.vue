@@ -145,6 +145,7 @@ export default class QHeadBar extends Proto {
     let selectableStyle = Object.create(null)
     selectableStyle.backgroundColor = this.bkColor
     selectableStyle.color = this.color
+    selectableStyle.height = config.baseHeight + 'rem'
     if (this.borderTop) {
       selectableStyle.borderTopStyle = 'solid'
       selectableStyle.borderTopWidth = '1px'
@@ -205,7 +206,6 @@ export default class QHeadBar extends Proto {
 
 <style lang="scss" scoped>
 .q-headBar {
-  height: 1.2rem;
   width: 100%;
   display: flex;
   flex-direction: row;

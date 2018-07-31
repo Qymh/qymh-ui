@@ -130,6 +130,7 @@ export default class QSearchBar extends Vue {
   private get computedStyle() {
     let style = Object.create(null)
     style.backgroundColor = this.bkColor
+    style.height = config.baseHeight + 'rem'
     style.color = this.color
     if (this.borderTop) {
       style.borderTopStyle = 'solid'
@@ -198,7 +199,6 @@ export default class QSearchBar extends Vue {
 
 <style lang="scss" scoped>
 .q-searchBar {
-  height: 1.2rem;
   display: flex;
   flex-direction: row;
   &-left {
