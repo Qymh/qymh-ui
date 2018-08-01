@@ -77,7 +77,7 @@ Notice.install = (Vue: any) => {
      */
     longToast(message: string) {
       let libHtml = ce('div')
-      libHtml.classList.add('notice', 'notice_longToast', 'fadeIn', 'center')
+      libHtml.classList.add('notice', 'notice_longToast', 'fadeIn', 'bottom')
       libHtml.innerText = message
 
       let $body = document.body

@@ -69,6 +69,7 @@ export default class QPhoto extends Vue {
     if (this.isLoading) {
       return
     }
+    this.$notice.loading()
     this.isLoading = true
     let computedImages: any[] = []
     for (let item of val) {
@@ -81,6 +82,7 @@ export default class QPhoto extends Vue {
         h: image.height
       })
     }
+    this.$notice.removeLoading()
     let elm = document.querySelectorAll('.pswp')[0]
     let options = {
       index: 0
