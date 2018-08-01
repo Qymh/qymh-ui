@@ -1,8 +1,10 @@
 const webpack = require('webpack')
-const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 const config = require('./config')
 const resolve = config.lib.resolve
 
@@ -42,7 +44,7 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               appendTsSuffixTo: [/\.vue$/],
-              transpileOnly: false
+              transpileOnly: true
             }
           }
         ],
@@ -51,12 +53,12 @@ module.exports = {
       // css
       {
         test: /\.css$/,
-        use: ['css-loader', 'postcss-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       // scss
       {
         test: /\.scss$/,
-        use: ['css-loader', 'postcss-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
       // 图片
       {
@@ -96,8 +98,28 @@ module.exports = {
     new CleanWebpackPlugin(['component'], {
       root: resolve('./'),
       allowExternal: true
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      vue: true,
+      workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE
+    }),
+    // 提取css
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
     })
   ],
+  optimization: {
+    // 压缩
+    minimizer: [
+      // 树摇动
+      new UglifyjsWebpackPlugin({
+        cache: true,
+        parallel: true
+      }),
+      // 压缩提取出来的css
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   stats: {
     colors: true,
     modules: false,
