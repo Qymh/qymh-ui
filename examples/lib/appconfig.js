@@ -1,6 +1,6 @@
 // server 设置
 exports.SERVERCONFIG = {
-  domain: 'https://tcc.taobao.com',
+  domain: 'https://api.qymh.org.cn',
   timeout: 10000,
   isDebug: true
 }

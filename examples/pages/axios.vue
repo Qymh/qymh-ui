@@ -19,86 +19,48 @@
           fontSize=16
           :borderBottom="true")
         q-row(tag="section")
-          q-row(fontSize=14 lh=9 mb=2)
-            |输入你的电话号码,可以查询生源地
-          q-row(dir="left")
-            q-row(flex="1")
-              q-form(
-                style="width:100%"
-                ref="myForm"
-                :model="formData"
-                :rules="rules")
-                q-input(
-                  v-model="formData.tel" prop="tel"
-                  type="tel" placeholder="请输入你的电话号码")
-            q-row(flex="0")
-              q-tag(
-                ml=4
-                bkColor="deepskyblue"
-                value="查询"
-                @clicked="getWeather")
-          q-row(fontSize=14 lh=9 mb=2 dir="left")
-            q-col 运营商:
-            q-col(color="deepskyblue") {{address.company}}
-            q-col 省份:
-            q-col(color="deepskyblue") {{address.province}}
+          q-row(mt=2)
+            q-tag(
+              bkColor="deepskyblue"
+              value="点击查询作者信息"
+              @clicked="getAuthor")
+          q-row(fontSize=14 lh=9 mb=2) 你可以调出浏览器控制台查看日志输出
+          q-row(fontSize=14 lh=9 mb=2 dir="left" v-if="Object.keys(author).length")
+            q-col 姓名:
+            q-col(color="deepskyblue") {{author.name}}
+            q-col 年龄:
+            q-col(color="deepskyblue") {{author.age}}
+            q-col 性别:
+            q-col(color="deepskyblue") {{author.sex}}
           q-row(mt=4) <main>template</main>
           q-code(type="html").
-            &ltq-row fontSize=14 lh=9 mb=2&gt输入你的电话号码,可以查询生源地&lt/q-row&gt
-            &ltq-row dir="left"&gt
-              &ltq-row flex="1"&gt
-                &ltq-form
-                  style="width:100%"
-                  ref="myForm"
-                  :model="formData"
-                  :rules="rules"&gt
-                  &ltq-input
-                    v-model="formData.tel" prop="tel"
-                    type="tel" placeholder="请输入你的电话号码"&gt&lt/q-input&gt
-                &lt/q-form&gt
-              &lt/q-row&gt
-              &ltq-row flex="0"&gt
-                &ltq-tag
-                  ml=4
-                  bkColor="deepskyblue"
-                  value="查询"
-                  @clicked="getWeather"&gt&lt/q-tag&gt
-              &lt/q-row&gt
+            &ltq-row mt=2&gt
+              &ltq-tag bkColor="deepskyblue" value="点击查询作者信息" @clicked="getAuthor"&gt&lt/q-tag&gt
             &lt/q-row&gt
-            &ltq-row fontSize=14 lh=9 mb=2 dir="left"&gt
-              &ltq-col&gt运营商:&lt/q-col&gt
-              &ltq-col color="deepskyblue"&gt{ { address.company } }&lt/q-col&gt
-              &ltq-col&gt省份:&lt/q-col&gt
-              &ltq-col color="deepskyblue"&gt{ { address.province } }&lt/q-col&gt
+            &ltq-row fontSize=14 lh=9 mb=2&gt 你可以调出浏览器控制台查看日志输出&lt/q-row&gt
+            &ltq-row fontSize=14 lh=9 mb=2 dir="left" v-if="Object.keys(author).length"&gt
+              &ltq-col&gt姓名:&lt/q-col&gt
+              &ltq-col color="deepskyblue"&gt{{author.name}}&lt/q-col&gt
+              &ltq-col&gt年龄:&lt/q-col&gt
+              &ltq-col color="deepskyblue"&gt{{author.age}}&lt/q-col&gt
+              &ltq-col&gt性别:&lt/q-col&gt
+              &ltq-col color="deepskyblue"&gt{{author.sex}}&lt/q-col&gt
             &lt/q-row&gt
           main vue
           q-code.
             data() {
-              formData = {
-                tel: ''
-              },
-              rules = {
-                tel: [
-                  { type: 'tel', message: '请输入正确的电话'}
-                ]
-              },
-              address = {
-                company: '',
-                province: ''
+              author = {
+
               }
             },
             methods: {
-              getWeather() {
-                let myForm = this.$refs.myForm
-                myForm.validate().then((bool) => {
-                  if(bool){
-                    this.$axios.jsonp(this, api.getWeather,{ tel: this.formData.tel }).then((data: any) => {
-                      const { province, catName } = data
-                      this.address = {
-                        province,
-                        company: catName
-                      }
-                    })
+              getAuthor() {
+                this.$axios.get(this, api.getAuthor).then((data: any) => {
+                  const { name, age, sex } = data[0]
+                  this.author = {
+                    name,
+                    age,
+                    sex
                   }
                 })
               }
@@ -106,7 +68,7 @@
           main qymhui.config.js
           q-code.
             $axios: {
-              domain: 'https://tcc.taobao.com',
+              domain: 'https://api.qymh.org.cn',
               timeout: '10000',
               requestFn: (config) => {
                 let { data } = config
@@ -175,32 +137,15 @@ import * as api from '@/lib/api'
 
 @Component({})
 export default class ExAxios extends Vue {
+  private author = {}
 
-  private formData = {
-    tel: ''
-  }
-
-  private rules = {
-    tel: [
-      { type: 'tel', message: '请输入正确的电话'}
-    ]
-  }
-
-  private address = {
-    company: '',
-    province: ''
-  }
-  private getWeather() {
-    let myForm: any = this.$refs.myForm
-    myForm.validate().then((bool: boolean) => {
-      if(bool){
-        this.$axios.jsonp(this, api.getWeather,{ tel: this.formData.tel }).then((data: any) => {
-          const { province, catName } = data
-          this.address = {
-            province,
-            company: catName
-          }
-        })
+  private getAuthor() {
+    this.$axios.get(this, api.getAuthor).then((data: any) => {
+      const { name, age, sex } = data[0]
+      this.author = {
+        name,
+        age,
+        sex
       }
     })
   }

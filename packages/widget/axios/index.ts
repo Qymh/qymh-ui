@@ -17,10 +17,11 @@ Axios.install = (Vue: any) => {
     get(vm: Vue, api: string, data: any, loading: boolean = true) {
       return new Promise((resolve, reject) => {
         loading && vm.$notice.loading()
-        ax.get(api, {data})
+        data = data ? data : {}
+        ax.get(api, { data })
           .then((res: AxiosResponse) => {
             loading && vm.$notice.removeLoading()
-            resolve(res)
+            resolve(res.data)
           })
           .catch((error: AxiosError) => {
             loading && vm.$notice.removeLoading()
@@ -39,10 +40,11 @@ Axios.install = (Vue: any) => {
     post(vm: Vue, api: string, data: any, loading: boolean = true) {
       return new Promise((resolve, reject) => {
         loading && vm.$notice.loading()
-        ax.post(api, {data})
+        data = data ? data : {}
+        ax.post(api, { data })
           .then((res: AxiosResponse) => {
             loading && vm.$notice.removeLoading()
-            resolve(res)
+            resolve(res.data)
           })
           .catch((error: AxiosError) => {
             loading && vm.$notice.removeLoading()
