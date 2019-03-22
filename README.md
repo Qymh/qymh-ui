@@ -1,6 +1,7 @@
 # qymh-ui 一个快速开发的移动端Vue Ui 组件库
 
 `另外一个叫做VueQ的UI组件库,一个更完整的快速开发模式和可配置模式...正在开发中...`
+<br>
 `another UI library which called VueQ is being developed, more rapidly, coming soon `
 
 ## 如何下载
